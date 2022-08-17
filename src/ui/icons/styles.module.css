@@ -1,0 +1,42 @@
+.icon_16 {
+  fill: currentColor;
+  height: 16px;
+  width: 16px;
+  flex: none;
+}
+
+.icon_16_grey {
+  fill: rgb(175, 175, 175);
+  height: 16px;
+  width: 16px;
+  flex: none;
+}
+
+.icon_20 {
+  height: 20px;
+  width: 20px;
+  fill: currentColor;
+  flex: none;
+}
+
+.icon_breadcrumb {
+  transform: rotate(180deg);
+  height: 20px;
+  width: 20px;
+  fill: currentColor;
+  flex: none;
+}
+
+.icon_20_white {
+  fill: #ffffff;
+  flex: none;
+  height: 20px;
+  width: 20px;
+}
+
+.icon_24 {
+  fill: currentColor;
+  flex: none;
+  width: 24px;
+  height: 24px;
+}

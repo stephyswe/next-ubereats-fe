@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'UberMove';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/db048373411f6612.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/2f5c8af9a7912adf.woff')
+      format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'UberMove';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/4912f83fe2d86107.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/fcfeb81ee527ab0a.woff')
+      format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'UberMove';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/83a314e1b88d789f.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/9173a3c32322b79f.woff')
+      format('woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'UberMoveText';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/865f196494beefeb.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/0255d64e8922b147.woff')
+      format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'UberMoveText';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/e245b8e03846a659.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/8012b57120639f52.woff')
+      format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'SpeedeeApp';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/3fc9522fef40031a.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/bcd8eddfac55fb18.woff')
+      format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'SpeedeeApp';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/fb04db76a08c12e7.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/96e7c7e8823f59fd.woff')
+      format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Postmates';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/cf91dd9830a4bf06.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/12594e16812e7705.woff')
+      format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Postmates';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/816252b1ce5a5050.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/030554c2543492ba.woff')
+      format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Postmates';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/df4998612acf89b1.woff2')
+      format('woff2'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/ba0cad8e3943b581.woff')
+      format('woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'GTAmerican';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/08199e60a0fbd4a5.woff')
+    format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'GTAmerican';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/6089458f31fbf053.woff')
+    format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-display: fallback;
+  src: url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/7c40dbc5b4748777.woff')
+      format('woff'),
+    url('https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/c500ef2fed5329be.woff2')
+      format('woff2');
+  font-weight: 400;
+}

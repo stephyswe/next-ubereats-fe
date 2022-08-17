@@ -1,0 +1,95 @@
+html,
+body,
+#__next,
+#wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+*,
+body {
+  margin: 0;
+  font-family: UberMoveText, sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+li {
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  border-width: 0;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+input {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+figure {
+  margin: 0;
+}
+select {
+  border-radius: 0;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button,
+input::-webkit-search-cancel-button,
+input::-webkit-search-decoration,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
+button::-moz-focus-inner,
+[type='\u0022button\u0022']::-moz-focus-inner,
+[type='\u0022reset\u0022']::-moz-focus-inner,
+[type='\u0022submit\u0022']::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button:-moz-focusring,
+[type='\u0022button\u0022']:-moz-focusring,
+[type='\u0022reset\u0022']:-moz-focusring,
+[type='\u0022submit\u0022']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+.js-focus-visible :focus:not([data-focus-visible-added]) {
+  outline: none;
+}
+
+td {
+  padding: 0;
+}
+
+@keyframes loadingAnimation {
+  from {
+    background-position: -100vw 0px;
+  }
+  to {
+    background-position: 100vw 0px;
+  }
+}
+
+.sb-hidden {
+  overflow: hidden;
+}

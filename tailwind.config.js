@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { fontFamily } = require('tailwindcss/defaultTheme');
+const forms = require('@tailwindcss/forms');
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,8 +10,19 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
+        uberMove: ['UberMove', 'sans-serif'],
+        uberMoveText: ['UberMoveText', 'sans-serif'],
       },
       colors: {
+        black: 'var(--tw-color-black)',
+        black08: 'var(--tw-color-black-08)',
+        gray: {
+          50: 'var(--tw-color-gray-50)',
+          100: 'var(--tw-color-gray-100)',
+          200: 'var(--tw-color-gray-200)',
+          300: 'var(--tw-color-gray-300)',
+          400: 'var(--tw-color-gray-400)',
+        },
         primary: {
           // Customize it on globals.css :root
           50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',
@@ -52,5 +65,190 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    forms,
+    plugin(({ addComponents, theme, addUtilities }) => {
+      addUtilities({
+        /** Background-Gradients */
+        '.bg-gradient-rgb-right': {
+          background:
+            'linear-gradient(to right, rgb(255, 255, 255) 10%, rgba(255, 255, 255, 0) 90%)',
+        },
+        '.bg-gradient-rgb-left': {
+          background:
+            'linear-gradient(to left, rgb(255, 255, 255) 10%, rgba(255, 255, 255, 0) 90%)',
+        },
+        '.bg-gradient-rgba-center': {
+          background:'radial-gradient(at center center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%)'
+        },
+
+        /** Transitions */
+
+        /** 100 */
+        '.transition-bg-ease-100': {
+          transition: 'background 100ms ease 0s',
+        },
+        '.transition-width-easeInout-150': {
+          transition: 'width 150ms ease-in-out 0s',
+        },
+
+        /** 200 */
+        '.transition-bg-ease-200': {
+          transition: 'background 200ms ease',
+        },
+        '.transition-btn-200': {
+          transition: 'background 200ms cubic-bezier(0, 0, 1, 1) 0s',
+        },
+
+        /** 300 */
+        '.transition-all-300': {
+          transition: 'all 300ms ease 0s',
+        },
+        '.transition-height-opacity-300': {
+          transition: 'height 300ms ease 0s, opacity 300ms ease 0s',
+        },
+        '.transition-bs-ease-300': {
+          transition: 'box-shadow 300ms ease-in-out',
+        },
+
+        /** 400 */
+        '.transition-all-ease-400': {
+          transition: 'all 400ms ease 0s',
+        },
+        '.transition-all-ease-in-out-400': {
+          transition: 'all 400ms ease-in-out',
+        },
+        '.transition-ease-400': {
+          transition: 'all 400ms ease 0s',
+        },
+        '.sidebar-transition': {
+          transition:
+            'opacity 400ms ease-in-out, width 0s 400ms, height 0s 400ms',
+        },
+        '.transition-width-opacity-400': {
+          transition: 'max-width 400ms ease, opacity 400ms ease 100ms',
+        },
+
+        /** 500 */
+        '.transition-500': {
+          transition: 'transform 500ms',
+          transform: 'scaleX(1)',
+        },
+
+        /** Transforms */
+        '.transform-3d': {
+          transform: 'translate3d(0px, 0px, 0px)',
+        },
+        '.transform-hover-map-home': {
+          transform: 'scale(1.333, 1.333)',
+        },
+
+        /** Box Shadow */
+
+        /** Rgb */
+        '.box-shadow-map-12': {
+          boxShadow: 'rgb(0 0 0 / 12%) 0px 4px 16px',
+        },
+        '.box-shadow-rgb-gray': {
+          boxShadow: 'rgb(226 226 226) 0px -2px 0px inset',
+        },
+        '.box-shadow-rgb-0': {
+          boxShadow: 'rgb(0 0 0) 0px -2px 0px inset',
+        },
+        '.box-shadow-rgb-10': {
+          boxShadow: '0px 0px 10px rgb(0 0 0 / 10%)',
+        },
+        '.box-shadow-rgb-grey': {
+          boxShadow: 'rgb(226 226 226) 0px -2px 0px inset',
+        },
+
+        /** Rgb - Double */
+        '.box-shadow-rgb-double': {
+          boxShadow:
+            '0px 0px 8px rgb(0 0 0 / 10%), 0px 4px 4px rgb(0 0 0 / 4%)',
+        },
+        'box-shadow-rgb-button': {
+          boxShadow:
+            'rgb(0 0 0 / 10%) 0px 0px 8px, rgb(0 0 0 / 4%) 0px 4px 4px',
+        },
+
+        /** Default */
+        '.box-shadow-sidebar-25-10': {
+          boxShadow: '0px 0px 25px rgb(0 0 0 / 10%);',
+        },
+        '.box-shadow-modal-dish': {
+          boxShadow: '0px -4px 16px rgb(0 0 0 / 12%);',
+        },
+        '.box-shadow-inset-eee': {
+          boxShadow: 'inset 0px -1px 0px #eeeeee',
+        },
+
+        /** Loading Elements */
+
+        /** Main */
+        '.sandbox-main': {
+          minHeight: 'calc(100% - 96px)',
+          height: 'calc(100% - 96px)',
+          width: '100%',
+          flexDirection: 'column',
+          display: 'flex',
+          boxSizing: 'initial',
+        },
+        '.loading-init': {
+          backgroundImage:
+            'linear-gradient(120deg, #e2e2e2 20%, #f6f6f6 28%, #e2e2e2 43%)',
+          animationTimingFunction: 'linear',
+          animationIterationCount: 'infinite',
+          animationFillMode: 'forwards',
+          animationDuration: '2s',
+          animationName: 'loadingAnimation',
+        },
+
+        /** Items */
+        '.loading-item-round': {
+          background:
+            'radial-gradient(circle at 100%, transparent 24px, #ffffff 24px)',
+        },
+        '.loading-item-round-finish': {
+          background:
+            'radial-gradient(circle at 0%, transparent 24px, #ffffff 24px)',
+        },
+        '.loading-restaurant-item': {
+          background: 'radial-gradient(transparent 14px, #ffffff 14px)',
+        },
+
+        /** Initials */
+        '.loading-init-one': {
+          height: '20px',
+          position: 'relative',
+        },
+        '.loading-init-two': {
+          zIndex: '-1',
+          bottom: '0',
+          backgroundSize: '100vw 100%',
+          right: '0',
+          position: 'absolute',
+          left: '0',
+          top: '0',
+        },
+        '.loading-bg-full': {
+          backgroundSize: '100vw 100%',
+        },
+        '.loading-border': {
+          boxSizing: 'initial',
+        },
+
+        /** Extra elements */
+        '.rounded-500': {
+          borderRadius: '500px',
+        },
+        '.h-calc-2': {
+          height: 'calc(100% - 8px)',
+        },
+        '.flex-1-36': {
+          flex: '1 0 36px',
+        },
+      });
+    }),
+  ],
 };

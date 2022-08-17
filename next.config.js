@@ -1,10 +1,19 @@
 /** @type {import('next').NextConfig} */
+
+const env = {
+  GOOGLE_API: process.env.GOOGLE_API,
+  LOCAL_GRAPHQL: process.env.LOCAL_GRAPHQL,
+  HEROKU_GRAPHQL: process.env.HEROKU_GRAPHQL,
+  LOCALSTORAGE_TOKEN: process.env.LOCALSTORAGE_TOKEN,
+};
+
 module.exports = {
   eslint: {
     dirs: ['src'],
   },
 
-  reactStrictMode: true,
+  reactStrictMode: false,
+  env,
 
   // Uncoment to add domain whitelist
   // images: {

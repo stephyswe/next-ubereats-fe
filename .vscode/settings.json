@@ -6,5 +6,31 @@
     "source.fixAll": true
   },
   "headwind.runOnSave": false,
-  "typescript.preferences.importModuleSpecifier": "non-relative"
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "files.exclude": {
+    ".eslintrc.js": false,
+    ".prettierrc.js": true,
+    "CHANGELOG.md": true,
+    "codegen.yml": false,
+    "jest.config.js": true,
+    "jest.setup.js": true,
+    "node_modules": true,
+    "public": false,
+    "README.md": true,
+    "yarn.lock": true,
+    ".gitignore": true,
+    ".prettierignore": true,
+    "next.config.js": false,
+    "postcss.config.js": true,
+    "tsconfig.json": true,
+    "next-env.d.ts": true,
+    "graphql.schema.json": true,
+    ".husky": true,
+    ".next": true,
+    ".github": true,
+    ".npmrc": true,
+    "commitlint.config.js": true,
+    "next-sitemap.config.js": true,
+    "vercel.json": true
+},
 }

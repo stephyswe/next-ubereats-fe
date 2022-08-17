@@ -581,6 +581,62 @@ export type VerifyEmailOutput = {
   ok: Scalars['Boolean'];
 };
 
+export type CategoryPartsFragment = {
+  __typename?: 'Category';
+  id: number;
+  name: string;
+  coverImg?: string | null;
+  slug: string;
+  countRestaurants: number;
+};
+
+export type RestaurantPartsFragment = {
+  __typename?: 'Restaurant';
+  id: number;
+  name: string;
+  coverImg?: string | null;
+  address: string;
+  isPromoted: boolean;
+  category?: { __typename?: 'Category'; name: string } | null;
+};
+
+export type FindManyRestaurantsQueryVariables = Exact<{
+  input: RestaurantsInput;
+}>;
+
+export type FindManyRestaurantsQuery = {
+  __typename?: 'Query';
+  findManyCategories: {
+    __typename?: 'FindManyCategoriesOutput';
+    ok: boolean;
+    error?: string | null;
+    categories?: Array<{
+      __typename?: 'Category';
+      id: number;
+      name: string;
+      coverImg?: string | null;
+      slug: string;
+      countRestaurants: number;
+    }> | null;
+  };
+  findManyRestaurants: {
+    __typename?: 'RestaurantsOutput';
+    ok: boolean;
+    error?: string | null;
+    totalPages?: number | null;
+    totalResults?: number | null;
+    results?: Array<{
+      __typename?: 'Restaurant';
+      id: number;
+      name: string;
+      coverImg?: string | null;
+      address: string;
+      isPromoted: boolean;
+      category?: { __typename?: 'Category'; name: string } | null;
+    }> | null;
+  };
+};
+
 export type MeQueryVariables = Exact<{ [key: string]: never }>;
 
 export type MeQuery = {
@@ -588,6 +644,100 @@ export type MeQuery = {
   me: { __typename?: 'User'; email: string; role: UserRole; verified: boolean };
 };
 
+export const CategoryPartsFragmentDoc = gql`
+  fragment CategoryParts on Category {
+    id
+    name
+    coverImg
+    slug
+    countRestaurants
+  }
+`;
+export const RestaurantPartsFragmentDoc = gql`
+  fragment RestaurantParts on Restaurant {
+    id
+    name
+    coverImg
+    category {
+      name
+    }
+    address
+    isPromoted
+  }
+`;
+export const FindManyRestaurantsDocument = gql`
+  query FindManyRestaurants($input: RestaurantsInput!) {
+    findManyCategories {
+      ok
+      error
+      categories {
+        ...CategoryParts
+      }
+    }
+    findManyRestaurants(input: $input) {
+      ok
+      error
+      totalPages
+      totalResults
+      results {
+        ...RestaurantParts
+      }
+    }
+  }
+  ${CategoryPartsFragmentDoc}
+  ${RestaurantPartsFragmentDoc}
+`;
+
+/**
+ * __useFindManyRestaurantsQuery__
+ *
+ * To run a query within a React component, call `useFindManyRestaurantsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindManyRestaurantsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindManyRestaurantsQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useFindManyRestaurantsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    FindManyRestaurantsQuery,
+    FindManyRestaurantsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    FindManyRestaurantsQuery,
+    FindManyRestaurantsQueryVariables
+  >(FindManyRestaurantsDocument, options);
+}
+export function useFindManyRestaurantsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    FindManyRestaurantsQuery,
+    FindManyRestaurantsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    FindManyRestaurantsQuery,
+    FindManyRestaurantsQueryVariables
+  >(FindManyRestaurantsDocument, options);
+}
+export type FindManyRestaurantsQueryHookResult = ReturnType<
+  typeof useFindManyRestaurantsQuery
+>;
+export type FindManyRestaurantsLazyQueryHookResult = ReturnType<
+  typeof useFindManyRestaurantsLazyQuery
+>;
+export type FindManyRestaurantsQueryResult = Apollo.QueryResult<
+  FindManyRestaurantsQuery,
+  FindManyRestaurantsQueryVariables
+>;
 export const MeDocument = gql`
   query me {
     me {

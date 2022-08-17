@@ -2,6 +2,7 @@
 import { useRouter } from 'next/router';
 
 import { Footer } from '@/ui/layout/footer';
+import { CityNav } from '@/ui/layout/nav/city';
 import { HomeNav } from '@/ui/layout/nav/home';
 
 // - Applies to all routes
@@ -10,6 +11,7 @@ export const RootLayout = ({ children }: any) => {
 
   function checkRoute() {
     if (router.pathname === '/') return <HomeNav />;
+    if (router.pathname === '/client/city') return <CityNav />;
   }
 
   return (

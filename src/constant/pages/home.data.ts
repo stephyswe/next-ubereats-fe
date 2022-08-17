@@ -4,7 +4,6 @@ export const HomeData = {
     src: '/images/home/hero.png',
     toggle: ['Leverans', 'Upphämtning'],
     buttonText: 'Hitta Mat',
-
     links: {
       link: 'https://www.ubereats.com/',
       title: 'Logga in',

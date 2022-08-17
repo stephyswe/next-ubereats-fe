@@ -8,19 +8,17 @@ import { useOutsideAlerter } from '@/hooks/useOutside';
 import { Link } from '@/components';
 import { NavButton } from '@/components/buttons/NavButton';
 
-import { navHomeData } from '@/constant/pages/layout/nav-home.data';
 import { NewLogo, Spacer } from '@/ui';
 import { Sidebar } from '@/ui/layout/sidebar';
+import { DeliveryPickupToggler } from '@/ui/toggler';
 
-export function HomeNav() {
-  const { auth } = navHomeData;
+export function CityNav() {
   const router = useRouter();
+
   const wrapperRef = useRef(null);
+
   const [stylesBody, setStylesBody] = useState(true);
   const [change, setChange] = useState(false);
-  useEffect(() => {
-    setChange(false);
-  }, [router]);
 
   let position;
 
@@ -38,6 +36,10 @@ export function HomeNav() {
     if (position.scrollY <= changePosition && change) setChange(false);
   }
 
+  useEffect(() => {
+    setChange(false);
+  }, [router]);
+
   function onClickSidebar() {
     if (stylesBody) document.body.classList.add('sb-hidden');
     else document.body.classList.remove('sb-hidden');
@@ -48,24 +50,25 @@ export function HomeNav() {
     <>
       <Sidebar stylesBody={stylesBody} wrapperRef={wrapperRef} />
       <header>
-        <div className={change ? 'h-0' : undefined}>
+        <div className={change ? 'h-24' : undefined}>
           <div
             className={change ? 'fixed top-0 left-0 z-30 w-full ' : undefined}
           >
             <div className='relative'>
               <div
                 className={clsx(
-                  'right-0 left-0 top-0 m-auto box-border flex h-[96px] items-center justify-between px-4',
-                  'text-black transition-bg-ease-200 md:min-w-[1024px] md:px-10',
-                  change ? 'bg-white box-shadow-rgb-gray' : '',
-                  'absolute z-10'
+                  'right-0 left-0 top-0 m-auto box-border flex h-[96px] items-center justify-between px-4 text-black transition-bg-ease-200 md:min-w-[1024px] md:px-10',
+                  change ? 'box-shadow-rgb-gray' : '',
+                  'bg-white'
                 )}
               >
                 <NavButton onClick={onClickSidebar} />
                 <Spacer className='w-4' />
                 <NewLogo />
+                <Spacer className='w-10' />
+                <DeliveryPickupToggler />
                 <div className='flex-1'></div>
-                <AuthContent data={auth} change={change} />
+                {HeaderContentDefault()}
               </div>
             </div>
           </div>
@@ -75,41 +78,16 @@ export function HomeNav() {
   );
 }
 
-type AuthContentProps = {
-  data: {
-    register: { title: string; link: string };
-    login: { title: string; svg: JSX.Element; link: string };
-  };
-  change: boolean;
-};
-
-const AuthContent = ({
-  data: { login, register },
-  change,
-}: AuthContentProps) => (
-  <>
-    <Link
-      variant='navLink'
-      href={login.link}
-      className={clsx(
-        'bg-white text-black hover:bg-[#ccc]',
-        change ? 'box-shadow-rgb-double ' : ''
-      )}
-    >
-      {login.svg}
-      <Spacer className='w-4' />
-      <div className='hidden md:block'>{login.title}</div>
-    </Link>
-    <Spacer className='w-4' />
-    <Link
-      variant='navLink'
-      href={register.link}
-      className={clsx(
-        'bg-black text-white hover:bg-[#333]',
-        change ? 'box-shadow-rgb-double ' : ''
-      )}
-    >
-      <div>{register.title}</div>
-    </Link>
-  </>
-);
+function HeaderContentDefault() {
+  return (
+    <>
+      <Link
+        href='/'
+        variant='navLink'
+        className='bg-[#eee] text-black hover:bg-[#e2e2e2]'
+      >
+        Sign in
+      </Link>
+    </>
+  );
+}

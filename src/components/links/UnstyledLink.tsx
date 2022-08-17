@@ -10,6 +10,7 @@ enum LinkVariant {
   'sidebarDevice',
   'navLink',
   'footerLink',
+  'cityTitle',
 }
 
 type UnstyledLinkProps = {
@@ -56,15 +57,24 @@ export const UnstyledLink = React.forwardRef<
           'rounded-[8px] px-4 py-3 font-uberMoveText text-lg font-medium leading-6',
         ],
         variant === 'navLink' && [
-          'box-shadow-rgb-double box-border flex w-auto',
+          'box-border flex w-auto',
           'cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px] py-3',
           'px-4 font-uberMoveText text-base font-medium leading-5 md:min-h-[48px] md:py-3 md:px-4',
+        ],
+        variant === 'navLinkCity' && [
+          'box-border flex w-auto',
+          'cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px] py-3',
+          'px-4 font-uberMoveText text-base font-medium leading-5 md:min-h-[48px] md:py-3 md:px-4',
+          'bg-red-500',
         ],
         variant === 'footerLink' && [
           'font-uberMoveText text-sm font-normal leading-5 text-black',
         ],
         variant === 'sidebarDevice' && [
           'flex items-center rounded-[500px] bg-gray-50 p-3 font-uberMoveText text-sm font-medium leading-4 text-black',
+        ],
+        variant === 'cityTitle' && [
+          'invisible cursor-pointer font-uberMoveText text-base font-medium leading-5 text-black underline md:visible',
         ],
       ],
       //#endregion  //*=========== Variants ===========

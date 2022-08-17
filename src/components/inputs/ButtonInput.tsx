@@ -29,7 +29,7 @@ export const ButtonInput = <C extends React.ElementType>({
       <div className='flex h-6 w-6 flex-shrink-0 items-center py-2 leading-[1]'>
         {svg}
       </div>
-      <div className='spacer _16'></div>
+      <div className='w-4'></div>
       <UnstyledInput
         variant='input2'
         // eslint-disable-next-line @typescript-eslint/no-empty-function

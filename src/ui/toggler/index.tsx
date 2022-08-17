@@ -32,3 +32,39 @@ function ToggleItem({ title, onClick }: any) {
     </div>
   );
 }
+
+export function DeliveryPickupToggler() {
+  const [toggle, setToggle] = useState(false);
+  return (
+    <div className='relative flex w-auto'>
+      <div className='box-border flex h-12 w-full whitespace-nowrap rounded-[500px] bg-[#eee] p-1'>
+        <DeliveryPickupItem onClick={() => setToggle(false)} title='Leverans' />
+        <DeliveryPickupItem
+          onClick={() => setToggle(true)}
+          title='Upphämtning'
+        />
+        <div
+          className={`h-[calc(100% - 8px)] absolute z-0 w-[107.625px] bg-white transition-ease-400 rounded-500 h-calc-2 ${
+            toggle ? 'translate-x-[107.625px]' : 'translate-x-0'
+          }`}
+        ></div>
+      </div>
+    </div>
+  );
+}
+
+function DeliveryPickupItem({ title, onClick }: any) {
+  return (
+    <div onClick={onClick} className='z-10 flex w-1/2 justify-center'>
+      <div
+        role='radio'
+        aria-checked='false'
+        tabIndex={0}
+        aria-label={title}
+        className='box-border flex h-full w-full cursor-pointer select-none items-center justify-center rounded-[500px] bg-inherit px-4 text-center font-uberMoveText text-sm font-medium leading-4 text-black transition-ease-400'
+      >
+        {title}
+      </div>
+    </div>
+  );
+}

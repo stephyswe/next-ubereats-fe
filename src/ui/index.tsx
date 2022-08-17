@@ -1,5 +1,5 @@
 import { NextImage } from '@/components';
-
+export { BreadCrumb } from './breadcrumb';
 export { Container } from './container';
 export { DynamicHero, Hero } from './hero';
 export { Toggler } from './toggler';
@@ -25,4 +25,8 @@ export const NewLogo = () => (
     height='24'
     className='block h-6 w-auto'
   />
+);
+
+export const Separator = () => (
+  <hr className='my-8 h-[1px] border-none bg-[#e2e2e2]' />
 );

@@ -65,3 +65,13 @@ export const CountryList = ({ data }: CountryListProps) => (
     </div>
   </div>
 );
+
+export const CountryListNew = ({ data }: any) => (
+  <div className='mt-8 grid grid-flow-col grid-rows-1 gap-[16px_24px]'>
+    {data.map((item: any) => (
+      <Link key={item.title} href={item.link}>
+        {item.title}
+      </Link>
+    ))}
+  </div>
+);

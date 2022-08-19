@@ -31,17 +31,22 @@ export const Hero = ({ title, image, children }: HeroProps) => (
 
 type DynamicHeroProps = {
   background: Array<string>;
+  backgroundColor?: string;
   title: string;
   children: React.ReactNode;
 };
 
 export const DynamicHero = ({
+  backgroundColor,
   background,
   title,
   children,
 }: DynamicHeroProps) => (
   <div className='relative box-border min-w-[1024px]'>
-    <div className='relative z-10 h-[calc(100vh-80px)] bg-[#fa9269]'>
+    <div
+      style={{ background: backgroundColor }}
+      className='relative z-10 h-[calc(100vh-80px)] bg-[#fa9269]'
+    >
       <img
         alt="Hungry? You're in the right place"
         src={background[0]}

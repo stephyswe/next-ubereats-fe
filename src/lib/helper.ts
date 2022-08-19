@@ -30,8 +30,16 @@ export function capitalize([first, ...rest]: any) {
   return first.toUpperCase() + rest.join('').toLowerCase();
 }
 
+export function capitalizeAll(str: string) {
+  return str.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase());
+}
+
 export function capitalizeCity(label: string) {
   return capitalize(label.substr(0, label.indexOf('-')));
+}
+
+export function addLineBetween(str: any) {
+  return str.replaceAll(' ', '-');
 }
 
 export function titleCaseDefault(str: string) {
@@ -54,8 +62,7 @@ export function titleCaseFull(str: string, city: string) {
 export function breadCrumbGenerate(label: any, sublabel = null) {
   const city = capitalize(label.substr(0, label.indexOf('-')));
   const region = titleCaseDefault(label.split('-').slice(1).join('-'));
-
-  const newRegion = label.slice(0, label.lastIndexOf('-'));
+  const newRegion = label.substring(label.indexOf('-') + 1);
 
   const newCountryArray = [{ title: 'Sweden', link: '/' }];
   newCountryArray.push({ title: region, link: `/client/region/${newRegion}` });
@@ -70,3 +77,55 @@ export function breadCrumbGenerate(label: any, sublabel = null) {
 
   return newCountryArray;
 }
+
+export function citiesInRegion(region: string) {
+  switch (region) {
+    case 'stockholm':
+      return citiesGenerate(['danderyd', 'nacka', 'stockholm'], 'city', region);
+
+    case 'skåne':
+      return citiesGenerate(['helsingborg', 'lund', 'malmö'], 'city', region);
+
+    case 'västra-götaland':
+      return citiesGenerate(['göteborg'], 'city', region);
+
+    default:
+      return citiesGenerate(['stockholm'], 'city', region);
+  }
+}
+
+export function nearbyRegions(region: string) {
+  switch (region) {
+    case 'skåne':
+      return citiesGenerate(
+        ['västra götaland', 'östergötland', 'uppsala'],
+        'region'
+      );
+
+    case 'västra-götaland':
+      return citiesGenerate(['skåne', 'östergötland'], 'region');
+
+    default:
+      return citiesGenerate(['skåne'], 'region');
+  }
+}
+
+export function citiesGenerate(
+  cityArray: any,
+  type: 'city' | 'region' = 'city',
+  region?: any
+) {
+  const cities: { title: any; link: string }[] = [];
+  cityArray.forEach((city: any) => {
+    cities.push({
+      title: capitalizeAll(city),
+      link: `/client/${type}/${
+        region ? `${city}-${region}` : addLineBetween(city)
+      }`,
+    });
+  });
+  return cities;
+}
+
+export const saveLabel = (label: string) =>
+  label.substring(label.indexOf('-') + 1);

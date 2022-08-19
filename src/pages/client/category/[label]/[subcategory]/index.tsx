@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-import { titleCase, titleCaseFull } from '@/lib/helper';
+import {
+  capitalize,
+  titleCase,
+  titleCaseDefault,
+  titleCaseFull,
+} from '@/lib/helper';
 
 import { Button, ButtonInput, Link, NextImage, Typography } from '@/components';
 import { RestaurantList } from '@/components/pages/client/category/restaurant-list';
@@ -26,15 +31,16 @@ const categoryPopularData = [
 ];
 
 export async function getServerSideProps(context: any) {
-  const newBreadCrumb = [
-    ...categoryData.breadcrumb,
-    titleCase(context.params.id),
-  ];
+  const { label, subcategory } = context.params;
+  const city = capitalize(label.substr(0, label.indexOf('-')));
+  const region = titleCaseDefault(label.split('-').slice(1).join('-'));
+  const countryArray = ['Sweden'];
+  countryArray.push(region, city);
 
   return {
     props: {
-      categoryText: titleCaseFull(context.params.id),
-      breadCrumbText: newBreadCrumb,
+      categoryText: titleCaseFull(subcategory, city),
+      breadCrumbText: [...countryArray, titleCase(subcategory)],
     },
   };
 }

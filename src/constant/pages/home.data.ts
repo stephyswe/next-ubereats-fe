@@ -40,7 +40,7 @@ export const HomeData = {
     cities: [
       {
         city: 'Göteborg',
-        link: '/client/city/',
+        link: '/client/city/göteborg-västra-götaland',
         position: {
           lat: 57.90887,
           lng: 11.69866,
@@ -48,7 +48,7 @@ export const HomeData = {
       },
       {
         city: 'Malmö',
-        link: '/client/city/',
+        link: '/client/city/malmö-skåne',
         position: {
           lat: 55.81887,
           lng: 12.56866,
@@ -56,7 +56,7 @@ export const HomeData = {
       },
       {
         city: 'Stockholm',
-        link: '/client/city/',
+        link: '/client/city/stockholm-stockholm',
         position: {
           lat: 59.51887,
           lng: 17.76866,

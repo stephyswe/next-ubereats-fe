@@ -26,13 +26,23 @@ export function openGraph({
   }`;
 }
 
+export function capitalize([first, ...rest]: any) {
+  return first.toUpperCase() + rest.join('').toLowerCase();
+}
+
+export function titleCaseDefault(str: string) {
+  str = str.replaceAll('-', ' ');
+  str = str.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase());
+  return str;
+}
+
 export function titleCase(str: string) {
   str = str.replaceAll('-', ' ');
   str = str.toLowerCase().replace(/\b\w/g, (s: any) => s.toUpperCase());
   return str.replace(' And ', ' and ');
 }
 
-export function titleCaseFull(str: any) {
+export function titleCaseFull(str: string, city: string) {
   str = titleCase(str);
-  return str + ' Delivery in Göteborg';
+  return str + ` Delivery in ${city}`;
 }

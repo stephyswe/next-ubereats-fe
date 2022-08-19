@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 
 import styles from './styles.module.css';
@@ -133,21 +134,24 @@ const Explore = ({ onNextClick, inputRef, exploreTitle }: ExploreProps) => (
   </div>
 );
 
-const CategoryItem = ({ name, coverImg }: CategoryItemProps) => (
-  <div className='ml-0 mb-6 box-border block w-[16.6667%] flex-none px-3'>
-    <a
-      className='relative block h-20 overflow-hidden bg-[rgb(246,240,234)] '
-      href='./category/'
-    >
-      <img
-        alt={name}
-        src={coverImg ? coverImg : ''}
-        aria-hidden='true'
-        className='absolute right-0 top-0 h-full'
-      />
-      <div className='border-box relative w-[60%] min-w-[120px] p-4 text-lg font-medium leading-6 text-black'>
-        <div className={styles.category_item_title}>{name}</div>
-      </div>
-    </a>
-  </div>
-);
+const CategoryItem = ({ name, coverImg, slug }: CategoryItemProps) => {
+  const router = useRouter();
+  return (
+    <div className='ml-0 mb-6 box-border block w-[16.6667%] flex-none px-3'>
+      <a
+        className='relative block h-20 overflow-hidden bg-[rgb(246,240,234)] '
+        href={`/client/category/${router.query.id}/${slug}`}
+      >
+        <img
+          alt={name}
+          src={coverImg ? coverImg : ''}
+          aria-hidden='true'
+          className='absolute right-0 top-0 h-full'
+        />
+        <div className='border-box relative w-[60%] min-w-[120px] p-4 text-lg font-medium leading-6 text-black'>
+          <div className={styles.category_item_title}>{name}</div>
+        </div>
+      </a>
+    </div>
+  );
+};

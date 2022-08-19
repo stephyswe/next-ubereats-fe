@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { capitalize, titleCaseDefault } from '@/lib/helper';
+
 import { Button, ButtonInput, Typography } from '@/components';
 import { Categories, FoodList } from '@/components/pages/client/city';
 
@@ -10,16 +12,46 @@ import { SvgMap } from '@/ui/icons';
 
 type DeliveryInformationItemProps = { title: string; subtitle: string };
 
-export default function CityPage() {
+export async function getServerSideProps(context: any) {
+  const contextId = context.params.id;
+  const city = capitalize(contextId.substr(0, contextId.indexOf('-')));
+  const region = titleCaseDefault(contextId.split('-').slice(1).join('-'));
+
+  const cityText = `Food Delivery in ${city}`;
+  const countryArray = ['Sweden'];
+  countryArray.push(region, city);
+
+  const deliData = [
+    {
+      title: `${city} food delivery and takeout`,
+      subtitle: `With 80 restaurants in ${city} on Uber Eats, including 12Till12Gott, Stigbergs Pizzeria, and DINÉ Burgers - Femman , you’ll have your pick of places from which to order food online. Get food, from Fast Food to Breakfast And Brunch, from some of the best restaurants in ${city} delivered to your door. If you’d prefer to get your takeout yourself, simply browse ${city} restaurants offering pickup.`,
+    },
+    {
+      title: `${city} restaurants that deliver`,
+      subtitle: `Uber Eats helps you find food delivery and pickup options from a wide selection of places to eat in ${city}. Enter an address to browse ${city} restaurants and cafes offering food delivery. See ${city} restaurants on Uber Eats that you’ve never tried? View their menus and star ratings to help decide if you’d like to try their food.`,
+    },
+    {
+      title: `Best food in ${city}`,
+      subtitle: `On a quest to taste the best food in ${city}? Search for famous restaurants in ${city} or for your personal favorite places to eat in ${city} to see if they offer food delivery with Uber Eats. Sometimes the best food is just what you’re craving so if you know what you’d like to eat, browse ${city} restaurants that deliver by cuisine or dish.`,
+    },
+  ];
+
+  return {
+    props: {
+      deliData,
+      cityText: cityText,
+      breadCrumbText: countryArray,
+    },
+  };
+}
+
+export default function CityPage({ deliData, cityText, breadCrumbText }: any) {
   const {
-    deliveryInformation,
     citySelected,
-    breadcrumb,
     category,
     hero: {
       buttonText,
       background,
-      title,
       input: { placeholder },
     },
   } = cityData;
@@ -35,8 +67,8 @@ export default function CityPage() {
   } else if (data) {
     return (
       <main className='block'>
-        <DynamicHero background={background} title={title}>
-          <div className='relative flex w-[25vw] flex-1 flex-col'>
+        <DynamicHero background={background} title={cityText}>
+          <div className='relative flex w-[35vw] flex-1 flex-col'>
             <ButtonInput svg={<SvgMap />} placeholder={placeholder} />
           </div>
           <Spacer className='w-4' />
@@ -47,12 +79,12 @@ export default function CityPage() {
 
         <Spacer className='h-6' />
         <Container>
-          <BreadCrumb data={breadcrumb} />
+          <BreadCrumb data={breadCrumbText} />
         </Container>
         <Container>
           <div>
             <Typography as='h2' variant='h2b'>
-              {citySelected.title}
+              {cityText}
             </Typography>
             <Spacer className='h-2' />
             <p>{citySelected.subtitle}</p>
@@ -82,7 +114,7 @@ export default function CityPage() {
         </Container>
         <Container>
           <div>
-            {deliveryInformation.map((item: DeliveryInformationItemProps) => (
+            {deliData.map((item: DeliveryInformationItemProps) => (
               <div key={item.title}>
                 <Typography as='h2' variant='h2b'>
                   {item.title}

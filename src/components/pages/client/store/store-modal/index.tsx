@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { AccordionNew } from '@/components/pages/client/store/new-accordion';
+
 import { ModalBuy, ModalDetail, ModalImage } from './items';
-import { AccordionItem } from '../accordion';
 
 export function FoodModal(props: any) {
   const { photo, name, price, id, closeModal, options } = props;
@@ -16,7 +17,7 @@ export function FoodModal(props: any) {
           <li>
             <div>
               {options.map((accordionItem: any, index: any) => (
-                <AccordionItem
+                <AccordionNew
                   key={index}
                   {...accordionItem}
                   index={index}

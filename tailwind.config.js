@@ -134,6 +134,11 @@ module.exports = {
         },
 
         /** 500 */
+
+        '.transition-transform-easeInout-500': {
+          transition: 'transform 500ms ease-in-out 0s',
+        },
+
         '.transition-500': {
           transition: 'transform 500ms',
           transform: 'scaleX(1)',
@@ -164,6 +169,9 @@ module.exports = {
         },
         '.box-shadow-rgb-grey': {
           boxShadow: 'rgb(226 226 226) 0px -2px 0px inset',
+        },
+        '.box-shadow-rgb-store-item': {
+          boxShadow: '0px 4px 16px rgb(0 0 0 / 12%)',
         },
 
         /** Rgb - Double */

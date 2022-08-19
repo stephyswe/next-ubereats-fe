@@ -5,6 +5,7 @@ import { useState } from 'react';
 import styles from './styles.module.css';
 
 import { Button, NextImage, Typography } from '@/components';
+import { ButtonIcon } from '@/components/buttons/ButtonIcon';
 
 import { useOrders } from '@/contexts/order';
 import { Spacer } from '@/ui';
@@ -56,12 +57,11 @@ export const ModalAllergy = () => (
   <div className='flex flex-col'>
     <hr className='m-0 h-[2px] border-none bg-[#eee]' />
     <div className='mx-4 mt-6 mb-0 flex flex-col'>
-      <p>
-        <Typography as='span' variant='spanModalDishAllergy'>
-          För matallergier eller speciella kostbehov, vänligen kontakta
-          restaurangen innan du beställer.
-        </Typography>
-      </p>
+      <Typography as='span' variant='spanModalDishAllergy'>
+        För matallergier eller speciella kostbehov, vänligen kontakta
+        restaurangen innan du beställer.
+      </Typography>
+
       <Spacer className='h-[24px]' />
     </div>
   </div>
@@ -108,18 +108,14 @@ export function ModalBuy({ closeModal }: any) {
     <div className='sticky bottom-0 flex flex-row items-center justify-between bg-white p-6'>
       <div className='flex flex-col justify-between'>
         <div className='flex items-center justify-center'>
-          <Button variant='modalDishQuantity'>
-            <SvgBuyMinus />
-          </Button>
+          <ButtonIcon svg={<SvgBuyMinus />} variant='modalDishQuantity' />
           <Typography as='div' variant='divModalDishQuantity'>
             1
           </Typography>
-          <Button variant='modalDishQuantity'>
-            <SvgBuyPlus />
-          </Button>
+          <ButtonIcon svg={<SvgBuyPlus />} variant='modalDishQuantity' />
         </div>
       </div>
-      <Spacer w='24' />
+      <Spacer className='w-6' />
       <Button
         variant='modalDishBuy'
         onClick={onClickBuy}

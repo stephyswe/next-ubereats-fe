@@ -1,4 +1,4 @@
-export { Button } from './buttons/UnStyledButton';
+export { UnStyledButton as Button } from './buttons/UnStyledButton';
 export { default as NextImage } from './image';
 export { ButtonInput, Input } from './inputs';
 export { Link } from './links';

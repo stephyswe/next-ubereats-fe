@@ -7,7 +7,7 @@ import {
   RestaurantCover,
   StickyList,
   StoreList,
-} from '@/components/pages/client/';
+} from '@/components/pages/';
 
 import {
   useCreateOrderMutation,

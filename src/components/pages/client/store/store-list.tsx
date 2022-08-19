@@ -1,16 +1,15 @@
+import clsx from 'clsx';
 import { useState } from 'react';
 import Modal from 'react-modal';
 
-import styles from './styles.module.css';
-
-import { storeModalStyles } from '@/components/pages/client/store/items';
+import { storeModalStyles } from '@/components/pages/client/store';
 import { ModalHeader } from '@/components/pages/client/store/store-modal/items';
 
 import { useOrders } from '@/contexts/order';
 import { Spacer } from '@/ui';
 import { SvgFoodPlus } from '@/ui/icons';
 
-import { FoodModal } from '../store-modal';
+import { FoodModal } from './store-modal';
 
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#__next');
@@ -50,7 +49,12 @@ export function StoreItem({ item }: any) {
 
   return (
     <>
-      <li className={`col-span-2 min-w-0 ${styles.food}`}>
+      <li
+        className={clsx(
+          'col-span-2 min-w-0',
+          'hover:-m-2 hover:p-2 hover:transition-bs-ease-300 hover:box-shadow-rgb-store-item'
+        )}
+      >
         <div className='flex flex-1 cursor-pointer no-underline '>
           <div className='relative flex w-full flex-col flex-nowrap overflow-hidden'>
             <div className='flex flex-1 flex-row'>
@@ -67,6 +71,7 @@ export function StoreItem({ item }: any) {
         onRequestClose={closeModal}
         style={storeModalStyles}
         contentLabel='Example Modal'
+        shouldCloseOnOverlayClick={true}
       >
         <Spacer className='pt-20' />
         <div role='dialog' className='relative m-auto bg-white'>
@@ -93,7 +98,14 @@ function FoodItemPlusQuick({ id }: { id: string }) {
 
   return (
     <div className='absolute top-2 right-2'>
-      <button onClick={onClickBuy} className={styles.food_btn}>
+      <button
+        onClick={onClickBuy}
+        className={clsx(
+          'box-border flex h-9 min-h-0 w-full min-w-[36px] cursor-pointer items-center justify-center rounded-[500px] border-[1px] border-solid',
+          'border-[#fff] bg-black p-[2px_4px] text-lg font-medium leading-6 text-white box-shadow-rgb-btn',
+          'hover:bg-gray-100'
+        )}
+      >
         <SvgFoodPlus />
       </button>
     </div>
@@ -123,7 +135,10 @@ const StoreItemImage = ({ photo, name, onClick }: any) => (
             alt={name}
             src={photo}
             aria-hidden='true'
-            className={styles.food_image_bg}
+            className={clsx(
+              'h-[188px] w-full flex-shrink-0 scale-100 object-cover opacity-100 transition-transform-easeInout-500',
+              'hover:scale-110 hover:transition-transform-easeInout-500'
+            )}
           />
         </picture>
       ) : null}

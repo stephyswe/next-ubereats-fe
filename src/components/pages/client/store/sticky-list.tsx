@@ -1,6 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
 
-import { Button } from '@/components/buttons/UnStyledButton';
+import { Button } from '@/components/';
 
 import { Spacer } from '@/ui';
 

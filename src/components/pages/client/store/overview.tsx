@@ -1,6 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/no-img-element */
-
 import NextImage from '@/components/image';
 import { Link } from '@/components/links';
 import Typography from '@/components/typography';
@@ -40,7 +37,7 @@ export const Overview = () => (
   <div className='pt-6'>
     <div>
       <Typography as='h2' variant='h2b' className='leading-[36px]'>
-        McDonald's Avenyn
+        McDonalds Avenyn
       </Typography>
       <div className='h-2'></div>
       <div className='flex'>

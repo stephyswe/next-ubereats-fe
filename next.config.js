@@ -14,6 +14,9 @@ module.exports = {
 
   reactStrictMode: false,
   env,
+  images: {
+    domains: ['tb-static.uber.com'],
+  },
 
   // Uncoment to add domain whitelist
   // images: {

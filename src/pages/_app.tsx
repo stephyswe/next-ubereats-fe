@@ -7,6 +7,8 @@ import '@/styles/globals.scss';
 import '@/styles/uber.css';
 import '@/styles/uber-fonts.css';
 
+import { DeliveryProvider } from '@/contexts/delivery';
+import { OrderProvider } from '@/contexts/order';
 import { RootLayout } from '@/ui/layout';
 
 import client from '../lib/apollo';
@@ -25,9 +27,13 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <ApolloProvider client={client}>
-      <RootLayout>
-        <Component {...pageProps} />
-      </RootLayout>
+      <DeliveryProvider>
+        <OrderProvider>
+          <RootLayout>
+            <Component {...pageProps} />
+          </RootLayout>
+        </OrderProvider>
+      </DeliveryProvider>
     </ApolloProvider>
   );
 }

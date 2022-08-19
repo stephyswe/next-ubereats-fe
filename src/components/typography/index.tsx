@@ -26,6 +26,7 @@ enum TypographyVariant {
   'divCategoryResItemTitle',
   'spanModalDishAllergy',
   'spanCategories',
+  'spanOverviewText',
 }
 
 type TypographyProps<C extends React.ElementType> = {
@@ -104,6 +105,9 @@ export default function Typography<C extends React.ElementType>({
             'mb-[2px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap text-lg font-medium leading-6',
           ],
           variant === 'divCategoryResItemTitle' && ['text-base font-normal'],
+          variant === 'spanOverviewText' && [
+            'text-sm font-normal text-[#545454]',
+          ],
         ],
         //#endregion  //*======== Variants ===========
 

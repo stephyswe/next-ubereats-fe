@@ -1,5 +1,5 @@
 import { NextImage } from '@/components';
-export { BreadCrumb } from './breadcrumb';
+export { BreadCrumb, BreadCrumbItemProps } from './breadcrumb';
 export { Container } from './container';
 export { DynamicHero, Hero } from './hero';
 export { Toggler } from './toggler';

@@ -13,7 +13,8 @@ export const RootLayout = ({ children }: any) => {
     if (router.pathname === '/') return <HomeNav />;
     if (router.pathname === '/client/city') return <CityNav />;
     if (router.pathname === '/client/category') return <CityNav />;
-    else return <CityNav />;
+    if (router.pathname === '/client/store/[label]')
+      return <CityNav noHoverBorder />;
   }
 
   return (

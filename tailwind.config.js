@@ -16,12 +16,15 @@ module.exports = {
       colors: {
         black: 'var(--tw-color-black)',
         black08: 'var(--tw-color-black-08)',
+        black02: 'var(--tw-color-black-02)',
         gray: {
           50: 'var(--tw-color-gray-50)',
           100: 'var(--tw-color-gray-100)',
           200: 'var(--tw-color-gray-200)',
           300: 'var(--tw-color-gray-300)',
           400: 'var(--tw-color-gray-400)',
+          500: 'var(--tw-color-gray-500)',
+          600: 'var(--tw-color-gray-600)',
         },
         primary: {
           // Customize it on globals.css :root
@@ -79,7 +82,8 @@ module.exports = {
             'linear-gradient(to left, rgb(255, 255, 255) 10%, rgba(255, 255, 255, 0) 90%)',
         },
         '.bg-gradient-rgba-center': {
-          background:'radial-gradient(at center center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%)'
+          background:
+            'radial-gradient(at center center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
         },
 
         /** Transitions */
@@ -170,6 +174,10 @@ module.exports = {
         'box-shadow-rgb-button': {
           boxShadow:
             'rgb(0 0 0 / 10%) 0px 0px 8px, rgb(0 0 0 / 4%) 0px 4px 4px',
+        },
+        '.box-shadow-rgb-btn': {
+          boxShadow:
+            '0px 0px 8px rgb(0 0 0 / 10%), 0px 4px 4px rgb(0 0 0 / 4%)',
         },
 
         /** Default */

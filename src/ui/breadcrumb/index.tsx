@@ -2,7 +2,7 @@ import { Link } from '@/components';
 
 import { SvgBreadCrumb } from '../icons';
 
-type BreadCrumbItemProps = {
+export type BreadCrumbItemProps = {
   title: string;
   link: string;
   lastItem: boolean;

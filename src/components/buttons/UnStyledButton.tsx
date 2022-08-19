@@ -16,6 +16,7 @@ enum ButtonVariant {
   'modalDishClose',
   'filter',
   'round',
+  'storeSticky',
 }
 
 type ButtonProps = {
@@ -99,7 +100,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'relative flex cursor-pointer items-center whitespace-nowrap rounded-[500px] bg-[#eee] py-2 px-3 font-uberMoveText text-sm font-medium leading-4 text-black transition-width-easeInout-150',
             ],
             variant === 'round' && [
-              'ox-shadow-rgb-button flex h-10 cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px] bg-white px-3 font-uberMoveText text-sm font-medium leading-4 text-black transition-all-300',
+              'box-shadow-rgb-button flex h-10 cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px] bg-white px-3 font-uberMoveText text-sm font-medium leading-4 text-black transition-all-300',
+            ],
+            variant === 'storeSticky' && [
+              'whitespace-no-wrap mb-6 overflow-hidden text-ellipsis text-center text-base font-medium leading-5 text-black',
             ],
           ],
           //#endregion  //*======== Variants ===========

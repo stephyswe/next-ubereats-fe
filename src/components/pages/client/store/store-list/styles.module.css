@@ -1,0 +1,105 @@
+/* buy button */
+
+.buy_btn_active {
+  animation-duration: 200ms;
+  cursor: auto;
+  border: 1px solid rgb(226, 226, 226);
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px, rgb(0 0 0 / 4%) 0px 4px 4px;
+  background: rgb(0, 0, 0);
+  animation-fill-mode: forwards;
+  border-radius: 500px;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+}
+
+.buy_btn_active_switch {
+  margin: 4px;
+  height: 30px;
+  width: 30px;
+  min-height: 0px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 18px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  justify-content: center;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: UberMoveText, sans-serif;
+  cursor: pointer;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.buy_btn_active_switch:hover {
+  background: rgb(107, 107, 107);
+}
+
+.buy_btn_active_middle {
+  padding-right: 16px;
+  padding-left: 16px;
+  width: max-content;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: UberMoveText, sans-serif;
+  white-space: nowrap;
+}
+
+/* food */
+
+.foods:first-of-type {
+  margin-top: 0px;
+}
+
+.food:hover {
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 4px 16px rgb(0 0 0 / 12%);
+  padding: 8px;
+  margin: -8px;
+}
+
+.food_image_bg {
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out 0s;
+  height: 188px;
+  opacity: 1;
+  object-fit: cover;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.food_image_bg:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out 0s;
+}
+
+.food_btn {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 1px solid #ffffff;
+  min-width: 36px;
+  padding: 2px 4px;
+  min-height: 0;
+  font-size: 18px;
+  box-shadow: 0px 0px 8px rgb(0 0 0 / 10%), 0px 4px 4px rgb(0 0 0 / 4%);
+  justify-content: center;
+  height: 36px;
+  line-height: 24px;
+  border-radius: 500px;
+  font-weight: 500;
+  font-family: UberMoveText, sans-serif;
+  cursor: pointer;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.food_btn:hover {
+  background: rgb(51, 51, 51);
+}

@@ -12,7 +12,7 @@ import { NewLogo, Spacer } from '@/ui';
 import { Sidebar } from '@/ui/layout/sidebar';
 import { DeliveryPickupToggler } from '@/ui/toggler';
 
-export function CityNav() {
+export function CityNav({ noHoverBorder }: any) {
   const router = useRouter();
 
   const wrapperRef = useRef(null);
@@ -58,7 +58,7 @@ export function CityNav() {
               <div
                 className={clsx(
                   'right-0 left-0 top-0 m-auto box-border flex h-[96px] items-center justify-between px-4 text-black transition-bg-ease-200 md:min-w-[1024px] md:px-10',
-                  change ? 'box-shadow-rgb-gray' : '',
+                  change && !noHoverBorder ? 'box-shadow-rgb-gray' : '',
                   'bg-white'
                 )}
               >

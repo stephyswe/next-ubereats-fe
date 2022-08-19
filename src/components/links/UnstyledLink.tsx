@@ -11,6 +11,7 @@ enum LinkVariant {
   'navLink',
   'footerLink',
   'cityTitle',
+  'restaurantBtnLink',
 }
 
 type UnstyledLinkProps = {
@@ -75,6 +76,9 @@ export const UnstyledLink = React.forwardRef<
         ],
         variant === 'cityTitle' && [
           'invisible cursor-pointer font-uberMoveText text-base font-medium leading-5 text-black underline md:visible',
+        ],
+        variant === 'restaurantBtnLink' && [
+          'min-h-[24px] z-[inherit] p-[12px_16px] bg-gray-50 rounded-[500px] leading-4 font-medium text-sm cursor-pointer items-center whitespace-nowrap text-black flex-row flex relative :hover:bg-gray-500',
         ],
       ],
       //#endregion  //*=========== Variants ===========

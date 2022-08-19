@@ -12,6 +12,7 @@ export const RootLayout = ({ children }: any) => {
   function checkRoute() {
     if (router.pathname === '/') return <HomeNav />;
     if (router.pathname === '/client/city') return <CityNav />;
+    if (router.pathname === '/client/category') return <CityNav />;
   }
 
   return (

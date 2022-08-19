@@ -25,3 +25,14 @@ export function openGraph({
     ogTemplateTitle ? `&templateTitle=${ogTemplateTitle}` : ''
   }`;
 }
+
+export function titleCase(str: string) {
+  str = str.replaceAll('-', ' ');
+  str = str.toLowerCase().replace(/\b\w/g, (s: any) => s.toUpperCase());
+  return str.replace(' And ', ' and ');
+}
+
+export function titleCaseFull(str: any) {
+  str = titleCase(str);
+  return str + ' Delivery in Göteborg';
+}

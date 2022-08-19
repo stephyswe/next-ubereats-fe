@@ -14,6 +14,7 @@ enum TypographyAs {
 
 enum TypographyVariant {
   'p1',
+  'pCategoryResItemTitle',
   'p2',
   'h2a',
   'h2b',
@@ -21,6 +22,8 @@ enum TypographyVariant {
   'spanModalDishPrice',
   'divModalDishDescription',
   'divModalDishQuantity',
+  'divCityResItemTitle',
+  'divCategoryResItemTitle',
   'spanModalDishAllergy',
   'spanCategories',
 }
@@ -83,17 +86,24 @@ export default function Typography<C extends React.ElementType>({
             'w-full overflow-hidden text-ellipsis whitespace-nowrap py-[2px] font-uberMove text-lg font-medium leading-6',
           ],
           variant === 'divRestaurantDetail' && [
-            'color-[##6b6b6b] font-uberMoveText text-sm font-normal leading-5',
+            'color-[##6b6b6b] text-sm font-normal leading-5',
           ],
           variant === 'spanModalDishAllergy' && [
-            'font-uberMoveText text-xs font-normal leading-5 text-[#545454] no-underline',
+            'text-xs font-normal leading-5 text-[#545454] no-underline',
           ],
-          variant == 'spanCategories' && [
-            'w-full text-center font-uberMoveText text-sm font-medium leading-4',
+          variant === 'spanCategories' && [
+            'w-full text-center text-sm font-medium leading-4',
           ],
-          variant == 'spanTextDot' && [
-            'color-[#545454] inline-flex items-center font-uberMoveText text-sm font-normal leading-5',
+          variant === 'spanTextDot' && [
+            'inline-flex items-center text-sm font-normal leading-5 text-[#545454]',
           ],
+          variant === 'divCityResItemTitle' && [
+            'w-full overflow-hidden text-ellipsis whitespace-nowrap text-lg font-medium leading-6',
+          ],
+          variant === 'pCategoryResItemTitle' && [
+            'mb-[2px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap text-lg font-medium leading-6',
+          ],
+          variant === 'divCategoryResItemTitle' && ['text-base font-normal'],
         ],
         //#endregion  //*======== Variants ===========
 

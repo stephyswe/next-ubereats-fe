@@ -28,11 +28,13 @@ function Item({ title, index, length }: any) {
   );
 }
 
-export const BreadCrumb = ({ name, data = BreadCrumpData }: any) => {
+export const BreadCrumb = ({ name, data }: any) => {
   const [list, setList] = useState(data);
   useEffect(() => {
     if (name) setList((oldArray: any) => [...oldArray, name]);
-  }, [name]);
+    else setList(data);
+  }, [data, name]);
+
   return (
     <ol className={styles.breadCrump_list}>
       {list.map((bcItem: any, index: any, { length }: any) => (

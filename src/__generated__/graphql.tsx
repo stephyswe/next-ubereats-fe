@@ -28,7 +28,7 @@ export type Category = {
   coverImg?: Maybe<Scalars['String']>;
   id: Scalars['Float'];
   name: Scalars['String'];
-  restaurants: Array<Restaurant>;
+  restaurants?: Maybe<Array<Restaurant>>;
   slug: Scalars['String'];
 };
 
@@ -64,13 +64,13 @@ export type CreateAccountOutput = {
 };
 
 export type CreateDishInput = {
-  description: Scalars['String'];
+  description?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
   options?: InputMaybe<Array<DishOptionInputType>>;
-  photo: Scalars['String'];
+  photo?: InputMaybe<Scalars['String']>;
   price?: InputMaybe<Scalars['Int']>;
   restaurantId: Scalars['Int'];
-  type: Scalars['String'];
+  type?: InputMaybe<Scalars['String']>;
 };
 
 export type CreateDishOutput = {
@@ -144,14 +144,14 @@ export type DeleteRestaurantOutput = {
 
 export type Dish = {
   __typename?: 'Dish';
-  description: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
   id: Scalars['Float'];
   name: Scalars['String'];
   options?: Maybe<Array<DishOption>>;
-  photo: Scalars['String'];
+  photo?: Maybe<Scalars['String']>;
   price?: Maybe<Scalars['Int']>;
-  restaurant: Restaurant;
-  type: Scalars['String'];
+  restaurant?: Maybe<Restaurant>;
+  type?: Maybe<Scalars['String']>;
 };
 
 export type DishChoice = {
@@ -355,10 +355,11 @@ export type Order = {
   __typename?: 'Order';
   customer?: Maybe<User>;
   driver?: Maybe<User>;
+  driverId?: Maybe<Scalars['Float']>;
   id: Scalars['Float'];
-  items: Array<OrderItem>;
+  items?: Maybe<Array<OrderItem>>;
   restaurant?: Maybe<Restaurant>;
-  status: OrderStatus;
+  status?: Maybe<OrderStatus>;
   total?: Maybe<Scalars['Float']>;
 };
 
@@ -526,7 +527,7 @@ export type TakeOrderOutput = {
 
 export type UpdateOrderInput = {
   id: Scalars['Float'];
-  status: OrderStatus;
+  status?: InputMaybe<OrderStatus>;
 };
 
 export type UpdateOrderOutput = {
@@ -553,9 +554,13 @@ export type User = {
   __typename?: 'User';
   email: Scalars['String'];
   id: Scalars['Float'];
+  orders: Array<Order>;
   password: Scalars['String'];
+  payments: Array<Payment>;
+  restaurants: Array<Restaurant>;
+  rides: Array<Order>;
   role: UserRole;
-  verified: Scalars['Boolean'];
+  verified?: Maybe<Scalars['Boolean']>;
 };
 
 export type UserProfileOutput = {
@@ -641,7 +646,12 @@ export type MeQueryVariables = Exact<{ [key: string]: never }>;
 
 export type MeQuery = {
   __typename?: 'Query';
-  me: { __typename?: 'User'; email: string; role: UserRole; verified: boolean };
+  me: {
+    __typename?: 'User';
+    email: string;
+    role: UserRole;
+    verified?: boolean | null;
+  };
 };
 
 export const CategoryPartsFragmentDoc = gql`

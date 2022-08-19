@@ -1,56 +1,64 @@
-import { Link } from '@/components';
+import { Link, Typography } from '@/components';
+import { ItemImage } from '@/components/pages/client/items';
 
-type FoodListProps = {
-  data:
-    | {
-        __typename?: 'Restaurant' | undefined;
-        id: number;
-        name: string;
-        coverImg?: string | null | undefined;
-        address: string;
-        isPromoted: boolean;
-        category?:
-          | {
-              __typename?: 'Category' | undefined;
-              name: string;
-            }
-          | null
-          | undefined;
-      }[]
-    | null
-    | undefined;
-};
-
-export const FoodList = ({ data }: FoodListProps) => {
-  if (!data) return <div>no data found</div>;
-  return (
-    <>
-      {data.map((foodItem: any, index: number) => (
-        <li
-          className={`${index % 2 === 0 ? 'mr-6' : ''} w-[calc(50%+-12px)]`}
-          key={index}
-        >
-          <FoodItem {...foodItem} />
-        </li>
-      ))}
-    </>
-  );
-};
-
-const ItemImage = ({ coverImg }: any) => (
-  <div className='h-full'>
-    <picture>
-      <source srcSet={coverImg} />
-      <img
-        alt=''
-        src={coverImg}
-        srcSet={coverImg}
-        sizes='25vw'
-        className='block h-full w-full border-none object-cover'
-      />
-    </picture>
-  </div>
-);
+const tempRestData = [
+  {
+    __typename: 'Restaurant',
+    id: 1,
+    name: 'BBQ House',
+    coverImg:
+      'https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC8wY2M1NDBiOS1lMjFiLTQ1YzAtOWQ2NS1mMzMzODNiYTE5MWIuanBlZw==',
+    category: {
+      __typename: 'Category',
+      name: 'Fast Food',
+    },
+    address: '123 Altavista',
+    isPromoted: false,
+    ranking: '3.4',
+  },
+  {
+    __typename: 'Restaurant',
+    id: 1,
+    name: 'BBQ House',
+    coverImg:
+      'https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC8wY2M1NDBiOS1lMjFiLTQ1YzAtOWQ2NS1mMzMzODNiYTE5MWIuanBlZw==',
+    category: {
+      __typename: 'Category',
+      name: 'Fast Food',
+    },
+    address: '123 Altavista',
+    isPromoted: false,
+    ranking: '3.4',
+  },
+  {
+    __typename: 'Restaurant',
+    id: 1,
+    name: 'BBQ House',
+    coverImg:
+      'https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC8wY2M1NDBiOS1lMjFiLTQ1YzAtOWQ2NS1mMzMzODNiYTE5MWIuanBlZw==',
+    category: {
+      __typename: 'Category',
+      name: 'Fast Food',
+    },
+    address: '123 Altavista',
+    isPromoted: false,
+    ranking: '3.4',
+  },
+  {
+    __typename: 'Restaurant',
+    id: 1,
+    name: 'BBQ House',
+    coverImg:
+      'https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC8wY2M1NDBiOS1lMjFiLTQ1YzAtOWQ2NS1mMzMzODNiYTE5MWIuanBlZw==',
+    category: {
+      __typename: 'Category',
+      name: 'Fast Food',
+    },
+    address: '123 Altavista',
+    isPromoted: false,
+    ranking: '3.4',
+  },
+];
 
 type FoodItemProps = {
   id: string;
@@ -61,25 +69,67 @@ type FoodItemProps = {
   description: string;
   tags: any;
   address: string;
+  ranking: string;
 };
 
-const FoodItem = ({ id, coverImg, name, category, address }: FoodItemProps) => (
-  <Link href={`/restaurants/${id}`}>
-    <div className='relative'>
-      <div className='flex'>
-        <div className='h-[128px] w-[200px]'>
+export const FoodList = () => (
+  <div className='grid grid-cols-2 gap-[40px_24px]'>
+    {tempRestData.map((foodItem: any, index: number) => (
+      <div className='min-w-0' key={index}>
+        <div className='relative overflow-hidden'>
+          <div className='pointer-events-none relative flex overflow-hidden'>
+            <FoodItem {...foodItem} />
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+const FoodItem = ({
+  id,
+  coverImg,
+  name,
+  category,
+  address,
+  ranking,
+}: FoodItemProps) => (
+  <Link href={`/restaurants/${id}`} className='w-full'>
+    <div className='relative flex w-full'>
+      <div className='relative h-[128px] w-[200px] overflow-hidden bg-[#f6f6f6]'>
+        <div className='h-full'>
           <ItemImage coverImg={coverImg} />
-          <Promote />
         </div>
-        <div className='ml-4 w-[calc(100%-216px)]'>
-          <ItemTitle name={name} />
-          <ItemTags category={category} />
-          <div className='h-2'></div>
-          <span className='text-sm'>{address}</span>
-        </div>
+        <Promote />
+      </div>
+      <div className='ml-4 flex w-[calc(100%-216px)] flex-col items-start'>
+        <ItemTitle name={name} ranking={ranking} />
+        <ItemTags category={category} />
+        <div className='h-2'></div>
+        <span className='overflow-hidden text-ellipsis text-sm text-[#6b6b6b]'>
+          {address}
+        </span>
       </div>
     </div>
   </Link>
+);
+
+const ItemTitle = ({ name, ranking }: any) => (
+  <div className='flex w-full items-center justify-between'>
+    <Typography as='div' variant='divCityResItemTitle'>
+      {name}
+    </Typography>
+    <ItemRanking ranking={ranking} />
+  </div>
+);
+
+export const ItemRanking = ({ ranking }: { ranking: string }) => (
+  <div
+    aria-hidden='true'
+    className='flex h-7 flex-[0_0_28px] items-center justify-center rounded-[50%] bg-[#eee] text-xs font-medium leading-4'
+  >
+    {ranking}
+  </div>
 );
 
 const Promote = () => (
@@ -90,23 +140,29 @@ const Promote = () => (
   </div>
 );
 
-const ItemTitle = ({ name }: any) => (
-  <div className='flex items-center'>
-    <div className='w-full overflow-hidden text-ellipsis whitespace-nowrap text-lg font-medium leading-6'>
-      {name}
-    </div>
-    <div
-      aria-hidden='true'
-      className='flex h-7 flex-[0_0_28px] items-center justify-center rounded-[50%] bg-[#eee] text-xs font-medium'
-    >
-      3.4
-    </div>
+// eslint-disable-next-line unused-imports/no-unused-vars
+const ItemTags = ({ category }: any) => (
+  <div className='flex w-full flex-nowrap items-center justify-start'>
+    <ItemTagText>Burgers</ItemTagText>
+    <ItemTagDot />
+    <ItemTagText>Fast Food</ItemTagText>
+    <ItemTagDot />
+    <ItemTagText>American</ItemTagText>
   </div>
 );
 
-const ItemTags = ({ category }: any) => (
-  <div>
-    <span className='text-sm'>{category.name}</span>
-    <span className='text-sm'>&nbsp;•&nbsp;</span>
+const ItemTagText = ({ children }: any) => (
+  <div className='flex-shrink-0 overflow-hidden whitespace-nowrap'>
+    <span className='overflow-hidden text-ellipsis whitespace-nowrap text-sm font-normal leading-5 text-[#545454]'>
+      <div className='text-sm font-normal leading-5 text-[#6b6b6b]'>
+        {children}
+      </div>
+    </span>
   </div>
+);
+
+const ItemTagDot = () => (
+  <Typography as='span' variant='textDot'>
+    &nbsp;•&nbsp;
+  </Typography>
 );

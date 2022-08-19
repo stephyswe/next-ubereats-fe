@@ -12,6 +12,11 @@ body {
   font-family: UberMoveText, sans-serif;
 }
 
+body {
+  background: #ffffff;
+  color: #000000;
+}
+
 ul {
   padding: 0;
   margin: 0;

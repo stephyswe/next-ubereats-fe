@@ -1,6 +1,6 @@
-export const cityData = {
+export const categoryData = {
   hero: {
-    title: 'Matleveranser i Göteborg',
+    title: 'Leverans av Snabbmat i Göteborg',
     background: ['/images/city/hero.svg', '/images/city/hero2.svg'],
     buttonText: 'Hitta Mat',
     input: {
@@ -9,8 +9,8 @@ export const cityData = {
   },
   breadcrumb: ['Sverige', 'Västra Götaland', 'Göteborg'],
   citySelected: {
-    title: 'Matleveranser i Göteborg',
-    subtitle: `Njut av mat från dina favoritrestauranger i Göteborg, levererad direkt till dörren med Uber Eats. Frukost, lunch, middag eller bara lite tilltugg – med Uber Eats är det enkelt att upptäcka nya matställen nära dig i Göteborg. Bläddra bland massor av leveransalternativ, gör din matbeställning och håll koll på den exakta ankomsttiden medan du väntar.`,
+    title: 'Leverans av Snabbmat nära mig i Göteborg',
+    subtitle: `Använd leverans och avhämtning av Snabbmat nära dig med Uber Eats i Göteborg. Bläddra bland restauranger i Göteborg som serverar Snabbmat nära dig, beställ din mat och njut! Din beställning levereras inom några minuter och du kan hålla koll på den beräknade ankomsttiden medan du väntar.`,
   },
   category: {
     title: 'Utforska efter kategori',

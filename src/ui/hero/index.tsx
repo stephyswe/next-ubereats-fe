@@ -41,7 +41,7 @@ export const DynamicHero = ({
   children,
 }: DynamicHeroProps) => (
   <div className='relative box-border min-w-[1024px]'>
-    <div className='relative z-10 h-[calc(100vh-0px)] bg-[#fa9269]'>
+    <div className='relative z-10 h-[calc(100vh-80px)] bg-[#fa9269]'>
       <img
         alt="Hungry? You're in the right place"
         src={background[0]}

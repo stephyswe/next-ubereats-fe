@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
 import {
-  capitalize,
-  titleCase,
-  titleCaseDefault,
+  breadCrumbGenerate,
+  capitalizeCity,
   titleCaseFull,
 } from '@/lib/helper';
 
@@ -31,27 +30,17 @@ const categoryPopularData = [
 ];
 
 export async function getServerSideProps(context: any) {
-  const { label, subcategory } = context.params;
-  const city = capitalize(label.substr(0, label.indexOf('-')));
-  const region = titleCaseDefault(label.split('-').slice(1).join('-'));
-  const countryArray = ['Sweden'];
-  countryArray.push(region, city);
+  const { label, sublabel } = context.params;
 
   return {
     props: {
-      categoryText: titleCaseFull(subcategory, city),
-      breadCrumbText: [...countryArray, titleCase(subcategory)],
+      breadCrumbText: breadCrumbGenerate(label, sublabel),
+      pageText: titleCaseFull(sublabel, capitalizeCity(label)),
     },
   };
 }
 
-export default function CategoryPage({
-  categoryText,
-  breadCrumbText,
-}: {
-  categoryText: string;
-  breadCrumbText: string[];
-}) {
+export default function CategoryPage({ pageText, breadCrumbText }: any) {
   const {
     citySelected,
     hero: {
@@ -72,7 +61,7 @@ export default function CategoryPage({
   } else if (data) {
     return (
       <main className='block'>
-        <DynamicHero background={background} title={categoryText}>
+        <DynamicHero background={background} title={pageText}>
           <div className='relative flex w-[35vw] flex-1 flex-col'>
             <ButtonInput svg={<SvgMap />} placeholder={placeholder} />
           </div>
@@ -89,7 +78,7 @@ export default function CategoryPage({
         <Container>
           <div>
             <Typography as='h2' variant='h2b'>
-              {categoryText} Near Me
+              {pageText} Near Me
             </Typography>
             <Spacer className='h-2' />
             <p>{citySelected.subtitle}</p>

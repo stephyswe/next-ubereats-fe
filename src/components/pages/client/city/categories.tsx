@@ -140,7 +140,7 @@ const CategoryItem = ({ name, coverImg, slug }: CategoryItemProps) => {
     <div className='ml-0 mb-6 box-border block w-[16.6667%] flex-none px-3'>
       <a
         className='relative block h-20 overflow-hidden bg-[rgb(246,240,234)] '
-        href={`/client/category/${router.query.id}/${slug}`}
+        href={`/client/category/${router.query.label}/${slug}`}
       >
         <img
           alt={name}

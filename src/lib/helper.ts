@@ -30,6 +30,10 @@ export function capitalize([first, ...rest]: any) {
   return first.toUpperCase() + rest.join('').toLowerCase();
 }
 
+export function capitalizeCity(label: string) {
+  return capitalize(label.substr(0, label.indexOf('-')));
+}
+
 export function titleCaseDefault(str: string) {
   str = str.replaceAll('-', ' ');
   str = str.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase());
@@ -45,4 +49,24 @@ export function titleCase(str: string) {
 export function titleCaseFull(str: string, city: string) {
   str = titleCase(str);
   return str + ` Delivery in ${city}`;
+}
+
+export function breadCrumbGenerate(label: any, sublabel = null) {
+  const city = capitalize(label.substr(0, label.indexOf('-')));
+  const region = titleCaseDefault(label.split('-').slice(1).join('-'));
+
+  const newRegion = label.slice(0, label.lastIndexOf('-'));
+
+  const newCountryArray = [{ title: 'Sweden', link: '/' }];
+  newCountryArray.push({ title: region, link: `/client/region/${newRegion}` });
+  newCountryArray.push({ title: city, link: `/client/city/${label}` });
+
+  if (sublabel) {
+    newCountryArray.push({
+      title: titleCase(sublabel),
+      link: `/category/${label}/${sublabel}`,
+    });
+  }
+
+  return newCountryArray;
 }

@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-import { capitalize, titleCaseDefault } from '@/lib/helper';
+import {
+  breadCrumbGenerate,
+  capitalizeCity,
+  titleCaseFull,
+} from '@/lib/helper';
 
 import { Button, ButtonInput, Typography } from '@/components';
 import { Categories, FoodList } from '@/components/pages/client/city';
@@ -13,13 +17,8 @@ import { SvgMap } from '@/ui/icons';
 type DeliveryInformationItemProps = { title: string; subtitle: string };
 
 export async function getServerSideProps(context: any) {
-  const contextId = context.params.id;
-  const city = capitalize(contextId.substr(0, contextId.indexOf('-')));
-  const region = titleCaseDefault(contextId.split('-').slice(1).join('-'));
-
-  const cityText = `Food Delivery in ${city}`;
-  const countryArray = ['Sweden'];
-  countryArray.push(region, city);
+  const { label } = context.params;
+  const city = capitalizeCity(label);
 
   const deliData = [
     {
@@ -39,13 +38,13 @@ export async function getServerSideProps(context: any) {
   return {
     props: {
       deliData,
-      cityText: cityText,
-      breadCrumbText: countryArray,
+      breadCrumbText: breadCrumbGenerate(label),
+      pageText: titleCaseFull('Food', city),
     },
   };
 }
 
-export default function CityPage({ deliData, cityText, breadCrumbText }: any) {
+export default function CityPage({ deliData, pageText, breadCrumbText }: any) {
   const {
     citySelected,
     category,
@@ -67,7 +66,7 @@ export default function CityPage({ deliData, cityText, breadCrumbText }: any) {
   } else if (data) {
     return (
       <main className='block'>
-        <DynamicHero background={background} title={cityText}>
+        <DynamicHero background={background} title={pageText}>
           <div className='relative flex w-[35vw] flex-1 flex-col'>
             <ButtonInput svg={<SvgMap />} placeholder={placeholder} />
           </div>
@@ -84,7 +83,7 @@ export default function CityPage({ deliData, cityText, breadCrumbText }: any) {
         <Container>
           <div>
             <Typography as='h2' variant='h2b'>
-              {cityText}
+              {pageText}
             </Typography>
             <Spacer className='h-2' />
             <p>{citySelected.subtitle}</p>

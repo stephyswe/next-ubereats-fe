@@ -11,7 +11,7 @@ export function useOutsideAlerter(ref: any, setter: any) {
     function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
         setter((prevSel: any) => (prevSel === false ? true : true));
-        document.body.classList.remove('sb-hidden');
+        document.body.classList.remove('overflow-hidden');
       }
     }
     // Bind the event listener

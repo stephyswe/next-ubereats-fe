@@ -1,6 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { AccordionNew } from '@/components/pages/client/store/new-accordion';
+import {
+  AccordionNew,
+  AccordionNewSingle,
+} from '@/components/pages/client/store/new-accordion';
 
 import { ModalBuy, ModalDetail, ModalImage } from './items';
 
@@ -16,14 +19,27 @@ export function FoodModal(props: any) {
         <ul>
           <li>
             <div>
-              {options.map((accordionItem: any, index: any) => (
-                <AccordionNew
-                  key={index}
-                  {...accordionItem}
-                  index={index}
-                  dishId={id}
-                />
-              ))}
+              {options.map((accordionItem: any, index: any) => {
+                if (accordionItem.choices) {
+                  return (
+                    <AccordionNew
+                      key={index}
+                      data={accordionItem}
+                      index={index}
+                      dishId={id}
+                    />
+                  );
+                } else {
+                  return (
+                    <AccordionNewSingle
+                      key={index}
+                      data={accordionItem}
+                      index={index}
+                      dishId={id}
+                    />
+                  );
+                }
+              })}
             </div>
           </li>
         </ul>

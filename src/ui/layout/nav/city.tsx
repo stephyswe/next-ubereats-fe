@@ -41,8 +41,8 @@ export function CityNav({ noHoverBorder }: any) {
   }, [router]);
 
   function onClickSidebar() {
-    if (stylesBody) document.body.classList.add('sb-hidden');
-    else document.body.classList.remove('sb-hidden');
+    if (stylesBody) document.body.classList.add('overflow-hidden');
+    else document.body.classList.remove('overflow-hidden');
     setStylesBody(!stylesBody);
   }
 

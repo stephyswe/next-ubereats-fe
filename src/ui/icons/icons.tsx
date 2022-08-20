@@ -261,7 +261,7 @@ export function SvgDropDownRightArrow() {
   );
 }
 
-export function SvgDropdown() {
+export function SvgDropdown({ rotate }: any) {
   return (
     <svg
       width='24px'
@@ -271,11 +271,11 @@ export function SvgDropdown() {
       xmlns='http://www.w3.org/2000/svg'
       aria-hidden='true'
       focusable='false'
+      className={rotate ? styles.icon_rotate : ''}
     >
       <path
         d='M17 11.7494V14.916L12 11.0827L7 14.916V11.7494L12 7.91602L17 11.7494Z'
         fill='#545454'
-        transform='rotate(180, 12, 12)'
       ></path>
     </svg>
   );

@@ -1,6 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
 
-import { Button } from '@/components/';
+import { Button, Link } from '@/components/';
 
 import { Spacer } from '@/ui';
 
@@ -21,8 +21,10 @@ export const StickyList = ({ menu }: { menu: string[] }) => (
 
 const StickyItem = ({ title }: StickyItemProps) => (
   <div className='flex items-center justify-between'>
-    <Button variant='storeSticky'>
-      <div className='text-base font-medium leading-5'>{title}</div>
-    </Button>
+    <Link href={`#${title}`}>
+      <Button variant='storeSticky'>
+        <div className='text-base font-medium leading-5'>{title}</div>
+      </Button>
+    </Link>
   </div>
 );

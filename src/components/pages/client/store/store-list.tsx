@@ -21,7 +21,10 @@ type StoreListProps = {
 
 export const StoreList = ({ groupKey, groupMenu }: StoreListProps) => (
   <li className='mt-10 block first-of-type:mt-0'>
-    <div className='text-[24px] font-bold leading-[32px] text-black'>
+    <div
+      id={groupKey}
+      className='text-[24px] font-bold leading-[32px] text-black'
+    >
       {groupKey}
     </div>
     <Spacer className='h-[16px]' />

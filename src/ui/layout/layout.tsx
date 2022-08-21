@@ -17,6 +17,10 @@ export const RootLayout = ({ children }: any) => {
       return <CityNav noHoverBorder />;
   }
 
+  if (router.pathname === '/auth/login') {
+    return children;
+  }
+
   return (
     <div className='h-full'>
       <div id='wrapper' className='relative flex min-w-full flex-col'>

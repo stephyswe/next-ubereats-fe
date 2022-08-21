@@ -54,7 +54,7 @@ export default function StorePage({
           createOrder: { orderId },
         } = data;
         if (data.createOrder.ok) {
-          router.push(`/client/orders/${orderId}`);
+          router.push(`/client/order/${orderId}`);
         }
       },
     });

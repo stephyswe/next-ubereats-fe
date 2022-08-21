@@ -21,7 +21,7 @@ const windowCheck = typeof window !== 'undefined';
 
 // Perform localStorage action
 if (windowCheck && LOCALSTORAGE_TOKEN) {
-  token = sessionStorage.getItem(LOCALSTORAGE_TOKEN);
+  token = localStorage.getItem(LOCALSTORAGE_TOKEN);
   isLoggedInVar = makeVar(Boolean(token));
   authTokenVar = makeVar(token);
 }

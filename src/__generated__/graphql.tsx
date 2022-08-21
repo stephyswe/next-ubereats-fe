@@ -649,6 +649,68 @@ export type CreateOrderMutation = {
   };
 };
 
+export type LoginMutationVariables = Exact<{
+  loginInput: LoginInput;
+}>;
+
+export type LoginMutation = {
+  __typename?: 'Mutation';
+  login: {
+    __typename?: 'LoginOutput';
+    ok: boolean;
+    token?: string | null;
+    error?: string | null;
+  };
+};
+
+export type UpdateOrderDriverMutationVariables = Exact<{
+  input: TakeOrderInput;
+}>;
+
+export type UpdateOrderDriverMutation = {
+  __typename?: 'Mutation';
+  updateOrderDriver: {
+    __typename?: 'TakeOrderOutput';
+    ok: boolean;
+    error?: string | null;
+  };
+};
+
+export type UpdateOrderMutationVariables = Exact<{
+  input: UpdateOrderInput;
+}>;
+
+export type UpdateOrderMutation = {
+  __typename?: 'Mutation';
+  updateOrder: {
+    __typename?: 'UpdateOrderOutput';
+    ok: boolean;
+    error?: string | null;
+  };
+};
+
+export type FindOrderQueryVariables = Exact<{
+  input: FindOrderInput;
+}>;
+
+export type FindOrderQuery = {
+  __typename?: 'Query';
+  findOrder: {
+    __typename?: 'FindOrderOutput';
+    ok: boolean;
+    error?: string | null;
+    order?: {
+      __typename?: 'Order';
+      id: number;
+      status?: OrderStatus | null;
+      total?: number | null;
+      driver?: { __typename?: 'User'; email: string } | null;
+      customer?: { __typename?: 'User'; email: string } | null;
+      restaurant?: { __typename?: 'Restaurant'; name: string } | null;
+    } | null;
+  };
+};
+
 export type FindRestaurantQueryVariables = Exact<{
   input: RestaurantInput;
 }>;
@@ -736,6 +798,38 @@ export type MeQuery = {
     email: string;
     role: UserRole;
     verified?: boolean | null;
+  };
+};
+
+export type CookedOrdersSubscriptionVariables = Exact<{ [key: string]: never }>;
+
+export type CookedOrdersSubscription = {
+  __typename?: 'Subscription';
+  cookedOrders: {
+    __typename?: 'Order';
+    id: number;
+    status?: OrderStatus | null;
+    total?: number | null;
+    driver?: { __typename?: 'User'; email: string } | null;
+    customer?: { __typename?: 'User'; email: string } | null;
+    restaurant?: { __typename?: 'Restaurant'; name: string } | null;
+  };
+};
+
+export type OrderUpdatesSubscriptionVariables = Exact<{
+  input: OrderUpdatesInput;
+}>;
+
+export type OrderUpdatesSubscription = {
+  __typename?: 'Subscription';
+  orderUpdates: {
+    __typename?: 'Order';
+    id: number;
+    status?: OrderStatus | null;
+    total?: number | null;
+    driver?: { __typename?: 'User'; email: string } | null;
+    customer?: { __typename?: 'User'; email: string } | null;
+    restaurant?: { __typename?: 'Restaurant'; name: string } | null;
   };
 };
 
@@ -845,6 +939,215 @@ export type CreateOrderMutationResult =
 export type CreateOrderMutationOptions = Apollo.BaseMutationOptions<
   CreateOrderMutation,
   CreateOrderMutationVariables
+>;
+export const LoginDocument = gql`
+  mutation login($loginInput: LoginInput!) {
+    login(input: $loginInput) {
+      ok
+      token
+      error
+    }
+  }
+`;
+export type LoginMutationFn = Apollo.MutationFunction<
+  LoginMutation,
+  LoginMutationVariables
+>;
+
+/**
+ * __useLoginMutation__
+ *
+ * To run a mutation, you first call `useLoginMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLoginMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [loginMutation, { data, loading, error }] = useLoginMutation({
+ *   variables: {
+ *      loginInput: // value for 'loginInput'
+ *   },
+ * });
+ */
+export function useLoginMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    LoginMutation,
+    LoginMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<LoginMutation, LoginMutationVariables>(
+    LoginDocument,
+    options
+  );
+}
+export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
+export type LoginMutationResult = Apollo.MutationResult<LoginMutation>;
+export type LoginMutationOptions = Apollo.BaseMutationOptions<
+  LoginMutation,
+  LoginMutationVariables
+>;
+export const UpdateOrderDriverDocument = gql`
+  mutation UpdateOrderDriver($input: TakeOrderInput!) {
+    updateOrderDriver(input: $input) {
+      ok
+      error
+    }
+  }
+`;
+export type UpdateOrderDriverMutationFn = Apollo.MutationFunction<
+  UpdateOrderDriverMutation,
+  UpdateOrderDriverMutationVariables
+>;
+
+/**
+ * __useUpdateOrderDriverMutation__
+ *
+ * To run a mutation, you first call `useUpdateOrderDriverMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateOrderDriverMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateOrderDriverMutation, { data, loading, error }] = useUpdateOrderDriverMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateOrderDriverMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateOrderDriverMutation,
+    UpdateOrderDriverMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    UpdateOrderDriverMutation,
+    UpdateOrderDriverMutationVariables
+  >(UpdateOrderDriverDocument, options);
+}
+export type UpdateOrderDriverMutationHookResult = ReturnType<
+  typeof useUpdateOrderDriverMutation
+>;
+export type UpdateOrderDriverMutationResult =
+  Apollo.MutationResult<UpdateOrderDriverMutation>;
+export type UpdateOrderDriverMutationOptions = Apollo.BaseMutationOptions<
+  UpdateOrderDriverMutation,
+  UpdateOrderDriverMutationVariables
+>;
+export const UpdateOrderDocument = gql`
+  mutation updateOrder($input: UpdateOrderInput!) {
+    updateOrder(input: $input) {
+      ok
+      error
+    }
+  }
+`;
+export type UpdateOrderMutationFn = Apollo.MutationFunction<
+  UpdateOrderMutation,
+  UpdateOrderMutationVariables
+>;
+
+/**
+ * __useUpdateOrderMutation__
+ *
+ * To run a mutation, you first call `useUpdateOrderMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateOrderMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateOrderMutation, { data, loading, error }] = useUpdateOrderMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateOrderMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    UpdateOrderMutation,
+    UpdateOrderMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<UpdateOrderMutation, UpdateOrderMutationVariables>(
+    UpdateOrderDocument,
+    options
+  );
+}
+export type UpdateOrderMutationHookResult = ReturnType<
+  typeof useUpdateOrderMutation
+>;
+export type UpdateOrderMutationResult =
+  Apollo.MutationResult<UpdateOrderMutation>;
+export type UpdateOrderMutationOptions = Apollo.BaseMutationOptions<
+  UpdateOrderMutation,
+  UpdateOrderMutationVariables
+>;
+export const FindOrderDocument = gql`
+  query findOrder($input: FindOrderInput!) {
+    findOrder(input: $input) {
+      ok
+      error
+      order {
+        ...FullOrderParts
+      }
+    }
+  }
+  ${FullOrderPartsFragmentDoc}
+`;
+
+/**
+ * __useFindOrderQuery__
+ *
+ * To run a query within a React component, call `useFindOrderQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindOrderQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindOrderQuery({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useFindOrderQuery(
+  baseOptions: Apollo.QueryHookOptions<FindOrderQuery, FindOrderQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<FindOrderQuery, FindOrderQueryVariables>(
+    FindOrderDocument,
+    options
+  );
+}
+export function useFindOrderLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    FindOrderQuery,
+    FindOrderQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<FindOrderQuery, FindOrderQueryVariables>(
+    FindOrderDocument,
+    options
+  );
+}
+export type FindOrderQueryHookResult = ReturnType<typeof useFindOrderQuery>;
+export type FindOrderLazyQueryHookResult = ReturnType<
+  typeof useFindOrderLazyQuery
+>;
+export type FindOrderQueryResult = Apollo.QueryResult<
+  FindOrderQuery,
+  FindOrderQueryVariables
 >;
 export const FindRestaurantDocument = gql`
   query findRestaurant($input: RestaurantInput!) {
@@ -1026,6 +1329,89 @@ export function useMeLazyQuery(
 export type MeQueryHookResult = ReturnType<typeof useMeQuery>;
 export type MeLazyQueryHookResult = ReturnType<typeof useMeLazyQuery>;
 export type MeQueryResult = Apollo.QueryResult<MeQuery, MeQueryVariables>;
+export const CookedOrdersDocument = gql`
+  subscription cookedOrders {
+    cookedOrders {
+      ...FullOrderParts
+    }
+  }
+  ${FullOrderPartsFragmentDoc}
+`;
+
+/**
+ * __useCookedOrdersSubscription__
+ *
+ * To run a query within a React component, call `useCookedOrdersSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useCookedOrdersSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCookedOrdersSubscription({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCookedOrdersSubscription(
+  baseOptions?: Apollo.SubscriptionHookOptions<
+    CookedOrdersSubscription,
+    CookedOrdersSubscriptionVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useSubscription<
+    CookedOrdersSubscription,
+    CookedOrdersSubscriptionVariables
+  >(CookedOrdersDocument, options);
+}
+export type CookedOrdersSubscriptionHookResult = ReturnType<
+  typeof useCookedOrdersSubscription
+>;
+export type CookedOrdersSubscriptionResult =
+  Apollo.SubscriptionResult<CookedOrdersSubscription>;
+export const OrderUpdatesDocument = gql`
+  subscription orderUpdates($input: OrderUpdatesInput!) {
+    orderUpdates(input: $input) {
+      ...FullOrderParts
+    }
+  }
+  ${FullOrderPartsFragmentDoc}
+`;
+
+/**
+ * __useOrderUpdatesSubscription__
+ *
+ * To run a query within a React component, call `useOrderUpdatesSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useOrderUpdatesSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOrderUpdatesSubscription({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useOrderUpdatesSubscription(
+  baseOptions: Apollo.SubscriptionHookOptions<
+    OrderUpdatesSubscription,
+    OrderUpdatesSubscriptionVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useSubscription<
+    OrderUpdatesSubscription,
+    OrderUpdatesSubscriptionVariables
+  >(OrderUpdatesDocument, options);
+}
+export type OrderUpdatesSubscriptionHookResult = ReturnType<
+  typeof useOrderUpdatesSubscription
+>;
+export type OrderUpdatesSubscriptionResult =
+  Apollo.SubscriptionResult<OrderUpdatesSubscription>;
 
 export interface PossibleTypesResultData {
   possibleTypes: {

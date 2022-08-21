@@ -3,14 +3,25 @@ import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { useWindowScrollPosition } from 'rooks';
 
+import { windowCheck } from '@/lib/apollo';
 import { useOutsideAlerter } from '@/hooks/useOutside';
 
 import { Link } from '@/components';
 import { NavButton } from '@/components/buttons/NavButton';
 
-import { NewLogo, Spacer } from '@/ui';
+import { LOCALSTORAGE_TOKEN } from '@/constant/env';
+import { useDelivery } from '@/contexts';
+import {
+  Cart,
+  CartDelivery,
+  CartSearch,
+  LoadingInit,
+  LoadingRound,
+  NewLogo,
+  Spacer,
+} from '@/ui';
 import { Sidebar } from '@/ui/layout/sidebar';
-import { DeliveryPickupToggler } from '@/ui/toggler';
+import { DiningToggler } from '@/ui/toggler';
 
 export function CityNav({ noHoverBorder }: any) {
   const router = useRouter();
@@ -62,13 +73,8 @@ export function CityNav({ noHoverBorder }: any) {
                   'bg-white'
                 )}
               >
-                <NavButton onClick={onClickSidebar} />
-                <Spacer className='w-4' />
-                <NewLogo />
-                <Spacer className='w-10' />
-                <DeliveryPickupToggler />
-                <div className='flex-1'></div>
-                {HeaderContentDefault()}
+                <Navigate onClickSidebar={onClickSidebar} />
+                <NavigateDynamic />
               </div>
             </div>
           </div>
@@ -78,9 +84,46 @@ export function CityNav({ noHoverBorder }: any) {
   );
 }
 
-function HeaderContentDefault() {
+const Navigate = ({ onClickSidebar }: any) => (
+  <>
+    <NavButton onClick={onClickSidebar} />
+    <Spacer className='w-8' />
+    <NewLogo />
+  </>
+);
+
+function NavigateDynamic() {
+  let auth;
+  if (windowCheck) {
+    auth = localStorage.getItem(LOCALSTORAGE_TOKEN ? LOCALSTORAGE_TOKEN : '');
+  }
+
+  const { isComplete } = useDelivery();
+  if (auth)
+    return (
+      <>
+        <Spacer className='w-10' />
+        {isComplete ? <DiningToggler /> : null}
+        <Spacer className='w-4' />
+        <CartDelivery />
+        <Spacer className='w-16' />
+        <CartSearch />
+        <Spacer className='w-6' />
+        {isComplete ? (
+          <Cart />
+        ) : (
+          <LoadingInit w='300' h='48'>
+            <LoadingRound w='80' />
+          </LoadingInit>
+        )}
+      </>
+    );
+
   return (
     <>
+      <Spacer className='w-10' />
+      <DiningToggler />
+      <div className='flex-1'></div>
       <Link
         href='/'
         variant='navLink'

@@ -17,7 +17,7 @@ import {
 } from '@/constant/env';
 
 export let token: any, isLoggedInVar: any, authTokenVar: any;
-const windowCheck = typeof window !== 'undefined';
+export const windowCheck = typeof window !== 'undefined';
 
 // Perform localStorage action
 if (windowCheck && LOCALSTORAGE_TOKEN) {

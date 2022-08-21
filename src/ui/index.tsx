@@ -1,11 +1,14 @@
 import { NextImage } from '@/components';
-export { BreadCrumb, BreadCrumbItemProps } from './breadcrumb';
+export type { BreadCrumbItemProps } from './breadcrumb';
+export { BreadCrumb } from './breadcrumb';
+export { Cart, CartDelivery, CartSearch, CartToggler } from './cart';
 export { Container } from './container';
 export { DynamicHero, Hero } from './hero';
 export { Toggler } from './toggler';
 
 /* maps */
 export * from './loading';
+export { HomeMap, MapButton } from './maps';
 
 type SpacerProps = {
   length?: number;

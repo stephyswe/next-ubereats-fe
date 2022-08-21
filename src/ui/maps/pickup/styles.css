@@ -1,0 +1,133 @@
+#review-tooltip {
+  text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
+  color: #000;
+  font-size: 12px;
+}
+
+@keyframes af {
+  0% {
+    display: none;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+  }
+  100% {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ae {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+div.gm-style-iw.gm-style-iw-c[role='dialog'] {
+  display: none;
+}
+
+.gm-style .gm-style-iw-t::after {
+  display: none;
+}
+
+.markerResItem {
+  animation-name: af;
+  bottom: 56px;
+  width: 320px;
+  animation-duration: 300ms;
+  transform: translateX(-50%);
+  //animation: af 0.4s ease-in-out;
+  left: 50%;
+  box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+  background: #ffffff;
+  overflow: hidden;
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+  z-index: 30;
+}
+
+.marker_active {
+  background: rgb(0, 0, 0) !important;
+  color: rgb(255, 255, 255);
+  font-size: 14px !important;
+}
+
+.marker {
+  animation-duration: 300ms;
+  animation-name: ae;
+  transform-origin: center bottom;
+  height: 32px;
+  width: 32px;
+  font-size: 12px;
+  border-radius: 200px;
+  transition: all 300ms ease 0s;
+  box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+  justify-content: center;
+  line-height: 16px;
+  font-weight: 500;
+  font-family: UberMoveText, sans-serif;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.marker_active_middle {
+  height: 5px;
+  animation-duration: 300ms;
+  animation-name: ae;
+  margin: -1px auto 0px;
+  width: 4px;
+  background: rgb(0, 0, 0);
+}
+
+.marker_bottom {
+  text-shadow: rgb(255 255 255) 1px 0px 0px, rgb(255 255 255) 0px 1px 0px,
+    rgb(255 255 255) -1px 0px 0px, rgb(255 255 255) 0px -1px 0px,
+    rgb(255 255 255) 2px 0px 0px, rgb(255 255 255) 0px 2px 0px,
+    rgb(255 255 255) -2px 0px 0px, rgb(255 255 255) 0px -2px 0px;
+  max-width: 200px;
+  margin-top: 4px;
+  transition: all 300ms ease 0s;
+  transform: translateX(-50%);
+  left: 50%;
+  text-overflow: ellipsis;
+  line-height: 16px;
+  font-weight: 500;
+  font-size: 12px;
+  font-family: UberMoveText, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+}
+
+.marker_active_bottom {
+  font-size: 14px;
+  /* transition: all 300ms ease 0s;
+  transform: translateX(-50%); */
+}
+
+.markerPicture {
+  height: 180px;
+  width: 320px;
+  background: rgb(246, 246, 246);
+  overflow: hidden;
+  position: relative;
+}

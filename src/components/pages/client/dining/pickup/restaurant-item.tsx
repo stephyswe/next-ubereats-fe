@@ -1,4 +1,4 @@
-import { Typography } from '@/components';
+import { Link, Typography } from '@/components';
 
 import { Spacer } from '@/ui';
 import { SvgLike } from '@/ui/icons';
@@ -26,9 +26,9 @@ export const RestaurantItem = ({
   mapMarker,
 }: RestaurantItemProps) => (
   <div className='relative overflow-hidden'>
-    <a href={link}>
+    <Link href={link ? '/client/store/1' : '/client/store/1'}>
       <h3 className='absolute h-full w-full text-[0px]'>{title}</h3>
-    </a>
+    </Link>
     <div className='pointer-events-none relative flex overflow-hidden'>
       <div className='relative w-full'>
         <div className='relative h-[128px] w-full overflow-hidden bg-[#f6f6f6]'>
@@ -69,7 +69,7 @@ export const RestaurantDetails = ({
           {title}
         </Typography>
       </div>
-      <Spacer className='spacer _4' />
+      <Spacer className='spacer w-1' />
 
       <ReviewItem review={review} />
     </div>
@@ -112,16 +112,16 @@ export const RestaurantImage = ({
       />
     </picture>
     <div className='absolute top-0 box-border flex w-full justify-between py-3'>
-      <Spacer className='spacer _8' />
+      <Spacer className='w-2' />
       <div className='flex'>
-        <Spacer className='spacer _16' />
+        <Spacer className='w-4' />
         <div className='relative'>
           <div className='absolute -left-[26px] -top-[38px] h-20 w-20 rounded-[50%] bg-gradient-rgba-center'></div>
           <button className='pointer-events-auto relative z-10 flex cursor-pointer'>
             <SvgLike />
           </button>
         </div>
-        <Spacer className='spacer _12' />
+        <Spacer className='w-3' />
       </div>
     </div>
   </>

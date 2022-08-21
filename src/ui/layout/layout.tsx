@@ -9,19 +9,13 @@ import { HomeNav } from '@/ui/layout/nav/home';
 // - Applies to all routes
 export const RootLayout = ({ children }: any) => {
   const { setComplete } = useDelivery();
-  const router = useRouter();
+  const { pathname } = useRouter();
 
   function checkRoute() {
-    if (router.pathname === '/') return <HomeNav />;
-    if (router.pathname === '/client/city/[label]') return <CityNav />;
-    if (router.pathname === '/client/category') return <CityNav />;
-    if (router.pathname === '/client/dining/pickup') return <CityNav />;
-    if (router.pathname === '/client/store/[label]')
-      return <CityNav noHoverBorder />;
-  }
-
-  if (router.pathname === '/auth/login') {
-    return children;
+    if (pathname === '/') return <HomeNav />;
+    if (pathname === '/client/store/[label]') return <CityNav noHoverBorder />;
+    if (pathname === '/auth/login') return children;
+    else return <CityNav />;
   }
 
   setTimeout(() => {

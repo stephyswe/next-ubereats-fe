@@ -138,7 +138,9 @@ module.exports = {
         '.transition-transform-easeInout-500': {
           transition: 'transform 500ms ease-in-out 0s',
         },
-
+        '.transition-opacity-ease-500': {
+          transition: 'opacity 500ms ease 0s',
+        },
         '.transition-500': {
           transition: 'transform 500ms',
           transform: 'scaleX(1)',

@@ -95,13 +95,15 @@ export function SvgPosition() {
   );
 }
 
-export function SvgCart() {
+export function SvgCart({ size = 'normal' }: any) {
   return (
     <svg
       aria-hidden='true'
       focusable='false'
       viewBox='0 0 16 16'
-      className={styles.icon_20}
+      width={iconSize(size)}
+      height={iconSize(size)}
+      fill='currentColor'
     >
       <path
         fillRule='evenodd'
@@ -539,13 +541,14 @@ export function SvgSidebar() {
   );
 }
 
-export function SvgLogin() {
+export function SvgLogin({ size = 'normal' }: any) {
   return (
     <svg
       aria-hidden='true'
       focusable='false'
       viewBox='0 0 26 26'
-      className={styles.icon_20}
+      width={iconSize(size)}
+      height={iconSize(size)}
     >
       <path
         fillRule='evenodd'
@@ -638,4 +641,12 @@ export function SvgInstagram() {
       ></path>
     </svg>
   );
+}
+
+function iconSize(size: string) {
+  let setSize = '16';
+  if (size === 'small') {
+    setSize = '14';
+  }
+  return setSize;
 }

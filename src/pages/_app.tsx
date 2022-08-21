@@ -6,6 +6,8 @@ import { ReactElement, ReactNode } from 'react';
 import '@/styles/globals.scss';
 import '@/styles/uber.css';
 import '@/styles/uber-fonts.css';
+import '@/ui/maps/pickup/map-pickup-elements.css';
+import '@/ui/maps/pickup/map-pickup-styles.css';
 
 import { DeliveryProvider } from '@/contexts/delivery';
 import { OrderProvider } from '@/contexts/order';

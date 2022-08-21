@@ -17,26 +17,20 @@ import { PickupMap } from '@/ui/maps/pickup';
  */
 export default function PickUpModePage(): JSX.Element {
   const [resItems, setResItems] = useState<any>([]);
-  const { isComplete } = useDelivery();
   const { restaurants, categories, filters } = deliveryData;
-
   return (
     <main className='flex h-[calc(100%-96px)] min-h-[calc(100%-96px)] w-full flex-col'>
       <div className='flex h-full w-full flex-row'>
         <div className='w-[831px] overflow-auto overflow-x-hidden'>
           <div className='px-6'>
-            <SearchFilter isComplete={isComplete} data={filters} />
+            <SearchFilter data={filters} />
             <div className='relative'>
               <div className='relative mb-3 flex'>
-                <CategoryContent isComplete={isComplete} data={categories} />
+                <CategoryContent data={categories} />
               </div>
               <div className='h-4'></div>
 
-              <Wrapper
-                isComplete={isComplete}
-                restaurants={restaurants}
-                resItems={resItems}
-              />
+              <Wrapper restaurants={restaurants} resItems={resItems} />
             </div>
           </div>
         </div>
@@ -53,8 +47,8 @@ export default function PickUpModePage(): JSX.Element {
  * @param props 1. isComplete 2. restaurants 3. resItems
  * @returns
  */
-function Wrapper({ isComplete, restaurants, resItems }: any) {
-  const { setHoverItem } = useDelivery();
+function Wrapper({ restaurants, resItems }: any) {
+  const { setHoverItem, isComplete } = useDelivery();
 
   if (!isComplete) {
     return <LoadingDeliveryCategories />;

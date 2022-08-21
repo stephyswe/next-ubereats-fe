@@ -1,9 +1,10 @@
 import { NextImage } from '@/components';
 export type { BreadCrumbItemProps } from './breadcrumb';
 export { BreadCrumb } from './breadcrumb';
-export { Cart, CartDelivery, CartSearch, CartToggler } from './cart';
+export { Cart } from './cart';
 export { Container } from './container';
 export { DynamicHero, Hero } from './hero';
+export { NavItemDelivery, NavItemSearch } from './navbar';
 export { Toggler } from './toggler';
 
 /* maps */

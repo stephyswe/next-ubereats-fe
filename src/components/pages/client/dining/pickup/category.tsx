@@ -3,19 +3,21 @@ import { Fragment } from 'react';
 
 import { Button, Typography } from '@/components';
 
+import { useDelivery } from '@/contexts';
 import { LoadingInitAlt, LoadingRoundSmall } from '@/ui';
 import { SvgCategoryArrow } from '@/ui/icons';
 
-export function CategoryContent({ isComplete, data }: any) {
-  if (!isComplete) {
-    return (
-      <LoadingInitAlt>
-        <LoadingRoundSmall w='144' />
-        <div className='w-3 flex-shrink-0 bg-white'></div>
-        <LoadingRoundSmall w='104' />
-      </LoadingInitAlt>
-    );
-  }
+const CategoryContentSkeleton = () => (
+  <LoadingInitAlt>
+    <LoadingRoundSmall w='144' />
+    <div className='w-3 flex-shrink-0 bg-white'></div>
+    <LoadingRoundSmall w='104' />
+  </LoadingInitAlt>
+);
+
+export function CategoryContent({ data }: any) {
+  const { isComplete } = useDelivery();
+  if (!isComplete) return <CategoryContentSkeleton />;
   return (
     <>
       <Arrow />

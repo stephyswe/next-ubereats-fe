@@ -17,12 +17,14 @@ export enum ButtonVariant {
   'filter',
   'round',
   'storeSticky',
+  'navCart',
 }
 
 type ButtonProps = {
   isLoading?: boolean;
   isDarkBg?: boolean;
   variant?: keyof typeof ButtonVariant;
+  size?: 'small' | 'md' | 'lg';
 } & React.ComponentPropsWithRef<'button'>;
 
 export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -30,6 +32,7 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     {
       children,
       className,
+      size = 'md',
       disabled: buttonDisabled,
       isLoading,
       variant = '',
@@ -105,8 +108,24 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             variant === 'storeSticky' && [
               'whitespace-no-wrap mb-6 overflow-hidden text-ellipsis text-center text-base font-medium leading-5 text-black',
             ],
+            variant === 'navCart' && [
+              'flex flex-row items-center bg-black px-4 py-2 text-white hover:bg-gray-100 active:bg-gray-400',
+            ],
           ],
           //#endregion  //*======== Variants ===========
+          //#region  //*=========== Sizes ===========
+          [
+            variant === 'navCart' &&
+              size === 'small' && ['m-0 p-[8px_12px] md:h-[36px]'],
+            size === 'md' && [],
+            size === 'lg' && [
+              'px-6 py-3',
+              'text-lg',
+              'font-medium',
+              'leading-8',
+            ],
+          ],
+          //#endregion  //*======== Sizes ===========
           'disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',

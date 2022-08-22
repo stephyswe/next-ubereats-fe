@@ -5,8 +5,8 @@ import { useWindowScrollPosition } from 'rooks';
 
 import { useOutsideAlerter } from '@/hooks/useOutside';
 
-import { Link } from '@/components';
 import { NavButton } from '@/components/buttons/NavButton';
+import { LinkLogin, LinkSignup } from '@/components/links/NavLink';
 
 import { navHomeData } from '@/constant/pages/layout/nav-home.data';
 import { NewLogo, Spacer } from '@/ui';
@@ -88,28 +88,20 @@ const AuthContent = ({
   change,
 }: AuthContentProps) => (
   <>
-    <Link
-      variant='base1'
-      href={login.link}
+    <LinkLogin
+      title={login.title}
       className={clsx(
         'bg-white text-black hover:bg-[#ccc]',
         change ? 'box-shadow-rgb-double ' : ''
       )}
-    >
-      {login.svg}
-      <Spacer className='w-4' />
-      <div className='hidden md:block'>{login.title}</div>
-    </Link>
+    />
     <Spacer className='w-4' />
-    <Link
-      variant='base1'
-      href={register.link}
+    <LinkSignup
+      title={register.title}
       className={clsx(
         'bg-black text-white hover:bg-[#333]',
         change ? 'box-shadow-rgb-double ' : ''
       )}
-    >
-      <div>{register.title}</div>
-    </Link>
+    />
   </>
 );

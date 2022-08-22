@@ -4,12 +4,12 @@ import * as React from 'react';
 import clsxm from '@/lib/clsxm';
 
 enum LinkVariant {
-  'large',
-  'base1',
-  'base2',
-  'small1',
-  'small2',
-  'small3',
+  'linkLarge',
+  'linkBase1',
+  'linkBase2',
+  'linkSmall1',
+  'linkSmall2',
+  'linkSmall3',
 }
 
 type UnstyledLinkProps = {
@@ -19,6 +19,7 @@ type UnstyledLinkProps = {
   openNewTab?: boolean;
   className?: string;
   size?: 'small' | 'normal' | 'lg';
+  weight?: 'bold' | 'medium';
   nextLinkProps?: Omit<LinkProps, 'href'>;
 } & React.ComponentPropsWithRef<'a'>;
 
@@ -29,6 +30,7 @@ export const UnstyledLink = React.forwardRef<
   (
     {
       size = 'normal',
+      weight,
       children,
       href,
       openNewTab,
@@ -45,50 +47,59 @@ export const UnstyledLink = React.forwardRef<
         : href && !href.startsWith('/') && !href.startsWith('#');
 
     const customClassName = clsxm(
+      //#region  //*=========== Weight ===========
+      [weight === 'bold' && 'font-bold', weight === 'medium' && 'font-medium'],
+      //#endregion  //*======== Weight ===========
+      //#region  //*=========== Sizes ===========
+      [
+        variant === 'linkBase1' &&
+          size === 'small' &&
+          'md:px-3 md:py-3 md:h-[36px] text-sm',
+        variant === 'linkBase1' &&
+          size === 'normal' &&
+          'p-[12px_16px] md:py-3 md:px-4 md:min-h-[48px] text-base',
+      ],
+      //#endregion  //*=========== Sizes ===========
       //#region  //*=========== Variants ===========
       [
         // ** Large - 18 px **
-        variant === 'large' && [
+        variant === 'linkLarge' && [
           'leading-6 text-lg',
-          'font-medium',
-          'box-border flex min-h-[56px] w-auto flex-shrink-0 cursor-pointer items-center justify-center rounded-[8px] px-4 py-3',
+          'min-h-[56px] rounded-[8px] p-[12px_16px]',
+          'box-border flex w-auto flex-shrink-0 ',
+          'items-center justify-center',
         ],
 
         // ** Base - 16 px **
-        variant === 'base1' && [
+        variant === 'linkBase1' && [
           'text-base leading-5',
-          'font-medium',
-          'box-border flex w-auto cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px]',
+          'font-medium rounded-[500px]',
+          'box-border flex w-auto items-center justify-center whitespace-nowrap ',
         ],
-        variant === 'base2' && [
+        variant === 'linkBase2' && [
           'text-base leading-5',
           'font-medium',
-          'invisible cursor-pointer underline md:visible',
+          'invisible underline md:visible',
         ],
         // ** Small - 14 px **
-        variant === 'small1' && ['text-sm leading-5', 'font-normal'],
-        variant === 'small2' && [
+        variant === 'linkSmall1' && ['text-sm leading-5', 'font-normal'],
+        variant === 'linkSmall2' && [
           'text-sm leading-4',
           'font-medium',
-          'flex items-center rounded-[500px] bg-gray-50 p-3',
+          'bg-gray-50',
+          'rounded-[500px] p-3',
+          'flex items-center ',
         ],
-        variant === 'small3' && [
+        variant === 'linkSmall3' && [
           'text-sm leading-4',
           'font-medium',
-          'min-h-[24px] z-[inherit] p-[12px_16px] bg-gray-50 rounded-[500px] cursor-pointer items-center whitespace-nowrap flex-row flex relative :hover:bg-gray-500',
+          'bg-gray-50 hover:bg-gray-500',
+          'min-h-[24px] p-[12px_16px] rounded-[500px]',
+          'z-[inherit] items-center whitespace-nowrap flex-row flex relative',
         ],
       ],
       //#endregion  //*=========== Variants ===========
-      //#region  //*=========== Sizes ===========
-      [
-        variant === 'base1' &&
-          size === 'small' &&
-          'md:px-3 md:py-3 md:h-[36px] text-sm',
-        variant === 'base1' &&
-          size === 'normal' &&
-          'px-4 py-3 md:py-3 md:px-4 md:min-h-[48px] text-base ',
-      ],
-      //#endregion  //*=========== Sizes ===========
+      'cursor-pointer',
       className
     );
 

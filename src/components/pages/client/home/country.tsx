@@ -24,7 +24,7 @@ export function CountryWithMap({ data }: CountryWithMapProps) {
         <Typography as='h2' variant='4xl'>
           {title}
         </Typography>
-        <Link variant='base2' href={link.href}>
+        <Link variant='linkBase2' href={link.href}>
           {link.title}
         </Link>
       </div>

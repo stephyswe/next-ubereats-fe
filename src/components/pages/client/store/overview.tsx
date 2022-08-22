@@ -77,7 +77,7 @@ const OverViewButtons = () => (
 );
 
 const OverviewButton = ({ svg, title }: any) => (
-  <Link href='placeholder' variant='small3' className='hover:bg-gray-500'>
+  <Link href='placeholder' variant='linkSmall3'>
     {svg}
     <div className='w-2'></div>
     {title}

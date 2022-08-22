@@ -1,16 +1,21 @@
-import clsx from 'clsx';
-
 import { Link } from '@/components';
 
 import { Spacer } from '@/ui';
 import { SvgLogin } from '@/ui/icons';
 
-export const LinkLogin = ({ plain, size = 'normal' }: any) => (
+export const LinkLogin = ({
+  className,
+  title,
+  plain,
+  size = 'normal',
+}: any) => (
   <Link
     size={size}
-    variant='base1'
+    variant='linkBase1'
     href='placeholder'
-    className={clsx('bg-[#eee] text-black hover:bg-[#ccc]')}
+    className={
+      className ? className : 'bg-[#eee] hover:bg-[#ccc] active:bg-[#ddd]'
+    }
   >
     {plain ? null : (
       <>
@@ -19,17 +24,19 @@ export const LinkLogin = ({ plain, size = 'normal' }: any) => (
       </>
     )}
 
-    <div className='hidden md:block'>Sign in</div>
+    <div className='hidden md:block'>{title ? title : 'Sign in'}</div>
   </Link>
 );
 
-export const LinkSignup = ({ size = 'normal' }: any) => (
+export const LinkSignup = ({ title, className, size = 'normal' }: any) => (
   <Link
     size={size}
     href='/'
-    variant='base1'
-    className='bg-[#eee] text-black hover:bg-[#e2e2e2]'
+    variant='linkBase1'
+    className={
+      className ? className : 'bg-[#eee] hover:bg-[#e2e2e2] active:bg-[#ddd]'
+    }
   >
-    Sign up
+    {title ? title : 'Sign up'}
   </Link>
 );

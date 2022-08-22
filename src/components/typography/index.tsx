@@ -25,9 +25,9 @@ enum TypographyVariant {
 type TypographyProps<C extends React.ElementType> = {
   as?: keyof typeof TypographyAs;
   variant?: keyof typeof TypographyVariant;
-  weight: 'bold' | 'medium';
-  font: 'secondary';
-  leading: string;
+  weight?: 'bold' | 'medium';
+  font?: 'secondary';
+  leading?: string;
 } & React.ComponentPropsWithRef<C>;
 
 export default function Typography<C extends React.ElementType>({

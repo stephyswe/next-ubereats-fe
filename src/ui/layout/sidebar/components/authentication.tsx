@@ -21,7 +21,8 @@ export const SidebarAuthentication = ({
       <Fragment key={index}>
         <Link
           href={link}
-          variant='large'
+          variant='linkLarge'
+          weight='medium'
           className={clsx(
             index === 0
               ? 'bg-[#000] text-white hover:bg-[#333]'

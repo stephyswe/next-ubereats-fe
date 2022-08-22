@@ -25,7 +25,7 @@ const CopyRightDefault = () => (
   <div className='font-uberMoveText text-sm font-normal leading-5 text-black'>
     Denna webbplats skyddas av reCAPTCHA. Googles{' '}
     <Link href='placeholder'>Sekretesspolicy</Link> och{' '}
-    <Link variant='small1' href='placeholder'>
+    <Link variant='linkSmall1' href='placeholder'>
       Tjänstevillkor
     </Link>{' '}
     tillämpas.
@@ -45,7 +45,7 @@ const CopyRightMobile = () => (
         Sekretesspolicy
       </Link>{' '}
       och{' '}
-      <Link variant='small1' href='placeholder'>
+      <Link variant='linkSmall1' href='placeholder'>
         Tjänstevillkor
       </Link>{' '}
       tillämpas.

@@ -1,5 +1,6 @@
 import NextImage from '@/components/image';
 import { Link } from '@/components/links';
+import { LinkIcon } from '@/components/links/LinkIcon';
 import Typography from '@/components/typography';
 
 import { Spacer } from '@/ui';
@@ -59,27 +60,19 @@ export const Overview = () => (
           </Link>
         </div>
       </div>
-      <OverViewButtons />
-    </div>
-  </div>
-);
-
-const OverViewButtons = () => (
-  <div className='flex min-h-[56px] items-end'>
-    <div className='relative inline-block'>
-      <div className='relative z-0'>
-        <OverviewButton svg={<SvgPersonAdd />} title='Gruppbeställning' />
+      <div className='flex min-h-[56px] items-end'>
+        <div className='relative inline-block'>
+          <div className='relative z-0'>
+            <LinkIcon
+              href='placeholder'
+              svg={<SvgPersonAdd />}
+              title='Gruppbeställning'
+            />
+          </div>
+        </div>
+        <div className='w-2'></div>
+        <LinkIcon href='placeholder' svg={<SvgSchedule />} title='Schemalägg' />
       </div>
     </div>
-    <div className='w-2'></div>
-    <OverviewButton svg={<SvgSchedule />} title='Schemalägg' />
   </div>
-);
-
-const OverviewButton = ({ svg, title }: any) => (
-  <Link href='placeholder' variant='linkSmall3'>
-    {svg}
-    <div className='w-2'></div>
-    {title}
-  </Link>
 );

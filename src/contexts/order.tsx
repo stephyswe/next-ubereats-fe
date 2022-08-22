@@ -6,7 +6,18 @@ import {
   useState,
 } from 'react';
 
-import { CreateOrderItemInput } from '@/__generated__/graphql';
+import {
+  InputMaybe,
+  OrderItemOptionInputType,
+  Scalars,
+} from '@/__generated__/graphql';
+
+type CreateOrderItemInput = {
+  dishId: Scalars['Int'];
+  options?: InputMaybe<OrderItemOptionInputType[]> | undefined;
+  price: Scalars['Float'];
+  name: Scalars['String'];
+};
 
 interface OrderState {
   orderItems: CreateOrderItemInput[];

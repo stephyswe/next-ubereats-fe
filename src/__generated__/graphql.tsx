@@ -407,6 +407,7 @@ export type Query = {
   findCategoryBySlug: CategoryOutput;
   findManyCategories: FindManyCategoriesOutput;
   findManyDishes: FindManyDishesOutput;
+  findManyDishesIds: FindManyDishesOutput;
   findManyOrders: FindManyOrdersOutput;
   findManyPayments: FindManyPaymentOutput;
   findManyRestaurants: RestaurantsOutput;
@@ -421,6 +422,10 @@ export type Query = {
 
 export type QueryFindCategoryBySlugArgs = {
   input: CategoryInput;
+};
+
+export type QueryFindManyDishesIdsArgs = {
+  input: FindManyDishesIdsInput;
 };
 
 export type QueryFindManyOrdersArgs = {
@@ -584,6 +589,10 @@ export type VerifyEmailOutput = {
   __typename?: 'VerifyEmailOutput';
   error?: Maybe<Scalars['String']>;
   ok: Scalars['Boolean'];
+};
+
+export type FindManyDishesIdsInput = {
+  dishIds: Array<Scalars['Int']>;
 };
 
 export type CategoryPartsFragment = {

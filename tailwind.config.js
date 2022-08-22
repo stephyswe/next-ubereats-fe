@@ -85,7 +85,10 @@ module.exports = {
           background:
             'radial-gradient(at center center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
         },
-
+        '.bg-gradient-rgba-cart': {
+          background:
+            'linear-gradient(rgba(255, 255, 255, 0) 2.5%, rgba(255, 255, 255, 0.92) 55.35%)',
+        },
         /** Transitions */
 
         /** 100 */

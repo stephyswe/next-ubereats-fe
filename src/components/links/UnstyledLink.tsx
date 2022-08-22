@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-enum LinkVariant {
+export enum LinkVariant {
   'linkLarge',
   'linkBase1',
   'linkBase2',
@@ -94,12 +94,13 @@ export const UnstyledLink = React.forwardRef<
           'text-sm leading-4',
           'font-medium',
           'bg-gray-50 hover:bg-gray-500',
-          'min-h-[24px] p-[12px_16px] rounded-[500px]',
+          'min-h-[24px] p-[8px_16px] rounded-[500px]',
           'z-[inherit] items-center whitespace-nowrap flex-row flex relative',
         ],
+        variant === 'linkSmall3' &&
+          size === 'small' && ['w-fit h-9 p-[0px_12px]'],
       ],
       //#endregion  //*=========== Variants ===========
-      'cursor-pointer',
       className
     );
 

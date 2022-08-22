@@ -1,6 +1,8 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Modal from 'react-modal';
+
+import { useOnClickOutside } from '@/hooks/useOutsideDiv';
 
 import { storeModalStyles } from '@/components/pages/client/store';
 import { ModalHeader } from '@/components/pages/client/store/store-modal/items';
@@ -43,12 +45,14 @@ export function StoreItem({ item }: any) {
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
-    setOrderItem({ dishId: id, options: [] });
+    setOrderItem({ dishId: id, price, name, options: [] });
   }
 
   function closeModal() {
     setIsOpen(false);
   }
+  const ref = useRef(null);
+  useOnClickOutside(ref, closeModal);
 
   return (
     <>
@@ -77,7 +81,7 @@ export function StoreItem({ item }: any) {
         shouldCloseOnOverlayClick={true}
       >
         <Spacer className='pt-20' />
-        <div role='dialog' className='relative m-auto bg-white'>
+        <div ref={ref} role='dialog' className='relative m-auto bg-white'>
           <div className='relative top-0 z-40'></div>
           <div></div>
           <ModalHeader closeModal={closeModal} checkPhoto={item.photo} />
@@ -89,13 +93,21 @@ export function StoreItem({ item }: any) {
   );
 }
 
-function FoodItemPlusQuick({ id }: { id: string }) {
+function FoodItemPlusQuick({
+  id,
+  price,
+  name,
+}: {
+  id: string;
+  price: number;
+  name: string;
+}) {
   const { setOrderItems } = useOrders();
 
   function onClickBuy() {
     setOrderItems((orderItems: any) => {
       const otherItems = orderItems.filter((item: any) => item.dishId !== id);
-      return [{ dishId: id, options: [] }, ...otherItems];
+      return [{ dishId: id, price, name, options: [] }, ...otherItems];
     });
   }
 

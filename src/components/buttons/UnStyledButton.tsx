@@ -8,7 +8,7 @@ export enum ButtonVariant {
   'btnDish',
   'btnLg1',
   'btnLg2',
-  'btnLg3,',
+  'btnLg3',
   'btnBase1',
   'btnBase2',
   'btnSmall1',
@@ -70,8 +70,8 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'box-border flex h-12 min-h-fit w-12 cursor-pointer items-center justify-center rounded-[50%] p-0',
             ],
             variant === 'btnLg2' && [
-              'text-white hover:bg-[#333]',
-              'w-full bg-black pt-4 pb-4 ',
+              'bg-black text-white hover:bg-[#333]',
+              'w-full rounded-[8px] py-4',
               'transition-colors duration-200',
             ],
             variant === 'btnLg3' && [

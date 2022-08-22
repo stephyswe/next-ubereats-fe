@@ -14,3 +14,9 @@
 .cart_border_width {
   border-width: 0 1px 1px 1px;
 }
+
+:not(:first-child).cart_li_item {
+  border-top: 1px solid #e2e2e2;
+  margin-top: 16px;
+  padding-top: 12px;
+}

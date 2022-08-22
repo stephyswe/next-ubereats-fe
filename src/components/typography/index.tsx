@@ -70,7 +70,10 @@ export default function Typography<C extends React.ElementType>({
           // ** 4XL - 36 px **
           variant === '4xl' && [
             'font-uberMove text-4xl leading-[44px]',
-            ' font-bold',
+            'font-bold',
+          ],
+          variant === '4xl-normal' && [
+            'font-uberMove text-4xl font-medium leading-[44px]',
           ],
           // ** 3XL - 30 px **
           // ** 2XL - 24 px **
@@ -86,7 +89,7 @@ export default function Typography<C extends React.ElementType>({
           variant === 'base' && ['text-base'],
           // ** SMALL - 14px **
           variant === 'small' && ['text-sm'],
-          // ** EXTRA-SMALL **
+          // ** EXTRA-SMALL - 12px **
           variant === 'xs' && ['text-xs leading-5'],
         ],
         //#endregion  //*======== Variants ===========

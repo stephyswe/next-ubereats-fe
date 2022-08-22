@@ -1,1 +1,6 @@
-export { Arrow, CategoryContent, RestaurantItem, SearchFilter } from './pickup';
+export {
+  Arrow,
+  PickupCategoryList,
+  RestaurantItem,
+  SearchFilter,
+} from './pickup';

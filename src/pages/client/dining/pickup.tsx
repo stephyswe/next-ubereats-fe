@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 import {
-  CategoryContent,
   LoadingDeliveryCategories,
   RestaurantItem,
   SearchFilter,
 } from '@/components/pages/';
+import { PickupCategoryList } from '@/components/pages/client/dining/pickup/category';
 
 import { deliveryData } from '@/constant/pages/client/pickup.data';
 import { useDelivery } from '@/contexts/delivery';
@@ -26,7 +26,7 @@ export default function PickUpModePage(): JSX.Element {
             <SearchFilter data={filters} />
             <div className='relative'>
               <div className='relative mb-3 flex'>
-                <CategoryContent data={categories} />
+                <PickupCategoryList data={categories} />
               </div>
               <div className='h-4'></div>
 

@@ -15,7 +15,7 @@ const CategoryContentSkeleton = () => (
   </LoadingInitAlt>
 );
 
-export function CategoryContent({ data }: any) {
+export function PickupCategoryList({ data }: any) {
   const { isComplete } = useDelivery();
   if (!isComplete) return <CategoryContentSkeleton />;
   return (
@@ -23,9 +23,9 @@ export function CategoryContent({ data }: any) {
       <Arrow />
       <div className='scroll-smooth'>
         <div className='flex'>
-          {data.map((item: any) => (
-            <Fragment key={item.title}>
-              <CategoryIcon {...item} />
+          {data.map(({ title, img }: any) => (
+            <Fragment key={title}>
+              <CategoryItem title={title} img={img} />
               <div className='m-0 h-[1px] w-4 flex-shrink-0 p-0'></div>
             </Fragment>
           ))}
@@ -35,34 +35,32 @@ export function CategoryContent({ data }: any) {
   );
 }
 
-const CategoryIcon = ({ title, img }: any) => (
-  <div>
-    <li>
-      <a
-        href='yup'
-        className='group relative flex min-w-[80px] max-w-fit flex-col items-center '
+export const CategoryItem = ({ title, img }: any) => (
+  <li>
+    <a
+      href='yup'
+      className='group relative flex min-w-[80px] max-w-fit flex-col items-center '
+    >
+      <div className='relative h-[60px] w-[60px]'>
+        <img
+          alt={title}
+          role='presentation'
+          src={img}
+          className='h-full w-full rounded-full group-hover:bg-[#eee]'
+        />
+      </div>
+      <div className='h-2'></div>
+      <Typography
+        as='p'
+        variant='small'
+        weight='medium'
+        leading='4'
+        className='w-full text-center'
       >
-        <div className='relative h-[60px] w-[60px]'>
-          <img
-            alt={title}
-            role='presentation'
-            src={img}
-            className='h-full w-full rounded-full group-hover:bg-[#eee]'
-          />
-        </div>
-        <div className='h-2'></div>
-        <Typography
-          as='p'
-          variant='small'
-          weight='medium'
-          leading='4'
-          className='w-full text-center'
-        >
-          <div className='overflow-hidden'>{title}</div>
-        </Typography>
-      </a>
-    </li>
-  </div>
+        <div className='overflow-hidden'>{title}</div>
+      </Typography>
+    </a>
+  </li>
 );
 
 export const Arrow = () => (

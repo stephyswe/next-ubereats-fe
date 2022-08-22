@@ -20,7 +20,9 @@ export const AccordionNew = ({ data, dishId }: any) => {
 
   const HandleOpening = () => {
     setOpened(!isOpened);
-    setHeight(!isOpened ? `${contentElement?.current?.scrollHeight}px` : '0px');
+    setHeight(
+      !isOpened ? `${contentElement?.current?.['scrollHeight']}px` : '0px'
+    );
   };
 
   const handleClick = (title: any) => {
@@ -152,7 +154,10 @@ export const AccordionNewSingle = ({ data, dishId }: any) => {
 
   const HandleOpening = () => {
     setOpened(!isOpened);
-    setHeight(!isOpened ? `${contentElement?.current.scrollHeight}px` : '0px');
+
+    setHeight(
+      !isOpened ? `${contentElement?.current?.['scrollHeight']}px` : '0px'
+    );
   };
 
   const handleClick = (title: any) => {

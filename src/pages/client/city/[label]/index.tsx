@@ -108,7 +108,7 @@ export default function CityPage({ deliData, pageText, breadCrumbText }: any) {
 
         <Container>
           <Spacer className='h-6' />
-          <FoodList data={data.findManyRestaurants.results} />
+          <FoodList />
           <Separator />
         </Container>
         <Container>

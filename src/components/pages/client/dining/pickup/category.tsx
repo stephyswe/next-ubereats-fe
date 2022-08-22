@@ -68,12 +68,12 @@ const CategoryIcon = ({ title, img }: any) => (
 export const Arrow = () => (
   <div className='pointer-events-none absolute z-10 flex h-full w-full justify-between'>
     <div className='pointer-events-auto invisible flex h-full cursor-pointer items-center pr-6 bg-gradient-rgb-right'>
-      <Button variant='round'>
+      <Button variant='btnSmall2'>
         <SvgCategoryArrow />
       </Button>
     </div>
     <div className='pointer-events-auto right-0 flex h-full cursor-pointer items-center pl-6 bg-gradient-rgb-left'>
-      <Button variant='round'>
+      <Button variant='btnSmall2'>
         <SvgCategoryArrow rotate />
       </Button>
     </div>

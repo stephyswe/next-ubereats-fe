@@ -37,7 +37,7 @@ export function SearchFilter({ data }: any) {
 }
 
 const SearchFilterButton = ({ title }: any) => (
-  <Button variant='filter'>
+  <Button variant='btnSmall1'>
     <div className='flex-grow overflow-hidden'>
       <Typography as='span'>{title}</Typography>
     </div>

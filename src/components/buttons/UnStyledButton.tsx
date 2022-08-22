@@ -4,27 +4,22 @@ import { ImSpinner2 } from 'react-icons/im';
 import clsxm from '@/lib/clsxm';
 
 export enum ButtonVariant {
-  'primary',
-  'outline',
-  'ghost',
-  'light',
-  'dark',
-  'black',
-  'blackHome',
-  'modalDishBuy',
-  'modalDishQuantity',
-  'modalDishClose',
-  'filter',
-  'round',
-  'storeSticky',
-  'navCart',
+  'btnCart',
+  'btnDish',
+  'btnLg1',
+  'btnLg2',
+  'btnLg3,',
+  'btnBase1',
+  'btnBase2',
+  'btnSmall1',
+  'btnSmall2',
 }
 
 type ButtonProps = {
   isLoading?: boolean;
   isDarkBg?: boolean;
   variant?: keyof typeof ButtonVariant;
-  size?: 'small' | 'md' | 'lg';
+  size?: 'small' | 'md' | 'lg' | 'base';
 } & React.ComponentPropsWithRef<'button'>;
 
 export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -36,7 +31,6 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled: buttonDisabled,
       isLoading,
       variant = '',
-      isDarkBg = false,
       ...rest
     },
     ref
@@ -49,84 +43,73 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
+          //#region  //*=========== Sizes ===========
+          // navCart -- TODO FIX THIS
+          [
+            variant === 'btnCart' &&
+              size === 'small' && ['m-0 p-[8px_12px] md:h-[36px]'],
+            variant === 'btnCart' &&
+              size === 'lg' && [
+                'px-6 py-3',
+                'text-lg',
+                'font-medium',
+                'leading-8',
+              ],
+            variant !== 'btnCart' &&
+              size === 'lg' && ['text-lg font-medium leading-6'],
+            size === 'base' && ['text-base leading-5'],
+            variant !== 'btnCart' &&
+              size === 'small' && ['text-sm font-medium leading-4'],
+          ],
+          //#endregion  //*======== Sizes ===========
           //#region  //*=========== Variants ===========
           [
-            variant === 'primary' && [
-              'bg-primary-500 text-white',
-              'border border-primary-600',
-              'hover:bg-primary-600 hover:text-white',
-              'active:bg-primary-500',
-              'disabled:bg-primary-400 disabled:hover:bg-primary-400',
+            // ** Large - 18 px **
+            variant === 'btnLg1' && [
+              'bg-gray-50 hover:bg-[#e2e2e2]',
+              'box-border flex h-12 min-h-fit w-12 cursor-pointer items-center justify-center rounded-[50%] p-0',
             ],
-            variant === 'outline' && [
-              'text-primary-500',
-              'border border-primary-500',
-              'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
-              isDarkBg &&
-                'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+            variant === 'btnLg2' && [
+              'text-white hover:bg-[#333]',
+              'w-full bg-black pt-4 pb-4 ',
+              'transition-colors duration-200',
             ],
-            variant === 'ghost' && [
-              'text-primary-500',
-              'shadow-none',
-              'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
-              isDarkBg &&
-                'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
+            variant === 'btnLg3' && [
+              'text-white',
+              'bg-black hover:bg-gray-100 active:bg-gray-200',
+              'box-border flex h-14 min-h-[56px] cursor-pointer items-center justify-center rounded-[8px] px-4 py-3 md:w-max',
             ],
-            variant === 'light' && [
-              'bg-white text-dark ',
-              'border border-gray-300',
-              'hover:bg-gray-100 hover:text-dark',
-              'active:bg-white/80 disabled:bg-gray-200',
+            // ** Base - 16 px **
+            variant === 'btnBase1' && [
+              'text-white',
+              'bg-black hover:bg-gray-100 disabled:bg-gray-300',
+              'm-0 flex items-center rounded-[38px] border-none px-4 py-[14px] outline-none transition-btn-200',
             ],
-            variant === 'black' && [
-              'm-0 flex items-center rounded-[38px] border-none px-4 py-[14px] text-base leading-5 text-white outline-none transition-btn-200',
-              'bg-black hover:bg-gray-100',
-              'disabled:point-events-none disabled:cursor-not-allowed disabled:bg-gray-300',
+            variant === 'btnBase2' && [
+              'font-medium',
+              'whitespace-no-wrap mb-6 overflow-hidden text-ellipsis text-center',
             ],
-            variant === 'blackHome' && [
-              'box-border flex h-14 min-h-[56px] cursor-pointer items-center justify-center font-uberMoveText',
-              'bg-black px-4 py-3 text-lg font-medium leading-6 text-white md:w-max',
-              'rounded-[8px] hover:bg-gray-100 active:bg-gray-200',
+            // ** Small - 14 px **
+            variant === 'btnSmall1' && [
+              'bg-[#eee]',
+              'relative flex cursor-pointer items-center whitespace-nowrap rounded-[500px] py-2 px-3 transition-width-easeInout-150',
             ],
-            variant === 'modalDishQuantity' && [
-              'box-border flex h-12 min-h-fit w-12 cursor-pointer items-center justify-center rounded-[50%]',
-              'bg-gray-50 p-0 font-uberMoveText text-lg font-medium leading-6 text-black hover:bg-[#e2e2e2]',
+            variant === 'btnSmall2' && [
+              'box-shadow-rgb-button flex h-10 cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px] bg-white px-3 transition-all-300',
             ],
-            variant === 'modalDishBuy' && [
-              'w-full bg-black pt-4 pb-4 text-lg',
-              'font-medium leading-6 text-white transition-colors duration-200 hover:bg-[#333]',
+            // ** No Size **
+            variant === 'btnDish' && [
+              'bg-white active:bg-gray-50',
+              'absolute left-2 top-2 z-10 box-border flex h-12 w-12 cursor-pointer items-center justify-center rounded-[50%]',
             ],
-            variant === 'modalDishClose' && [
-              'absolute left-2 top-2 z-10 box-border flex h-12 w-12 cursor-pointer items-center justify-center rounded-[50%] bg-white active:bg-gray-50',
-            ],
-            variant === 'filter' && [
-              'relative flex cursor-pointer items-center whitespace-nowrap rounded-[500px] bg-[#eee] py-2 px-3 font-uberMoveText text-sm font-medium leading-4 text-black transition-width-easeInout-150',
-            ],
-            variant === 'round' && [
-              'box-shadow-rgb-button flex h-10 cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px] bg-white px-3 font-uberMoveText text-sm font-medium leading-4 text-black transition-all-300',
-            ],
-            variant === 'storeSticky' && [
-              'whitespace-no-wrap mb-6 overflow-hidden text-ellipsis text-center text-base font-medium leading-5 text-black',
-            ],
-            variant === 'navCart' && [
-              'flex flex-row items-center bg-black px-4 py-2 text-white hover:bg-gray-100 active:bg-gray-400',
+            variant === 'btnCart' && [
+              'text-white',
+              'bg-black hover:bg-gray-100 active:bg-gray-400',
+              'flex flex-row items-center px-4 py-2 ',
             ],
           ],
           //#endregion  //*======== Variants ===========
-          //#region  //*=========== Sizes ===========
-          [
-            variant === 'navCart' &&
-              size === 'small' && ['m-0 p-[8px_12px] md:h-[36px]'],
-            size === 'md' && [],
-            size === 'lg' && [
-              'px-6 py-3',
-              'text-lg',
-              'font-medium',
-              'leading-8',
-            ],
-          ],
-          //#endregion  //*======== Sizes ===========
-          'disabled:cursor-not-allowed',
+          'disabled:point-events-none disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
           className

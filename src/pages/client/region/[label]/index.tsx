@@ -85,7 +85,7 @@ export default function RegionPage({
           <ButtonInput svg={<SvgMap />} placeholder={placeholder} />
         </div>
         <Spacer className='w-4' />
-        <Button className='w-[300px]' variant='blackHome'>
+        <Button className='w-[300px]' variant='btnLg3' size='lg'>
           {buttonText}
         </Button>
       </DynamicHero>

@@ -26,7 +26,7 @@ export function ModalHeader({ closeModal, checkPhoto }: any) {
           Cheese Triangles
         </div>
       </div>
-      <Button variant='modalDishClose' onClick={closeModal}>
+      <Button variant='btnDish' onClick={closeModal}>
         <div className=' h-[24px] w-[24px]'>
           <SvgModalClose />
         </div>
@@ -110,7 +110,7 @@ export function ModalBuy({ closeModal }: any) {
     <div className='sticky bottom-0 flex flex-row items-center justify-between bg-white p-6'>
       <div className='flex flex-col justify-between'>
         <div className='flex items-center justify-center'>
-          <ButtonIcon svg={<SvgBuyMinus />} variant='modalDishQuantity' />
+          <ButtonIcon svg={<SvgBuyMinus />} variant='btnLg1' size='lg' />
           <Typography
             as='div'
             variant='base'
@@ -119,12 +119,13 @@ export function ModalBuy({ closeModal }: any) {
           >
             1
           </Typography>
-          <ButtonIcon svg={<SvgBuyPlus />} variant='modalDishQuantity' />
+          <ButtonIcon svg={<SvgBuyPlus />} variant='btnLg1' size='lg' />
         </div>
       </div>
       <Spacer className='w-6' />
       <Button
-        variant='modalDishBuy'
+        variant='btnLg2'
+        size='lg'
         onClick={onClickBuy}
         className={`${buyLoading ? styles.modal_buy_btn__loading : null}`}
       >

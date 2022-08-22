@@ -26,7 +26,10 @@ export default function HomePage() {
               />
             </div>
             <Spacer className='w-2' />
-            <Button variant='blackHome'> {hero.buttonText}</Button>
+            <Button variant='btnLg3' size='lg'>
+              {' '}
+              {hero.buttonText}
+            </Button>
           </div>
           <div className='mt-6 font-uberMoveText text-sm font-medium leading-4'>
             <Link href={hero.links.link} className='cursor-pointer underline'>

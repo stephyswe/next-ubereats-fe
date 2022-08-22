@@ -33,7 +33,7 @@ export const SidebarSocialList = ({ data }: SidebarSocialListProps) => (
     <div className='mb-2 mt-4 flex items-center'>
       {data.devices.map((device: SidebarSocialItemProps, index: number) => (
         <Fragment key={index}>
-          <Link variant='sidebarDevice' href='placeholder'>
+          <Link variant='small2' href='placeholder'>
             {device.svg}
             <Spacer className='w-2' />
             {device.title}

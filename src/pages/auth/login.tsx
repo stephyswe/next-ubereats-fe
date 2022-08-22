@@ -107,14 +107,14 @@ export default function Login() {
             <Typography as='p' variant='xs' className='m-0'>
               This site is protected by reCAPTCHA and the Google{' '}
               <Link
-                variant='authLink'
+                className='text-gray-400'
                 href='https://policies.google.com/privacy'
               >
                 Privacy Policy
               </Link>{' '}
               and{' '}
               <Link
-                variant='authLink'
+                className='text-gray-400'
                 href='https://policies.google.com/terms/new'
               >
                 Terms of Service

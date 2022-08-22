@@ -89,7 +89,7 @@ const AuthContent = ({
 }: AuthContentProps) => (
   <>
     <Link
-      variant='navLink'
+      variant='base1'
       href={login.link}
       className={clsx(
         'bg-white text-black hover:bg-[#ccc]',
@@ -102,7 +102,7 @@ const AuthContent = ({
     </Link>
     <Spacer className='w-4' />
     <Link
-      variant='navLink'
+      variant='base1'
       href={register.link}
       className={clsx(
         'bg-black text-white hover:bg-[#333]',

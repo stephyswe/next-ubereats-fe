@@ -10,17 +10,17 @@ import { HomeNav } from '@/ui/layout/nav/home';
 export const RootLayout = ({ children }: any) => {
   const { setComplete } = useDelivery();
   const { pathname } = useRouter();
-
   function checkRoute() {
     if (pathname === '/') return <HomeNav />;
     if (pathname === '/client/store/[label]') return <CityNav noHoverBorder />;
-    if (pathname === '/auth/login') return children;
     else return <CityNav />;
   }
 
   setTimeout(() => {
     setComplete(true);
   }, 1000);
+
+  if (pathname === '/auth/login') return children;
 
   return (
     <div className='h-full'>

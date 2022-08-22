@@ -20,7 +20,7 @@ export const Hero = ({ title, image, children }: HeroProps) => (
     </div>
     <div className='absolute top-0 bottom-0 left-0 right-0 flex items-center text-black'>
       <div className='m-auto box-border w-full px-4 md:min-w-[1024px] md:px-10'>
-        <Typography as='h2' variant='h2a'>
+        <Typography as='h2' variant='5xl'>
           {title}
         </Typography>
         {children}
@@ -59,7 +59,7 @@ export const DynamicHero = ({
       />
     </div>
     <div className='absolute top-1/2 left-1/2 z-20 translate-y-[-50%] translate-x-[-50%]'>
-      <Typography as='h2' variant='h2c' className='mb-[44px]'>
+      <Typography as='h2' variant='4xl' className='mb-[44px] text-center'>
         {title}
       </Typography>
       <div className='flex items-center justify-center'>{children}</div>

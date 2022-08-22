@@ -75,7 +75,11 @@ export default function Login() {
                     />
                   </div>
                 </div>
-                <Typography as='p' variant='p1' className='pt-5'>
+                <Typography
+                  as='p'
+                  variant='small'
+                  className='pt-5 text-gray-300'
+                >
                   By proceeding, you consent to get calls, WhatsApp or SMS
                   messages, including by automated means, from Uber and its
                   affiliates to the number provided.
@@ -100,7 +104,7 @@ export default function Login() {
           </div>
 
           <div className='flex justify-center pb-5 text-center'>
-            <Typography as='p' variant='p2'>
+            <Typography as='p' variant='xs' className='m-0'>
               This site is protected by reCAPTCHA and the Google{' '}
               <Link
                 variant='authLink'

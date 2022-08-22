@@ -36,7 +36,7 @@ const OverviewDetail = () => (
 export const Overview = () => (
   <div className='pt-6'>
     <div>
-      <Typography as='h2' variant='h2b' className='leading-[36px]'>
+      <Typography as='h2' variant='4xl' className='leading-[36px]'>
         McDonalds Avenyn
       </Typography>
       <div className='h-2'></div>
@@ -44,16 +44,16 @@ export const Overview = () => (
         <div>
           <OverviewDetail />
           <Spacer className='h-[2px]' />
-          <Typography as='span' variant='spanOverviewText'>
+          <Typography as='p' variant='small' className='text-gray-400'>
             Kungsportsavenyen 32, Gothenburg, Västra Götalands län 411 36
           </Typography>
           <Spacer className='h-[2px]' />
-          <Typography as='span' variant='spanOverviewText'>
+          <Typography as='p' variant='small' className='text-gray-400'>
             10–20 min • 59.00SEK i avgift
           </Typography>
           <Spacer className='h-[2px]' />
           <Link href='placeholder'>
-            <Typography as='span' variant='spanOverviewText'>
+            <Typography as='p' variant='small' className='text-gray-400'>
               Tryck för att se öppettider, adress med mera
             </Typography>
           </Link>

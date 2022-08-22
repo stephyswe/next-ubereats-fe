@@ -101,7 +101,7 @@ const CategoryTwo = ({ data }: { data: CategorySecondItemProps[] }) => (
 
 const Explore = ({ onNextClick, inputRef, exploreTitle }: ExploreProps) => (
   <div className='mb-6 flex items-center justify-between'>
-    <Typography as='h2' variant='h2b'>
+    <Typography as='h2' variant='4xl'>
       {exploreTitle}
     </Typography>
     <div className='flex items-center '>

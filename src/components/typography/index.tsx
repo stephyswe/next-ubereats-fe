@@ -13,25 +13,21 @@ enum TypographyAs {
 }
 
 enum TypographyVariant {
-  'p1',
-  'pCategoryResItemTitle',
-  'p2',
-  'h2a',
-  'h2b',
-  'h1ModalDish',
-  'spanModalDishPrice',
-  'divModalDishDescription',
-  'divModalDishQuantity',
-  'divCityResItemTitle',
-  'divCategoryResItemTitle',
-  'spanModalDishAllergy',
-  'spanCategories',
-  'spanOverviewText',
+  '4xl',
+  '5xl',
+  'xl',
+  'large',
+  'base',
+  'small',
+  'xs',
 }
 
 type TypographyProps<C extends React.ElementType> = {
   as?: keyof typeof TypographyAs;
   variant?: keyof typeof TypographyVariant;
+  weight: 'bold' | 'medium';
+  font: 'secondary';
+  leading: string;
 } & React.ComponentPropsWithRef<C>;
 
 export default function Typography<C extends React.ElementType>({
@@ -39,6 +35,9 @@ export default function Typography<C extends React.ElementType>({
   children,
   className,
   variant = '',
+  weight,
+  font,
+  leading,
   ...rest
 }: TypographyProps<C>) {
   const Component = as;
@@ -46,68 +45,49 @@ export default function Typography<C extends React.ElementType>({
   return (
     <Component
       className={clsxm(
-        //#region  //*=========== Element ===========
+        //#region  //*=========== Leading ===========
+        [leading === '4' && ['leading-4'], leading === '6' && ['leading-6']],
+        //#endregion  //*======== Leading ===========
+        //#region  //*=========== Font-Family ===========
+        [font === 'secondary' && 'font-uberMove'],
+        //#endregion  //*======== Font-Family ===========
+        //#region  //*=========== Weight ===========
         [
-          as === 'h1' && ['text-[24px] leading-7'],
-          as === 'h2' && [''],
-          as === 'h3' && ['font-uberMove text-[28px] font-bold leading-9'],
-          as === 'h4' && [
-            'mt-2 block cursor-pointer font-uberMoveText text-base font-medium leading-5 text-black underline',
-          ],
+          weight === 'bold' && 'font-bold',
+          weight === 'medium' && 'font-medium',
         ],
-        //#endregion  //*======== Element ===========
-        //#region  //*=========== Variants ===========
+        //#endregion  //*======== Weight ===========
+        //#region  //*=========== Variants =========== (Sorted by size)
         [
-          as === 'p' && variant === 'p1' && ['text-sm leading-5 text-gray-300'],
-          as === 'p' && variant === 'p2' && ['m-0 text-xs leading-5'],
-          as === 'h2' &&
-            variant === 'h2a' && [
-              'mb-5 font-uberMove text-[45px] font-bold leading-[64px] md:mb-10 md:text-[52px]',
-            ],
-          as === 'h2' &&
-            variant === 'h2b' && [
-              'font-uberMove text-[36px] font-bold leading-[44px]',
-            ],
-          variant === 'h2c' && [
-            'text-center font-uberMove text-[36px] font-bold leading-[44px]',
+          // ** XL - Extra Large
+
+          // ** 5XL - 48 (change to 45) px **
+          variant === '5xl' && [
+            'font-uberMove text-[48px] leading-[64px] md:text-[52px]',
+            'font-bold',
+            'mb-5 md:mb-10',
           ],
-          variant === 'h1ModalDish' && [
-            'font-uberMove text-4xl font-bold leading-10',
+          // ** 4XL - 36 px **
+          variant === '4xl' && [
+            'font-uberMove text-4xl leading-[44px]',
+            ' font-bold',
           ],
-          variant === 'spanModalDishPrice' && [
-            'p-0 font-uberMove text-xl font-bold leading-7 no-underline',
+          // ** 3XL - 30 px **
+          // ** 2XL - 24 px **
+          // ** XL - 20 px **
+          variant === 'xl' && [
+            'font-uberMove text-xl leading-7',
+            'font-bold',
+            'p-0  no-underline',
           ],
-          variant === 'divModalDishDescription' && [
-            'pt-2 font-uberMove text-sm font-normal leading-5',
-          ],
-          variant === 'divModalDishQuantity' && [
-            'whitespace-no-wrap pl-2 pr-2 text-center text-base font-normal leading-6',
-          ],
-          variant === 'divRestaurantTitle' && [
-            'w-full overflow-hidden text-ellipsis whitespace-nowrap py-[2px] font-uberMove text-lg font-medium leading-6',
-          ],
-          variant === 'divRestaurantDetail' && [
-            'color-[##6b6b6b] text-sm font-normal leading-5',
-          ],
-          variant === 'spanModalDishAllergy' && [
-            'text-xs font-normal leading-5 text-[#545454] no-underline',
-          ],
-          variant === 'spanCategories' && [
-            'w-full text-center text-sm font-medium leading-4',
-          ],
-          variant === 'spanTextDot' && [
-            'inline-flex items-center text-sm font-normal leading-5 text-[#545454]',
-          ],
-          variant === 'divCityResItemTitle' && [
-            'w-full overflow-hidden text-ellipsis whitespace-nowrap text-lg font-medium leading-6',
-          ],
-          variant === 'pCategoryResItemTitle' && [
-            'mb-[2px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap text-lg font-medium leading-6',
-          ],
-          variant === 'divCategoryResItemTitle' && ['text-base font-normal'],
-          variant === 'spanOverviewText' && [
-            'text-sm font-normal text-[#545454]',
-          ],
+          // ** LG - 18 px **
+          variant === 'large' && ['text-lg leading-6', 'font-medium'],
+          // ** BASE - 16px **
+          variant === 'base' && ['text-base'],
+          // ** SMALL - 14px **
+          variant === 'small' && ['text-sm'],
+          // ** EXTRA-SMALL **
+          variant === 'xs' && ['text-xs leading-5'],
         ],
         //#endregion  //*======== Variants ===========
 

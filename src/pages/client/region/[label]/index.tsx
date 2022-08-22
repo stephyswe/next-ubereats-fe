@@ -95,7 +95,7 @@ export default function RegionPage({
         <BreadCrumb data={breadCrumbText} />
       </Container>
       <Container>
-        <Typography as='h2' variant='h2b'>
+        <Typography as='h2' variant='4xl'>
           {pageText}
         </Typography>
         <Spacer className='h-2' />
@@ -104,7 +104,7 @@ export default function RegionPage({
         <Separator />
       </Container>
       <Container>
-        <Typography as='h2' variant='h2b'>
+        <Typography as='h2' variant='4xl'>
           {citiesTitle}
         </Typography>
         <CountryListNew data={citiesData} />
@@ -114,7 +114,7 @@ export default function RegionPage({
         <div>
           {deliData.map((item: DeliveryInformationItemProps) => (
             <div key={item.title}>
-              <Typography as='h2' variant='h2b'>
+              <Typography as='h2' variant='4xl'>
                 {item.title}
               </Typography>
               <Spacer className='h-2' />
@@ -125,7 +125,7 @@ export default function RegionPage({
         </div>
       </Container>
       <Container>
-        <Typography as='h2' variant='h2b'>
+        <Typography as='h2' variant='4xl'>
           Nearby regions
         </Typography>
         <CountryListNew data={nearbyRegionData} />

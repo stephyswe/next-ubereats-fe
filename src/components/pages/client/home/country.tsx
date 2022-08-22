@@ -21,7 +21,7 @@ export function CountryWithMap({ data }: CountryWithMapProps) {
   return (
     <div>
       <div className='flex items-center justify-between'>
-        <Typography as='h2' variant='h2b'>
+        <Typography as='h2' variant='4xl'>
           {title}
         </Typography>
         <Link variant='countryLink' href={link.href}>
@@ -53,7 +53,7 @@ type CountryListProps = {
 export const CountryList = ({ data }: CountryListProps) => (
   <div>
     <div className='flex items-center justify-between'>
-      <Typography as='h2' variant='h2b'>
+      <Typography as='h2' variant='4xl'>
         {data.title}
       </Typography>
     </div>

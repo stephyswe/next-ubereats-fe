@@ -65,7 +65,12 @@ export const RestaurantDetails = ({
   <div className={`flex flex-col items-start ${mapMarker ? 'px-3 pb-2' : ''} `}>
     <div className='mt-3 flex w-full items-center justify-between'>
       <div className='overflow-hidden'>
-        <Typography as='div' variant='divRestaurantTitle'>
+        <Typography
+          as='div'
+          variant='large'
+          font='secondary'
+          className='w-full overflow-hidden text-ellipsis whitespace-nowrap py-[2px]'
+        >
           {title}
         </Typography>
       </div>
@@ -77,7 +82,11 @@ export const RestaurantDetails = ({
       <Typography as='span' className='text-sm'>
         {time}
       </Typography>
-      <Typography as='span' variant='spanTextDot'>
+      <Typography
+        as='p'
+        variant='small'
+        className='inline-flex items-center text-gray-400'
+      >
         &nbsp;•&nbsp;
       </Typography>
       <Typography as='span' className='text-sm'>

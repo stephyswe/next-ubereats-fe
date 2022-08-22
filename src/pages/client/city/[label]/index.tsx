@@ -82,7 +82,7 @@ export default function CityPage({ deliData, pageText, breadCrumbText }: any) {
         </Container>
         <Container>
           <div>
-            <Typography as='h2' variant='h2b'>
+            <Typography as='h2' variant='4xl'>
               {pageText}
             </Typography>
             <Spacer className='h-2' />
@@ -115,7 +115,7 @@ export default function CityPage({ deliData, pageText, breadCrumbText }: any) {
           <div>
             {deliData.map((item: DeliveryInformationItemProps) => (
               <div key={item.title}>
-                <Typography as='h2' variant='h2b'>
+                <Typography as='h2' variant='4xl'>
                   {item.title}
                 </Typography>
                 <Spacer className='h-2' />

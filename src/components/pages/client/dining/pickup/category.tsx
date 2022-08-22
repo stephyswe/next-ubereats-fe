@@ -51,7 +51,13 @@ const CategoryIcon = ({ title, img }: any) => (
           />
         </div>
         <div className='h-2'></div>
-        <Typography as='span' variant='spanCategories'>
+        <Typography
+          as='p'
+          variant='small'
+          weight='medium'
+          leading='4'
+          className='w-full text-center'
+        >
           <div className='overflow-hidden'>{title}</div>
         </Typography>
       </a>

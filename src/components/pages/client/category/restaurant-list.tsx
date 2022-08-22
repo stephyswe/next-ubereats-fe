@@ -64,7 +64,11 @@ export const RestaurantList = ({ data }: any) => (
               </figure>
               <div className='flex items-start pt-3'>
                 <div className='flex min-w-0 flex-1 flex-col'>
-                  <Typography as='p' variant='pCategoryResItemTitle'>
+                  <Typography
+                    as='p'
+                    variant='large'
+                    className='mb-[2px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'
+                  >
                     McDonalds Scandinavium
                   </Typography>
                   <ItemTags category={foodItem.category} />

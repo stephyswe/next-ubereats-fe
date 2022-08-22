@@ -57,7 +57,7 @@ export const ModalAllergy = () => (
   <div className='flex flex-col'>
     <hr className='m-0 h-[2px] border-none bg-[#eee]' />
     <div className='mx-4 mt-6 mb-0 flex flex-col'>
-      <Typography as='span' variant='spanModalDishAllergy'>
+      <Typography as='span' variant='xs' className='text-gray-400'>
         För matallergier eller speciella kostbehov, vänligen kontakta
         restaurangen innan du beställer.
       </Typography>
@@ -75,11 +75,13 @@ export const ModalDetail = ({
   name: string;
 }) => (
   <div className='pt-4 pb-6 pl-4 pr-4'>
-    <Typography variant='h1ModalDish'>{name}</Typography>
-    <Typography as='span' variant='spanModalDishPrice'>
+    <Typography variant='4xl' className='leading-10'>
+      {name}
+    </Typography>
+    <Typography as='span' variant='xl'>
       SEK {price.toFixed(2)}
     </Typography>
-    <Typography as='div' variant='divModalDishDescription'>
+    <Typography as='p' variant='small' font='secondary' className='pt-2'>
       6 st krispiga, smakfulla trianglar fyllda med smält ost
     </Typography>
   </div>
@@ -109,7 +111,12 @@ export function ModalBuy({ closeModal }: any) {
       <div className='flex flex-col justify-between'>
         <div className='flex items-center justify-center'>
           <ButtonIcon svg={<SvgBuyMinus />} variant='modalDishQuantity' />
-          <Typography as='div' variant='divModalDishQuantity'>
+          <Typography
+            as='div'
+            variant='base'
+            leading='6'
+            className='whitespace-no-wrap pl-2 pr-2 text-center'
+          >
             1
           </Typography>
           <ButtonIcon svg={<SvgBuyPlus />} variant='modalDishQuantity' />

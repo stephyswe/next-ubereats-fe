@@ -77,7 +77,7 @@ export default function CategoryPage({ pageText, breadCrumbText }: any) {
         </Container>
         <Container>
           <div>
-            <Typography as='h2' variant='h2b'>
+            <Typography as='h2' variant='4xl'>
               {pageText} Near Me
             </Typography>
             <Spacer className='h-2' />
@@ -91,7 +91,7 @@ export default function CategoryPage({ pageText, breadCrumbText }: any) {
           <Separator />
         </Container>
         <Container>
-          <Typography as='h2' variant='h2b'>
+          <Typography as='h2' variant='4xl'>
             Explore Popular Categories
           </Typography>
           <div className='mt-8 grid grid-flow-col grid-rows-4 gap-[32px_24px]'>
@@ -132,7 +132,7 @@ export const CategoryPopularItem = ({
       </div>
       <Spacer className='w-4' />
       <div>
-        <Typography as='div' variant='divCategoryResItemTitle'>
+        <Typography as='div' variant='base'>
           {title}
         </Typography>
       </div>

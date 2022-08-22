@@ -116,7 +116,11 @@ const FoodItem = ({
 
 const ItemTitle = ({ name, ranking }: any) => (
   <div className='flex w-full items-center justify-between'>
-    <Typography as='div' variant='divCityResItemTitle'>
+    <Typography
+      as='div'
+      variant='large'
+      className='w-full overflow-hidden text-ellipsis whitespace-nowrap'
+    >
       {name}
     </Typography>
     <ItemRanking ranking={ranking} />

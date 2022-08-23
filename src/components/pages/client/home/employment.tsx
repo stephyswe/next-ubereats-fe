@@ -34,8 +34,17 @@ const EmploymentItem = ({ title, desc, src, link }: EmploymentItemProps) => (
           layout='fill'
         />
       </div>
-      <Typography as='h3'>{title}</Typography>
-      <Typography as='h4'>{desc}</Typography>
+      <Typography as='h3' variant='3xl'>
+        {title}
+      </Typography>
+      <Typography
+        as='p'
+        className='mt-2 text-base leading-5 underline'
+        weight='medium'
+        leading='5'
+      >
+        {desc}
+      </Typography>
     </Link>
   </div>
 );

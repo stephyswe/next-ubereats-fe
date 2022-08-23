@@ -20,11 +20,13 @@ type ButtonProps = {
   isDarkBg?: boolean;
   variant?: keyof typeof ButtonVariant;
   size?: 'small' | 'md' | 'lg' | 'base';
+  round?: boolean;
 } & React.ComponentPropsWithRef<'button'>;
 
 export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
+      round,
       children,
       className,
       size = 'md',
@@ -43,11 +45,15 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
+          //#region  //*=========== Round ===========
+          [round ? 'rounded-500' : ''],
+          //#endregion  //*=========== Round ===========
           //#region  //*=========== Sizes ===========
           // navCart -- TODO FIX THIS
           [
             variant === 'btnCart' &&
               size === 'small' && ['m-0 p-[8px_12px] md:h-[36px]'],
+            variant === 'btnCart' && size === 'md' && ['px-4 py-2'],
             variant === 'btnCart' &&
               size === 'lg' && [
                 'px-6 py-3',
@@ -105,7 +111,7 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             variant === 'btnCart' && [
               'text-white',
               'bg-black hover:bg-gray-100 active:bg-gray-400',
-              'flex flex-row items-center px-4 py-2 ',
+              'flex flex-row items-center',
             ],
           ],
           //#endregion  //*======== Variants ===========

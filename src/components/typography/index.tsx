@@ -14,6 +14,7 @@ enum TypographyAs {
 
 enum TypographyVariant {
   '4xl',
+  '3xl',
   '5xl',
   'xl',
   'large',
@@ -27,7 +28,7 @@ type TypographyProps<C extends React.ElementType> = {
   variant?: keyof typeof TypographyVariant;
   weight?: 'bold' | 'medium';
   font?: 'secondary';
-  leading?: string;
+  leading?: '4' | '5' | '6';
 } & React.ComponentPropsWithRef<C>;
 
 export default function Typography<C extends React.ElementType>({
@@ -46,7 +47,11 @@ export default function Typography<C extends React.ElementType>({
     <Component
       className={clsxm(
         //#region  //*=========== Leading ===========
-        [leading === '4' && ['leading-4'], leading === '6' && ['leading-6']],
+        [
+          leading === '4' && 'leading-4',
+          leading === '5' && 'leading-5',
+          leading === '6' && 'leading-6',
+        ],
         //#endregion  //*======== Leading ===========
         //#region  //*=========== Font-Family ===========
         [font === 'secondary' && 'font-uberMove'],
@@ -75,13 +80,14 @@ export default function Typography<C extends React.ElementType>({
           variant === '4xl-normal' && [
             'font-uberMove text-4xl font-medium leading-[44px]',
           ],
-          // ** 3XL - 30 px **
+          // ** 3XL - 30 px (change to 28px) **
+          variant === '3xl' && ['font-uberMove text-[28px] leading-9'],
           // ** 2XL - 24 px **
           // ** XL - 20 px **
           variant === 'xl' && [
             'font-uberMove text-xl leading-7',
             'font-bold',
-            'p-0  no-underline',
+            'p-0 ',
           ],
           // ** LG - 18 px **
           variant === 'large' && ['text-lg leading-6', 'font-medium'],

@@ -1,4 +1,3 @@
-import { NextImage } from '@/components';
 export type { BreadCrumbItemProps } from './breadcrumb';
 export { BreadCrumb } from './breadcrumb';
 export { Cart } from './cart';
@@ -22,7 +21,8 @@ export const Spacer = ({ length, index, ...rest }: SpacerProps) => {
 };
 
 export const NewLogo = () => (
-  <NextImage
+  // eslint-disable-next-line @next/next/no-img-element
+  <img
     alt='Startsida för Uber&nbsp;Eats'
     src='/images/logo.svg'
     width='146'

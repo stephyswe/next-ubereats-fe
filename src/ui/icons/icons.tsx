@@ -646,7 +646,7 @@ export function SvgInstagram() {
 function iconSize(size: string) {
   let setSize = '16';
   if (size === 'small') {
-    setSize = '14';
+    setSize = '16';
   }
   return setSize;
 }

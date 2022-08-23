@@ -62,7 +62,14 @@ export const Cart = ({ size }: any) => {
             <Button onClick={onClick} variant='btnCart' size={size}>
               <SvgCart size={size} />
               <Spacer className='w-2' />
-              Varukorg • {orderItems.length}
+              <div
+                className={clsx(
+                  'hidden md:block',
+                  size === 'small' ? 'text-sm' : 'text-base'
+                )}
+              >
+                Cart • {orderItems.length}
+              </div>
             </Button>
           </div>
         </div>

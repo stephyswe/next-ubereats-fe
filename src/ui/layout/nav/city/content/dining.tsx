@@ -39,9 +39,10 @@ export function NavbarDiningContent() {
       <NavItemSearch />
       <Spacer className='w-4' />
       <div className='flex flex-grow-0 items-center justify-end'>
+        <Spacer className='w-4' />
         <Cart size='small' />
         <Spacer className='w-4' />
-        <LinkLogin size='small' />
+        <LinkLogin title='Log in' size='small' />
         <Spacer className='w-4' />
         <LinkSignup size='small' />
       </div>

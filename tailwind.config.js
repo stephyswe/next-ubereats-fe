@@ -188,6 +188,10 @@ module.exports = {
           boxShadow:
             'rgb(0 0 0 / 10%) 0px 0px 8px, rgb(0 0 0 / 4%) 0px 4px 4px',
         },
+        '.box-shadow-rgb-secondary': {
+          boxShadow:
+            'rgb(0 0 0 / 10%) 0px 0px 12px, rgb(0 0 0 / 4%) 0px 6px 6px',
+        },
         '.box-shadow-rgb-btn': {
           boxShadow:
             '0px 0px 8px rgb(0 0 0 / 10%), 0px 4px 4px rgb(0 0 0 / 4%)',

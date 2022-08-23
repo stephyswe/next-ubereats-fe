@@ -30,9 +30,10 @@ type CategorySecondItemProps = {
 };
 
 type ExploreProps = {
-  onNextClick: () => void;
-  inputRef: any;
-  exploreTitle: string;
+  onNextClick?: () => void;
+  inputRef?: any;
+  title: string;
+  subtitle?: string;
 };
 
 export function Categories({
@@ -55,10 +56,10 @@ export function Categories({
 
   return (
     <>
-      <Explore
+      <CityExplore
         onNextClick={onNextClick}
         inputRef={inputRef}
-        exploreTitle={exploreTitle}
+        title={exploreTitle}
       />
       <div
         style={{ scrollSnapType: 'x mandatory' }}
@@ -99,38 +100,48 @@ const CategoryTwo = ({ data }: { data: CategorySecondItemProps[] }) => (
   </div>
 );
 
-const Explore = ({ onNextClick, inputRef, exploreTitle }: ExploreProps) => (
+export const CityExplore = ({ inputRef, title, subtitle }: ExploreProps) => (
   <div className='mb-6 flex items-center justify-between'>
-    <Typography as='h2' variant='4xl'>
-      {exploreTitle}
-    </Typography>
+    <div>
+      <Typography as='h2' variant='4xl'>
+        {title}
+      </Typography>
+      <Typography as='div' variant='small' className='text-[#545454]'>
+        {subtitle}
+      </Typography>
+    </div>
+
     <div className='flex items-center '>
       <Link
         ref={inputRef}
         className='cursor-pointer text-base font-medium leading-5 text-black underline'
         href='/category/atlanta-ga'
       >
-        View all
+        {subtitle ? 'See all' : 'View all'}
       </Link>
       <div className='w-10'></div>
-      <div className='flex'>
-        <button
-          aria-label='Previous'
-          className={styles.btn_menu + ' ' + styles.btn_menu_prev}
-          disabled={true}
-        >
-          <SvgHorizontalArrow />
-        </button>
-        <div className='w-1'></div>
-        <button
-          onClick={onNextClick}
-          aria-label='Next'
-          className={styles.btn_menu + ' ' + styles.btn_menu_next}
-        >
-          <SvgHorizontalArrow />
-        </button>
-      </div>
+      <CityExploreNavigator />
     </div>
+  </div>
+);
+
+export const CityExploreNavigator = ({ onNextClick }: any) => (
+  <div className='flex'>
+    <button
+      aria-label='Previous'
+      className={styles.btn_menu + ' ' + styles.btn_menu_prev}
+      disabled={true}
+    >
+      <SvgHorizontalArrow />
+    </button>
+    <div className='w-1'></div>
+    <button
+      onClick={onNextClick}
+      aria-label='Next'
+      className={styles.btn_menu + ' ' + styles.btn_menu_next}
+    >
+      <SvgHorizontalArrow />
+    </button>
   </div>
 );
 

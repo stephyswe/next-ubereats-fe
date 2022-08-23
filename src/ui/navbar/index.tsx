@@ -17,12 +17,12 @@ export const NavItemDelivery = () => (
       </div>
       <div className='spacer w-2'></div>
       <div className='overflow-hidden text-ellipsis whitespace-nowrap'>
-        Nordstan
+        Map location
       </div>
       <span className='inline-flex items-center font-uberMoveText text-sm font-medium leading-6 text-[#545454]'>
         &nbsp;&nbsp;•&nbsp;&nbsp;
       </span>
-      <div className='whitespace-nowrap'>Avhämtning nu</div>
+      <div className='whitespace-nowrap'>Pick up now</div>
     </Link>
   </span>
 );

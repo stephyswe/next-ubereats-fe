@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { Link } from '@/components';
 
 import { Spacer } from '@/ui';
@@ -20,11 +22,18 @@ export const LinkLogin = ({
     {plain ? null : (
       <>
         <SvgLogin />
-        <Spacer className='w-2' />
+        <Spacer className={size === 'small' ? 'w-1' : 'w-2'} />
       </>
     )}
 
-    <div className='hidden md:block'>{title ? title : 'Sign in'}</div>
+    <div
+      className={clsx(
+        'hidden md:block',
+        size === 'small' ? 'text-sm' : 'text-base'
+      )}
+    >
+      {title ? title : 'Sign in'}
+    </div>
   </Link>
 );
 
@@ -37,6 +46,14 @@ export const LinkSignup = ({ title, className, size = 'normal' }: any) => (
       className ? className : 'bg-[#eee] hover:bg-[#e2e2e2] active:bg-[#ddd]'
     }
   >
-    {title ? title : 'Sign up'}
+    <div
+      className={clsx(
+        'hidden md:block',
+        size === 'small' ? 'text-sm' : 'text-base'
+      )}
+    >
+      {' '}
+      {title ? title : 'Sign up'}
+    </div>
   </Link>
 );

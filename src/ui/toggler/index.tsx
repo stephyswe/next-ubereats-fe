@@ -45,12 +45,12 @@ export function DiningToggler({ size }: any) {
           size === 'small' ? 'h-10' : 'h-12'
         )}
       >
-        <DiningToggleItem onClick={() => setToggle(false)} title='Leverans' />
-        <DiningToggleItem onClick={() => setToggle(true)} title='Upphämtning' />
+        <DiningToggleItem onClick={() => setToggle(false)} title='Delivery' />
+        <DiningToggleItem onClick={() => setToggle(true)} title='Pickup' />
         <div
           className={clsx(
-            `h-[calc(100% - 8px)] absolute z-0 w-[107.625px] bg-white transition-ease-400 rounded-500 h-calc-2`,
-            toggle ? 'translate-x-[107.625px]' : 'translate-x-0'
+            `h-[calc(100% - 8px)] absolute z-0 w-[81.0156px] bg-white transition-ease-400 rounded-500 h-calc-2`,
+            toggle ? 'translate-x-[81.0156px]' : 'translate-x-0'
           )}
         ></div>
       </div>

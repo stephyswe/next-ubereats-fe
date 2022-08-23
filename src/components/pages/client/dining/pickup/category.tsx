@@ -51,7 +51,7 @@ export const CategoryItem = ({ title, img }: any) => (
       </div>
       <div className='h-2'></div>
       <Typography
-        as='p'
+        as='div'
         variant='small'
         weight='medium'
         leading='4'

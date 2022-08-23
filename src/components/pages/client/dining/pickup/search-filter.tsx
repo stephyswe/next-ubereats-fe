@@ -39,7 +39,12 @@ export function SearchFilter({ data }: any) {
 const SearchFilterButton = ({ title }: any) => (
   <Button variant='btnSmall1'>
     <div className='flex-grow overflow-hidden'>
-      <Typography as='span'>{title}</Typography>
+      <Typography
+        as='span'
+        className='whitespace-nowrap text-sm font-medium leading-4'
+      >
+        {title}
+      </Typography>
     </div>
     <Spacer className='w-3' />
     <div className='mx-[-4px] self-center'>

@@ -11,7 +11,7 @@ import { NavbarStoreContent } from '@/ui/layout/nav/city/content/store';
 import { NavCityHeader } from '@/ui/layout/nav/city/header';
 import { Sidebar } from '@/ui/layout/sidebar';
 
-export function CityNav({ noHoverBorder }: any) {
+export function CityNav({ noHoverBorder, fixed }: any) {
   const router = useRouter();
   const changePosition = 1;
   const [stylesBody, setStylesBody] = useState(true);
@@ -28,7 +28,7 @@ export function CityNav({ noHoverBorder }: any) {
 
   useOutsideAlerter(wrapperRef, setStylesBody);
 
-  if (position) {
+  if (position && !fixed) {
     if (position.scrollY > changePosition && !change) setChange(true);
     if (position.scrollY <= changePosition && change) setChange(false);
   }
@@ -70,6 +70,9 @@ function NavDynamicPerPage() {
       return <NavbarCategoryContent />;
 
     case '/client/dining/pickup':
+      return <NavbarDiningContent />;
+
+    case '/client/dining/delivery':
       return <NavbarDiningContent />;
 
     case '/client/store/[label]':

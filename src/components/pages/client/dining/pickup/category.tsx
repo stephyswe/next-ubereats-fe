@@ -20,12 +20,12 @@ export function PickupCategoryList({ data }: any) {
   if (!isComplete) return <CategoryContentSkeleton />;
   return (
     <>
-      <Arrow />
+      <PickupArrow />
       <div className='scroll-smooth'>
         <div className='flex'>
           {data.map(({ title, img }: any) => (
             <Fragment key={title}>
-              <CategoryItem title={title} img={img} />
+              <PickupCategoryItem title={title} img={img} />
               <div className='m-0 h-[1px] w-4 flex-shrink-0 p-0'></div>
             </Fragment>
           ))}
@@ -35,7 +35,7 @@ export function PickupCategoryList({ data }: any) {
   );
 }
 
-export const CategoryItem = ({ title, img }: any) => (
+export const PickupCategoryItem = ({ title, img }: any) => (
   <li>
     <a
       href='yup'
@@ -63,7 +63,7 @@ export const CategoryItem = ({ title, img }: any) => (
   </li>
 );
 
-export const Arrow = () => (
+export const PickupArrow = () => (
   <div className='pointer-events-none absolute z-10 flex h-full w-full justify-between'>
     <div className='pointer-events-auto invisible flex h-full cursor-pointer items-center pr-6 bg-gradient-rgb-right'>
       <Button variant='btnSmall2'>

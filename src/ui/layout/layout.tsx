@@ -13,6 +13,7 @@ export const RootLayout = ({ children }: any) => {
   function checkRoute() {
     if (pathname === '/') return <HomeNav />;
     if (pathname === '/client/store/[label]') return <CityNav noHoverBorder />;
+    if (pathname === '/client/dining/delivery') return <CityNav fixed />;
     else return <CityNav />;
   }
 

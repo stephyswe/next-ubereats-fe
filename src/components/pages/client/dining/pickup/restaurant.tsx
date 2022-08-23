@@ -1,5 +1,7 @@
 import { Link, Typography } from '@/components';
+import { LoadingPickupCategories } from '@/components/pages/client/dining/pickup/loading';
 
+import { useDelivery } from '@/contexts';
 import { Spacer } from '@/ui';
 import { SvgLike } from '@/ui/icons';
 
@@ -16,7 +18,43 @@ type RestaurantItemProps = {
   mapMarker: boolean;
 } & React.ComponentProps<'div'>;
 
-export const RestaurantItem = ({
+/**
+ * @description PickupRestaurantList component
+ * @param props 1. isComplete 2. restaurants 3. resItems
+ * @returns
+ */
+export const PickupRestaurantList = ({ restaurants, resItems }: any) => {
+  const { setHoverItem, isComplete } = useDelivery();
+
+  if (!isComplete) {
+    return <LoadingPickupCategories />;
+  }
+
+  return (
+    <div className='mx-[-12px] mb-[-24px] box-border flex flex-wrap'>
+      {resItems.map((item: any, index: any) => (
+        <div
+          key={index}
+          onMouseOver={() => setHoverItem(item.place_id)}
+          onMouseLeave={() => setHoverItem(undefined)}
+          className='group mb-6 box-border block w-1/2 flex-none px-3'
+        >
+          <div className='m-[-12px] p-3 group-hover:bg-[#f6f6f6]'>
+            <PickupRestaurantItem
+              {...restaurants[0]}
+              title={item.name}
+              srcSet={
+                item?.photos ? item.photos[0].getUrl() : restaurants[0].srcSet
+              }
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export const PickupRestaurantItem = ({
   title,
   link,
   srcSet,

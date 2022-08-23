@@ -1,6 +1,6 @@
 export {
-  Arrow,
+  PickupArrow,
   PickupCategoryList,
-  RestaurantItem,
-  SearchFilter,
+  PickupFilter,
+  PickupRestaurantItem,
 } from './pickup';

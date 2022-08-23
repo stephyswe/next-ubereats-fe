@@ -1,4 +1,4 @@
-export const deliveryData = {
+export const pickupData = {
   filters: [
     { title: 'Sortera' },
     { title: 'Från Uber Eats' },

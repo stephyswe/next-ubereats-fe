@@ -103,6 +103,9 @@ module.exports = {
         '.transition-bg-ease-200': {
           transition: 'background 200ms ease',
         },
+        '.transition-transform-ease-200': {
+          transition: 'transform 200ms ease 0s',
+        },
         '.transition-btn-200': {
           transition: 'background 200ms cubic-bezier(0, 0, 1, 1) 0s',
         },
@@ -149,6 +152,17 @@ module.exports = {
           transform: 'scaleX(1)',
         },
 
+        /** Transition Property */
+        '.transition-background': {
+          transitionProperty: 'background'
+        },
+        '.transition-timing-cubic': {
+          transitionTimingFunction: 'cubic-bezier(0, 0, 1, 1)'
+        },
+        '.clip-rect': {
+          clip: 'rect(0, 0, 0, 0)'
+        },
+
         /** Transforms */
         '.transform-3d': {
           transform: 'translate3d(0px, 0px, 0px)',
@@ -160,8 +174,17 @@ module.exports = {
         /** Box Shadow */
 
         /** Rgb */
+        '.box-shadow-checkbox-default': {
+          boxShadow: 'rgb(0 0 0 / 16%) 0px 1px 4px',
+        },
+        '.box-shadow-checkbox-hover': {
+          boxShadow: 'rgb(0 0 0 / 16%) 0px 2px 8px',
+        },
         '.box-shadow-map-12': {
           boxShadow: 'rgb(0 0 0 / 12%) 0px 4px 16px',
+        },
+        '.box-shadow-map-12-negative': {
+          boxShadow: 'rgb(0 0 0 / 12%) 0px -4px 16px',
         },
         '.box-shadow-rgb-gray': {
           boxShadow: 'rgb(226 226 226) 0px -2px 0px inset',
@@ -273,6 +296,9 @@ module.exports = {
         '.flex-1-36': {
           flex: '1 0 36px',
         },
+        '.webkit-color-transparent': {
+          WebkitTapHighlightColor: 'transparent'
+        }
       });
     }),
   ],

@@ -5,19 +5,19 @@ import {
   MapButtonSizePlus,
 } from '@/ui/maps/pickup/elements';
 
-export const LoadingDeliveryCategories = () => (
+export const LoadingPickupCategories = () => (
   <>
     <div>
-      <LoadingResRow />
+      <LoadingPickupRestaurantList />
       <div className='h-[80px]'></div>
-      <LoadingResRow />
+      <LoadingPickupRestaurantList />
       <div className='h-[80px]'></div>
-      <LoadingResRow />
+      <LoadingPickupRestaurantList />
     </div>
   </>
 );
 
-export const LoadingDeliveryMap = () => (
+export const LoadingPickupMap = () => (
   <div className='relative flex-1'>
     <div className='h-full'></div>
     <div className='absolute right-4 top-4'>
@@ -37,7 +37,7 @@ export const LoadingDeliveryMap = () => (
   </div>
 );
 
-export const LoadingResRow = () => (
+export const LoadingPickupRestaurantList = () => (
   <div className='relative overflow-hidden'>
     <LoadingAni />
     <div className='flex'>
@@ -45,11 +45,11 @@ export const LoadingResRow = () => (
     </div>
     <LoadingSpacer />
     <div className='mb-[-24px] ml-[-12px] mr-[-12px] box-border flex'>
-      <LoadingResItem />
+      <LoadingPickupRestaurantItem />
       <div
         className={`relative before:absolute before:top-0 before:bottom-0 before:left-[-12px] before:right-[-12px] before:bg-[#fff] before:content-[''] after:content-['']`}
       ></div>
-      <LoadingResItem />
+      <LoadingPickupRestaurantItem />
     </div>
   </div>
 );
@@ -61,7 +61,7 @@ const LoadingLine = () => (
   </>
 );
 
-const LoadingResItem = () => (
+const LoadingPickupRestaurantItem = () => (
   <div className='ml-[0%] mb-6 box-border block w-1/2 flex-none px-3'>
     <div>
       <div className='h-[128px]'></div>

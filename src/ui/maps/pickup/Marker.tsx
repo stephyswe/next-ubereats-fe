@@ -1,11 +1,11 @@
 import {
   RestaurantDetails,
   RestaurantImage,
-} from '@/components/pages/client/dining/pickup/restaurant-item';
+} from '@/components/pages/client/dining/pickup/restaurant';
 
-import { deliveryData } from '@/constant/pages/client/pickup.data';
+import { pickupData } from '@/constant/pages/client/pickup.data';
 import { useDelivery } from '@/contexts/delivery';
-const { restaurants } = deliveryData;
+const { restaurants } = pickupData;
 
 /**
  * @description Restaurant marker component

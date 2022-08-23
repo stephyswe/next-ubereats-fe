@@ -1,8 +1,8 @@
 export {
   Arrow,
   PickupCategoryList,
-  RestaurantItem,
-  SearchFilter,
+  PickupFilter,
+  PickupRestaurantItem,
 } from './dining';
 export * from './dining/pickup/loading';
 export { CountryList, CountryWithMap, EmploymentList } from './home';

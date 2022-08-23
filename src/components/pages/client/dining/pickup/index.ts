@@ -1,4 +1,4 @@
-export { Arrow, PickupCategoryList } from './category';
+export { PickupArrow, PickupCategoryList } from './category';
+export { PickupFilter } from './filter';
 export * from './loading';
-export { RestaurantItem } from './restaurant-item';
-export { SearchFilter } from './search-filter';
+export { PickupRestaurantItem } from './restaurant';

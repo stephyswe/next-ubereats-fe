@@ -489,7 +489,7 @@ export function SvgHorizontalArrow() {
   );
 }
 
-export function SvgDownArrow() {
+export function SvgDownArrow({ rotate }: any) {
   return (
     <svg
       width='24px'
@@ -503,7 +503,7 @@ export function SvgDownArrow() {
       <path
         d='M17 11.7494V14.916L12 11.0827L7 14.916V11.7494L12 7.91602L17 11.7494Z'
         fill='#000000'
-        transform='rotate(180, 12, 12)'
+        transform={rotate ? '' : 'rotate(180, 12, 12)'}
       ></path>
     </svg>
   );

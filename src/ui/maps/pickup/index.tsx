@@ -16,7 +16,7 @@ let service: google.maps.places.PlacesService;
 const cityPosition = { lat: 57.70887, lng: 11.96866 };
 
 export function PickupMap({ setResItems, resItems }: any) {
-  const { activeItem, setActiveItem, isComplete, setComplete } = useDelivery();
+  const { activeItem, setActiveItem, setComplete } = useDelivery();
   const [zoomLevel, setZoomLevel] = useState<number>(0);
 
   async function callback(results: any, status: any, pagination: any) {
@@ -85,7 +85,7 @@ export function PickupMap({ setResItems, resItems }: any) {
   const googleMapE = () => (
     <GoogleMapReact
       yesIWantToUseGoogleMapApiInternals
-      onGoogleApiLoaded={() => !isComplete && onClickStart()}
+      onGoogleApiLoaded={() => onClickStart()}
       defaultZoom={16}
       draggable={true}
       defaultCenter={cityPosition}

@@ -15,6 +15,7 @@ type InputProps<C extends React.ElementType> = {
 
 export const ButtonInput = <C extends React.ElementType>({
   placeholder,
+  innerClassName,
   svg,
   ...rest
 }: InputProps<C>) => {
@@ -23,7 +24,8 @@ export const ButtonInput = <C extends React.ElementType>({
       className={clsx(
         'px-4 py-2 text-center font-uberMoveText text-base font-normal leading-6 text-black',
         'relative box-border flex min-w-full border-none bg-white ',
-        'transition-bs-ease-300 box-shadow-inset-eee focus-within:box-shadow-rgb-0'
+        'transition-bs-ease-300 box-shadow-inset-eee focus-within:box-shadow-rgb-0',
+        innerClassName
       )}
     >
       <div className='flex h-6 w-6 flex-shrink-0 items-center py-2 leading-[1]'>

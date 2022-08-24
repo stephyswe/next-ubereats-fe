@@ -57,7 +57,7 @@ export const UnstyledLink = React.forwardRef<
           'md:px-3 md:py-3 md:h-[36px] text-sm',
         variant === 'linkBase1' &&
           size === 'normal' &&
-          'p-[12px_16px] md:py-3 md:px-4 md:min-h-[48px] text-base',
+          'p-[6px_10px] md:p-[12px_16px] md:py-3 md:px-4 md:min-h-[48px] text-base',
       ],
       //#endregion  //*=========== Sizes ===========
       //#region  //*=========== Variants ===========

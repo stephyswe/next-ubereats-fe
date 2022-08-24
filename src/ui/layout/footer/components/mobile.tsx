@@ -5,16 +5,15 @@ import { NextImage } from '@/components';
 import { Spacer } from '@/ui';
 
 export const FooterMobileList = () => (
-  <div className='flex flex-[2_1] flex-col items-start justify-between'>
+  <div className='flex flex-[2_1] flex-col items-start md:justify-between'>
     <NextImage
       alt='Uber&nbsp;Eats'
       src='/images/logo.svg'
       width='146'
       height='24'
-      className='mb-12 h-6 w-auto'
     />
 
-    <div className='flex'>
+    <div className='mt-12 flex md:mt-0'>
       <a href='https://apps.apple.com/us/app/uber-eats-food-delivery/id1058959277'>
         <img
           alt='Ladda ner i App Store'

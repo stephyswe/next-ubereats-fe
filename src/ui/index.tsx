@@ -27,7 +27,7 @@ export const NewLogo = () => (
     src='/images/logo.svg'
     width='146'
     height='24'
-    className='block h-6 w-auto'
+    className='block h-6 max-h-[18px] w-auto max-w-[136px] md:max-h-[inherit] md:max-w-[inherit] '
   />
 );
 

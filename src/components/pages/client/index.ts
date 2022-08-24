@@ -1,5 +1,5 @@
 export {
-  Arrow,
+  PickupArrow,
   PickupCategoryList,
   PickupFilter,
   PickupRestaurantItem,

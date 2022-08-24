@@ -14,7 +14,7 @@ export function Footer() {
   return (
     <footer className='border-1-gray mt-20 pt-[72px] pb-[88px]'>
       <Container>
-        <div className='flex'>
+        <div className='flex flex-col flex-wrap md:flex-row'>
           <FooterMobileList />
           <div className='mb:hidden block h-10'></div>
           <FooterLinkList data={linkFirst} />
@@ -24,7 +24,7 @@ export function Footer() {
           </FooterLinkList>
         </div>
         <hr className='my-6 h-[1px] border-none bg-[#f6f6f6] md:my-10' />
-        <div className='flex'>
+        <div className='flex flex-col md:flex-row'>
           <FooterSocialList data={socialList} />
           <div className='flex-[1_0_36px]'></div>
           <div className='flex'>

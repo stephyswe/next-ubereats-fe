@@ -68,20 +68,22 @@ export default function Typography<C extends React.ElementType>({
 
           // ** 5XL - 48 (change to 45) px **
           variant === '5xl' && [
-            'font-uberMove text-[48px] leading-[64px] md:text-[52px]',
+            'font-uberMove text-4xl md:text-[52px] md:leading-[64px]',
             'font-bold',
-            'mb-5 md:mb-10',
+            'mb-10',
           ],
           // ** 4XL - 36 px **
           variant === '4xl' && [
-            'font-uberMove text-4xl leading-[44px]',
+            'font-uberMove text-2xl md:text-4xl md:leading-[44px]',
             'font-bold',
           ],
           variant === '4xl-normal' && [
             'font-uberMove text-4xl font-medium leading-[44px]',
           ],
           // ** 3XL - 30 px (change to 28px) **
-          variant === '3xl' && ['font-uberMove text-[28px] leading-9'],
+          variant === '3xl' && [
+            'font-uberMove text-2xl md:text-[28px] md:leading-9',
+          ],
           // ** 2XL - 24 px **
           // ** XL - 20 px **
           variant === 'xl' && [

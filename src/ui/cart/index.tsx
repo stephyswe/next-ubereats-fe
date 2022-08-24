@@ -96,6 +96,8 @@ export const CartWindow = ({ onBuy, show, onClose, orderItems }: any) => {
     else return <CartWindowsItems orderItems={orderItems} onBuy={onBuy} />;
   }
 
+  if (!show) return null;
+
   return (
     <div
       ref={ref}

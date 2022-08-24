@@ -6,7 +6,7 @@ import {
 } from '@/components/pages/';
 
 import { HomeData } from '@/constant/pages/home.data';
-import { Container, Hero, Spacer, Toggler } from '@/ui';
+import { Container, Hero, Spacer } from '@/ui';
 import { SvgMap } from '@/ui/icons';
 
 export default function HomePage() {
@@ -15,9 +15,9 @@ export default function HomePage() {
     <main>
       <Hero title={hero.title} image={hero.src}>
         <>
-          <div className='w-fit'>
+          {/* <div className='w-fit'>
             <Toggler data={hero.toggle} />
-          </div>
+          </div> */}
           <div className='flex flex-col gap-1 md:flex-row md:items-start'>
             <div className='relative flex-1 flex-col md:min-w-[500px] md:max-w-[540px]'>
               <ButtonInput
@@ -43,7 +43,7 @@ export default function HomePage() {
       <Container>
         <EmploymentList data={employmentData} />
 
-        <Spacer className='h-20' />
+        <Spacer className='h-10 md:h-20' />
         <CountryWithMap data={countrySelected} />
 
         <Spacer className='h-20' />

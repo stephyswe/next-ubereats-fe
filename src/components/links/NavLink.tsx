@@ -22,7 +22,7 @@ export const LinkLogin = ({
     {plain ? null : (
       <>
         <SvgLogin />
-        <Spacer className={size === 'small' ? 'w-1' : 'w-2'} />
+        <Spacer className={size === 'small' ? 'md:w-1' : 'md:w-2'} />
       </>
     )}
 
@@ -47,10 +47,7 @@ export const LinkSignup = ({ title, className, size = 'normal' }: any) => (
     }
   >
     <div
-      className={clsx(
-        'hidden md:block',
-        size === 'small' ? 'text-sm' : 'text-base'
-      )}
+      className={clsx('md:block', size === 'small' ? 'text-sm' : 'text-base')}
     >
       {' '}
       {title ? title : 'Sign up'}

@@ -1,2 +1,2 @@
-export { Categories } from './categories';
+export { CityCategories } from './categories';
 export { FoodList } from './food-list';

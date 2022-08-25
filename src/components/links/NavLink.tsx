@@ -9,6 +9,7 @@ export const LinkLogin = ({
   className,
   title,
   plain,
+  textHidden,
   size = 'normal',
 }: any) => (
   <Link
@@ -28,7 +29,7 @@ export const LinkLogin = ({
 
     <div
       className={clsx(
-        'hidden md:block',
+        textHidden ? 'hidden' : 'md:block',
         size === 'small' ? 'text-sm' : 'text-base'
       )}
     >

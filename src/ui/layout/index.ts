@@ -1,4 +1,4 @@
 export { Footer } from './footer';
 export { RootLayout } from './layout';
-export { HomeNav } from './nav/home';
+export { Nav } from './nav';
 export { Sidebar } from './sidebar';

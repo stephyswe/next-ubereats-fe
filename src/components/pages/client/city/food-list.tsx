@@ -73,7 +73,7 @@ type FoodItemProps = {
 };
 
 export const FoodList = () => (
-  <div className='grid grid-cols-2 gap-[40px_24px]'>
+  <div className='grid grid-cols-1 gap-[40px_24px] md:grid-cols-2'>
     {tempRestData.map((foodItem: any, index: number) => (
       <div className='min-w-0' key={index}>
         <div className='relative overflow-hidden'>
@@ -95,14 +95,14 @@ const FoodItem = ({
   ranking,
 }: FoodItemProps) => (
   <Link href={`/restaurants/${id}`} className='w-full'>
-    <div className='relative flex w-full'>
-      <div className='relative h-[128px] w-[200px] overflow-hidden bg-[#f6f6f6]'>
+    <div className='relative flex w-full sm:flex-col'>
+      <div className='relative h-[128px] overflow-hidden bg-[#f6f6f6] sm:w-full md:w-[200px]'>
         <div className='h-full'>
           <ItemImage coverImg={coverImg} />
         </div>
         <Promote />
       </div>
-      <div className='ml-4 flex w-[calc(100%-216px)] flex-col items-start'>
+      <div className='flex w-[calc(100%-216px)] flex-col items-start sm:pt-2 md:ml-4'>
         <ItemTitle name={name} ranking={ranking} />
         <ItemTags category={category} />
         <div className='h-2'></div>
@@ -130,7 +130,7 @@ const ItemTitle = ({ name, ranking }: any) => (
 export const ItemRanking = ({ ranking }: { ranking: string }) => (
   <div
     aria-hidden='true'
-    className='flex h-7 flex-[0_0_28px] items-center justify-center rounded-[50%] bg-[#eee] text-xs font-medium leading-4'
+    className='hidden h-7 flex-[0_0_28px] items-center justify-center rounded-[50%] bg-[#eee] text-xs font-medium leading-4 md:flex'
   >
     {ranking}
   </div>

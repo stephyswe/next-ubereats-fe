@@ -22,6 +22,7 @@
     "@apollo/client": "^3.6.9",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "apollo-link-ws": "^1.0.20",
     "clsx": "^1.2.1",
     "deepmerge": "^4.2.2",

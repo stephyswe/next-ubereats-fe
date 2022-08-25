@@ -3,18 +3,17 @@ import { useRouter } from 'next/router';
 
 import { useDelivery } from '@/contexts';
 import { Footer } from '@/ui/layout/footer';
-import { CityNav } from '@/ui/layout/nav/city';
-import { HomeNav } from '@/ui/layout/nav/home';
+import { Nav } from '@/ui/layout/nav';
 
 // - Applies to all routes
 export const RootLayout = ({ children }: any) => {
   const { setComplete } = useDelivery();
   const { pathname } = useRouter();
   function checkRoute() {
-    if (pathname === '/') return <HomeNav />;
-    if (pathname === '/client/store/[label]') return <CityNav noHoverBorder />;
-    if (pathname === '/client/dining/delivery') return <CityNav fixed />;
-    else return <CityNav />;
+    if (pathname === '/') return <Nav />;
+    if (pathname === '/client/store/[label]') return <Nav noHoverBorder />;
+    if (pathname === '/client/dining/delivery') return <Nav fixed />;
+    else return <Nav />;
   }
 
   setTimeout(() => {

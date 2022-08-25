@@ -2,12 +2,16 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
 const forms = require('@tailwindcss/forms');
 const plugin = require('tailwindcss/plugin');
+const clamp = require('@tailwindcss/line-clamp');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+        'sm': {'max': '767px'},
+      },
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
         uberMove: ['UberMove', 'sans-serif'],
@@ -69,6 +73,7 @@ module.exports = {
     },
   },
   plugins: [
+    clamp,
     forms,
     plugin(({ addComponents, theme, addUtilities }) => {
       addUtilities({
@@ -154,13 +159,13 @@ module.exports = {
 
         /** Transition Property */
         '.transition-background': {
-          transitionProperty: 'background'
+          transitionProperty: 'background',
         },
         '.transition-timing-cubic': {
-          transitionTimingFunction: 'cubic-bezier(0, 0, 1, 1)'
+          transitionTimingFunction: 'cubic-bezier(0, 0, 1, 1)',
         },
         '.clip-rect': {
-          clip: 'rect(0, 0, 0, 0)'
+          clip: 'rect(0, 0, 0, 0)',
         },
 
         /** Transforms */
@@ -297,8 +302,8 @@ module.exports = {
           flex: '1 0 36px',
         },
         '.webkit-color-transparent': {
-          WebkitTapHighlightColor: 'transparent'
-        }
+          WebkitTapHighlightColor: 'transparent',
+        },
       });
     }),
   ],

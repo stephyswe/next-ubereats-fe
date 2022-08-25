@@ -1,3 +1,7 @@
+import clsx from 'clsx';
+
+import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
+
 export type { BreadCrumbItemProps } from './breadcrumb';
 export { BreadCrumb } from './breadcrumb';
 export { Cart } from './cart';
@@ -31,6 +35,15 @@ export const NewLogo = () => (
   />
 );
 
-export const Separator = () => (
-  <hr className='my-8 h-[1px] border-none bg-[#e2e2e2]' />
-);
+export const Separator = ({ mobileHidden, mobileHiddenSpace }: any) => {
+  const { isMobile } = useWindowSizeJs();
+  return (
+    <hr
+      className={clsx(
+        'my-8 h-[1px] border-none bg-[#e2e2e2]',
+        isMobile && mobileHidden ? 'hidden' : '',
+        isMobile && mobileHiddenSpace ? 'my-4 bg-[transparent]' : ''
+      )}
+    />
+  );
+};

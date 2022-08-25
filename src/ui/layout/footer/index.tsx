@@ -12,7 +12,7 @@ import { FooterBottomLinkList } from '@/ui/layout/footer/components/link';
 export function Footer() {
   const { linkFirst, linkSecond, linkBottom, socialList } = footerData;
   return (
-    <footer className='border-1-gray mt-20 pt-[72px] pb-[88px]'>
+    <footer className='border-1-gray mt-10 pt-[72px] pb-[88px] md:mt-20'>
       <Container>
         <div className='flex flex-col flex-wrap md:flex-row'>
           <FooterMobileList />

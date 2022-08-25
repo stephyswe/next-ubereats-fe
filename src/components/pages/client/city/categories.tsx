@@ -5,6 +5,8 @@ import { useRef } from 'react';
 
 import styles from './styles.module.css';
 
+import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
+
 import { Link, Typography } from '@/components';
 import { secondTempCategoriesData } from '@/components/pages/client/city/categories.data';
 
@@ -36,7 +38,7 @@ type ExploreProps = {
   subtitle?: string;
 };
 
-export function Categories({
+export function CityCategories({
   data,
   exploreTitle,
 }: {
@@ -73,14 +75,15 @@ export function Categories({
 }
 
 const CategoryOne = ({ data }: { data: CategoriesProps }) => {
+  const { isMobile } = useWindowSizeJs();
   return (
     <div
       style={{ scrollSnapAlign: 'start' }}
       className='mr-6 block w-full flex-shrink-0 flex-grow-0 basis-full'
     >
       <div className='-mx-3 -mb-6 box-border flex flex-wrap'>
-        {data?.map((item: CategoryItemProps) => (
-          <CategoryItem key={item.id} {...item} />
+        {data?.slice(0, isMobile ? 4 : 12).map((item: CategoryItemProps) => (
+          <CityCategoryItem key={item.id} {...item} />
         ))}
       </div>
     </div>
@@ -93,8 +96,8 @@ const CategoryTwo = ({ data }: { data: CategorySecondItemProps[] }) => (
     className='mr-6 block w-full flex-shrink-0 flex-grow-0 basis-full'
   >
     <div className='-mx-3 -mb-6 box-border flex flex-wrap'>
-      {data.map((item: CategoryItemProps) => (
-        <CategoryItem key={item.id} {...item} />
+      {data.slice(0, 6).map((item: CategoryItemProps) => (
+        <CityCategoryItem key={item.id} {...item} />
       ))}
     </div>
   </div>
@@ -145,10 +148,10 @@ export const CityExploreNavigator = ({ onNextClick }: any) => (
   </div>
 );
 
-const CategoryItem = ({ name, coverImg, slug }: CategoryItemProps) => {
+const CityCategoryItem = ({ name, coverImg, slug }: CategoryItemProps) => {
   const router = useRouter();
   return (
-    <div className='ml-0 mb-6 box-border block w-[16.6667%] flex-none px-3'>
+    <div className='ml-0 mb-6 box-border block w-[50%] flex-none px-3 md:w-[16.6667%]'>
       <a
         className='relative block h-20 overflow-hidden bg-[rgb(246,240,234)] '
         href={`/client/category/${router.query.label}/${slug}`}

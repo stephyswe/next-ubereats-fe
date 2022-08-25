@@ -5,9 +5,11 @@ import {
   capitalizeCity,
   titleCaseFull,
 } from '@/lib/helper';
+import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 import { Button, ButtonInput, Typography } from '@/components';
-import { Categories, FoodList } from '@/components/pages/client/city';
+import { Clamp } from '@/components/clamp/clamp';
+import { CityCategories, FoodList } from '@/components/pages/client/city';
 
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
 import { cityData } from '@/constant/pages/client/city.data';
@@ -61,17 +63,19 @@ export default function CityPage({ deliData, pageText, breadCrumbText }: any) {
     variables: { input: { page } },
   });
 
+  const { isMobile } = useWindowSizeJs();
+
   if (loading) {
     return <div>loading...</div>;
   } else if (data) {
     return (
       <main className='block'>
         <DynamicHero background={background} title={pageText}>
-          <div className='relative flex w-[35vw] flex-1 flex-col'>
+          <div className='relative flex flex-1 flex-col md:w-[35vw]'>
             <ButtonInput svg={<SvgMap />} placeholder={placeholder} />
           </div>
-          <Spacer className='w-4' />
-          <Button className='w-[300px]' variant='btnLg3' size='lg'>
+          <Spacer className='sm:h-4 md:w-4' />
+          <Button className='md:max-w-[300px]' variant='btnLg3' size='lg'>
             {buttonText}
           </Button>
         </DynamicHero>
@@ -79,39 +83,40 @@ export default function CityPage({ deliData, pageText, breadCrumbText }: any) {
         <Spacer className='h-6' />
         <Container>
           <BreadCrumb data={breadCrumbText} />
-        </Container>
-        <Container>
+
           <div>
             <Typography as='h2' variant='4xl'>
               {pageText}
             </Typography>
             <Spacer className='h-2' />
-            <p>{citySelected.subtitle}</p>
+
+            {isMobile ? (
+              <Clamp lines={2} withToggle>
+                <p>{citySelected.subtitle}</p>
+              </Clamp>
+            ) : (
+              <p>{citySelected.subtitle}</p>
+            )}
           </div>
-          <Separator />
-        </Container>
-        <Container>
+          <Separator mobileHidden />
+
           <Spacer className='h-6' />
           <div className='grid grid-cols-3 gap-[40px_24px]'>
             <div className='col-[1/-1] min-w-0'>
               <div>
-                <Categories
+                <CityCategories
                   data={data.findManyCategories.categories}
                   exploreTitle={category.title}
                 />
               </div>
             </div>
           </div>
+          <Separator mobileHidden />
 
-          <Separator />
-        </Container>
-
-        <Container>
           <Spacer className='h-6' />
           <FoodList />
-          <Separator />
-        </Container>
-        <Container>
+          <Separator mobileHiddenSpace />
+
           <div>
             {deliData.map((item: DeliveryInformationItemProps) => (
               <div key={item.title}>

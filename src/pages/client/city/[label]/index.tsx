@@ -1,17 +1,24 @@
 import { Button, ButtonInput } from '@/components';
-import {
-  CityCategories,
-  CityInfo,
-  FoodInfo,
-} from '@/components/pages/client/city';
+import { CityInfo, FoodInfo } from '@/components/pages/client/city';
 import {
   CityClosedItems,
   CityOpenItemsNew,
-} from '@/components/pages/client/city/restaurant-list';
+} from '@/components/pages/client/city/restaurant';
 
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
-import { cityData } from '@/constant/pages/client/city.data';
-import { BreadCrumb, Container, DynamicHero, Separator, Spacer } from '@/ui';
+import {
+  cityData,
+  tempServerCategories,
+} from '@/constant/pages/client/city.data';
+import {
+  BreadCrumb,
+  Container,
+  DynamicHero,
+  Headline,
+  Separator,
+  Spacer,
+} from '@/ui';
+import { CategoryList } from '@/ui/category';
 import { SvgMap } from '@/ui/icons';
 
 export { getServerSideProps } from '@/components/pages/client/city/server';
@@ -23,6 +30,7 @@ export default function CityPage({ cityInfo, cityTitle, breadcrumb }: any) {
     hero: { buttonText, background, inputPlaceholder },
   } = cityData;
 
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const { data, loading } = useFindManyRestaurantsQuery({
     variables: { input: { page: 1 } },
   });
@@ -55,10 +63,11 @@ export default function CityPage({ cityInfo, cityTitle, breadcrumb }: any) {
       <Container>
         <Spacer className='h-6' />
         <div className='col-[1/-1] min-w-0'>
-          <CityCategories
-            data={data?.findManyCategories.categories}
-            title={categoryTitle}
-          />
+          <Headline title={categoryTitle} link />
+          <div className='scrollbar-none flex overflow-y-hidden overflow-x-scroll scroll-snap-x'>
+            <CategoryList data={tempServerCategories} />
+            <CategoryList data={tempServerCategories} />
+          </div>
         </div>
         <Separator mobileHidden />
       </Container>

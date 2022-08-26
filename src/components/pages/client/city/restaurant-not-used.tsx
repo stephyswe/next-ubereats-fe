@@ -1,7 +1,4 @@
-import {
-  CityRestaurantItem,
-  CityRestaurantItemProps,
-} from '@/components/pages/client/city/restaurant-item';
+import { CityRestaurantItem, CityRestaurantItemProps } from '@/ui/store/item';
 
 export const CityRestaurantList = ({
   data,

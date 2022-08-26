@@ -64,11 +64,11 @@ export const CityRestaurantItem = ({
         <ItemPromote banner={banner} />
         {closed ? <ClosedFigCaption closed={closed} /> : null}
       </div>
-      <div className='flex w-[calc(100%-216px)] flex-col items-start sm:pt-2 md:ml-4'>
+      <div className='flex flex-col items-start sm:pt-2 md:ml-4 md:w-[calc(100%-216px)]'>
         <ItemTitle name={name} ranking={ranking} closed={closed} />
         <ItemTags data={category} />
         <div className='h-2'></div>
-        <span className='overflow-hidden text-ellipsis text-sm text-[#6b6b6b]'>
+        <span className='text-ellipsis text-sm text-[#6b6b6b] md:overflow-hidden'>
           {address}
         </span>
       </div>

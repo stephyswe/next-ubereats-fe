@@ -13,6 +13,7 @@ export enum ButtonVariant {
   'btnBase2',
   'btnSmall1',
   'btnSmall2',
+  'btnNav',
 }
 
 type ButtonProps = {
@@ -102,6 +103,9 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ],
             variant === 'btnSmall2' && [
               'box-shadow-rgb-button flex h-10 cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px] bg-white px-3 transition-all-300',
+            ],
+            variant === 'btnNav' && [
+              'box-border flex h-9 min-h-[auto] w-9 items-center justify-center rounded-[50%]',
             ],
             // ** No Size **
             variant === 'btnDish' && [

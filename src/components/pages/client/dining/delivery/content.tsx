@@ -3,13 +3,9 @@ import {
   CategoryRestaurantItem,
   restaurantData,
 } from '@/components/pages/client/category/restaurant-list';
-import {
-  CityExplore,
-  CityExploreNavigator,
-} from '@/components/pages/client/city/category';
 import Typography from '@/components/typography';
 
-import { Spacer } from '@/ui';
+import { Headline, HeadlineNavigate, Spacer } from '@/ui';
 
 /**
  * Top-level - Content Component
@@ -82,7 +78,7 @@ const DeliveryContentItem = ({ title, subtitle }: any) => (
   <div className='col-span-full min-w-0'>
     <div>
       <section>
-        <CityExplore title={title} subtitle={subtitle} />
+        <Headline title={title} subtitle={subtitle} />
         <div
           style={{ scrollSnapType: 'x mandatory' }}
           className='scrollbar-none flex overflow-x-scroll'
@@ -125,7 +121,7 @@ export const DeliveryContentSection = ({ content, image }: any) => (
           <section>
             <div className='relative mb-6 flex items-center justify-between'>
               <div></div>
-              <CityExploreNavigator />
+              <HeadlineNavigate />
             </div>
             <div
               style={{ scrollSnapType: 'x mandatory' }}

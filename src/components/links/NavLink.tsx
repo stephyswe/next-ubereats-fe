@@ -22,11 +22,15 @@ export const LinkLogin = ({
   >
     {plain ? null : (
       <>
-        <div className={`${size === 'small' ? '' : ''}`}>
+        {size === 'small' ? (
+          <div className={`${size === 'small' ? '' : ''}`}>
+            <SvgLogin size={size} />
+          </div>
+        ) : (
           <SvgLogin size={size} />
-        </div>
+        )}
 
-        <Spacer className={size === 'small' ? 'md:w-1' : 'md:w-1'} />
+        <Spacer className='md:w-1' />
       </>
     )}
 

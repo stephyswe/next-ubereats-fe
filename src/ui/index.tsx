@@ -6,6 +6,7 @@ export type { BreadCrumbItemProps } from './breadcrumb';
 export { BreadCrumb } from './breadcrumb';
 export { Cart } from './cart';
 export { Container } from './container';
+export { Headline, HeadlineNavigate } from './headline';
 export { DynamicHero, Hero } from './hero';
 export { Toggler } from './toggler';
 

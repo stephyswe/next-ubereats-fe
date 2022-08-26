@@ -1,9 +1,9 @@
 export const HomeData = {
   hero: {
-    title: 'Beställ mat direkt till din dörr.',
+    title: 'Order food to your door.',
     src: '/images/home/hero.png',
     toggle: ['Leverans', 'Upphämtning'],
-    buttonText: 'Hitta Mat',
+    buttonText: 'Find Food',
     links: {
       link: 'https://www.ubereats.com/',
       title: 'Logga in',

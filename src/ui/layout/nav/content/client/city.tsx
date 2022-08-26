@@ -24,7 +24,7 @@ export function NavCityContent({ auth, change, onScroll }: any) {
           <>
             <div className='flex-1'></div>
             <div className='flex flex-grow-0 items-center justify-end'>
-              <LinkLogin plain />
+              <LinkLogin plain size='small' />
             </div>
           </>
         ) : (

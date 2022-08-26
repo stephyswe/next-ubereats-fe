@@ -14,7 +14,7 @@ import { cityData } from '@/constant/pages/client/city.data';
 import { BreadCrumb, Container, DynamicHero, Separator, Spacer } from '@/ui';
 import { SvgMap } from '@/ui/icons';
 
-export { getServerSideProps } from './server';
+export { getServerSideProps } from '@/components/pages/client/city/server';
 
 export default function CityPage({ cityInfo, cityTitle, breadcrumb }: any) {
   const {

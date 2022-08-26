@@ -16,15 +16,20 @@ html {
   }
 }
 
-*,
-body {
+h1,
+h2,
+h3,
+h4,
+p {
   margin: 0;
-  font-family: UberMoveText, sans-serif;
+  font-weight: normal;
 }
 
 body {
+  margin: 0;
   background: #ffffff;
   color: #000000;
+  font-family: UberMoveText, sans-serif;
 }
 
 ul {
@@ -111,6 +116,7 @@ td {
   from {
     background-position: -100vw 0px;
   }
+
   to {
     background-position: 100vw 0px;
   }

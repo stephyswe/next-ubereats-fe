@@ -61,7 +61,7 @@ export function DiningToggler({ size }: any) {
     <div className='relative flex w-auto'>
       <div
         className={clsx(
-          'box-border flex h-10 w-full whitespace-nowrap rounded-[500px] bg-[#eee] p-1',
+          'box-border flex w-full whitespace-nowrap rounded-[500px] bg-[#eee] p-1',
           size === 'small' ? 'h-10' : 'h-12'
         )}
       >

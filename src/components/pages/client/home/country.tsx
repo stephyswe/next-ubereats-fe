@@ -20,7 +20,7 @@ export function CountryWithMap({ data }: CountryWithMapProps) {
   const { title, link, mapCenter, cities } = data;
   return (
     <div>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-end justify-between'>
         <Typography as='h2' variant='4xl'>
           {title}
         </Typography>

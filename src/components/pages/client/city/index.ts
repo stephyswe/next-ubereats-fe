@@ -1,2 +1,3 @@
-export { CityCategories } from './categories';
-export { FoodList } from './food-list';
+export { CityCategories } from './category';
+export { CityInfo, FoodInfo } from './info';
+export { CityRestaurantList } from './restaurant-item';

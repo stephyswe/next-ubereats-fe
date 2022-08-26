@@ -1,17 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { NextImage } from '@/components';
-
-import { Spacer } from '@/ui';
+import { NewLogo, Spacer } from '@/ui';
 
 export const FooterMobileList = () => (
   <div className='flex flex-[2_1] flex-col items-start md:justify-between'>
-    <NextImage
-      alt='Uber&nbsp;Eats'
-      src='/images/logo.svg'
-      width='146'
-      height='24'
-    />
+    <NewLogo />
 
     <div className='mt-12 flex md:mt-0'>
       <a href='https://apps.apple.com/us/app/uber-eats-food-delivery/id1058959277'>

@@ -46,7 +46,7 @@ export const UnstyledInput = <C extends React.ElementType>({
           variant === 'input1' && [
             'm-0 border-none bg-gray-50 p-0 text-[16px]',
           ],
-          variant === 'input2' && ['flex-1'],
+          variant === 'input2' && ['placeholderstyle flex-1'],
           variant === 'input3' && [
             'flex-1 appearance-none bg-[#eeeeee] placeholder:font-medium placeholder:text-[#a7a7a6]',
           ],

@@ -81,7 +81,7 @@ export default function RegionPage({
         background={background}
         title='Order your favorites with Uber Eats'
       >
-        <div className='relative flex w-[35vw] flex-1 flex-col'>
+        <div className='relative flex flex-1 flex-col md:w-[540px]'>
           <ButtonInput svg={<SvgMap />} placeholder={placeholder} />
         </div>
         <Spacer className='w-4' />

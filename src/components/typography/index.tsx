@@ -82,7 +82,7 @@ export default function Typography<C extends React.ElementType>({
           ],
           // ** 3XL - 30 px (change to 28px) **
           variant === '3xl' && [
-            'font-uberMove text-2xl md:text-[28px] md:leading-9',
+            'font-uberMove text-2xl font-bold md:text-[28px] md:leading-9',
           ],
           // ** 2XL - 24 px **
           // ** XL - 20 px **

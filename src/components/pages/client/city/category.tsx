@@ -1,15 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 
+import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useRef } from 'react';
-
-import styles from './styles.module.css';
 
 import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 import { Link, Typography } from '@/components';
-import { secondTempCategoriesData } from '@/components/pages/client/city/categories.data';
 
+import { secondTempCategoriesData } from '@/constant/pages/client/city.data';
 import { SvgHorizontalArrow } from '@/ui/icons';
 
 type CategoriesProps = CategoryItemProps[] | null | undefined;
@@ -36,14 +35,15 @@ type ExploreProps = {
   inputRef?: any;
   title: string;
   subtitle?: string;
+  link?: boolean;
 };
 
 export function CityCategories({
   data,
-  exploreTitle,
+  title,
 }: {
   data: CategoriesProps;
-  exploreTitle: string;
+  title: string;
 }) {
   const inputRef = useRef<HTMLDivElement>();
   function onNextClick() {
@@ -61,7 +61,8 @@ export function CityCategories({
       <CityExplore
         onNextClick={onNextClick}
         inputRef={inputRef}
-        title={exploreTitle}
+        title={title}
+        link
       />
       <div
         style={{ scrollSnapType: 'x mandatory' }}
@@ -103,7 +104,12 @@ const CategoryTwo = ({ data }: { data: CategorySecondItemProps[] }) => (
   </div>
 );
 
-export const CityExplore = ({ inputRef, title, subtitle }: ExploreProps) => (
+export const CityExplore = ({
+  inputRef,
+  title,
+  subtitle,
+  link,
+}: ExploreProps) => (
   <div className='mb-6 flex items-center justify-between'>
     <div>
       <Typography as='h2' variant='4xl'>
@@ -115,13 +121,15 @@ export const CityExplore = ({ inputRef, title, subtitle }: ExploreProps) => (
     </div>
 
     <div className='flex items-center '>
-      <Link
-        ref={inputRef}
-        className='cursor-pointer text-base font-medium leading-5 text-black underline'
-        href='/category/atlanta-ga'
-      >
-        {subtitle ? 'See all' : 'View all'}
-      </Link>
+      {link ? (
+        <Link
+          ref={inputRef}
+          className='cursor-pointer text-base font-medium leading-5 text-black underline'
+          href='/category/atlanta-ga'
+        >
+          {subtitle ? 'See all' : 'View all'}
+        </Link>
+      ) : null}
       <div className='w-10'></div>
       <CityExploreNavigator />
     </div>
@@ -132,16 +140,23 @@ export const CityExploreNavigator = ({ onNextClick }: any) => (
   <div className='flex'>
     <button
       aria-label='Previous'
-      className={styles.btn_menu + ' ' + styles.btn_menu_prev}
+      className={clsx(
+        'box-border flex h-9 min-h-[auto] w-9 cursor-pointer items-center justify-center rounded-[50%] p-0 text-lg font-medium leading-6',
+        'disabled:cursor-not-allowed',
+        'bg-[#f6f6f6] text-[#afafaf]'
+      )}
       disabled={true}
     >
-      <SvgHorizontalArrow />
+      <SvgHorizontalArrow rotate />
     </button>
     <div className='w-1'></div>
     <button
       onClick={onNextClick}
       aria-label='Next'
-      className={styles.btn_menu + ' ' + styles.btn_menu_next}
+      className={clsx(
+        'box-border flex h-9 min-h-[auto] w-9 cursor-pointer items-center justify-center rounded-[50%] p-0 text-lg font-medium leading-6',
+        'bg-[#eee]'
+      )}
     >
       <SvgHorizontalArrow />
     </button>
@@ -163,7 +178,9 @@ const CityCategoryItem = ({ name, coverImg, slug }: CategoryItemProps) => {
           className='absolute right-0 top-0 h-full'
         />
         <div className='border-box relative w-[60%] min-w-[120px] p-4 text-lg font-medium leading-6 text-black'>
-          <div className={styles.category_item_title}>{name}</div>
+          <div className='overflow-hidden webkit-line-clamp-2 webkit-orient-vertical webkit'>
+            {name}
+          </div>
         </div>
       </a>
     </div>

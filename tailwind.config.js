@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'sm': {'max': '767px'},
+        sm: { max: '767px' },
       },
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
@@ -303,6 +303,24 @@ module.exports = {
         },
         '.webkit-color-transparent': {
           WebkitTapHighlightColor: 'transparent',
+        },
+        '.webkit-line-clamp-3': {
+          WebkitLineClamp: '3',
+        },
+        '.webkit-line-clamp-2': {
+          WebkitLineClamp: '2',
+        },
+        '.webkit-orient-vertical': {
+          WebkitBoxOrient: 'vertical',
+        },
+        '.webkit': {
+          display: '-webkit-box',
+        },
+        '.scroll-snap-x': {
+          scrollSnapType: 'x mandatory',
+        },
+        '.scroll-align-start': {
+          scrollSnapAlign: 'start',
         },
       });
     }),

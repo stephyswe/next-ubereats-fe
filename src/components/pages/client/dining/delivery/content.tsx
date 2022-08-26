@@ -6,7 +6,7 @@ import {
 import {
   CityExplore,
   CityExploreNavigator,
-} from '@/components/pages/client/city/categories';
+} from '@/components/pages/client/city/category';
 import Typography from '@/components/typography';
 
 import { Spacer } from '@/ui';

@@ -1,8 +1,9 @@
 import { LinkLogin } from '@/components/links/NavLink';
 
 import { useDelivery } from '@/contexts';
-import { NavItemDelivery, NavItemSearch, Spacer } from '@/ui';
+import { Spacer } from '@/ui';
 import { Cart } from '@/ui/cart';
+import { NavItemDelivery, NavItemSearch } from '@/ui/layout/nav/items';
 import { DiningToggler } from '@/ui/toggler';
 
 export function NavbarCategoryContent({ auth }: any) {

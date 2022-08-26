@@ -9,7 +9,7 @@ export type BreadCrumbItemProps = {
 };
 
 export const BreadCrumb = ({ data }: { data: BreadCrumbItemProps[] }) => (
-  <ol className='m-[0_0_16px_0] flex items-center overflow-auto whitespace-nowrap p-0 text-[#afafaf]'>
+  <ol className='m-[0px_0px_16px] flex items-center overflow-auto whitespace-nowrap p-0 text-[#afafaf]'>
     {data.map(
       (
         bcItem: BreadCrumbItemProps,

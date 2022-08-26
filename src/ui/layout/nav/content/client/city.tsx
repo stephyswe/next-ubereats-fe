@@ -1,15 +1,19 @@
+import clsx from 'clsx';
+
 import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 import { ButtonInput } from '@/components';
 import { LinkLogin } from '@/components/links/NavLink';
 
 import { useDelivery } from '@/contexts';
-import { NavItemDelivery, NavItemSearch, Spacer } from '@/ui';
+import { Spacer } from '@/ui';
 import { Cart } from '@/ui/cart';
 import { SvgMap } from '@/ui/icons';
+import { NavButtonInput } from '@/ui/layout/nav/content/home';
+import { NavItemDelivery, NavItemSearch } from '@/ui/layout/nav/items';
 import { DiningToggler } from '@/ui/toggler';
 
-export function NavCityContent({ auth, change }: any) {
+export function NavCityContent({ auth, change, onScroll }: any) {
   const { isMobile } = useWindowSizeJs();
   const { isComplete } = useDelivery();
 
@@ -27,7 +31,7 @@ export function NavCityContent({ auth, change }: any) {
           <div className='w-full'>
             <ButtonInput
               svg={<SvgMap />}
-              placeholder='Ange leveransadress'
+              placeholder='Enter delivery address'
               className='bg-[#eee]'
               innerClassName='bg-[#eee]'
             />
@@ -54,7 +58,11 @@ export function NavCityContent({ auth, change }: any) {
   return (
     <>
       <Spacer className='w-10' />
-      <DiningToggler />
+      <DiningToggler size='small' />
+      <Spacer className='w-4' />
+      <div className={clsx('relative w-full max-w-[722px]')}>
+        <NavButtonInput onScroll={onScroll} />
+      </div>
       <Spacer className='w-4' />
       <div className='flex-1'></div>
       <div className='flex flex-grow-0 items-center justify-end'>

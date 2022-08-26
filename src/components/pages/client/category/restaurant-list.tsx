@@ -1,8 +1,10 @@
 import clsx from 'clsx';
 
 import { Link } from '@/components';
-import { ItemRanking } from '@/components/pages/client/city/food-list';
-import { ItemImage } from '@/components/pages/client/items';
+import {
+  ItemImage,
+  ItemRanking,
+} from '@/components/pages/client/city/restaurant-item';
 import Typography from '@/components/typography';
 
 export const restaurantData = [
@@ -87,7 +89,7 @@ export const CategoryRestaurantItem = ({ coverImg, category, inner }: any) => (
         <figure className='relative m-0 h-[128px] overflow-hidden bg-[#f6f6f6]'>
           <div className='absolute left-0 top-0 h-full w-full'>
             <div className='h-[128px]'>
-              <ItemImage coverImg={coverImg} />
+              <ItemImage image={coverImg} />
             </div>
           </div>
         </figure>

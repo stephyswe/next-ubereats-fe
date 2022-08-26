@@ -476,7 +476,7 @@ export function SvgInputClock() {
   );
 }
 
-export function SvgHorizontalArrow() {
+export function SvgHorizontalArrow({ rotate }: any) {
   return (
     <svg
       aria-hidden='true'
@@ -484,7 +484,10 @@ export function SvgHorizontalArrow() {
       viewBox='0 0 24 24'
       className={styles.icon_16}
     >
-      <path d='M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z'></path>
+      <path
+        d='M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z'
+        transform={rotate ? '' : 'rotate(180, 12, 12)'}
+      ></path>
     </svg>
   );
 }
@@ -644,7 +647,7 @@ export function SvgInstagram() {
 }
 
 function iconSize(size: string) {
-  let setSize = '16';
+  let setSize = '20';
   if (size === 'small') {
     setSize = '16';
   }

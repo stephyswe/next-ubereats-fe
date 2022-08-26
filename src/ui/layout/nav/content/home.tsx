@@ -26,7 +26,7 @@ export const NavHomeContent = ({ onScroll, change }: any) => {
           <div className='w-full'>
             <ButtonInput
               svg={<SvgMap />}
-              placeholder='Ange leveransadress'
+              placeholder='Enter delivery address'
               className='bg-[#eee]'
               innerClassName='bg-[#eee]'
             />
@@ -38,11 +38,12 @@ export const NavHomeContent = ({ onScroll, change }: any) => {
 
   return (
     <>
+      <Spacer className='w-[128px]' />
       <div className={clsx('relative w-full max-w-[722px]')}>
         <NavButtonInput onScroll={onScroll} />
       </div>
       <div className='flex-1'></div>
-      <Spacer className='w-6' />
+      <Spacer className='w-[24px]' />
       <AuthContent data={auth} change={change} />
     </>
   );
@@ -60,7 +61,7 @@ export const NavButtonInput = ({ onScroll }: any) => (
     {onScroll ? (
       <ButtonInput
         svg={<SvgMap />}
-        placeholder='Ange leveransadress'
+        placeholder='Enter delivery address'
         className='bg-[#eee]'
         innerClassName='bg-[#eee]'
       />
@@ -85,7 +86,7 @@ const AuthContent = ({
       textHidden
       title={login.title}
       className={clsx(
-        'bg-white p-[12px_14px] text-black hover:bg-[#ccc] md:p-[auto]',
+        'bg-white text-black hover:bg-[#ccc]',
         change ? 'box-shadow-rgb-double ' : ''
       )}
     />

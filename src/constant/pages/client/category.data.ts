@@ -4,7 +4,7 @@ export const categoryData = {
     background: ['/images/city/hero.svg', '/images/city/hero2.svg'],
     buttonText: 'Hitta Mat',
     input: {
-      placeholder: 'Ange leveransadress',
+      placeholder: 'Enter delivery address',
     },
   },
   breadcrumb: ['Sverige', 'Västra Götaland', 'Göteborg'],

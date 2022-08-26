@@ -43,7 +43,10 @@ export function NavItemSearch() {
           <label className='cart_clip absolute m-[-1px] h-[1px] w-[1px] overflow-hidden whitespace-normal'>
             Vad är du sugen på?
           </label>
-          <NavItemSearchInput register={register} />
+          <NavItemSearchInput
+            register={register}
+            placeholder='Vad är du sugen på?'
+          />
           <ul className='cart_border_width absolute left-0 right-0 top-full z-10 hidden border-solid border-[#e2e2e2] bg-white box-shadow-rgb-10'></ul>
         </form>
       </div>
@@ -53,8 +56,10 @@ export function NavItemSearch() {
 
 const NavItemSearchInput = ({
   register,
+  placeholder,
 }: {
   register: UseFormRegister<FieldValues>;
+  placeholder: string;
 }) => (
   <div className='relative box-border flex min-w-full border-none bg-[#eeeeee] px-4 py-2 font-uberMoveText text-base font-normal leading-6 text-black transition-bs-ease-300 box-shadow-inset-eee focus-within:box-shadow-rgb-0'>
     <div className='flex flex-shrink-0 items-center py-2'>
@@ -68,7 +73,7 @@ const NavItemSearchInput = ({
       type='text'
       role='combobox'
       name='searchTerm'
-      placeholder='Vad är du sugen på?'
+      placeholder={placeholder}
       register={register}
     />
     <Spacer className='w-2' />

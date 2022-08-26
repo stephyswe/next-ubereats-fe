@@ -7,7 +7,6 @@ export { BreadCrumb } from './breadcrumb';
 export { Cart } from './cart';
 export { Container } from './container';
 export { DynamicHero, Hero } from './hero';
-export { NavItemDelivery, NavItemSearch } from './navbar';
 export { Toggler } from './toggler';
 
 /* maps */
@@ -19,9 +18,23 @@ type SpacerProps = {
   index?: number;
 } & React.ComponentPropsWithRef<'div'>;
 
-export const Spacer = ({ length, index, ...rest }: SpacerProps) => {
+export const Spacer = ({ length, index, className, ...rest }: SpacerProps) => {
   if (length && index) if (length === index + 1) return null;
-  return <div {...rest}></div>;
+  return (
+    <div
+      className={clsx(
+        'm-0 flex-shrink-0 p-0',
+        className && className.charAt(0) !== 'h' ? 'h-[1px]' : '',
+        className
+      )}
+      {...rest}
+    ></div>
+  );
+};
+
+export const SpacerItem = ({ length, index, children }: SpacerProps) => {
+  if (length && index) if (length === index + 1) return null;
+  return <>{children}</>;
 };
 
 export const NewLogo = () => (
@@ -35,14 +48,19 @@ export const NewLogo = () => (
   />
 );
 
-export const Separator = ({ mobileHidden, mobileHiddenSpace }: any) => {
+export const Separator = ({
+  topOnly,
+  mobileHidden,
+  mobileHiddenSpace,
+}: any) => {
   const { isMobile } = useWindowSizeJs();
   return (
     <hr
       className={clsx(
-        'my-8 h-[1px] border-none bg-[#e2e2e2]',
+        'h-[1px] border-none bg-[#e2e2e2]',
         isMobile && mobileHidden ? 'hidden' : '',
-        isMobile && mobileHiddenSpace ? 'my-4 bg-[transparent]' : ''
+        isMobile && mobileHiddenSpace ? 'my-4 bg-[transparent]' : '',
+        topOnly ? 'm-[32px_0_0]' : 'my-8'
       )}
     />
   );

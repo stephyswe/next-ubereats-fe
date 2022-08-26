@@ -3,11 +3,11 @@ import { SvgLogin } from '@/ui/icons';
 export const navHomeData = {
   auth: {
     register: {
-      title: 'Registera dig',
+      title: 'Sign up',
       link: '/auth/register',
     },
     login: {
-      title: 'Logga in',
+      title: 'Log in',
       svg: <SvgLogin />,
       link: '/auth/login',
     },

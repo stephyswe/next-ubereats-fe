@@ -4,7 +4,7 @@ export const regionData = {
     backgroundColor: '#FFD7D2',
     buttonText: 'Hitta Mat',
     input: {
-      placeholder: 'Ange leveransadress',
+      placeholder: 'Enter delivery address',
     },
   },
   citySelected: {

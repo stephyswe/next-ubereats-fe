@@ -19,7 +19,7 @@ export default function HomePage() {
             <Toggler data={hero.toggle} />
           </div> */}
           <div className='flex flex-col gap-1 md:flex-row md:items-start'>
-            <div className='relative flex-1 flex-col md:min-w-[500px] md:max-w-[540px]'>
+            <div className='relative flex-1 flex-col md:max-w-[540px]'>
               <ButtonInput
                 svg={<SvgMap />}
                 placeholder={hero.input.placeholder}

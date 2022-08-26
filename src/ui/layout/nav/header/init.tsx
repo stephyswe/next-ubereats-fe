@@ -24,9 +24,9 @@ export function HomeNavigate({ onSidebar, change }: any) {
     return (
       <>
         <NavButton onClick={onSidebar} />
-        <Spacer className='pr-6' />
+        <Spacer className='pr-8' />
         <NewLogo />
-        <Spacer className='w-[128px]' />
+        {/*  <Spacer className='w-[128px]' /> */}
       </>
     );
   }

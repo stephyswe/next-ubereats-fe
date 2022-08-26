@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Fragment } from 'react';
 
-import { Button, Typography } from '@/components';
+import { Button } from '@/components';
+import { DiningCategoryItem } from '@/components/pages/client/dining/item';
 
 import { useDelivery } from '@/contexts';
 import { LoadingInitAlt, LoadingRoundSmall } from '@/ui';
@@ -25,7 +26,7 @@ export function PickupCategoryList({ data }: any) {
         <div className='flex'>
           {data.map(({ title, img }: any) => (
             <Fragment key={title}>
-              <PickupCategoryItem title={title} img={img} />
+              <DiningCategoryItem title={title} img={img} />
               <div className='m-0 h-[1px] w-4 flex-shrink-0 p-0'></div>
             </Fragment>
           ))}
@@ -34,34 +35,6 @@ export function PickupCategoryList({ data }: any) {
     </>
   );
 }
-
-export const PickupCategoryItem = ({ title, img }: any) => (
-  <li>
-    <a
-      href='yup'
-      className='group relative flex min-w-[80px] max-w-fit flex-col items-center '
-    >
-      <div className='relative h-[60px] w-[60px]'>
-        <img
-          alt={title}
-          role='presentation'
-          src={img}
-          className='h-full w-full rounded-full group-hover:bg-[#eee]'
-        />
-      </div>
-      <div className='h-2'></div>
-      <Typography
-        as='div'
-        variant='small'
-        weight='medium'
-        leading='4'
-        className='w-full text-center'
-      >
-        <div className='overflow-hidden'>{title}</div>
-      </Typography>
-    </a>
-  </li>
-);
 
 export const PickupArrow = () => (
   <div className='pointer-events-none absolute z-10 flex h-full w-full justify-between'>

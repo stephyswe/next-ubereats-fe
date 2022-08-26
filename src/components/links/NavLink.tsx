@@ -22,7 +22,10 @@ export const LinkLogin = ({
   >
     {plain ? null : (
       <>
-        <SvgLogin />
+        <div className={`${size === 'small' ? '' : ''}`}>
+          <SvgLogin size={size} />
+        </div>
+
         <Spacer className={size === 'small' ? 'md:w-1' : 'md:w-1'} />
       </>
     )}
@@ -41,7 +44,7 @@ export const LinkLogin = ({
 export const LinkSignup = ({ title, className, size = 'normal' }: any) => (
   <Link
     size={size}
-    href='/'
+    href='placeholder'
     variant='linkBase1'
     className={
       className ? className : 'bg-[#eee] hover:bg-[#e2e2e2] active:bg-[#ddd]'

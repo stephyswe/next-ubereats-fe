@@ -20,7 +20,7 @@ export const NavHomeContent = ({ onScroll, change }: any) => {
           <>
             <div className={clsx('relative w-full max-w-[722px]')}></div>
             <div className='flex-1'></div>
-            <AuthContent data={auth} change={change} />
+            <AuthContent data={auth} change={change} small />
           </>
         ) : (
           <div className='w-full'>
@@ -75,24 +75,28 @@ type AuthContentProps = {
     login: { title: string; svg: JSX.Element; link: string };
   };
   change: boolean;
+  small?: boolean;
 };
 
 const AuthContent = ({
   data: { login, register },
   change,
+  small,
 }: AuthContentProps) => (
   <>
     <LinkLogin
       textHidden
       title={login.title}
+      size={small ? 'small' : 'normal'}
       className={clsx(
         'bg-white text-black hover:bg-[#ccc]',
         change ? 'box-shadow-rgb-double ' : ''
       )}
     />
-    <Spacer className='w-[60px] md:w-4' />
+    <Spacer className='w-4' />
     <LinkSignup
       title={register.title}
+      size={small ? 'small' : 'normal'}
       className={clsx(
         'bg-black text-white hover:bg-[#333]',
         change ? 'box-shadow-rgb-double ' : ''

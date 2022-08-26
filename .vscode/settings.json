@@ -9,7 +9,7 @@
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "files.exclude": {
     ".eslintrc.js": false,
-    ".prettierrc.js": true,
+    ".prettierrc.js": false,
     "CHANGELOG.md": true,
     "codegen.yml": false,
     "jest.config.js": true,
@@ -19,7 +19,7 @@
     "README.md": true,
     "yarn.lock": true,
     ".gitignore": true,
-    ".prettierignore": true,
+    ".prettierignore": false,
     "next.config.js": false,
     "postcss.config.js": true,
     "tsconfig.json": true,

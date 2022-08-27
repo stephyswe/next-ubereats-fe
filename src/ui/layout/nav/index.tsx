@@ -14,38 +14,39 @@ export function Nav({ noHoverBorder, fixed }: any) {
   const { isMobile } = useWindowSizeJs();
 
   const router = useRouter();
-  const wrapperRef = useRef(null);
-  const [stylesBody, setStylesBody] = useState(true);
+  const sidebarRef = useRef(null);
+  const [active, setActive] = useState(true);
   const [change, setChange] = useState(false);
   useEffect(() => {
     setChange(false);
   }, [router]);
 
   const position = useWindowScrollPosition();
-  useOutsideAlerter(wrapperRef, setStylesBody);
+  useOutsideAlerter(sidebarRef, setActive);
   if (!fixed) homePosition(position, setChange, change, 1, 200, isMobile);
 
-  let home = false;
-  let onScrollPosition = 400;
-  if (router.pathname === '/') {
-    home = true;
-  } else {
-    onScrollPosition = 450;
+  function checkHome() {
+    let home = false;
+    if (router.pathname === '/') home = true;
+    return home;
+  }
+
+  function checkOnScroll() {
+    let onScrollPosition = 400;
+    if (router.pathname !== '/') onScrollPosition = 450;
+    return position && position.scrollY > onScrollPosition && change;
   }
 
   return (
     <>
-      <Sidebar wrapperRef={wrapperRef} stylesBody={stylesBody} />
+      <Sidebar sidebarRef={sidebarRef} active={active} />
       <NavHeader
-        home={home}
+        home={checkHome()}
         noHoverBorder={noHoverBorder}
-        onSidebar={() => showSidebar(stylesBody, setStylesBody)}
+        onSidebar={() => showSidebar(active, setActive)}
         change={change}
       >
-        <NavPerPage
-          change={change}
-          onScroll={position && position.scrollY > onScrollPosition && change}
-        />
+        <NavPerPage change={change} onScroll={checkOnScroll()} />
       </NavHeader>
     </>
   );

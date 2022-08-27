@@ -1,4 +1,4 @@
-export { FooterCopyRight } from './copyright';
-export { FooterLinkList, LinkLanguage } from './link';
-export { FooterMobileList } from './mobile';
-export { FooterSocialList } from './social';
+export { FooterCopyright } from './copyright';
+export { FooterBottom, FooterLink, LinkLanguage } from './link';
+export { FooterMobile } from './mobile';
+export { FooterSocial } from './social';

@@ -27,7 +27,10 @@ const ToggleItem = ({ title, onClick }: any) => (
       aria-checked='false'
       tabIndex={0}
       aria-label={title}
-      className='box-border flex h-full w-full cursor-pointer select-none items-center justify-center rounded-[500px] bg-inherit px-4 text-center font-uberMoveText text-sm font-medium leading-4 text-black transition-all-ease-400'
+      className={clsx(
+        'box-border flex h-full w-full cursor-pointer select-none items-center justify-center',
+        'rounded-[500px] bg-inherit px-4 text-center text-sm font-medium leading-4 text-black transition-all-ease-400'
+      )}
     >
       {title}
     </div>

@@ -10,9 +10,8 @@ export const RootLayout = ({ children }: any) => {
   const { setComplete } = useDelivery();
   const { pathname } = useRouter();
   function checkRoute() {
-    if (pathname === '/') return <Nav />;
     if (pathname === '/client/store/[label]') return <Nav noHoverBorder />;
-    if (pathname === '/client/dining/delivery') return <Nav fixed />;
+    else if (pathname === '/client/dining/delivery') return <Nav fixed />;
     else return <Nav />;
   }
 

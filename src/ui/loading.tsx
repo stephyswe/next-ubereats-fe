@@ -14,7 +14,7 @@ export function LoadingInit({ children, w, h }: any) {
     >
       <div
         style={{ height: h + 'px' }}
-        className='relative m-0 flex cursor-pointer flex-row items-stretch overflow-hidden whitespace-nowrap rounded-[500px] font-uberMoveText text-base font-medium leading-5 loading-init loading-bg-full'
+        className='relative m-0 flex cursor-pointer flex-row items-stretch overflow-hidden whitespace-nowrap rounded-[500px] text-base font-medium leading-5 loading-init loading-bg-full'
       >
         {children}
       </div>

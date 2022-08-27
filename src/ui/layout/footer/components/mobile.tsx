@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { NewLogo, Spacer } from '@/ui';
+import { Logo, Spacer } from '@/ui';
 
-export const FooterMobileList = () => (
+export const FooterMobile = () => (
   <div className='flex flex-[2_1] flex-col items-start md:justify-between'>
-    <NewLogo />
+    <Logo />
 
     <div className='mt-12 flex md:mt-0'>
-      <a href='https://apps.apple.com/us/app/uber-eats-food-delivery/id1058959277'>
+      <a href='placeholder'>
         <img
           alt='Ladda ner i App Store'
           src='/images/footer/appstore.svg'
@@ -17,7 +17,7 @@ export const FooterMobileList = () => (
 
       <Spacer className='w-4' />
 
-      <a href='https://play.google.com/store/apps/details?id=com.ubercab.eats'>
+      <a href='placeholder'>
         <img
           alt='Skaffa den på Google Play'
           src='/images/footer/googlestore.png'

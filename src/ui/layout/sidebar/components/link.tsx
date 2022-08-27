@@ -14,10 +14,7 @@ type SideBarLinkItemProps = { title: string; link: string };
 
 const SidebarLinkItem = ({ title, link }: SideBarLinkItemProps) => (
   <li className='mb-4'>
-    <Link
-      href={link}
-      className='my-3 font-uberMoveText text-sm font-medium leading-4'
-    >
+    <Link href={link} className='my-3 text-sm font-medium leading-4'>
       {title}
     </Link>
   </li>

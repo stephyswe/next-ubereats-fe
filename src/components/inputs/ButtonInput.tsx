@@ -22,7 +22,7 @@ export const ButtonInput = <C extends React.ElementType>({
   return (
     <div
       className={clsx(
-        'px-4 py-2 text-center font-uberMoveText text-base font-normal leading-6 text-black',
+        'px-4 py-2 text-center text-base font-normal leading-6 text-black',
         'relative box-border flex min-w-full border-none bg-white ',
         'transition-bs-ease-300 box-shadow-inset-eee focus-within:box-shadow-rgb-0',
         innerClassName

@@ -4,7 +4,7 @@ import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 import { NavButton } from '@/components/buttons/NavButton';
 
-import { NewLogo, Spacer } from '@/ui';
+import { Logo, Spacer } from '@/ui';
 
 type NavHeaderProps = {
   children: JSX.Element;
@@ -55,7 +55,7 @@ export function Navigation({
           <>
             <NavButton onClick={onSidebar} />
             <Spacer className='pr-6' />
-            <NewLogo />
+            <Logo />
             <Spacer className='p-5' />
           </>
         ) : null}
@@ -66,7 +66,7 @@ export function Navigation({
       <>
         <NavButton onClick={onSidebar} />
         <Spacer className='pr-8' />
-        <NewLogo />
+        <Logo />
       </>
     );
   }

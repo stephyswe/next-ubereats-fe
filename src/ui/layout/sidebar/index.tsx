@@ -9,27 +9,27 @@ import {
 } from './components';
 
 type SideBarProps = {
-  wrapperRef: React.RefObject<HTMLDivElement>;
-  stylesBody: boolean;
+  sidebarRef: React.RefObject<HTMLDivElement>;
+  active: boolean;
 };
 
-export function Sidebar({ stylesBody, wrapperRef }: SideBarProps) {
+export function Sidebar({ active, sidebarRef }: SideBarProps) {
   const { link, auth, social } = sidebarData;
   return (
     <div
       className={clsx(
         'fixed left-0 top-0 z-50 flex flex-row overflow-hidden',
-        stylesBody
+        active
           ? 'h-0 w-0 bg-[#262626cc] opacity-0 sidebar-transition'
           : 'h-full w-full bg-[#262626cc]'
       )}
     >
       <aside
-        ref={wrapperRef}
+        ref={sidebarRef}
         className={clsx(
           'box-border w-[300px] max-w-[80%] flex-col overflow-y-auto overflow-x-hidden bg-white p-6 text-black',
           'transition-all-ease-in-out-400 box-shadow-sidebar-25-10',
-          stylesBody ? 'translate-x-[-300px] opacity-0' : 'grid-rows-6'
+          active ? 'translate-x-[-300px] opacity-0' : 'grid-rows-6'
         )}
       >
         <nav>

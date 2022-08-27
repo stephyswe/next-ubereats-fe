@@ -39,7 +39,7 @@ export default function HomePage() {
               {buttonText}
             </Button>
           </div>
-          <div className='mt-6 font-uberMoveText text-sm font-medium leading-4'>
+          <div className='mt-6 text-sm font-medium leading-4'>
             <Link href={href} className='cursor-pointer underline'>
               {linkTitle}
             </Link>{' '}

@@ -26,9 +26,7 @@ export const SidebarSocialList = ({ data }: SidebarSocialListProps) => (
         width='56'
       />
       <Spacer className='w-4' />
-      <p className='font-uberMoveText text-base font-medium leading-5'>
-        {data.title}
-      </p>
+      <p className='text-base font-medium leading-5'>{data.title}</p>
     </div>
     <div className='mb-2 mt-4 flex items-center'>
       {data.devices.map((device: SidebarSocialItemProps, index: number) => (

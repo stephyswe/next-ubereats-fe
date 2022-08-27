@@ -29,7 +29,7 @@ export const Spacer = ({ length, index, className, ...rest }: SpacerProps) => {
         className
       )}
       {...rest}
-    ></div>
+    />
   );
 };
 
@@ -38,7 +38,7 @@ export const SpacerItem = ({ length, index, children }: SpacerProps) => {
   return <>{children}</>;
 };
 
-export const NewLogo = () => (
+export const Logo = () => (
   // eslint-disable-next-line @next/next/no-img-element
   <img
     alt='Startsida för Uber&nbsp;Eats'

@@ -1,32 +1,36 @@
 /* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx';
 
-import { useWindowSize } from '@/hooks/useWindowSize';
 import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 import { Typography } from '@/components';
 
 type HeroProps = {
   title: string;
-  image: string;
+  background: {
+    color: string;
+    desktop: string | string[];
+    mobile: string;
+  };
   children: React.ReactNode;
 };
 
-export const Hero = ({ title, image, children }: HeroProps) => {
-  const size = useWindowSize();
-  const isMobile = size.width && size.width < 768;
+export const Hero = ({ title, background, children }: HeroProps) => {
+  const { color, desktop, mobile } = background;
+  const { isMobile } = useWindowSizeJs();
+
   return (
     <div className='relative'>
-      <div className='flex h-full overflow-hidden bg-[#f2ca2f]'>
+      <div
+        style={{
+          background: color,
+        }}
+        className='flex h-full overflow-hidden'
+      >
         <div
           style={{
-            background: `${
-              isMobile
-                ? `center / cover no-repeat
-                url('images/home/hero-mobile.png')`
-                : `center / cover no-repeat
-              url(${image})`
-            }`,
+            background: `${`center / cover no-repeat
+                url(${isMobile ? mobile : desktop})`}`,
           }}
           className='flex h-screen w-screen overflow-hidden'
         ></div>
@@ -43,44 +47,33 @@ export const Hero = ({ title, image, children }: HeroProps) => {
   );
 };
 
-type DynamicHeroProps = {
-  background: Array<string>;
-  backgroundColor?: string;
-  title: string;
-  children: React.ReactNode;
-};
-
-export const DynamicHero = ({
-  backgroundColor,
-  background,
-  title,
-  children,
-}: DynamicHeroProps) => {
+export const DynamicHero = ({ background, title, children }: HeroProps) => {
+  const { color, desktop, mobile } = background;
   const { isMobile } = useWindowSizeJs();
   return (
     <div className='relative box-border md:min-w-[1024px]'>
       <div
-        style={{ background: backgroundColor }}
-        className='relative z-10 h-[calc(100vh-80px)] w-full bg-[#fa9269]'
+        style={{ background: color }}
+        className='relative z-10 h-[calc(100vh-80px)] w-full'
       >
         {isMobile ? (
           <>
-            {/*  <img
+            <img
               alt="Hungry? You're in the right place"
-              src='/images/city/hero-mobile.svg'
-              className='absolute h-full'
-            /> */}
+              src={mobile}
+              className='absolute bottom-0'
+            />
           </>
         ) : (
           <>
             <img
               alt="Hungry? You're in the right place"
-              src={background[0]}
+              src={desktop[0]}
               className='absolute h-full'
             />
             <img
               alt="Hungry? You're in the right place"
-              src={background[1]}
+              src={desktop[1]}
               className='absolute right-0 h-full'
             />
           </>
@@ -88,14 +81,14 @@ export const DynamicHero = ({
       </div>
       <div
         className={clsx(
-          'absolute z-20 p-4 sm:top-0 sm:left-0 sm:right-0 sm:bottom-0 sm:m-auto sm:mt-40',
+          'absolute z-20 p-4 sm:top-0 sm:left-0 sm:right-0 sm:bottom-0 sm:m-auto sm:mt-72',
           'md:top-1/2 md:left-1/2 md:translate-y-[-50%] md:translate-x-[-50%]'
         )}
       >
         <Typography
           as='h2'
-          variant='4xl'
-          className='sm:mb-[24px] md:mb-[44px] md:text-center'
+          variant='5xl'
+          className='font-medium sm:mb-[24px] md:mb-[44px] md:text-center'
         >
           {title}
         </Typography>

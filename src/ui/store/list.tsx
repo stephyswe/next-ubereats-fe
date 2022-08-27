@@ -1,8 +1,22 @@
 import clsx from 'clsx';
 
+import { categoryData } from '@/constant/ui/category';
 import { Headline } from '@/ui/headline';
-import { CityRestaurantItem } from '@/ui/store/item';
+import { CategoryRestaurantItem, CityRestaurantItem } from '@/ui/store/item';
 
+// Category Restaurant List
+// eslint-disable-next-line unused-imports/no-unused-vars
+export const CategoryRestaurantList = ({ data }: any) => (
+  <div className='grid gap-[40px_24px] md:grid-cols-3'>
+    {categoryData.map(({ coverImg, category }: any, index: number) => (
+      <div key={index} className='min-w-0'>
+        <CategoryRestaurantItem coverImg={coverImg} category={category} />
+      </div>
+    ))}
+  </div>
+);
+
+// City Restaurant List
 export const CityRestaurantScroll = ({ data }: { data?: any }) => (
   <>
     <Headline title={data.title} />

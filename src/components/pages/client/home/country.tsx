@@ -52,11 +52,9 @@ type CountryListProps = {
 
 export const CountryList = ({ data }: CountryListProps) => (
   <div>
-    <div className='flex items-center justify-between'>
-      <Typography as='h2' variant='4xl'>
-        {data.title}
-      </Typography>
-    </div>
+    <Typography as='h2' variant='4xl'>
+      {data.title}
+    </Typography>
 
     <div className='mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4'>
       {data.countries.map((country: string, index: number) => (

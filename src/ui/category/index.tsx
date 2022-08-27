@@ -3,9 +3,11 @@ import { useRouter } from 'next/router';
 
 import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
+//TODO: Fix this type
+// eslint-disable-next-line unused-imports/no-unused-vars
 type CategoriesProps = CategoryItemSquareProps[] | null | undefined;
 
-export const CategoryList = ({ data }: { data: CategoriesProps }) => {
+export const CategoryList = ({ data }: { data: any }) => {
   const { isMobile } = useWindowSizeJs();
   return (
     <div className='mr-6 block w-full flex-shrink-0 flex-grow-0 basis-full md:scroll-align-start'>

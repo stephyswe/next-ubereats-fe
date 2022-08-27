@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import clsx from 'clsx';
 import { Fragment } from 'react';
 
 import { Link, Typography } from '@/components';
@@ -109,7 +110,7 @@ export const ItemRanking = ({
 }: Pick<CityRestaurantItemProps, 'ranking'>) => (
   <div
     aria-hidden='true'
-    className='hidden h-7 flex-[0_0_28px] items-center justify-center rounded-[50%] bg-[#eee] text-xs font-medium leading-4 md:flex'
+    className='flex h-7 flex-[0_0_28px] items-center justify-center rounded-[50%] bg-[#eee] text-xs font-medium leading-4'
   >
     {ranking}
   </div>
@@ -151,4 +152,48 @@ const ItemTagDot = () => (
   <Typography as='span' variant='textDot'>
     &nbsp;•&nbsp;
   </Typography>
+);
+
+// Category Restaurant Item with Tags.
+
+export const CategoryRestaurantItem = ({ coverImg, category, inner }: any) => (
+  <div className='relative overflow-hidden'>
+    <Link href='placeholder'>
+      <h3 className='absolute h-full w-full text-[0px]'>
+        Six Feet Under Pub &amp; Fish House (Grant Park)
+      </h3>
+    </Link>
+    <div className='pointer-events-none relative flex overflow-hidden'>
+      <div className='z-0 w-full'>
+        <figure className='relative m-0 h-[128px] overflow-hidden bg-[#f6f6f6]'>
+          <div className='absolute left-0 top-0 h-full w-full'>
+            <div className='h-[128px]'>
+              <ItemImage image={coverImg} />
+            </div>
+          </div>
+        </figure>
+        <div className={clsx('flex items-start pt-3', inner ? 'px-2' : '')}>
+          <div className='flex min-w-0 flex-1 flex-col'>
+            <Typography
+              as='p'
+              variant='large'
+              className='mb-[2px] cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap'
+            >
+              McDonalds Scandinavium
+            </Typography>
+            <CategoryRestaurantItemTags category={category} />
+          </div>
+          <div className='w-4'></div>
+          <ItemRanking ranking='3.4' />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const CategoryRestaurantItemTags = ({ category }: any) => (
+  <div>
+    <span className='text-sm'>{category.name}</span>
+    <span className='text-sm'>&nbsp;•&nbsp; 59.00SEK Fee • $</span>
+  </div>
 );

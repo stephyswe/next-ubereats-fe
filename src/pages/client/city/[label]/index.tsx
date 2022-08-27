@@ -1,15 +1,12 @@
 import { Button, ButtonInput } from '@/components';
-import { CityInfo, FoodInfo } from '@/components/pages/client/city';
 import {
-  CityClosedItems,
-  CityOpenItemsNew,
+  CityRestaurants,
+  CityRestaurantsClosed,
 } from '@/components/pages/client/city/restaurant';
 
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
-import {
-  cityData,
-  tempServerCategories,
-} from '@/constant/pages/client/city.data';
+import { cityData } from '@/constant/pages/client/city.data';
+import { categoriesData } from '@/constant/ui/category';
 import {
   BreadCrumb,
   Container,
@@ -19,13 +16,14 @@ import {
   Spacer,
 } from '@/ui';
 import { CategoryList } from '@/ui/category';
+import { HeadlineCity, HeadlineFood } from '@/ui/headline';
 import { SvgMap } from '@/ui/icons';
 
-export { getServerSideProps } from '@/components/pages/client/city/server';
+export { getServerSideProps } from '@/constant/server/city.server';
 
-export default function CityPage({ cityInfo, cityTitle, breadcrumb }: any) {
+export default function CityPage({ cityInfo, title, breadcrumb }: any) {
   const {
-    foodInfoSubtitle,
+    foodSubtitle,
     categoryTitle,
     hero: { buttonText, background, inputPlaceholder },
   } = cityData;
@@ -38,11 +36,11 @@ export default function CityPage({ cityInfo, cityTitle, breadcrumb }: any) {
   // TODO: Add a date function to view the restaurant's schedule
   const checkTime = () => false;
 
-  if (loading) return <div>loading...</div>;
+  if (loading) return <div>loading</div>;
 
   return (
     <main className='block'>
-      <DynamicHero background={background} title={cityTitle}>
+      <DynamicHero background={background} title={title}>
         <div className='relative flex flex-1 flex-col md:w-[540px]'>
           <ButtonInput svg={<SvgMap />} placeholder={inputPlaceholder} />
         </div>
@@ -57,7 +55,7 @@ export default function CityPage({ cityInfo, cityTitle, breadcrumb }: any) {
         <BreadCrumb data={breadcrumb} />
       </Container>
       <Container>
-        <FoodInfo title={cityTitle} subtitle={foodInfoSubtitle} />
+        <HeadlineFood title={title} subtitle={foodSubtitle} />
         <Separator mobileHidden />
       </Container>
       <Container>
@@ -65,18 +63,18 @@ export default function CityPage({ cityInfo, cityTitle, breadcrumb }: any) {
         <div className='col-[1/-1] min-w-0'>
           <Headline title={categoryTitle} link />
           <div className='scrollbar-none flex overflow-y-hidden overflow-x-scroll scroll-snap-x'>
-            <CategoryList data={tempServerCategories} />
-            <CategoryList data={tempServerCategories} />
+            <CategoryList data={categoriesData} />
+            <CategoryList data={categoriesData} />
           </div>
         </div>
         <Separator mobileHidden />
       </Container>
       <Container>
         {/* Conditionally show items based on time */}
-        {checkTime() ? <CityClosedItems /> : <CityOpenItemsNew />}
+        {checkTime() ? <CityRestaurantsClosed /> : <CityRestaurants />}
       </Container>
       <Container>
-        <CityInfo data={cityInfo} />
+        <HeadlineCity data={cityInfo} />
       </Container>
     </main>
   );

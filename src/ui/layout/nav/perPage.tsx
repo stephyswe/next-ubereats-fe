@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { NavbarCategoryContent } from '@/ui/layout/nav/content/client/category';
+import { NavCategoryContent } from '@/ui/layout/nav/content/client/category';
 import { NavCityContent } from '@/ui/layout/nav/content/client/city';
 import { NavbarDiningContent } from '@/ui/layout/nav/content/client/dining';
 import { NavbarStoreContent } from '@/ui/layout/nav/content/client/store';
@@ -16,10 +16,10 @@ export const NavPerPage = (props: any) => {
       return <NavCityContent {...props} />;
 
     case '/client/category/[label]/[sublabel]':
-      return <NavbarCategoryContent />;
+      return <NavCategoryContent {...props} />;
 
     case '/client/region/[label]':
-      return <NavbarCategoryContent />;
+      return <NavCityContent />;
 
     case '/client/dining/pickup':
       return <NavbarDiningContent />;

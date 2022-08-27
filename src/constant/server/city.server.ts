@@ -27,7 +27,7 @@ export async function getServerSideProps(context: any) {
     props: {
       cityInfo,
       breadcrumb: breadCrumbGenerate(label),
-      cityTitle: titleCaseFull('Food', city),
+      title: titleCaseFull('Food', city),
     },
   };
 }

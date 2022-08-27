@@ -4,7 +4,7 @@ import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 export type { BreadCrumbItemProps } from './breadcrumb';
 export { BreadCrumb } from './breadcrumb';
-export { Cart } from './cart';
+export { Cart } from './cart/item';
 export { Container } from './container';
 export { Headline, HeadlineNavigate } from './headline';
 export { DynamicHero, Hero } from './hero';

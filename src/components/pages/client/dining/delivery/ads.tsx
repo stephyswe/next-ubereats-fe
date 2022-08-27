@@ -60,6 +60,26 @@ export const DeliveryAdsList = () => (
   </div>
 );
 
+interface CommonProps {
+  title: string;
+  subtitle: string;
+  link: string;
+  color?: string;
+  split?: boolean;
+}
+
+type DeliveryAdsItemProps = CommonProps & ConditionalProps;
+
+type ConditionalProps =
+  | {
+      subImage?: string;
+      image?: never;
+    }
+  | {
+      subImage?: never;
+      image?: string;
+    };
+
 const DeliveryAdsItem = ({
   title,
   subtitle,
@@ -68,7 +88,7 @@ const DeliveryAdsItem = ({
   link,
   color,
   split,
-}: any) => (
+}: DeliveryAdsItemProps) => (
   <li className='m-[0_12px] w-[calc(33.3333%+-16px)] flex-none cursor-pointer'>
     <Link href='placeholder' className='block w-full cursor-pointer'>
       <div
@@ -110,7 +130,18 @@ const DeliveryAdsItem = ({
   </li>
 );
 
-const DeliveryAdsItemSplit = ({ title, subtitle, image, link, color }: any) => (
+type DeliveryAdsItemSplitProps = Omit<
+  DeliveryAdsItemProps,
+  'subImage' | 'split'
+>;
+
+const DeliveryAdsItemSplit = ({
+  title,
+  subtitle,
+  image,
+  link,
+  color,
+}: DeliveryAdsItemSplitProps) => (
   <div className='absolute bottom-0 left-0 top-0 right-0 flex cursor-pointer bg-[#142328] bg-cover'>
     <div className='box-border flex h-full flex-[1_1_0px] flex-col items-start justify-between p-[12px_16px_16px]'>
       <DeliveryAdsItemText
@@ -131,7 +162,14 @@ const DeliveryAdsItemSplit = ({ title, subtitle, image, link, color }: any) => (
   </div>
 );
 
-const DeliveryAdsItemText = ({ link, title, subtitle, color }: any) => (
+type DeliveryAdsItemTextProps = Omit<DeliveryAdsItemProps, 'image'>;
+
+const DeliveryAdsItemText = ({
+  link,
+  title,
+  subtitle,
+  color,
+}: DeliveryAdsItemTextProps) => (
   <>
     <div className='w-[85%]'>
       <div className='font-uberMove text-[calc(36.48px)] leading-[1.3] md:text-[calc(19.456px)]'>
@@ -155,7 +193,13 @@ const DeliveryAdsItemText = ({ link, title, subtitle, color }: any) => (
   </>
 );
 
-const DeliveryBox = ({ title, color, small }: any) => (
+const DeliveryBox = ({
+  title,
+  color,
+  small,
+}: Omit<DeliveryAdsItemTextProps, 'subtitle' | 'link'> & {
+  small?: boolean;
+}) => (
   <div
     style={{
       WebkitLineClamp: 3,

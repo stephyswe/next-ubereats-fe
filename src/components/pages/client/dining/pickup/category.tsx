@@ -16,7 +16,21 @@ const CategoryContentSkeleton = () => (
   </LoadingWithSpace>
 );
 
-export function PickupCategoryList({ data }: any) {
+type PickupCategoryListProps = {
+  title: string;
+  img: string;
+};
+
+export type DiningCategoryItemProps = Pick<
+  PickupCategoryListProps,
+  'img' | 'title'
+>;
+
+export function PickupCategoryList({
+  data,
+}: {
+  data: PickupCategoryListProps[];
+}) {
   const { isComplete } = useDelivery();
   if (!isComplete) return <CategoryContentSkeleton />;
   return (
@@ -24,7 +38,7 @@ export function PickupCategoryList({ data }: any) {
       <PickupArrow />
       <div className='scroll-smooth'>
         <div className='flex'>
-          {data.map(({ title, img }: any) => (
+          {data.map(({ title, img }: DiningCategoryItemProps) => (
             <Fragment key={title}>
               <DiningCategoryItem title={title} img={img} />
               <div className='m-0 h-[1px] w-4 flex-shrink-0 p-0'></div>

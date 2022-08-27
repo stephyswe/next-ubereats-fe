@@ -5,7 +5,7 @@ import { LinkLogin } from '@/components/links/NavLink';
 import { LOCALSTORAGE_TOKEN } from '@/constant/env';
 import { useDelivery } from '@/contexts';
 import { Spacer } from '@/ui';
-import { Cart } from '@/ui/cart';
+import { Cart } from '@/ui/cart/item';
 import { NavItemDelivery, NavItemSearch } from '@/ui/layout/nav/items';
 import { DiningToggler } from '@/ui/toggler';
 

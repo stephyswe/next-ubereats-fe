@@ -16,11 +16,13 @@ export enum ButtonVariant {
   'btnNav',
 }
 
+export type ButtonSizeProps = 'small' | 'md' | 'lg' | 'base';
+
 type ButtonProps = {
   isLoading?: boolean;
   isDarkBg?: boolean;
   variant?: keyof typeof ButtonVariant;
-  size?: 'small' | 'md' | 'lg' | 'base';
+  size?: ButtonSizeProps;
   round?: boolean;
 } & React.ComponentPropsWithRef<'button'>;
 
@@ -102,7 +104,8 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'relative flex cursor-pointer items-center whitespace-nowrap rounded-[500px] py-2 px-3 transition-width-easeInout-150',
             ],
             variant === 'btnSmall2' && [
-              'box-shadow-rgb-button flex h-10 cursor-pointer items-center justify-center whitespace-nowrap rounded-[500px] bg-white px-3 transition-all-300',
+              'box-shadow-rgb-button flex h-10 cursor-pointer items-center justify-center',
+              'whitespace-nowrap rounded-[500px] bg-white px-3 transition-all-300',
             ],
             variant === 'btnNav' && [
               'box-border flex h-9 min-h-[auto] w-9 items-center justify-center rounded-[50%]',

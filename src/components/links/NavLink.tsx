@@ -45,6 +45,12 @@ export const LinkLogin = ({
   </Link>
 );
 
+/* type LinkSignupProps = {
+  title: string;
+  className?: string;
+  size?: LinkPropSize;
+};
+ */
 export const LinkSignup = ({ title, className, size = 'normal' }: any) => (
   <Link
     size={size}

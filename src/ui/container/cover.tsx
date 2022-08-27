@@ -1,10 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
-
-import NextImage from '@/components/image';
+import { NextImage } from '@/components';
 
 import { SvgDots, SvgHeart } from '@/ui/icons';
 
-export const RestaurantCover = ({ image }: { image: string }) => (
+export const BackgroundCover = ({ image }: { image: string }) => (
   <div className='m-[0_auto] box-border min-w-[1024px] max-w-[1920px]'>
     <div className='relative m-0 flex h-40 w-full items-center justify-center bg-gray-600'>
       <figure className='absolute left-0 bottom-0 right-0 top-0 m-0 bg-gray-100 transition-[left_0.3]'>

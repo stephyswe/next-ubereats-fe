@@ -7,7 +7,7 @@ import { LinkLogin } from '@/components/links/NavLink';
 
 import { useDelivery } from '@/contexts';
 import { Spacer } from '@/ui';
-import { Cart } from '@/ui/cart';
+import { Cart } from '@/ui/cart/item';
 import { SvgMap } from '@/ui/icons';
 import { NavButtonInput } from '@/ui/layout/nav/content/home';
 import { NavItemDelivery, NavItemSearch } from '@/ui/layout/nav/items';

@@ -14,10 +14,23 @@ type InputProps<C extends React.ElementType> = {
   register?: (ref: HTMLInputElement) => void;
 } & React.ComponentProps<C>;
 
-const inputPattern: any = {
+const getKeyValue =
+  <U extends keyof T, T extends object>(key: U) =>
+  (obj: T) =>
+    obj[key];
+
+interface InputPattern {
+  email: string;
+}
+
+const inputPattern: { email: string } = {
   email:
     '/^(([^<>()[]\\.,;:s@"]+(.[^<>()[]\\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/',
 };
+
+const getPattern = getKeyValue<keyof InputPattern, InputPattern>('email')(
+  inputPattern
+);
 
 export const UnstyledInput = <C extends React.ElementType>({
   variant = '',
@@ -34,7 +47,7 @@ export const UnstyledInput = <C extends React.ElementType>({
       type={type}
       {...register(name, {
         required: `${placeholder} is required`,
-        pattern: inputPattern[type],
+        pattern: getPattern,
       })}
       required
       placeholder={placeholder}
@@ -46,7 +59,7 @@ export const UnstyledInput = <C extends React.ElementType>({
           variant === 'input1' && [
             'm-0 border-none bg-gray-50 p-0 text-[16px]',
           ],
-          variant === 'input2' && ['placeholderstyle flex-1'],
+          variant === 'input2' && ['placeholder-style flex-1'],
           variant === 'input3' && [
             'flex-1 appearance-none bg-[#eeeeee] placeholder:font-medium placeholder:text-[#a7a7a6]',
           ],

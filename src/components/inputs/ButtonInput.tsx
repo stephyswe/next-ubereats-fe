@@ -9,7 +9,7 @@ enum InputVariant {
 }
 
 type InputProps<C extends React.ElementType> = {
-  variant?: keyof typeof InputVariant;
+  variant?: InputVariant;
   svg: JSX.Element;
 } & React.ComponentProps<C>;
 

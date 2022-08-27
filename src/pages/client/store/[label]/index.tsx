@@ -1,13 +1,8 @@
 import { useRouter } from 'next/router';
 
-import { breadCrumbGenerate, groupBy } from '@/lib/helper';
+import { groupBy } from '@/lib/helper';
 
-import {
-  Overview,
-  RestaurantCover,
-  StickyList,
-  StoreList,
-} from '@/components/pages/';
+import { StickyList } from '@/components/pages/';
 
 import {
   useCreateOrderMutation,
@@ -16,32 +11,23 @@ import {
 import { storeData } from '@/constant/pages/client/store.data';
 import { useDelivery, useOrders } from '@/contexts/';
 import { BreadCrumb, BreadCrumbItemProps, Container } from '@/ui';
+import { BackgroundCover } from '@/ui/container/cover';
+import { DishList } from '@/ui/dish/list';
+import { StoreDetail } from '@/ui/store/detail';
 
-export async function getServerSideProps(context: any) {
-  const { label } = context.params;
-  return {
-    props: {
-      restaurantId: 1,
-      breadCrumbText: breadCrumbGenerate('göteborg-västra-götaland', label),
-    },
-  };
-}
+export { getServerSideProps } from '@/constant/server/store.server';
 
 type StorePageProps = {
-  restaurantId: number;
-  breadCrumbText: BreadCrumbItemProps[];
+  breadcrumb: BreadCrumbItemProps[];
 };
 
-export default function StorePage({
-  restaurantId,
-  breadCrumbText,
-}: StorePageProps) {
+export default function StorePage({ breadcrumb }: StorePageProps) {
   const { coverImage } = storeData;
   const { setComplete } = useDelivery();
   const { orderItems, setOrderItems } = useOrders();
   const router = useRouter();
   const { data, loading } = useFindRestaurantQuery({
-    variables: { input: { restaurantId } },
+    variables: { input: { restaurantId: 1 } },
     onCompleted: () => {
       setComplete(true);
     },
@@ -71,7 +57,7 @@ export default function StorePage({
     }
 
     createOrderMutation({
-      variables: { input: { restaurantId, items: orderItems } },
+      variables: { input: { restaurantId: 1, items: orderItems } },
     });
   };
 
@@ -88,11 +74,11 @@ export default function StorePage({
       <main className='block'>
         <div>
           <Container>
-            <BreadCrumb data={breadCrumbText} />
+            <BreadCrumb data={breadcrumb} />
           </Container>
-          <RestaurantCover image={coverImage} />
+          <BackgroundCover image={coverImage} />
           <Container>
-            <Overview />
+            <StoreDetail />
           </Container>
           <Container>
             <div className='flex'>
@@ -104,7 +90,7 @@ export default function StorePage({
                 />
                 <ul className='m-0 mt-[24px] block p-0'>
                   {Object.keys(groupMenu).map((key: string) => (
-                    <StoreList key={key} groupMenu={groupMenu} groupKey={key} />
+                    <DishList key={key} groupMenu={groupMenu} groupKey={key} />
                   ))}
                 </ul>
               </div>

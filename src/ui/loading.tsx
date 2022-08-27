@@ -1,6 +1,7 @@
 // Combined Components: default
 
 import clsx from 'clsx';
+import { Fragment } from 'react';
 
 import { SpacerItem } from '@/ui';
 
@@ -16,12 +17,12 @@ export const LoadingHome = ({ h, num }: any) => (
     <LoadingHiddenSpace hSpace='24' />
     <LoadingRowStarter>
       {Array.from({ length: num }, (item, index) => (
-        <>
+        <Fragment key={index}>
           <LoadingHomeRow h={h} num={num} />
           <SpacerItem length={num} index={index}>
             <LoadingSpacing />
           </SpacerItem>
-        </>
+        </Fragment>
       ))}
     </LoadingRowStarter>
   </LoadingStarter>

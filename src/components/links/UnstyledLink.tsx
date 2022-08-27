@@ -12,13 +12,15 @@ export enum LinkVariant {
   'linkSmall3',
 }
 
-type UnstyledLinkProps = {
+export type LinkPropSize = 'small' | 'normal' | 'lg';
+
+export type UnstyledLinkProps = {
   variant?: keyof typeof LinkVariant;
   href: string;
   children: React.ReactNode;
   openNewTab?: boolean;
   className?: string;
-  size?: 'small' | 'normal' | 'lg';
+  size?: LinkPropSize;
   weight?: 'bold' | 'medium';
   nextLinkProps?: Omit<LinkProps, 'href'>;
 } & React.ComponentPropsWithRef<'a'>;

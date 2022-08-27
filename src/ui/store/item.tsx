@@ -2,7 +2,7 @@
 import clsx from 'clsx';
 import { Fragment } from 'react';
 
-import { Link, Typography } from '@/components';
+import { Link, NextImage, Typography } from '@/components';
 
 import { SpacerItem } from '@/ui';
 
@@ -62,7 +62,7 @@ export const CityRestaurantItem = ({
         <div className='h-full'>
           <ItemImage image={coverImg} />
         </div>
-        <ItemPromote banner={banner} />
+        {banner ? <ItemPromote banner={banner} /> : null}
         {closed ? <ClosedFigCaption closed={closed} /> : null}
       </div>
       <div className='flex flex-col items-start sm:pt-2 md:ml-4 md:w-[calc(100%-216px)]'>
@@ -80,10 +80,11 @@ export const CityRestaurantItem = ({
 export const ItemImage = ({ image }: { image: string }) => (
   <picture>
     <source className='h-full w-full border-none object-cover' />
-    <img
+    <NextImage
       className='h-full w-full border-none object-cover'
       alt=''
       src={image}
+      layout='fill'
     />
   </picture>
 );

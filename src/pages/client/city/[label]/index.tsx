@@ -1,8 +1,6 @@
+import { Fragment } from 'react';
+
 import { Button, ButtonInput } from '@/components';
-import {
-  CityRestaurants,
-  CityRestaurantsClosed,
-} from '@/components/pages/client/city/restaurant';
 
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
 import { cityData } from '@/constant/pages/client/city.data';
@@ -12,12 +10,16 @@ import {
   Container,
   DynamicHero,
   Headline,
+  LoadingHome,
+  LoadingItemSquare,
   Separator,
   Spacer,
+  SpacerItem,
 } from '@/ui';
 import { CategoryList } from '@/ui/category';
 import { HeadlineCity, HeadlineFood } from '@/ui/headline';
 import { SvgMap } from '@/ui/icons';
+import { StoresClosed, StoresOpen } from '@/ui/store/list';
 
 export { getServerSideProps } from '@/constant/server/city.server';
 
@@ -36,7 +38,20 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
   // TODO: Add a date function to view the restaurant's schedule
   const checkTime = () => false;
 
-  if (loading) return <div>loading</div>;
+  if (loading) {
+    return (
+      <main className='block px-10'>
+        {Array.from({ length: 3 }, (item, index) => (
+          <Fragment key={index}>
+            <LoadingHome h='180' num={2} />
+            <SpacerItem length={3} index={index}>
+              <LoadingItemSquare h='80' />
+            </SpacerItem>
+          </Fragment>
+        ))}
+      </main>
+    );
+  }
 
   return (
     <main className='block'>
@@ -71,7 +86,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
       </Container>
       <Container>
         {/* Conditionally show items based on time */}
-        {checkTime() ? <CityRestaurantsClosed /> : <CityRestaurants />}
+        {checkTime() ? <StoresClosed /> : <StoresOpen />}
       </Container>
       <Container>
         <HeadlineCity data={cityInfo} />

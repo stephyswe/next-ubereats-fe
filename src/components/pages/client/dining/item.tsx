@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import { DiningCategoryItemProps } from '@/components/pages/client/dining/pickup/category';
 import Typography from '@/components/typography';
 
 import { Spacer } from '@/ui';
 
-export const DiningCategoryItem = ({ title, img }: any) => (
+export const DiningCategoryItem = ({ title, img }: DiningCategoryItemProps) => (
   <li>
     <a
       href='placeholder'

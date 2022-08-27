@@ -1,8 +1,7 @@
 import { Link, Typography } from '@/components';
-import { LoadingPickupCategories } from '@/components/pages/client/dining/pickup/loading';
 
 import { useDelivery } from '@/contexts';
-import { Spacer } from '@/ui';
+import { LoadingHome, LoadingItemSquare, Spacer, SpacerItem } from '@/ui';
 import { SvgLike } from '@/ui/icons';
 
 type RestaurantItemProps = {
@@ -27,7 +26,18 @@ export const PickupRestaurantList = ({ restaurants, resItems }: any) => {
   const { setHoverItem, isComplete } = useDelivery();
 
   if (!isComplete) {
-    return <LoadingPickupCategories />;
+    return (
+      <>
+        {Array.from({ length: 3 }, (item, index) => (
+          <>
+            <LoadingHome h='128' num={2} />
+            <SpacerItem length={3} index={index}>
+              <LoadingItemSquare h='80' />
+            </SpacerItem>
+          </>
+        ))}
+      </>
+    );
   }
 
   return (

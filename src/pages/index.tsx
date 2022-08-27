@@ -6,7 +6,7 @@ import {
 } from '@/components/pages/';
 
 import { HomeData } from '@/constant/pages/home.data';
-import { Container, Hero, Spacer } from '@/ui';
+import { Container, Hero, LoadingItemSquare, Spacer } from '@/ui';
 import { SvgMap } from '@/ui/icons';
 
 export default function HomePage() {
@@ -50,12 +50,11 @@ export default function HomePage() {
       <Spacer className='h-20' />
       <Container>
         <EmploymentList data={employmentData} />
-
         <Spacer className='h-10 md:h-20' />
         <CountryWithMap data={countryData} />
-
         <Spacer className='h-20' />
         <CountryList data={countriesData} />
+        <LoadingItemSquare h='80' />
       </Container>
     </main>
   );

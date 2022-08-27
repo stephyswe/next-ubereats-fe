@@ -5,15 +5,15 @@ import { Button } from '@/components';
 import { DiningCategoryItem } from '@/components/pages/client/dining/item';
 
 import { useDelivery } from '@/contexts';
-import { LoadingInitAlt, LoadingRoundSmall } from '@/ui';
+import { LoadingHiddenSpace, LoadingRoundSmall, LoadingWithSpace } from '@/ui';
 import { SvgCategoryArrow } from '@/ui/icons';
 
 const CategoryContentSkeleton = () => (
-  <LoadingInitAlt>
+  <LoadingWithSpace p='12px 0px'>
     <LoadingRoundSmall w='144' />
-    <div className='w-3 flex-shrink-0 bg-white'></div>
+    <LoadingHiddenSpace wSpace='12' />
     <LoadingRoundSmall w='104' />
-  </LoadingInitAlt>
+  </LoadingWithSpace>
 );
 
 export function PickupCategoryList({ data }: any) {

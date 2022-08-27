@@ -1,5 +1,7 @@
 import { Link, Typography } from '@/components';
 
+import { useDelivery } from '@/contexts';
+import { LoadingHome } from '@/ui';
 import { HomeMap } from '@/ui/maps/home';
 
 type CountryWithMapProps = {
@@ -17,6 +19,8 @@ type CountryProps = {
 };
 
 export function CountryWithMap({ data }: CountryWithMapProps) {
+  const { isComplete } = useDelivery();
+  if (!isComplete) return <LoadingHome h='180' num={3} />;
   const { title, link, mapCenter, cities } = data;
   return (
     <div>
@@ -50,19 +54,23 @@ type CountryListProps = {
   };
 };
 
-export const CountryList = ({ data }: CountryListProps) => (
-  <div>
-    <Typography as='h2' variant='4xl'>
-      {data.title}
-    </Typography>
+export const CountryList = ({ data }: CountryListProps) => {
+  const { isComplete } = useDelivery();
+  if (!isComplete) return <LoadingHome h='180' num={3} />;
+  return (
+    <div>
+      <Typography as='h2' variant='4xl'>
+        {data.title}
+      </Typography>
 
-    <div className='mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4'>
-      {data.countries.map((country: string, index: number) => (
-        <a key={index}>{country}</a>
-      ))}
+      <div className='mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4'>
+        {data.countries.map((country: string, index: number) => (
+          <a key={index}>{country}</a>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const CountryListNew = ({ data }: any) => (
   <div className='mt-8 grid grid-flow-col grid-rows-1 gap-[16px_24px]'>

@@ -13,20 +13,42 @@ import {
 import { Spacer } from '@/ui';
 import { SvgDownArrow } from '@/ui/icons';
 
+type DeliveryFilterArrayProps = {
+  sort: {
+    title: string;
+  }[];
+  fromUber: {
+    icon: string;
+    title: string;
+  }[];
+  price: {
+    title: string;
+  }[];
+  fee: string[];
+  dietary: {
+    icon: string;
+    title: string;
+  }[];
+};
+
 /**
  * Top Level - Filter Component
  * @returns {JSX.Element}
  * @constructor
  *
  */
-export const DeliveryFilter = ({ filterData }: any) => {
+export const DeliveryFilter = ({
+  data,
+}: {
+  data: DeliveryFilterArrayProps;
+}): JSX.Element => {
   return (
     <div className='sticky top-0 flex max-h-full overflow-y-auto'>
       <div className='max-w-[280px] flex-1'>
         <Spacer className='h-6' />
         <div>
           <Spacer className='h-6' />
-          <DeliveryFilterList filterData={filterData} />
+          <DeliveryFilterList data={data} />
         </div>
         <Spacer className='h-6' />
       </div>
@@ -35,37 +57,43 @@ export const DeliveryFilter = ({ filterData }: any) => {
   );
 };
 
-export const DeliveryFilterList = ({ filterData }: any) => (
+export const DeliveryFilterList = ({
+  data,
+}: {
+  data: DeliveryFilterArrayProps;
+}) => (
   <div>
-    <DeliveryFilterItem title='Sortera' data={filterData.sort} type='radio' />
+    <DeliveryFilterItem title='Sortera' data={data.sort} type='radio' />
     <Spacer className='h-4' />
     <DeliveryFilterItem
       title='Från Uber Eats'
-      data={filterData.fromUber}
+      data={data.fromUber}
       type='checkbox'
     />
     <Spacer className='h-4' />
-    <DeliveryFilterItem
-      title='Price Range'
-      data={filterData.price}
-      type='price'
-    />
+    <DeliveryFilterItem title='Price Range' data={data.price} type='price' />
     <Spacer className='h-4' />
     <DeliveryFilterItemFee
       title='Max Delivery Fee'
-      data={filterData.fee}
+      data={data.fee}
       type='fee'
     />
     <Spacer className='h-4' />
-    <DeliveryFilterItem
-      title='Dietary'
-      data={filterData.dietary}
-      type='price'
-    />
+    <DeliveryFilterItem title='Dietary' data={data.dietary} type='price' />
   </div>
 );
 
-const DeliveryFilterItemFee = ({ title, data, type }: any) => {
+type DeliveryFilterItemFeeProps = {
+  data: DeliveryFilterArrayProps['fee'];
+  title: string;
+  type: string;
+};
+
+const DeliveryFilterItemFee = ({
+  title,
+  data,
+  type,
+}: DeliveryFilterItemFeeProps) => {
   const [IsOpen, setOpen] = useState(true);
 
   function showContent() {
@@ -92,10 +120,24 @@ const DeliveryFilterItemFee = ({ title, data, type }: any) => {
   );
 };
 
-export const DeliveryFilterItem = ({ title, data, type }: any) => {
+type DeliveryFilterItemProps = {
+  data:
+    | DeliveryFilterArrayProps['fromUber']
+    | DeliveryFilterArrayProps['sort']
+    | DeliveryFilterArrayProps['price']
+    | DeliveryFilterArrayProps['dietary'];
+  title: string;
+  type: string;
+};
+
+export const DeliveryFilterItem = ({
+  title,
+  data,
+  type,
+}: DeliveryFilterItemProps) => {
   const [IsOpen, setOpen] = useState(true);
 
-  function checkItemSelector(item: any, type: any, index: any) {
+  function checkItemSelector(item: any, type: string, index: number) {
     if (type === 'checkbox') {
       return <DeliveryFilterCheckbox data={item} />;
     } else if (type === 'radio') {
@@ -105,7 +147,7 @@ export const DeliveryFilterItem = ({ title, data, type }: any) => {
     }
   }
 
-  function checkStyles(type: any) {
+  function checkStyles(type: string) {
     let style = '';
     if (type === 'price') style = '-mx-[6px] -mb-3 flex flex-row flex-wrap';
     else style = 'flex flex-col flex-wrap items-start';
@@ -145,7 +187,11 @@ export const DeliveryFilterItem = ({ title, data, type }: any) => {
   );
 };
 
-const DeliveryFilterPrice = ({ data }: any) => (
+type DeliveryFilterPriceProps = {
+  data: { title: string; icon: string };
+};
+
+const DeliveryFilterPrice = ({ data }: DeliveryFilterPriceProps) => (
   <button
     className={clsx(
       'mx-[6px] mb-[12px] rounded-t-[30px] rounded-b-[30px] py-[10px] duration-200 transition-timing-cubic',
@@ -167,7 +213,9 @@ const DeliveryFilterPrice = ({ data }: any) => (
   </button>
 );
 
-const DeliveryFilterCheckbox = ({ data: { title, icon } }: any) => (
+const DeliveryFilterCheckbox = ({
+  data: { title, icon },
+}: DeliveryFilterPriceProps) => (
   <label
     data-baseweb='checkbox'
     className='flex w-full cursor-pointer select-none flex-row items-center justify-between'
@@ -200,7 +248,10 @@ const DeliveryFilterCheckbox = ({ data: { title, icon } }: any) => (
   </label>
 );
 
-const DeliveryFilterRadio = ({ data: { title }, index }: any) => (
+const DeliveryFilterRadio = ({
+  data: { title },
+  index,
+}: DeliveryFilterPriceProps & { index: number }) => (
   <label
     data-baseweb='radio'
     className='mb-[6px] mt-[6px] flex cursor-pointer flex-row items-center'
@@ -266,7 +317,7 @@ export const DeliveryFilterFee = ({ data }: any) => (
   </div>
 );
 
-const DeliveryFilterFeeItem = ({ item }: any) => (
+const DeliveryFilterFeeItem = ({ item }: { item: string }) => (
   <div
     className={clsx(
       'flex cursor-pointer flex-col items-center text-sm font-medium leading-4',
@@ -278,7 +329,7 @@ const DeliveryFilterFeeItem = ({ item }: any) => (
   </div>
 );
 
-export const DeliveryFilterCircle = ({ index }: any) => (
+export const DeliveryFilterCircle = ({ index }: { index: number }) => (
   <div
     className={clsx(
       'm-[2px] flex h-5 w-5 flex-shrink-0 align-middle duration-200 ease-[cubic-bezier(0.2,0.8,0.4,1)]',

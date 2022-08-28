@@ -167,6 +167,9 @@ module.exports = {
         '.clip-rect': {
           clip: 'rect(0, 0, 0, 0)',
         },
+        '.clip-rect-1': {
+          clip: 'rect(1px, 1px, 1px, 1px)',
+        },
 
         /** Transforms */
         '.transform-3d': {

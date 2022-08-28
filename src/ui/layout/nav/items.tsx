@@ -40,14 +40,14 @@ export function NavItemSearch() {
     >
       <div className='relative flex flex-col'>
         <form>
-          <label className='cart_clip absolute m-[-1px] h-[1px] w-[1px] overflow-hidden whitespace-normal'>
+          <label className='absolute m-[-1px] h-[1px] w-[1px] overflow-hidden whitespace-normal clip-rect-1'>
             Vad är du sugen på?
           </label>
           <NavItemSearchInput
             register={register}
             placeholder='Vad är du sugen på?'
           />
-          <ul className='cart_border_width absolute left-0 right-0 top-full z-10 hidden border-solid border-[#e2e2e2] bg-white box-shadow-rgb-10'></ul>
+          <ul className='absolute left-0 right-0 top-full z-10 hidden border-[0_1px_1px_1px] border-solid border-[#e2e2e2] bg-white box-shadow-rgb-10'></ul>
         </form>
       </div>
     </div>

@@ -1,66 +1,18 @@
 import { Fragment } from 'react';
 
 import { Button } from '@/components';
+import { deliveryContentData } from '@/components/pages/client/dining/delivery/content/data';
+import {
+  DeliveryContentItemProps,
+  DeliveryContentProps,
+  DeliveryContentSectionProps,
+  DeliveryContentSectionStarterProps,
+  DeliveryRestaurantListProps,
+} from '@/components/pages/client/dining/delivery/content/types';
 
 import { restaurantData } from '@/constant/ui/restaurant';
 import { Headline, HeadlineNavigate, Spacer } from '@/ui';
 import { CategoryRestaurantItem } from '@/ui/store/item';
-
-const deliveryContentData = [
-  {
-    type: 'item',
-    title: 'In a rush?',
-    subtitle: 'Here’s the fastest delivery for you',
-  },
-  {
-    type: 'item',
-    title: 'Only on Uber Eats',
-  },
-  {
-    type: 'section',
-    title: 'Pick it up for free',
-    subtitle: 'Skip the fees when you order pickup',
-    btnText: 'See map',
-    image:
-      'https://d4p17acsd5wyj.cloudfront.net/eatsfeed/pickup-homefeed-carousel/pickupcarousel_desktopweb.svg',
-  },
-  {
-    type: 'item',
-    title: 'Popular near you',
-  },
-  {
-    type: 'item',
-    title: 'New on Uber Eats',
-    subtitle: 'Be one of the first to support them',
-  },
-  {
-    type: 'section',
-    title: 'Free nationwide shipping',
-    subtitle: 'Gourmet eats, shipped free',
-    image:
-      'https://d4p17acsd5wyj.cloudfront.net/eatsfeed/shipment/shipment_carousel_background_image_desktop_web.svg',
-  },
-];
-
-function checkType(
-  type: any,
-  title: any,
-  subtitle: any,
-  btnText: any,
-  image: any
-) {
-  if (type === 'item')
-    return <DeliveryContentItem title={title} subtitle={subtitle} />;
-  else if (type === 'section')
-    return (
-      <DeliveryContentSectionStarter
-        title={title}
-        subtitle={subtitle}
-        btnText={btnText}
-        image={image}
-      />
-    );
-}
 
 /**
  * Top-level - Content Component
@@ -74,7 +26,10 @@ export const DeliveryContent = () => (
       <Spacer className='h-12' />
       <div data-test='feed-desktop' className='grid grid-cols-3 gap-6'>
         {deliveryContentData.map(
-          ({ title, subtitle, type, btnText, image }, index) => (
+          (
+            { title, subtitle, type, btnText, image }: DeliveryContentProps,
+            index
+          ) => (
             <Fragment key={index}>
               {checkType(type, title, subtitle, btnText, image)}
             </Fragment>
@@ -101,7 +56,7 @@ const DeliveryContentSectionStarter = ({
   subtitle,
   btnText,
   image,
-}: any) => (
+}: DeliveryContentSectionStarterProps) => (
   <DeliveryContentSection
     content={
       <>
@@ -117,7 +72,7 @@ const DeliveryContentSectionStarter = ({
   />
 );
 
-const DeliveryContentItem = ({ title, subtitle }: any) => (
+const DeliveryContentItem = ({ title, subtitle }: DeliveryContentItemProps) => (
   <div className='col-span-full min-w-0'>
     <section>
       <Headline title={title} subtitle={subtitle} />
@@ -131,15 +86,20 @@ const DeliveryContentItem = ({ title, subtitle }: any) => (
 
 const DeliveryRestaurantList = () => (
   <div className='mr-6 flex w-full flex-shrink-0 flex-grow-0 basis-full scroll-align-start'>
-    {restaurantData.map(({ coverImg, category }: any, index: number) => (
-      <li key={index} className='mr-6 block w-[calc(25%+-18px)] flex-none'>
-        <CategoryRestaurantItem coverImg={coverImg} category={category} />
-      </li>
-    ))}
+    {restaurantData.map(
+      ({ coverImg, category }: DeliveryRestaurantListProps, index: number) => (
+        <li key={index} className='mr-6 block w-[calc(25%+-18px)] flex-none'>
+          <CategoryRestaurantItem coverImg={coverImg} category={category} />
+        </li>
+      )
+    )}
   </div>
 );
 
-export const DeliveryContentSection = ({ content, image }: any) => (
+export const DeliveryContentSection = ({
+  content,
+  image,
+}: DeliveryContentSectionProps) => (
   <div className='col-span-full min-w-0'>
     <div>
       <div
@@ -161,13 +121,18 @@ export const DeliveryContentSection = ({ content, image }: any) => (
             <div className='scrollbar-none flex cursor-pointer overflow-x-scroll scroll-snap-x'>
               {restaurantData
                 .slice(0, 3)
-                .map(({ coverImg, category }: any, index: number) => (
-                  <DeliverySectionList
-                    key={index}
-                    coverImg={coverImg}
-                    category={category}
-                  />
-                ))}
+                .map(
+                  (
+                    { coverImg, category }: DeliveryRestaurantListProps,
+                    index: number
+                  ) => (
+                    <DeliverySectionList
+                      key={index}
+                      coverImg={coverImg}
+                      category={category}
+                    />
+                  )
+                )}
             </div>
           </section>
         </div>
@@ -176,17 +141,43 @@ export const DeliveryContentSection = ({ content, image }: any) => (
   </div>
 );
 
-const DeliverySectionList = ({ coverImg, category }: any) => (
+const DeliverySectionList = ({
+  coverImg,
+  category,
+}: DeliveryRestaurantListProps) => (
   <div className='mr-6 flex w-full flex-shrink-0 flex-grow-0 basis-full scroll-align-start'>
     <DeliverySectionItem coverImg={coverImg} category={category} />
     <DeliverySectionItem coverImg={coverImg} category={category} />
   </div>
 );
 
-const DeliverySectionItem = ({ coverImg, category }: any) => (
+const DeliverySectionItem = ({
+  coverImg,
+  category,
+}: DeliveryRestaurantListProps) => (
   <li className='mr-6 block w-[calc(50%+-12px)] flex-none'>
     <div className='max-w-[326px] bg-white p-1 box-shadow-rgb-secondary'>
       <CategoryRestaurantItem coverImg={coverImg} category={category} inner />
     </div>
   </li>
 );
+
+function checkType(
+  type: string,
+  title: string,
+  subtitle: string | undefined,
+  btnText: undefined | string,
+  image: undefined | string
+) {
+  if (type === 'item')
+    return <DeliveryContentItem title={title} subtitle={subtitle} />;
+  else if (type === 'section')
+    return (
+      <DeliveryContentSectionStarter
+        title={title}
+        subtitle={subtitle}
+        btnText={btnText}
+        image={image}
+      />
+    );
+}

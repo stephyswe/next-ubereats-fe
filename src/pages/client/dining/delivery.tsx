@@ -3,7 +3,7 @@ import {
   DeliveryBottomText,
   DeliveryCategoryList,
 } from '@/components/pages/client/dining/delivery/category';
-import { DeliveryContent } from '@/components/pages/client/dining/delivery/content';
+import { DeliveryContent } from '@/components/pages/client/dining/delivery/content/item';
 import { DeliveryCoupon } from '@/components/pages/client/dining/delivery/coupon';
 import { DeliveryFilter } from '@/components/pages/client/dining/delivery/filter';
 
@@ -33,7 +33,7 @@ export default function DeliveryModePage({ coupon }: any): JSX.Element {
           <Spacer className='h-6' />
           <div className='-mx-3 -mb-6 box-border flex flex-nowrap'>
             <div className='ml-0 mb-6 box-border block w-[25%] flex-none px-3'>
-              <DeliveryFilter filterData={filterData} />
+              <DeliveryFilter data={filterData} />
             </div>
             <DeliveryContent />
           </div>

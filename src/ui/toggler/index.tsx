@@ -2,7 +2,14 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 
-export const Toggler = ({ data }: any) => {
+import {
+  DiningToggleItemProps,
+  DiningTogglerProps,
+  ToggleItemProps,
+  TogglerProps,
+} from './types';
+
+export const Toggler = ({ data }: TogglerProps) => {
   const [toggle, setToggle] = useState(false);
   return (
     <div className='relative flex w-auto pb-6'>
@@ -20,7 +27,7 @@ export const Toggler = ({ data }: any) => {
   );
 };
 
-const ToggleItem = ({ title, onClick }: any) => (
+const ToggleItem = ({ title, onClick }: ToggleItemProps) => (
   <div onClick={onClick} className='z-10 flex w-1/2 justify-center'>
     <div
       role='radio'
@@ -37,7 +44,7 @@ const ToggleItem = ({ title, onClick }: any) => (
   </div>
 );
 
-export function DiningToggler({ size }: any) {
+export function DiningToggler({ size }: DiningTogglerProps) {
   const { pathname, push, reload } = useRouter();
   const routeName = pathname.split('/').pop();
 
@@ -81,7 +88,7 @@ export function DiningToggler({ size }: any) {
   );
 }
 
-const DiningToggleItem = ({ title, onClick, path }: any) => (
+const DiningToggleItem = ({ title, onClick, path }: DiningToggleItemProps) => (
   <div
     onClick={() => {
       if (title.toLowerCase() !== path) onClick();

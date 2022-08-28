@@ -1,8 +1,9 @@
 import { Link, Typography } from '@/components';
 
 import { useDelivery } from '@/contexts';
-import { LoadingHome, LoadingItemSquare, Spacer, SpacerItem } from '@/ui';
+import { LoadingHome, Spacer, SpacerItem } from '@/ui';
 import { SvgLike } from '@/ui/icons';
+import { LoadingItemSquare } from '@/ui/loading/item';
 
 type RestaurantItemProps = {
   title: string;

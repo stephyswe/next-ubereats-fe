@@ -10,7 +10,7 @@ import { useDelivery, useOrders } from '@/contexts';
 import { Spacer } from '@/ui';
 import { CartWindow } from '@/ui/cart/list';
 import { SvgCart } from '@/ui/icons';
-import { LoadingInit, LoadingRound } from '@/ui/loading';
+import { LoadingInit, LoadingRound } from '@/ui/loading/item';
 
 export const Cart = ({ size }: { size?: ButtonSizeProps }) => {
   const [showCart, setShowCart] = useState<boolean>(false);

@@ -36,27 +36,6 @@
   }
 }
 
-.cart_transition {
-  transition: max-width 400ms ease, opacity 400ms ease 100ms;
-}
-
-.cart_transition_alt {
-  transition: box-shadow 0.3s ease-in-out;
-  box-shadow: inset 0px -1px 0px #eeeeee;
-}
-
-.cart_transition_alt:focus-within {
-  box-shadow: rgb(0 0 0) 0px -2px 0px inset;
-}
-
-.cart_clip {
-  clip: rect(1px, 1px, 1px, 1px);
-}
-
-.cart_border_width {
-  border-width: 0 1px 1px 1px;
-}
-
 #homeMap .gm-bundled-control,
 #homeMap .gm-fullscreen-control {
   visibility: hidden;
@@ -84,15 +63,6 @@
 
 .ReactModal__Body--open {
   overflow: hidden;
-}
-
-/* accordion */
-.accordion-button:not(.collapsed) {
-  background-color: #f6f6f6;
-}
-
-.accordion-button {
-  background-color: #f6f6f6;
 }
 
 :not(:first-child).cart_li_item {

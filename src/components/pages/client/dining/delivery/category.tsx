@@ -17,10 +17,19 @@ export const DeliveryBottomText = () => (
   </div>
 );
 
-export const DeliveryCategoryList = ({ data }: any) => (
+type DeliveryCategoryListProps = {
+  title: string;
+  img: string;
+};
+
+export const DeliveryCategoryList = ({
+  data,
+}: {
+  data: DeliveryCategoryListProps[];
+}) => (
   <nav className='flex justify-center'>
     <ul className='flex items-start justify-center'>
-      {data.map(({ title, img }: any) => (
+      {data.map(({ title, img }: DeliveryCategoryListProps) => (
         <Fragment key={title}>
           <DiningCategoryItem key={title} title={title} img={img} />
           <Spacer className='w-4' />

@@ -3,8 +3,9 @@ import { Fragment } from 'react';
 import { Button, Typography } from '@/components';
 
 import { useDelivery } from '@/contexts';
-import { LoadingSquare, Spacer } from '@/ui';
+import { Spacer } from '@/ui';
 import { SvgFilterDropdown } from '@/ui/icons';
+import { LoadingSquare } from '@/ui/loading/item';
 
 const PickupFilterSkeleton = () => (
   <>

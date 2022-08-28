@@ -1,30 +1,16 @@
 import clsx from 'clsx';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 
-import { Scalars } from '@/__generated__/graphql';
 import { useOrders } from '@/contexts';
 import { Spacer, SpacerItem } from '@/ui';
 import { AccordionItem } from '@/ui/accordion/item';
 import { SvgDropdown } from '@/ui/icons';
 
-type AccordionProps = {
-  data: {
-    name: string;
-    choices: Array<{
-      name: string;
-      price: Scalars['Float'];
-    }>;
-    options: Array<{
-      name: string;
-      price: Scalars['Float'];
-    }>;
-  };
-  dishId: Scalars['Int'];
-};
+import { AccordionProps, RenderTopProps } from './types';
 
 export const Accordion = ({ data, dishId }: AccordionProps) => {
-  const { setOrderItem } = useOrders();
   const { name, choices } = data;
+  const { setOrderItem } = useOrders();
   const [isOpened, setOpened] = useState<boolean>(false);
   const [height, setHeight] = useState<string>('0px');
   const contentElement = useRef(null);
@@ -120,12 +106,6 @@ function checkRender(
     );
   }
 }
-
-type RenderTopProps = {
-  name: string;
-  onToggle: any;
-  isOpened: boolean;
-};
 
 const RenderTop = ({ name, onToggle, isOpened }: RenderTopProps) => (
   <div className='flex flex-row items-center justify-between bg-[#f6f6f6] p-4'>

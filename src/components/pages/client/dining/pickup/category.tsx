@@ -1,12 +1,12 @@
-/* eslint-disable @next/next/no-img-element */
 import { Fragment } from 'react';
 
 import { Button } from '@/components';
 import { DiningCategoryItem } from '@/components/pages/client/dining/item';
 
 import { useDelivery } from '@/contexts';
-import { LoadingHiddenSpace, LoadingRoundSmall, LoadingWithSpace } from '@/ui';
+import { LoadingWithSpace } from '@/ui';
 import { SvgCategoryArrow } from '@/ui/icons';
+import { LoadingHiddenSpace, LoadingRoundSmall } from '@/ui/loading/item';
 
 const CategoryContentSkeleton = () => (
   <LoadingWithSpace p='12px 0px'>

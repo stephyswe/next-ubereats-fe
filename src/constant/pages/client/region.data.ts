@@ -1,11 +1,12 @@
 export const regionData = {
   hero: {
-    background: ['/images/region/hero.svg', '/images/region/hero2.svg'],
-    backgroundColor: '#FFD7D2',
-    buttonText: 'Hitta Mat',
-    input: {
-      placeholder: 'Enter delivery address',
+    background: {
+      color: '#FFD7D2',
+      desktop: ['/images/region/hero.svg', '/images/region/hero2.svg'],
+      mobile: '/images/city/hero-mobile.svg',
     },
+    buttonText: 'Find Food',
+    inputPlaceholder: 'Enter delivery address',
   },
   citySelected: {
     title: 'Matleveranser i Göteborg',

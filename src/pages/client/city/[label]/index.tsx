@@ -1,23 +1,13 @@
-import { Fragment } from 'react';
+import { useQuery } from '@apollo/client';
 
 import { Button, ButtonInput } from '@/components';
 
-import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
 import { cityData } from '@/constant/pages/client/city.data';
 import { categoriesData } from '@/constant/ui/category';
-import {
-  BreadCrumb,
-  Container,
-  DynamicHero,
-  Headline,
-  LoadingHome,
-  LoadingItemSquare,
-  Separator,
-  Spacer,
-  SpacerItem,
-} from '@/ui';
+import { CLIENT_RESTAURANTS_QUERY } from '@/gql/queries/findmany-restaurants';
+import { BreadCrumb, Container, DynamicHero, Separator, Spacer } from '@/ui';
 import { CategoryList } from '@/ui/category';
-import { HeadlineCity, HeadlineFood } from '@/ui/headline';
+import { Headline, HeadlineCity, HeadlineFood } from '@/ui/headline';
 import { SvgMap } from '@/ui/icons';
 import { StoresClosed, StoresOpen } from '@/ui/store/list';
 
@@ -31,14 +21,16 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
   } = cityData;
 
   // eslint-disable-next-line unused-imports/no-unused-vars
-  const { data, loading } = useFindManyRestaurantsQuery({
+  const { data, loading } = useQuery(CLIENT_RESTAURANTS_QUERY, {
     variables: { input: { page: 1 } },
   });
 
   // TODO: Add a date function to view the restaurant's schedule
   const checkTime = () => false;
 
-  if (loading) {
+  if (loading) return <div>Loading...</div>;
+
+  /* if (loading) {
     return (
       <main className='block px-10'>
         {Array.from({ length: 3 }, (item, index) => (
@@ -51,7 +43,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
         ))}
       </main>
     );
-  }
+  } */
 
   return (
     <main className='block'>
@@ -84,10 +76,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
         </div>
         <Separator mobileHidden />
       </Container>
-      <Container>
-        {/* Conditionally show items based on time */}
-        {checkTime() ? <StoresClosed /> : <StoresOpen />}
-      </Container>
+      <Container>{checkTime() ? <StoresClosed /> : <StoresOpen />}</Container>
       <Container>
         <HeadlineCity data={cityInfo} />
       </Container>

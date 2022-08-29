@@ -6,7 +6,6 @@ import {
   LoadingInitProps,
   LoadingRoundSmallProps,
   LoadingRowStarterProps,
-  PropsLoadingWidthAndHeightBoth,
 } from './types';
 
 export const LoadingRow = ({ children }: LoadingRowStarterProps) => (
@@ -17,7 +16,7 @@ export const LoadingCol = ({ children }: LoadingRowStarterProps) => (
   <div className='flex flex-col'>{children}</div>
 );
 
-export const LoadingItemSquare = ({ h, w }: PropsLoadingWidthAndHeightBoth) => (
+export const LoadingItemSquare = ({ h, w }: any) => (
   <div
     style={{
       height: h + 'px',
@@ -90,7 +89,7 @@ export const LoadingRound = ({ w }: LoadingRoundSmallProps) => (
 
 // above to header.
 
-export const LoadingSquare = ({ w, h }: LoadingWidthAndHeightProps) => (
+export const LoadingSquare = ({ w, h }: any) => (
   <div
     style={{
       width: w + 'px',

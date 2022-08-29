@@ -26,30 +26,33 @@ export function openGraph({
   }`;
 }
 
+// base functions
+
 export function capitalize([first, ...rest]: any) {
   return first.toUpperCase() + rest.join('').toLowerCase();
 }
 
-export function capitalizeAll(str: string) {
+export function capitalizeSentence(str: string) {
   return str.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase());
-}
-
-export function capitalizeCity(label: string) {
-  return capitalize(label.substr(0, label.indexOf('-')));
 }
 
 export function addLineBetween(str: any) {
   return str.replaceAll(' ', '-');
 }
 
+// low-level functions
+
+export function capitalizeCity(label: string) {
+  return capitalize(label.substr(0, label.indexOf('-')));
+}
+
 export function titleCaseDefault(str: string) {
-  str = str.replaceAll('-', ' ');
-  str = str.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase());
-  return str;
+  str = addLineBetween(str);
+  return capitalizeSentence(str);
 }
 
 export function titleCase(str: string) {
-  str = str.replaceAll('-', ' ');
+  str = addLineBetween(str);
   str = str.toLowerCase().replace(/\b\w/g, (s: any) => s.toUpperCase());
   return str.replace(' And ', ' and ');
 }
@@ -118,7 +121,7 @@ export function citiesGenerate(
   const cities: { title: any; link: string }[] = [];
   cityArray.forEach((city: any) => {
     cities.push({
-      title: capitalizeAll(city),
+      title: capitalizeSentence(city),
       link: `/client/${type}/${
         region ? `${city}-${region}` : addLineBetween(city)
       }`,

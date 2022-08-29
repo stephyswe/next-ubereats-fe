@@ -9,11 +9,11 @@ import '@/styles/uber-fonts.css';
 import '@/ui/maps/pickup/map-pickup-elements.css';
 import '@/ui/maps/pickup/map-pickup-styles.css';
 
+import client from '@/lib/apollo';
+
 import { DeliveryProvider } from '@/contexts/delivery';
 import { OrderProvider } from '@/contexts/order';
 import { RootLayout } from '@/ui/layout';
-
-import client from '../lib/apollo';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;

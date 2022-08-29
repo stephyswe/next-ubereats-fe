@@ -10,20 +10,14 @@ export type BreadCrumbItemProps = {
 
 export const BreadCrumb = ({ data }: { data: BreadCrumbItemProps[] }) => (
   <ol className='m-[0px_0px_16px] flex items-center overflow-auto whitespace-nowrap p-0 text-[#afafaf]'>
-    {data.map(
-      (
-        bcItem: BreadCrumbItemProps,
-        index: number,
-        { length }: { length: number }
-      ) => (
-        <BreadCrumbItem
-          key={bcItem.title}
-          title={bcItem.title}
-          link={bcItem.link}
-          lastItem={index + 1 === length}
-        />
-      )
-    )}
+    {data.map((bcItem: BreadCrumbItemProps, index: number) => (
+      <BreadCrumbItem
+        key={bcItem.title}
+        title={bcItem.title}
+        link={bcItem.link}
+        lastItem={index + 1 === data.length}
+      />
+    ))}
   </ol>
 );
 

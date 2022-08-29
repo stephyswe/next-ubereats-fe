@@ -28,6 +28,7 @@ export const Hero = ({ title, background, children }: HeroProps) => {
         className='flex h-full overflow-hidden'
       >
         <div
+          data-testid='hero-background'
           style={{
             background: `${`center / cover no-repeat
                 url(${isMobile ? mobile : desktop})`}`,

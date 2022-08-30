@@ -5,7 +5,8 @@ export type LoadingWithSpaceProps = { p: string; children: React.ReactNode };
 export type LoadingRowStarterProps = { children: React.ReactNode };
 
 //item.tsx
-export type LoadingInitProps = LoadingRowStarterProps & LoadingItemSquareProps;
+export type LoadingInitProps = LoadingRowStarterProps &
+  LoadingInitWidthHeightProps;
 
 export type LoadingCircleProps = { area: string };
 export type LoadingRoundSmallProps = { w: string };
@@ -18,8 +19,9 @@ type Only<T, U> = {
 };
 
 type Either<T, U> = Only<T, U> | Only<U, T>;
-type PropsWithHeight = { h: string };
-type LPropsWithWidth = { w: string };
+
+type PropsWithHeight = { h: string | undefined };
+type LPropsWithWidth = { w: string | undefined };
 
 type PropsWidth = {
   w: string;
@@ -33,6 +35,8 @@ export type PropsLoadingWidthAndHeightBoth =
   | PropsWidth
   | PropsHeight
   | (PropsWidth & PropsHeight);
+
+export type LoadingInitWidthHeightProps = { w: string; h: string };
 
 export type LoadingItemSquareProps = Either<PropsWithHeight, LPropsWithWidth>;
 

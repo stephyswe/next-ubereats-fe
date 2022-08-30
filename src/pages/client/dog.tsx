@@ -10,7 +10,7 @@ export const GET_DOG_QUERY = gql`
   }
 `;
 
-export function DogPage({ name }: any) {
+export default function DogPage({ name }: any) {
   const { loading, error, data } = useQuery(GET_DOG_QUERY, {
     variables: { name },
   });

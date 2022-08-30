@@ -4,7 +4,7 @@ export type DiningToggleItemProps = {
   path: string | undefined;
 };
 
-export type DiningTogglerProps = { size: string };
+export type DiningTogglerProps = { size?: string };
 
 export type ToggleItemProps = Omit<DiningToggleItemProps, 'path'>;
 

@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { DeliveryProvider } from '@/contexts/delivery';
-import { DogPage, GET_DOG_QUERY } from '@/pages/client/dog';
+import DogPage, { GET_DOG_QUERY } from '@/pages/client/dog';
 
 const Dog = () => (
   <DeliveryProvider>

@@ -1,12 +1,10 @@
-import { MockedProvider } from '@apollo/client/testing';
+import { ApolloProvider } from '@apollo/client';
 import { render, screen } from '@testing-library/react';
 
-import {
-  findManyCategoriesMockData,
-  props,
-} from '@/__tests__/mocks/queries/mockData';
+import client from '@/lib/apollo';
+
+import { props } from '@/__tests__/mocks/queries/mockData';
 import { DeliveryProvider } from '@/contexts/delivery';
-import { CLIENT_RESTAURANTS_QUERY } from '@/gql/queries/findmany-restaurants';
 import CityPage from '@/pages/client/city/[label]';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -16,11 +14,11 @@ const router = { query: { label: 'göteborg-västra-götaland' } };
 useRouter.mockReturnValue(router);
 
 const City = () => (
-  <MockedProvider mocks={mocks} addTypename={false}>
+  <ApolloProvider client={client}>
     <DeliveryProvider>
       <CityPage {...props} />
     </DeliveryProvider>
-  </MockedProvider>
+  </ApolloProvider>
 );
 
 /** Hero Test */
@@ -54,15 +52,3 @@ test('page has correct breadcrumb', async () => {
     })
   ).toBeInTheDocument();
 });
-
-const mocks = [
-  {
-    request: {
-      query: CLIENT_RESTAURANTS_QUERY,
-      variables: { input: { page: 1 } },
-    },
-    result: {
-      data: findManyCategoriesMockData,
-    },
-  },
-];

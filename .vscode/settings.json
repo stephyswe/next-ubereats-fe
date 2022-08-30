@@ -18,7 +18,7 @@
     "public": false,
     "README.md": true,
     "yarn.lock": true,
-    ".gitignore": true,
+    ".gitignore": false,
     ".prettierignore": false,
     "next.config.js": false,
     "postcss.config.js": true,

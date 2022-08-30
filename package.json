@@ -25,6 +25,7 @@
     "@tailwindcss/line-clamp": "^0.4.0",
     "apollo-link-ws": "^1.0.20",
     "clsx": "^1.2.1",
+    "cross-fetch": "^3.1.5",
     "deepmerge": "^4.2.2",
     "google-map-react": "^2.2.0",
     "graphql": "^16.5.0",
@@ -72,6 +73,7 @@
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^12.5.0",
+    "msw": "^0.45.0",
     "next-sitemap": "^2.5.28",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
@@ -87,5 +89,8 @@
     "src/**/*.{json,css,scss,md}": [
       "prettier -w"
     ]
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

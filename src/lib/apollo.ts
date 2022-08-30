@@ -8,10 +8,12 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 import { getMainDefinition } from '@apollo/client/utilities';
+import fetch from 'cross-fetch';
 import { createClient } from 'graphql-ws';
 
 import {
   HEROKU_GRAPHQL,
+  isTest,
   LOCAL_GRAPHQL,
   LOCALSTORAGE_TOKEN,
 } from '@/constant/env';
@@ -45,6 +47,7 @@ const httpLink = createHttpLink({
     process.env.NODE_ENV === 'production'
       ? `https://${HEROKU_GRAPHQL}`
       : `http://${LOCAL_GRAPHQL}`,
+  fetch: isTest ? fetch : undefined,
 });
 
 const authLink = setContext((_, { headers }) => {

@@ -1,10 +1,8 @@
-import { useQuery } from '@apollo/client';
-
 import { Button, ButtonInput } from '@/components';
 
+import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
 import { cityData } from '@/constant/pages/client/city.data';
 import { categoriesData } from '@/constant/ui/category';
-import { CLIENT_RESTAURANTS_QUERY } from '@/gql/queries/findmany-restaurants';
 import { BreadCrumb, Container, DynamicHero, Separator, Spacer } from '@/ui';
 import { CategoryList } from '@/ui/category';
 import { Headline, HeadlineCity, HeadlineFood } from '@/ui/headline';
@@ -21,7 +19,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
   } = cityData;
 
   // eslint-disable-next-line unused-imports/no-unused-vars
-  const { data, loading } = useQuery(CLIENT_RESTAURANTS_QUERY, {
+  const { data, loading } = useFindManyRestaurantsQuery({
     variables: { input: { page: 1 } },
   });
 

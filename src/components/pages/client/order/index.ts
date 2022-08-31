@@ -1,0 +1,1 @@
+export { OwnerDeliveryView } from './view';

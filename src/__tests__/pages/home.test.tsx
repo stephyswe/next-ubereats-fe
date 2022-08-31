@@ -9,7 +9,14 @@ const Home = () => (
   </DeliveryProvider>
 );
 
-/** Hero Test */
+/** Initials */
+
+/** Data */
+
+/** Content - Component - Hero */
+
+/** Heading */
+
 test('page has correct heading', () => {
   render(<Home />);
   const heading = screen.getByRole('heading', {
@@ -17,6 +24,8 @@ test('page has correct heading', () => {
   });
   expect(heading).toBeInTheDocument();
 });
+
+/** Image */
 
 test('page has correct image', () => {
   render(<Home />);

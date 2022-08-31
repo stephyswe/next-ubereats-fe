@@ -8,7 +8,7 @@ import { useOrders } from '@/contexts';
 import { Spacer } from '@/ui';
 import { SvgFoodPlus } from '@/ui/icons';
 import { ModalHeader } from '@/ui/modals';
-import { DishModal } from '@/ui/modals/dish/list';
+import { DishModal } from '@/ui/modals/dish';
 
 export const storeModalStyles = {
   content: {

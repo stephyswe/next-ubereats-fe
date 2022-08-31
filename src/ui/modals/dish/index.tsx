@@ -2,6 +2,8 @@ import { Accordion } from '@/ui/accordion';
 
 import { ModalBuy, ModalDetail, ModalImage } from './item';
 
+export * from './item';
+
 export function DishModal(props: any) {
   const { photo, name, price, id, closeModal, options } = props;
   return (

@@ -13,7 +13,7 @@ type SideBarProps = {
   active: boolean;
 };
 
-export function Sidebar({ active, sidebarRef }: SideBarProps) {
+export const Sidebar = ({ active, sidebarRef }: SideBarProps) => {
   const { link, auth, social } = sidebarData;
   return (
     <div
@@ -43,4 +43,4 @@ export function Sidebar({ active, sidebarRef }: SideBarProps) {
       </aside>
     </div>
   );
-}
+};

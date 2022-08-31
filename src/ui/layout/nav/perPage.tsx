@@ -6,7 +6,12 @@ import { NavbarDiningContent } from '@/ui/layout/nav/content/client/dining';
 import { NavbarStoreContent } from '@/ui/layout/nav/content/client/store';
 import { NavHomeContent } from '@/ui/layout/nav/content/home';
 
-export const NavPerPage = (props: any) => {
+type NavPerPageProps = {
+  change: boolean;
+  onScroll: boolean;
+};
+
+export const NavPerPage = (props: NavPerPageProps) => {
   const { pathname } = useRouter();
   switch (pathname) {
     case '/':

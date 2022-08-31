@@ -1,5 +1,6 @@
 import { footerData } from '@/constant/pages/layout/footer.data';
 import { Container } from '@/ui/container';
+
 import {
   FooterBottom,
   FooterCopyright,
@@ -7,7 +8,7 @@ import {
   FooterMobile,
   FooterSocial,
   LinkLanguage,
-} from '@/ui/layout/footer/components';
+} from './components';
 
 export function Footer() {
   const { firstRow, secondRow, bottom, social } = footerData;

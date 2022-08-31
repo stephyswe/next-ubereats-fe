@@ -13,22 +13,22 @@ import { createClient } from 'graphql-ws';
 
 import {
   HEROKU_GRAPHQL,
+  isBrowser,
   isTest,
   LOCAL_GRAPHQL,
   LOCALSTORAGE_TOKEN,
 } from '@/constant/env';
 
 export let token: any, isLoggedInVar: any, authTokenVar: any;
-export const windowCheck = typeof window !== 'undefined';
 
 // Perform localStorage action
-if (windowCheck && LOCALSTORAGE_TOKEN) {
+if (isBrowser && LOCALSTORAGE_TOKEN) {
   token = localStorage.getItem(LOCALSTORAGE_TOKEN);
   isLoggedInVar = makeVar(Boolean(token));
   authTokenVar = makeVar(token);
 }
 
-const wsLink = windowCheck
+const wsLink = isBrowser
   ? new GraphQLWsLink(
       createClient({
         url:
@@ -60,7 +60,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const splitLink =
-  windowCheck && wsLink != null
+  isBrowser && wsLink != null
     ? split(
         ({ query }) => {
           const definition = getMainDefinition(query);

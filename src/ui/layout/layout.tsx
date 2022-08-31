@@ -1,16 +1,16 @@
 // Root layout (app/layout.js)
 import { useRouter } from 'next/router';
+import React from 'react';
 
 import { useDelivery } from '@/contexts';
-import { Footer } from '@/ui/layout/footer';
-import { Nav } from '@/ui/layout/nav';
+import { Footer, Nav } from '@/ui/layout';
 
 // - Applies to all routes
-export const RootLayout = ({ children }: any) => {
+export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const { setComplete } = useDelivery();
   const { pathname } = useRouter();
   function checkRoute() {
-    if (pathname === '/client/store/[label]') return <Nav noHoverBorder />;
+    if (pathname === '/client/store/[label]') return <Nav noBorder />;
     else if (pathname === '/client/dining/delivery') return <Nav fixed />;
     else return <Nav />;
   }

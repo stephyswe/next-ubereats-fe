@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { Typography } from '@/components';
-import { OwnerDeliveryView } from '@/components/pages/client/order/OwnerDeliveryView';
+import { OwnerDeliveryView } from '@/components/pages/client/order/view';
 
 import {
   OrderStatus,

@@ -1,7 +1,6 @@
 import { FieldValues, useForm, UseFormRegister } from 'react-hook-form';
 
-import { Link } from '@/components';
-import { UnstyledInput } from '@/components/inputs/UnstyledInput';
+import { Input, Link } from '@/components';
 
 import { Spacer } from '@/ui';
 import { SvgCartSearch, SvgPosition } from '@/ui/icons';
@@ -68,7 +67,7 @@ const NavItemSearchInput = ({
       </div>
     </div>
     <Spacer className='w-4' />
-    <UnstyledInput
+    <Input
       variant='input3'
       type='text'
       role='combobox'

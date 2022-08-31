@@ -27,9 +27,6 @@ export default function HomePage() {
     <main>
       <Hero title={title} background={background}>
         <>
-          {/* <div className='w-fit'>
-            <Toggler data={hero.toggle} />
-          </div>  */}
           <div className='flex flex-col gap-1 md:flex-row md:items-start'>
             <div className='relative flex-1 flex-col md:max-w-[540px]'>
               <ButtonInput svg={<SvgMap />} placeholder={inputPlaceholder} />

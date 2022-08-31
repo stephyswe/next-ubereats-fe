@@ -1,8 +1,6 @@
-import { windowCheck } from '@/lib/apollo';
-
 import { LinkLogin } from '@/components/links/NavLink';
 
-import { LOCALSTORAGE_TOKEN } from '@/constant/env';
+import { isBrowser, LOCALSTORAGE_TOKEN } from '@/constant/env';
 import { useDelivery } from '@/contexts';
 import { Spacer } from '@/ui';
 import { Cart } from '@/ui/cart';
@@ -11,7 +9,7 @@ import { DiningToggler } from '@/ui/toggler';
 
 export function NavbarStoreContent() {
   let auth;
-  if (windowCheck) {
+  if (isBrowser) {
     auth = localStorage.getItem(LOCALSTORAGE_TOKEN ? LOCALSTORAGE_TOKEN : '');
   }
 

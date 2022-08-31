@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { showLogger } from '@/constant/env';
+import { isBrowser, showLogger } from '@/constant/env';
 
 /**
  * A logger function that will only logs on development
@@ -12,7 +12,7 @@ export default function logger(object: unknown, comment?: string): void {
   console.log(
     '%c ============== INFO LOG \n',
     'color: #22D3EE',
-    `${typeof window !== 'undefined' && window?.location.pathname}\n`,
+    `${isBrowser && window?.location.pathname}\n`,
     `=== ${comment ?? ''}\n`,
     object
   );

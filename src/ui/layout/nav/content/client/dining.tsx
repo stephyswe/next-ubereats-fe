@@ -1,17 +1,15 @@
-import { windowCheck } from '@/lib/apollo';
-
 import { LinkLogin, LinkSignup } from '@/components/links/NavLink';
 
-import { LOCALSTORAGE_TOKEN } from '@/constant/env';
+import { isBrowser, LOCALSTORAGE_TOKEN } from '@/constant/env';
 import { useDelivery } from '@/contexts';
 import { Spacer } from '@/ui';
 import { Cart } from '@/ui/cart';
 import { NavItemDelivery, NavItemSearch } from '@/ui/layout/nav/items';
 import { DiningToggler } from '@/ui/toggler';
 
-export function NavbarDiningContent() {
+export const NavbarDiningContent = () => {
   let auth;
-  if (windowCheck) {
+  if (isBrowser) {
     auth = localStorage.getItem(LOCALSTORAGE_TOKEN ? LOCALSTORAGE_TOKEN : '');
   }
 
@@ -49,4 +47,4 @@ export function NavbarDiningContent() {
       </div>
     </>
   );
-}
+};

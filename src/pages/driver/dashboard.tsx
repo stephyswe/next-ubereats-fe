@@ -10,7 +10,7 @@ import {
   ICoords,
   makeRoute,
   onLoad,
-} from '@/components/pages/driver/utility';
+} from '@/components/pages/driver/utils';
 
 import {
   useCookedOrdersSubscription,

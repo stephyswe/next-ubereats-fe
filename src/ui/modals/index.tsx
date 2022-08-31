@@ -4,6 +4,8 @@ import { Button } from '@/components';
 
 import { SvgModalClose } from '@/ui/icons';
 
+export * from './dish';
+
 export function ModalHeader({ closeModal, checkPhoto }: any) {
   return (
     <div

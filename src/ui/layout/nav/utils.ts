@@ -1,16 +1,10 @@
-export function showSidebar(styles: any, setStyles: any) {
-  if (styles) document.body.classList.add('overflow-hidden');
-  else document.body.classList.remove('overflow-hidden');
-  setStyles(!styles);
-}
-
 export function homePosition(
   position: any,
-  setChange: any,
-  change: any,
-  changePos: any,
-  changeMob: any,
-  isMobile: any
+  setChange: (change: boolean) => void,
+  change: boolean,
+  changePos: number,
+  changeMob: number,
+  isMobile: boolean
 ) {
   if (position && !isMobile) {
     if (position.scrollY > changePos && !change) setChange(true);

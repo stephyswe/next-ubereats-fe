@@ -5,6 +5,7 @@ export const HomeData = {
       desktop: '/images/home/hero.png',
       mobile: 'images/home/hero-mobile.png',
     },
+    toggle: ['Delivey', 'Pickup'],
     title: 'Order food to your door',
     buttonText: 'Find Food',
     link: {

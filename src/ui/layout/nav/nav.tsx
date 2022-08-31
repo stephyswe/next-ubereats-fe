@@ -5,15 +5,19 @@ import { useWindowScrollPosition } from 'rooks';
 import { useOutsideAlerter } from '@/hooks/useOutside';
 import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
-import { NavHeader } from '@/ui/layout/nav/header';
-import { NavPerPage } from '@/ui/layout/nav/perPage';
-import { homePosition, showSidebar } from '@/ui/layout/nav/util';
-import { Sidebar } from '@/ui/layout/sidebar';
+import { Sidebar } from '@/ui/layout';
+import { homePosition, NavHeader, NavPerPage } from '@/ui/layout/nav';
 
-export function Nav({ noHoverBorder, fixed }: any) {
+export type NavProps = {
+  noBorder?: boolean;
+  fixed?: boolean;
+};
+
+export const Nav = ({ noBorder, fixed }: NavProps) => {
   const { isMobile } = useWindowSizeJs();
 
   const router = useRouter();
+  const routeHome = router.pathname === '/';
   const sidebarRef = useRef(null);
   const [active, setActive] = useState(true);
   const [change, setChange] = useState(false);
@@ -21,28 +25,28 @@ export function Nav({ noHoverBorder, fixed }: any) {
     setChange(false);
   }, [router]);
 
-  const position = useWindowScrollPosition();
+  const position: any = useWindowScrollPosition();
   useOutsideAlerter(sidebarRef, setActive);
   if (!fixed) homePosition(position, setChange, change, 1, 200, isMobile);
 
-  function checkHome() {
-    let home = false;
-    if (router.pathname === '/') home = true;
-    return home;
-  }
-
   function checkOnScroll() {
     let onScrollPosition = 400;
-    if (router.pathname !== '/') onScrollPosition = 450;
+    if (!routeHome) onScrollPosition = 450;
     return position && position.scrollY > onScrollPosition && change;
+  }
+
+  function showSidebar(active: boolean, setActive: any) {
+    if (active) document.body.classList.add('overflow-hidden');
+    else document.body.classList.remove('overflow-hidden');
+    setActive(!active);
   }
 
   return (
     <>
       <Sidebar sidebarRef={sidebarRef} active={active} />
       <NavHeader
-        home={checkHome()}
-        noHoverBorder={noHoverBorder}
+        home={routeHome ? true : false}
+        noBorder={noBorder}
         onSidebar={() => showSidebar(active, setActive)}
         change={change}
       >
@@ -50,4 +54,4 @@ export function Nav({ noHoverBorder, fixed }: any) {
       </NavHeader>
     </>
   );
-}
+};

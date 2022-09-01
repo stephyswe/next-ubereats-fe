@@ -6,7 +6,7 @@ type NavButtonProps = {
 
 export const NavButton = ({ onClick }: NavButtonProps) => (
   <button
-    aria-label='Huvudnavigeringsmeny'
+    aria-label='nav-btn'
     className='flex h-6 w-6 cursor-pointer items-center'
     onClick={onClick}
   >

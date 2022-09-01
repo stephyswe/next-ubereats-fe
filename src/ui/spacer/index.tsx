@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 
 export const Spacer = ({ length, index, className, ...rest }: SpacerProps) => {
-  if (length && index) if (length === index + 1) return null;
+  if (index && length === index + 1) return null;
   return (
     <div
+      data-testid='ui-spacer'
       className={clsx(
-        'm-0 flex-shrink-0 p-0',
+        'm-0 flex-shrink-0',
         className && className.charAt(0) !== 'h' ? 'h-[1px]' : '',
         className
       )}
@@ -14,7 +15,7 @@ export const Spacer = ({ length, index, className, ...rest }: SpacerProps) => {
   );
 };
 
-export const SpacerItem = ({ length, index, children }: SpacerProps) => {
+export const SpacerItem = ({ length, index, children }: SpacerItemProps) => {
   if (length && index) if (length === index + 1) return null;
   return <>{children}</>;
 };
@@ -22,26 +23,31 @@ export const SpacerItem = ({ length, index, children }: SpacerProps) => {
 type SpacerProps = {
   length?: number;
   index?: number;
-} & React.ComponentPropsWithRef<'div'>;
-
-type SeparatorProps = {
-  topOnly?: boolean;
-  mobileHidden?: boolean;
-  mobileHiddenSpace?: boolean;
+  children?: never;
+  className?: string;
 };
 
-export const Separator = ({
-  topOnly,
-  mobileHidden,
-  mobileHiddenSpace,
-}: SeparatorProps) => {
+type SpacerItemProps = {
+  length: number;
+  index: number;
+  children: React.ReactNode;
+};
+
+type SeparatorProps = {
+  top?: boolean;
+  mobile?: boolean;
+  mobileSpace?: boolean;
+};
+
+export const Separator = ({ top, mobile, mobileSpace }: SeparatorProps) => {
   return (
     <hr
+      data-testid='ui-separator'
       className={clsx(
-        'h-[1px] border-none bg-[#e2e2e2]',
-        mobileHidden ? 'hidden md:block' : '',
-        mobileHiddenSpace ? 'sm:my-4 sm:bg-[transparent]' : '',
-        topOnly ? 'm-[32px_0_0]' : 'my-8'
+        'h-[1px] bg-[#e2e2e2]',
+        mobile ? 'hidden md:block' : '',
+        mobileSpace ? 'sm:my-4 sm:bg-[transparent]' : '',
+        top ? 'm-[32px_0_0]' : 'my-8'
       )}
     />
   );

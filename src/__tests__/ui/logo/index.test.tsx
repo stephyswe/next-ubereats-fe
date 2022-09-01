@@ -1,38 +1,35 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, takeSnapshot } from 'test-utils';
 
-import { DeliveryProvider } from '@/contexts/delivery';
 import { Logo } from '@/ui';
 
-const LogoWrapper = () => (
-  <DeliveryProvider>
-    <Logo />
-  </DeliveryProvider>
-);
+// ** Snapshot ** //
 
-/** Initials */
+takeSnapshot(<Logo />);
+
+// ** Default ** //
 
 test('has link component', () => {
-  render(<LogoWrapper />);
+  render(<Logo />);
   const link = screen.getByRole('link');
   expect(link).toBeInTheDocument();
 });
 
 test('has image component', () => {
-  render(<LogoWrapper />);
+  render(<Logo />);
   const img = screen.getByRole('img');
   expect(img).toBeInTheDocument();
 });
 
-/** Content */
+// ** Content ** //
 
 test('has correct href link to homepage', () => {
-  render(<LogoWrapper />);
+  render(<Logo />);
   const link = screen.getByRole('link');
   expect(link).toHaveAttribute('href', '/');
 });
 
 test('has correct image source', () => {
-  render(<LogoWrapper />);
+  render(<Logo />);
   const img = screen.getByRole('img');
   expect(img).toHaveAttribute('src', '/images/logo.svg');
 });

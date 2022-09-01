@@ -42,7 +42,7 @@ export const HomeData = {
     cities: [
       {
         city: 'Gothenburg',
-        link: '/client/city/göteborg-västra-götaland',
+        link: '/client/city/g%C3%B6teborg-v%C3%A4stra-g%C3%B6taland',
         position: {
           lat: 57.90887,
           lng: 11.69866,

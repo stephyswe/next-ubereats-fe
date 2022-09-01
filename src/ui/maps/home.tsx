@@ -38,7 +38,7 @@ const HomeMarker = ({ city, link }: any) => {
 };
 
 export const HomeMap = ({ mapCenter, data }: any) => (
-  <div className='h-[360px] w-full' id='homeMap'>
+  <div data-testid='ui-map-home' className='h-[360px] w-full' id='homeMap'>
     <GoogleMapReact
       defaultZoom={6}
       draggable={false}

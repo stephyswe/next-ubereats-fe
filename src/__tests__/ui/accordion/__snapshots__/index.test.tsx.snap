@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <div
+    className="flex flex-row items-center justify-between bg-[#f6f6f6] p-4"
+  >
+    <div
+      className="flex flex-col"
+    >
+      <div
+        className="text-lg font-medium leading-6"
+      >
+        Choose 
+      </div>
+      <div
+        className="text-sm font-normal text-[#545454]"
+      >
+        <span>
+          Required
+        </span>
+      </div>
+    </div>
+    <div
+      className="flex flex-row"
+    >
+      <div
+        className="m-0 flex-shrink-0 h-[1px] w-2"
+        data-testid="ui-spacer"
+      />
+      <button
+        aria-label="ui-accordion-btn-close"
+        className="disabled:point-events-none disabled:cursor-not-allowed flex h-[30px] w-[30px] items-center justify-center rounded-[50%] border-[1px] border-solid border-[#e2e2e2] bg-white"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="h-6 w-6 leading-[1px]"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            fill="none"
+            focusable="false"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 11.7494V14.916L12 11.0827L7 14.916V11.7494L12 7.91602L17 11.7494Z"
+              fill="#545454"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    className="opacity-0"
+    style={
+      Object {
+        "height": "0px",
+      }
+    }
+  >
+    <form>
+      <input
+        className="pointer-events-none absolute opacity-0 outline-none"
+        type="checkbox"
+        value="0"
+      />
+      <label
+        className="box-border flex w-full cursor-pointer flex-row justify-between overflow-hidden text-base font-medium leading-5 transition-bg-ease-100 before:box-border before:flex before:h-[22px] before:w-[22px] before:cursor-pointer before:content-[''] before:border-[0px] before:bg-[url('/images/store/checkbox-active.svg')] before:content-[''] before:bg-center"
+        onClick={[Function]}
+      >
+        <div
+          className="m-0 flex-shrink-0 h-[1px] w-4"
+          data-testid="ui-spacer"
+        />
+        <div
+          className="relative mt-[calc(3px)] flex flex-1 justify-between"
+        >
+          <div
+            className="flex flex-1 flex-col justify-center self-start"
+          >
+            <div
+              className="flex flex-row"
+            >
+              <div
+                className="text-sm font-medium leading-4"
+              />
+              <div
+                className="m-0 flex-shrink-0 h-[1px] w-2"
+                data-testid="ui-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </label>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`renders correctly 2`] = `
+<div>
+  <div
+    className="flex flex-row items-center justify-between bg-[#f6f6f6] p-4"
+  >
+    <div
+      className="flex flex-col"
+    >
+      <div
+        className="text-lg font-medium leading-6"
+      >
+        Choose 
+        Spice Level
+      </div>
+      <div
+        className="text-sm font-normal text-[#545454]"
+      >
+        <span>
+          Required
+        </span>
+      </div>
+    </div>
+    <div
+      className="flex flex-row"
+    >
+      <div
+        className="m-0 flex-shrink-0 h-[1px] w-2"
+        data-testid="ui-spacer"
+      />
+      <button
+        aria-label="ui-accordion-btn-close"
+        className="disabled:point-events-none disabled:cursor-not-allowed flex h-[30px] w-[30px] items-center justify-center rounded-[50%] border-[1px] border-solid border-[#e2e2e2] bg-white"
+        onClick={[Function]}
+        type="button"
+      >
+        <div
+          className="h-6 w-6 leading-[1px]"
+        >
+          <svg
+            aria-hidden="true"
+            className="icon_rotate"
+            fill="none"
+            focusable="false"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 11.7494V14.916L12 11.0827L7 14.916V11.7494L12 7.91602L17 11.7494Z"
+              fill="#545454"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    className="p-[24px_16px]"
+    style={
+      Object {
+        "height": "undefinedpx",
+      }
+    }
+  >
+    <form>
+      <input
+        className="pointer-events-none absolute opacity-0 outline-none"
+        type="radio"
+        value="0"
+      />
+      <label
+        className="box-border flex w-full cursor-pointer flex-row justify-between overflow-hidden text-base font-medium leading-5 transition-bg-ease-100 before:box-border before:flex before:h-[22px] before:w-[22px] before:cursor-pointer before:rounded-[50%] before:content-[''] before:border-[3px] before:border-solid before:border-[#6b6b6b]"
+        onClick={[Function]}
+      >
+        <div
+          className="m-0 flex-shrink-0 h-[1px] w-4"
+          data-testid="ui-spacer"
+        />
+        <div
+          className="relative mt-[calc(3px)] flex flex-1 justify-between"
+        >
+          <div
+            className="flex flex-1 flex-col justify-center self-start"
+          >
+            <div
+              className="flex flex-row"
+            >
+              <div
+                className="text-sm font-medium leading-4"
+              >
+                Little Bit
+              </div>
+              <div
+                className="m-0 flex-shrink-0 h-[1px] w-2"
+                data-testid="ui-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </label>
+      <div
+        className="m-0 flex-shrink-0 h-[1px] mt-6"
+        data-testid="ui-spacer"
+      />
+      <input
+        className="pointer-events-none absolute opacity-0 outline-none"
+        type="radio"
+        value="0"
+      />
+      <label
+        className="box-border flex w-full cursor-pointer flex-row justify-between overflow-hidden text-base font-medium leading-5 transition-bg-ease-100 before:box-border before:flex before:h-[22px] before:w-[22px] before:cursor-pointer before:rounded-[50%] before:content-[''] before:border-[3px] before:border-solid before:border-[#6b6b6b]"
+        onClick={[Function]}
+      >
+        <div
+          className="m-0 flex-shrink-0 h-[1px] w-4"
+          data-testid="ui-spacer"
+        />
+        <div
+          className="relative mt-[calc(3px)] flex flex-1 justify-between"
+        >
+          <div
+            className="flex flex-1 flex-col justify-center self-start"
+          >
+            <div
+              className="flex flex-row"
+            >
+              <div
+                className="text-sm font-medium leading-4"
+              >
+                Strong
+              </div>
+              <div
+                className="m-0 flex-shrink-0 h-[1px] w-2"
+                data-testid="ui-spacer"
+              />
+            </div>
+          </div>
+        </div>
+      </label>
+    </form>
+  </div>
+</div>
+`;

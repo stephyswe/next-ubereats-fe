@@ -6,6 +6,7 @@ import { Button } from '@/components';
 import { ButtonSizeProps } from '@/components/buttons/UnStyledButton';
 
 import { useCreateOrderMutation } from '@/__generated__/graphql';
+import { isTest } from '@/constant/env';
 import { useDelivery, useOrders } from '@/contexts';
 import { Spacer } from '@/ui';
 import { CartWindow } from '@/ui/cart/list';
@@ -43,12 +44,13 @@ export const Cart = ({ size }: { size?: ButtonSizeProps }) => {
     });
   };
 
-  if (!isComplete)
+  if (!isComplete && !isTest) {
     return (
       <LoadingInit w='300' h='48'>
         <LoadingRound w='80' />
       </LoadingInit>
     );
+  }
 
   function onClick() {
     setShowCart(!showCart);

@@ -5,7 +5,7 @@ export { Cart } from './cart';
 export { CategoryList, CategorySquareItem } from './category';
 export { Container } from './container';
 export { Headline, HeadlineNavigate } from './headline';
-export { DynamicHero, Hero } from './hero';
+export { Hero, HeroDynamic } from './hero';
 export * from './loading';
 export { Logo } from './logo';
 export { HomeMap, MapButton } from './maps';

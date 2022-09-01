@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { Button } from '@/components';
 import { DiningCategoryItem } from '@/components/pages/client/dining/item';
 
+import { isTest } from '@/constant/env';
 import { useDelivery } from '@/contexts';
 import { LoadingWithSpace } from '@/ui';
 import { SvgCategoryArrow } from '@/ui/icons';
@@ -32,7 +33,7 @@ export function PickupCategoryList({
   data: PickupCategoryListProps[];
 }) {
   const { isComplete } = useDelivery();
-  if (!isComplete) return <CategoryContentSkeleton />;
+  if (!isComplete && !isTest) return <CategoryContentSkeleton />;
   return (
     <>
       <PickupArrow />

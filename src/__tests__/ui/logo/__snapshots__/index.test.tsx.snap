@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<a
+  aria-label="uber-home-link"
+  className=""
+  data-testid="component-link"
+  href="/"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onTouchStart={[Function]}
+>
+  <img
+    alt="uber-logo"
+    className="block h-6 max-h-[18px] w-auto max-w-[136px] md:max-h-[inherit] md:max-w-[inherit] "
+    height="24"
+    src="/images/logo.svg"
+    width="146"
+  />
+</a>
+`;

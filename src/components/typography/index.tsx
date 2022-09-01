@@ -45,6 +45,7 @@ export default function Typography<C extends React.ElementType>({
 
   return (
     <Component
+      data-testid='component-typography'
       className={clsxm(
         //#region  //*=========== Leading ===========
         [

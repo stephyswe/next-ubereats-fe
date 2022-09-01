@@ -10,7 +10,10 @@ type CategoriesProps = CategoryItemSquareProps[] | null | undefined;
 export const CategoryList = ({ data }: { data: any }) => {
   const { isMobile } = useWindowSizeJs();
   return (
-    <div className='mr-6 block w-full flex-shrink-0 flex-grow-0 basis-full md:scroll-align-start'>
+    <div
+      data-testid='ui-category-list'
+      className='mr-6 block w-full flex-shrink-0 flex-grow-0 basis-full md:scroll-align-start'
+    >
       <div className='-mx-3 -mb-6 box-border flex flex-wrap'>
         {data
           ?.slice(0, isMobile ? 4 : 12)

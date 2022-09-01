@@ -20,7 +20,7 @@ export const Hero = ({ title, background, children }: HeroProps) => {
   const { isMobile } = useWindowSizeJs();
 
   return (
-    <div className='relative'>
+    <div data-testid='ui-hero' className='relative'>
       <div
         style={{
           background: color,
@@ -48,11 +48,14 @@ export const Hero = ({ title, background, children }: HeroProps) => {
   );
 };
 
-export const DynamicHero = ({ background, title, children }: HeroProps) => {
+export const HeroDynamic = ({ background, title, children }: HeroProps) => {
   const { color, desktop, mobile } = background;
   const { isMobile } = useWindowSizeJs();
   return (
-    <div className='relative box-border md:min-w-[1024px]'>
+    <div
+      data-testid='ui-hero-dynamic'
+      className='relative box-border md:min-w-[1024px]'
+    >
       <div
         style={{ background: color }}
         className='relative z-10 h-[calc(100vh-80px)] w-full'

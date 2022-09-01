@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4"
+  data-testid="ui-country-with-map-list"
+/>
+`;
+
+exports[`renders correctly 2`] = `
+<div
+  className="mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4"
+  data-testid="ui-country-with-map-list"
+>
+  <a
+    className=""
+    data-testid="component-link"
+    href="/client/city/g%C3%B6teborg-v%C3%A4stra-g%C3%B6taland"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    Gothenburg
+  </a>
+  <a
+    className=""
+    data-testid="component-link"
+    href="/client/city/malm%C3%B6-sk%C3%A5ne"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    Malmö
+  </a>
+  <a
+    className=""
+    data-testid="component-link"
+    href="/client/city/stockholm-stockholm"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    Stockholm
+  </a>
+</div>
+`;

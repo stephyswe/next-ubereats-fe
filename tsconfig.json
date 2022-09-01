@@ -15,12 +15,13 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "*": ["test/*"],
       "@/*": ["./src/*"],
       "~/*": ["./public/*"]
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/ui/layout/nav/utilsts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "test/*"],
   "exclude": ["node_modules"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }

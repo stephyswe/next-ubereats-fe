@@ -19,7 +19,7 @@ type CreateOrderItemInput = {
   name: Scalars['String'];
 };
 
-interface OrderState {
+export interface OrderState {
   orderItems: CreateOrderItemInput[];
   setOrderItems: Dispatch<SetStateAction<CreateOrderItemInput[]>>;
   orderItem: CreateOrderItemInput | undefined;

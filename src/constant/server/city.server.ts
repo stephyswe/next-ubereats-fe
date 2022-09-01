@@ -1,5 +1,5 @@
 import {
-  breadCrumbGenerate,
+  breadCrumbGenerateCity,
   capitalizeCity,
   titleCaseFull,
 } from '@/lib/helper';
@@ -26,7 +26,7 @@ export async function getServerSideProps(context: any) {
   return {
     props: {
       cityInfo,
-      breadcrumb: breadCrumbGenerate(label),
+      breadcrumb: breadCrumbGenerateCity(label),
       title: titleCaseFull('Food', city),
     },
   };

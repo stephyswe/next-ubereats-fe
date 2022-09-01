@@ -1,31 +1,3 @@
-type OpenGraphType = {
-  siteName: string;
-  description: string;
-  templateTitle?: string;
-  logo?: string;
-};
-// !STARTERCONF This OG is generated from https://github.com/theodorusclarence/og
-// Please clone them and self-host if your site is going to be visited by many people.
-// Then change the url and the default logo.
-export function openGraph({
-  siteName,
-  templateTitle,
-  description,
-  // !STARTERCONF Or, you can use my server with your own logo.
-  logo = 'https://og.<your-domain>/images/logo.jpg',
-}: OpenGraphType): string {
-  const ogLogo = encodeURIComponent(logo);
-  const ogSiteName = encodeURIComponent(siteName.trim());
-  const ogTemplateTitle = templateTitle
-    ? encodeURIComponent(templateTitle.trim())
-    : undefined;
-  const ogDesc = encodeURIComponent(description.trim());
-
-  return `https://og.<your-domain>/api/general?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}${
-    ogTemplateTitle ? `&templateTitle=${ogTemplateTitle}` : ''
-  }`;
-}
-
 // base functions
 
 export function capitalize([first, ...rest]: any) {
@@ -62,13 +34,45 @@ export function titleCaseFull(str: string, city: string) {
   return str + ` Delivery in ${city}`;
 }
 
+export function breadCrumbGenerateCity(label: any) {
+  //* city *//
+  const city = capitalize(label.substr(0, label.indexOf('-')));
+
+  //* region *//
+  let region = label.split('-').slice(1);
+  region = region.length > 1 ? region.join(' ') : region[0];
+  region = capitalizeSentence(region);
+
+  //* region - link *//
+  const regionLink = label.substring(label.indexOf('-') + 1);
+
+  const data = [{ title: 'Sweden', link: '/' }];
+
+  data.push({
+    title: region,
+    link: `/client/region/${regionLink}`,
+  });
+  data.push({ title: city, link: `/client/city/${label}` });
+
+  return data;
+}
+
 export function breadCrumbGenerate(label: any, sublabel = null) {
   const city = capitalize(label.substr(0, label.indexOf('-')));
-  const region = titleCaseDefault(label.split('-').slice(1).join('-'));
-  const newRegion = label.substring(label.indexOf('-') + 1);
+
+  //* region *//
+  let region = label.split('-').slice(1);
+  region = region.length > 1 ? region.join(' ') : region[0];
+  region = capitalizeSentence(region);
+
+  //* region - link *//
+  const regionLink = label.substring(label.indexOf('-') + 1);
 
   const newCountryArray = [{ title: 'Sweden', link: '/' }];
-  newCountryArray.push({ title: region, link: `/client/region/${newRegion}` });
+  newCountryArray.push({
+    title: region,
+    link: `/client/region/${regionLink}`,
+  });
   newCountryArray.push({ title: city, link: `/client/city/${label}` });
 
   if (sublabel) {

@@ -30,7 +30,7 @@ export const StoresClosed = ({
         </div>
       ))}
     </div>
-    <Separator mobileHiddenSpace />
+    <Separator mobileSpace />
   </>
 );
 
@@ -46,7 +46,7 @@ export const StoresOpen = () => (
           <section>
             <StoreScroll data={item} />
           </section>
-          <Separator topOnly mobileHiddenSpace />
+          <Separator top mobileSpace />
         </div>
       ))}
       {restaurantData.map((item: any, index: any) => (

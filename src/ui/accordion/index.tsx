@@ -1,19 +1,22 @@
 import clsx from 'clsx';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 
+import { Button } from '@/components';
+
 import { useOrders } from '@/contexts';
 import { Spacer, SpacerItem } from '@/ui';
 import { AccordionItem } from '@/ui/accordion/item';
+import { onClick } from '@/ui/accordion/utils';
 import { SvgDropdown } from '@/ui/icons';
 
-import { AccordionProps, RenderTopProps } from './types';
+import { AccordionProps, AccordionTopProps } from './types';
 
 export const Accordion = ({ data, dishId }: AccordionProps) => {
   const { name, choices } = data;
   const { setOrderItem } = useOrders();
   const [isOpened, setOpened] = useState<boolean>(false);
   const [height, setHeight] = useState<string>('0px');
-  const contentElement = useRef(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [isActive, setActive] = useState<string>('');
 
   useEffect(() => {
@@ -23,48 +26,22 @@ export const Accordion = ({ data, dishId }: AccordionProps) => {
 
   const onToggle = () => {
     setOpened(!isOpened);
-    setHeight(
-      !isOpened ? `${contentElement?.current?.['scrollHeight']}px` : '0px'
-    );
+    setHeight(!isOpened ? `${contentRef?.current?.['scrollHeight']}px` : '0px');
   };
 
-  const onClick = (title: string) => {
-    if (choices) {
-      setActive(title);
-    } else {
-      setActive(title === isActive ? '' : title);
-    }
-
-    setOrderItem((current: any) => {
-      const currentOption = current.options;
-      const newOption = currentOption.filter(
-        (option: { name: string }) => option.name !== name
-      );
-
-      const newOrderItem = { ...current };
-      newOrderItem.dishId = dishId;
-
-      if (choices) {
-        newOrderItem.options = [...newOption, { name: name, choice: title }];
-      } else {
-        newOrderItem.options =
-          title === isActive ? [...newOption] : [...newOption, { name }];
-      }
-      return newOrderItem;
-    });
+  const handleClick = (title: string) => {
+    onClick(title, choices, setOrderItem, setActive, isActive, dishId, name);
   };
 
   return (
     <div>
-      <RenderTop name={name} onToggle={onToggle} isOpened={isOpened} />
-
-      {/* content */}
+      <AccordionTop name={name} onToggle={onToggle} isOpened={isOpened} />
       <div
-        ref={contentElement}
+        ref={contentRef}
         style={{ height: height }}
         className={clsx(isOpened ? 'p-[24px_16px]' : 'opacity-0', '')}
       >
-        <form>{checkRender(choices, dishId, onClick, isActive, name)}</form>
+        <form>{checkRender(choices, dishId, handleClick, isActive, name)}</form>
       </div>
     </div>
   );
@@ -107,7 +84,7 @@ function checkRender(
   }
 }
 
-const RenderTop = ({ name, onToggle, isOpened }: RenderTopProps) => (
+const AccordionTop = ({ name, onToggle, isOpened }: AccordionTopProps) => (
   <div className='flex flex-row items-center justify-between bg-[#f6f6f6] p-4'>
     <div className='flex flex-col'>
       <div className='text-lg font-medium leading-6'>Choose {name}</div>
@@ -117,14 +94,15 @@ const RenderTop = ({ name, onToggle, isOpened }: RenderTopProps) => (
     </div>
     <div className='flex flex-row'>
       <Spacer className='w-2' />
-      <button
+      <Button
+        aria-label='ui-accordion-btn-close'
         onClick={onToggle}
         className='flex h-[30px] w-[30px] items-center justify-center rounded-[50%] border-[1px] border-solid border-[#e2e2e2] bg-white'
       >
         <div className='h-6 w-6 leading-[1px]'>
           <SvgDropdown rotate={isOpened ? true : false} />
         </div>
-      </button>
+      </Button>
     </div>
   </div>
 );

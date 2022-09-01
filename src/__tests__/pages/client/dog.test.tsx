@@ -1,24 +1,9 @@
-import { ApolloProvider } from '@apollo/client';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { render, screen } from 'test-utils';
 
-import client from '@/lib/apollo';
-
-import { DeliveryProvider } from '@/contexts/delivery';
 import DogPage from '@/pages/client/dog';
 
-const Dog = () => (
-  <DeliveryProvider>
-    <DogPage name='Buck' />
-  </DeliveryProvider>
-);
-
 it('should render dog', async () => {
-  render(
-    <ApolloProvider client={client}>
-      <Dog />
-    </ApolloProvider>
-  );
+  render(<DogPage name='Buck' />);
   expect(await screen.findByText('Loading...')).toBeInTheDocument();
   expect(await screen.findByText('Buck is a poodle')).toBeInTheDocument();
 });

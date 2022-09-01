@@ -27,15 +27,17 @@ export const Nav = ({ noBorder, fixed }: NavProps) => {
 
   const position: any = useWindowScrollPosition();
   useOutsideAlerter(sidebarRef, setActive);
-  if (!fixed) homePosition(position, setChange, change, 1, 200, isMobile);
-
-  function checkOnScroll() {
-    let onScrollPosition = 400;
-    if (!routeHome) onScrollPosition = 450;
-    return position && position.scrollY > onScrollPosition && change;
+  if (!fixed) {
+    homePosition(position, setChange, change, 1, 200, isMobile);
   }
 
-  function showSidebar(active: boolean, setActive: any) {
+  function onScroll() {
+    let onScrollPosition = 400;
+    if (!routeHome) onScrollPosition = 450;
+    return position.scrollY > onScrollPosition;
+  }
+
+  function onSidebar() {
     if (active) document.body.classList.add('overflow-hidden');
     else document.body.classList.remove('overflow-hidden');
     setActive(!active);
@@ -47,10 +49,10 @@ export const Nav = ({ noBorder, fixed }: NavProps) => {
       <NavHeader
         home={routeHome ? true : false}
         noBorder={noBorder}
-        onSidebar={() => showSidebar(active, setActive)}
+        onSidebar={onSidebar}
         change={change}
       >
-        <NavPerPage change={change} onScroll={checkOnScroll()} />
+        <NavPerPage change={change} onScroll={onScroll()} />
       </NavHeader>
     </>
   );

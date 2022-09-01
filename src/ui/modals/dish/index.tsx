@@ -13,6 +13,7 @@ export function DishModal(props: any) {
       <ul>
         {options.map((item: any, index: any) => (
           <li key={index}>
+            {/*   {console.log('ac-data', item)} */}
             <Accordion data={item} dishId={id} />
           </li>
         ))}

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="relative"
+  data-testid="ui-hero"
+>
+  <div
+    className="flex h-full overflow-hidden"
+    style={
+      Object {
+        "background": "",
+      }
+    }
+  >
+    <div
+      className="flex h-screen w-screen overflow-hidden"
+      data-testid="hero-background"
+      style={
+        Object {
+          "background": "center / cover no-repeat
+                url()",
+        }
+      }
+    />
+  </div>
+  <div
+    className="absolute top-0 bottom-0 left-0 right-0 mt-36 flex text-black md:mt-0 md:items-center"
+  >
+    <div
+      className="box-border w-full px-4 md:m-auto md:min-w-[1024px] md:px-10"
+    >
+      <h2
+        className="font-uberMove text-4xl md:text-[52px] md:leading-[64px] font-bold mb-10"
+        data-testid="component-typography"
+      >
+        testTitle
+      </h2>
+      test
+    </div>
+  </div>
+</div>
+`;

@@ -1,5 +1,6 @@
 import { Link, Typography } from '@/components';
 
+import { isTest } from '@/constant/env';
 import { useDelivery } from '@/contexts';
 import { LoadingHome, Spacer, SpacerItem } from '@/ui';
 import { SvgLike } from '@/ui/icons';
@@ -26,7 +27,7 @@ type RestaurantItemProps = {
 export const PickupRestaurantList = ({ restaurants, resItems }: any) => {
   const { setHoverItem, isComplete } = useDelivery();
 
-  if (!isComplete) {
+  if (!isComplete && !isTest) {
     return (
       <>
         {Array.from({ length: 3 }, (item, index) => (

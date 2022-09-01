@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  data-testid="ui-country-with-map"
+>
+  <div
+    className="flex items-end justify-between"
+  >
+    <h2
+      className="font-uberMove text-2xl md:text-4xl md:leading-[44px] font-bold"
+      data-testid="ui-country-with-map-typography"
+    />
+    <a
+      className="text-base leading-5 font-medium invisible underline md:visible"
+      data-testid="ui-country-with-map-link"
+      href="/"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    />
+  </div>
+  <div
+    className="pt-6"
+  >
+    <div
+      className="h-[360px] w-full"
+      data-testid="ui-map-home"
+      id="homeMap"
+    >
+      <div
+        onClick={[Function]}
+        onMouseDownCapture={[Function]}
+        onMouseMove={[Function]}
+        style={
+          Object {
+            "height": "100%",
+            "margin": 0,
+            "padding": 0,
+            "position": "relative",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "height": "100%",
+              "left": 0,
+              "margin": 0,
+              "padding": 0,
+              "position": "absolute",
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        />
+        <div
+          style={
+            Object {
+              "height": "50%",
+              "left": "50%",
+              "margin": 0,
+              "padding": 0,
+              "position": "absolute",
+              "top": "50%",
+              "width": "50%",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "height": "100%",
+                "left": 0,
+                "margin": 0,
+                "padding": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4"
+    data-testid="ui-country-with-map-list"
+  />
+</div>
+`;
+
+exports[`renders correctly 2`] = `
+<div
+  data-testid="ui-country-with-map"
+>
+  <div
+    className="flex items-end justify-between"
+  >
+    <h2
+      className="font-uberMove text-2xl md:text-4xl md:leading-[44px] font-bold"
+      data-testid="ui-country-with-map-typography"
+    >
+      Cities near me
+    </h2>
+    <a
+      className="text-base leading-5 font-medium invisible underline md:visible"
+      data-testid="ui-country-with-map-link"
+      href="/se/location"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      View all +500 cities
+    </a>
+  </div>
+  <div
+    className="pt-6"
+  >
+    <div
+      className="h-[360px] w-full"
+      data-testid="ui-map-home"
+      id="homeMap"
+    >
+      <div
+        onClick={[Function]}
+        onMouseDownCapture={[Function]}
+        onMouseMove={[Function]}
+        style={
+          Object {
+            "height": "100%",
+            "margin": 0,
+            "padding": 0,
+            "position": "relative",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "height": "100%",
+              "left": 0,
+              "margin": 0,
+              "padding": 0,
+              "position": "absolute",
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        />
+        <div
+          style={
+            Object {
+              "height": "50%",
+              "left": "50%",
+              "margin": 0,
+              "padding": 0,
+              "position": "absolute",
+              "top": "50%",
+              "width": "50%",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "height": "100%",
+                "left": 0,
+                "margin": 0,
+                "padding": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 0,
+                  "left": -151.6129848888886,
+                  "position": "absolute",
+                  "top": -32.54057380991617,
+                  "width": 0,
+                }
+              }
+            >
+              <a
+                className="box-border block h-[30px] w-[30px] rounded-[50%]
+       transition-all-300 transform-3d box-shadow-map-12 hover:transform-hover-map-home css-9dbljh"
+                href="/client/city/g%C3%B6teborg-v%C3%A4stra-g%C3%B6taland"
+              >
+                <div
+                  className="flex h-full w-full items-center justify-center rounded-[50%] bg-white"
+                >
+                  <div
+                    className="h-4 w-4 leading-[1]"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="16px"
+                      viewBox="0 0 24 24"
+                      width="16px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17.5834 5.16602C14.5001 2.08268 9.50008 2.08268 6.41675 5.16602C3.33341 8.24935 3.33341 13.3327 6.41675 16.416L12.0001 21.9993L17.5834 16.3327C20.6667 13.3327 20.6667 8.24935 17.5834 5.16602ZM12.0001 12.416C11.0834 12.416 10.3334 11.666 10.3334 10.7493C10.3334 9.83268 11.0834 9.08268 12.0001 9.08268C12.9167 9.08268 13.6667 9.83268 13.6667 10.7493C13.6667 11.666 12.9167 12.416 12.0001 12.416Z"
+                        fill="#000000"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 0,
+                  "left": -112.01831822222084,
+                  "position": "absolute",
+                  "top": 141.52276928542688,
+                  "width": 0,
+                }
+              }
+            >
+              <a
+                className="box-border block h-[30px] w-[30px] rounded-[50%]
+       transition-all-300 transform-3d box-shadow-map-12 hover:transform-hover-map-home css-4403v7"
+                href="/client/city/malmö-skåne"
+              >
+                <div
+                  className="flex h-full w-full items-center justify-center rounded-[50%] bg-white"
+                >
+                  <div
+                    className="h-4 w-4 leading-[1]"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="16px"
+                      viewBox="0 0 24 24"
+                      width="16px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17.5834 5.16602C14.5001 2.08268 9.50008 2.08268 6.41675 5.16602C3.33341 8.24935 3.33341 13.3327 6.41675 16.416L12.0001 21.9993L17.5834 16.3327C20.6667 13.3327 20.6667 8.24935 17.5834 5.16602ZM12.0001 12.416C11.0834 12.416 10.3334 11.666 10.3334 10.7493C10.3334 9.83268 11.0834 9.08268 12.0001 9.08268C12.9167 9.08268 13.6667 9.83268 13.6667 10.7493C13.6667 11.666 12.9167 12.416 12.0001 12.416Z"
+                        fill="#000000"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "height": 0,
+                  "left": 124.63945955555755,
+                  "position": "absolute",
+                  "top": -173.66638353387134,
+                  "width": 0,
+                }
+              }
+            >
+              <a
+                className="box-border block h-[30px] w-[30px] rounded-[50%]
+       transition-all-300 transform-3d box-shadow-map-12 hover:transform-hover-map-home css-1f0hkc0"
+                href="/client/city/stockholm-stockholm"
+              >
+                <div
+                  className="flex h-full w-full items-center justify-center rounded-[50%] bg-white"
+                >
+                  <div
+                    className="h-4 w-4 leading-[1]"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      fill="none"
+                      focusable="false"
+                      height="16px"
+                      viewBox="0 0 24 24"
+                      width="16px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M17.5834 5.16602C14.5001 2.08268 9.50008 2.08268 6.41675 5.16602C3.33341 8.24935 3.33341 13.3327 6.41675 16.416L12.0001 21.9993L17.5834 16.3327C20.6667 13.3327 20.6667 8.24935 17.5834 5.16602ZM12.0001 12.416C11.0834 12.416 10.3334 11.666 10.3334 10.7493C10.3334 9.83268 11.0834 9.08268 12.0001 9.08268C12.9167 9.08268 13.6667 9.83268 13.6667 10.7493C13.6667 11.666 12.9167 12.416 12.0001 12.416Z"
+                        fill="#000000"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4"
+    data-testid="ui-country-with-map-list"
+  >
+    <a
+      className=""
+      data-testid="component-link"
+      href="/client/city/g%C3%B6teborg-v%C3%A4stra-g%C3%B6taland"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      Gothenburg
+    </a>
+    <a
+      className=""
+      data-testid="component-link"
+      href="/client/city/malm%C3%B6-sk%C3%A5ne"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      Malmö
+    </a>
+    <a
+      className=""
+      data-testid="component-link"
+      href="/client/city/stockholm-stockholm"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      Stockholm
+    </a>
+  </div>
+</div>
+`;

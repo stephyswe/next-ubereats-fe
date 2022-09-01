@@ -13,6 +13,7 @@ type EmploymentListProps = {
 
 export const EmploymentList = ({ data }: EmploymentListProps) => (
   <div
+    data-testid='ui-employment-list'
     id='cards'
     className='mx-[-12px] mb-[-24px] box-border flex flex-wrap md:flex-nowrap'
   >
@@ -24,7 +25,7 @@ export const EmploymentList = ({ data }: EmploymentListProps) => (
 
 const EmploymentItem = ({ title, desc, src, link }: EmploymentItemProps) => (
   <div className='mb-6 ml-0 box-border block w-full flex-none px-3 md:w-1/3 '>
-    <Link href={link} className='mb-4'>
+    <Link aria-label='employment-link' href={link} className='mb-4'>
       <div className='relative mb-2 h-0 w-full bg-[#e2e2e2] pt-[55.970149253731336%]'>
         <NextImage
           alt={title}

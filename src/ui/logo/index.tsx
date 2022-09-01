@@ -3,9 +3,9 @@ import { Link } from '@/components';
 
 export const Logo = () => (
   // eslint-disable-next-line @next/next/no-img-element
-  <Link data-testid='ui-logo' href='/'>
+  <Link aria-label='uber-home-link' href='/'>
     <img
-      alt='Startsida för Uber&nbsp;Eats'
+      alt='uber-logo'
       src='/images/logo.svg'
       width='146'
       height='24'

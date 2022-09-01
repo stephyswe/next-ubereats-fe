@@ -110,7 +110,7 @@ export const HeadlineFood = ({
 }: HeadlineFoodProps) => {
   const { isMobile } = useWindowSizeJs();
   return (
-    <div>
+    <div data-testid='ui-headline-food'>
       <Typography as='h1' variant='4xl'>
         {title} {noClamp ? 'Near Me' : ''}
       </Typography>

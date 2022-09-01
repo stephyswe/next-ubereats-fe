@@ -1,21 +1,11 @@
-import { Scalars } from '@/__generated__/graphql';
+import { DishOptionInputType, Scalars } from '@/__generated__/graphql';
 
 export type AccordionProps = {
-  data: {
-    name: string;
-    choices: Array<{
-      name: string;
-      price: Scalars['Float'];
-    }>;
-    options: Array<{
-      name: string;
-      price: Scalars['Float'];
-    }>;
-  };
+  data: DishOptionInputType;
   dishId: Scalars['Int'];
 };
 
-export type RenderTopProps = {
+export type AccordionTopProps = {
   name: string;
   onToggle: any;
   isOpened: boolean;

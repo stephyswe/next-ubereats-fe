@@ -1,38 +1,39 @@
+import { Fragment } from 'react';
+
 import { Link } from '@/components';
+
+import { SpacerItem } from '@/ui/spacer';
 
 import { SvgBreadCrumb } from '../icons';
 
 export type BreadCrumbItemProps = {
   title: string;
   link: string;
-  lastItem: boolean;
 };
 
 export const BreadCrumb = ({ data }: { data: BreadCrumbItemProps[] }) => (
-  <ol className='m-[0px_0px_16px] flex items-center overflow-auto whitespace-nowrap p-0 text-[#afafaf]'>
-    {data.map((bcItem: BreadCrumbItemProps, index: number) => (
-      <BreadCrumbItem
-        key={bcItem.title}
-        title={bcItem.title}
-        link={bcItem.link}
-        lastItem={index + 1 === data.length}
-      />
+  <ol
+    data-testid='ui-breadcrumb'
+    aria-label='ui-bc-list'
+    className='m-[0px_0px_16px] flex items-center overflow-auto whitespace-nowrap p-0 text-[#afafaf]'
+  >
+    {data.map((item: BreadCrumbItemProps, index: number) => (
+      <Fragment key={index}>
+        <BreadCrumbItem key={item.title} title={item.title} link={item.link} />
+        <SpacerItem length={data.length} index={index}>
+          <div className='w-2' />
+          <SvgBreadCrumb />
+          <div className='w-2' />
+        </SpacerItem>
+      </Fragment>
     ))}
   </ol>
 );
 
-const BreadCrumbItem = ({ title, link, lastItem }: BreadCrumbItemProps) => (
-  <>
-    <li className='inline text-sm font-medium leading-4 last-of-type:text-[#000]'>
-      <Link href={link}>{title}</Link>
-    </li>
-
-    {!lastItem ? (
-      <>
-        <div className='w-2' />
-        <SvgBreadCrumb />
-        <div className='w-2' />
-      </>
-    ) : null}
-  </>
+const BreadCrumbItem = ({ title, link }: BreadCrumbItemProps) => (
+  <li className='inline text-sm font-medium leading-4 last-of-type:text-[#000]'>
+    <Link aria-label='ui-bc-link' href={link}>
+      {title}
+    </Link>
+  </li>
 );

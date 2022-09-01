@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 
 import { Button, Typography } from '@/components';
 
+import { isTest } from '@/constant/env';
 import { useDelivery } from '@/contexts';
 import { Spacer } from '@/ui';
 import { SvgFilterDropdown } from '@/ui/icons';
@@ -19,7 +20,7 @@ const PickupFilterSkeleton = () => (
 
 export function PickupFilter({ data }: any) {
   const { isComplete } = useDelivery();
-  if (!isComplete) return <PickupFilterSkeleton />;
+  if (!isComplete && !isTest) return <PickupFilterSkeleton />;
   return (
     <div className='box-border flex w-full flex-row'>
       <div className='mx-[-24px] flex flex-grow py-4'>

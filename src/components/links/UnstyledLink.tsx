@@ -109,7 +109,12 @@ export const UnstyledLink = React.forwardRef<
     if (!isNewTab) {
       return (
         <Link href={href} {...nextLinkProps}>
-          <a ref={ref} {...rest} className={customClassName}>
+          <a
+            data-testid='component-link'
+            ref={ref}
+            {...rest}
+            className={customClassName}
+          >
             {children}
           </a>
         </Link>
@@ -118,6 +123,7 @@ export const UnstyledLink = React.forwardRef<
 
     return (
       <a
+        data-testid='component-link'
         ref={ref}
         target='_blank'
         rel='noopener noreferrer'

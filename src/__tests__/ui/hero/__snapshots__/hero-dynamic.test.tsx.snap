@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="relative box-border md:min-w-[1024px]"
+  data-testid="ui-hero-dynamic"
+>
+  <div
+    className="relative z-10 h-[calc(100vh-80px)] w-full"
+    style={
+      Object {
+        "background": "",
+      }
+    }
+  >
+    <img
+      alt="Hungry? You're in the right place"
+      className="absolute h-full"
+    />
+    <img
+      alt="Hungry? You're in the right place"
+      className="absolute right-0 h-full"
+    />
+  </div>
+  <div
+    className="absolute z-20 p-4 sm:top-0 sm:left-0 sm:right-0 sm:bottom-0 sm:m-auto sm:mt-72 md:top-1/2 md:left-1/2 md:translate-y-[-50%] md:translate-x-[-50%]"
+  >
+    <h2
+      className="font-uberMove text-4xl md:text-[52px] md:leading-[64px] mb-10 font-medium sm:mb-[24px] md:mb-[44px] md:text-center"
+      data-testid="component-typography"
+    >
+      testTitle
+    </h2>
+    <div
+      className="flex flex-col md:flex-row md:items-center md:justify-center"
+    >
+      test
+    </div>
+  </div>
+</div>
+`;

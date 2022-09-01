@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<hr
+  className="h-[1px] bg-[#e2e2e2] my-8"
+  data-testid="ui-separator"
+/>
+`;

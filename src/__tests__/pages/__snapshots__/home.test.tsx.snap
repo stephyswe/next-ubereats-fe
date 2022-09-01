@@ -1,0 +1,815 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main>
+  <div
+    className="relative"
+    data-testid="ui-hero"
+  >
+    <div
+      className="flex h-full overflow-hidden"
+      style={
+        Object {
+          "background": "#f2ca2f",
+        }
+      }
+    >
+      <div
+        className="flex h-screen w-screen overflow-hidden"
+        data-testid="hero-background"
+        style={
+          Object {
+            "background": "center / cover no-repeat
+                url(/images/home/hero.png)",
+          }
+        }
+      />
+    </div>
+    <div
+      className="absolute top-0 bottom-0 left-0 right-0 mt-36 flex text-black md:mt-0 md:items-center"
+    >
+      <div
+        className="box-border w-full px-4 md:m-auto md:min-w-[1024px] md:px-10"
+      >
+        <h2
+          className="font-uberMove text-4xl md:text-[52px] md:leading-[64px] font-bold mb-10"
+          data-testid="component-typography"
+        >
+          Order food to your door
+        </h2>
+        <div
+          className="flex flex-col gap-1 md:flex-row md:items-start"
+        >
+          <div
+            className="relative flex-1 flex-col md:max-w-[540px]"
+          >
+            <div
+              className="px-4 py-2 text-center text-base font-normal leading-6 text-black relative box-border flex min-w-full border-none bg-white  transition-bs-ease-300 box-shadow-inset-eee focus-within:box-shadow-rgb-0"
+            >
+              <div
+                className="flex h-6 w-6 flex-shrink-0 items-center py-2 leading-[1]"
+              >
+                <svg
+                  aria-hidden="true"
+                  fill="none"
+                  focusable="false"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.5834 5.16602C14.5001 2.08268 9.50008 2.08268 6.41675 5.16602C3.33341 8.24935 3.33341 13.3327 6.41675 16.416L12.0001 21.9993L17.5834 16.3327C20.6667 13.3327 20.6667 8.24935 17.5834 5.16602ZM12.0001 12.416C11.0834 12.416 10.3334 11.666 10.3334 10.7493C10.3334 9.83268 11.0834 9.08268 12.0001 9.08268C12.9167 9.08268 13.6667 9.83268 13.6667 10.7493C13.6667 11.666 12.9167 12.416 12.0001 12.416Z"
+                    fill="#000000"
+                  />
+                </svg>
+              </div>
+              <div
+                className="w-4"
+              />
+              <input
+                className="outline-none focus:ring-0 placeholder-style flex-1"
+                placeholder="Enter delivery address"
+                required={true}
+              />
+            </div>
+          </div>
+          <div
+            className="m-0 flex-shrink-0 h-[1px] w-2"
+            data-testid="ui-spacer"
+          />
+          <button
+            className="text-lg font-medium leading-6 text-white bg-black hover:bg-gray-100 active:bg-gray-200 box-border flex h-14 min-h-[56px] cursor-pointer items-center justify-center rounded-[8px] px-4 py-3 md:w-max disabled:point-events-none disabled:cursor-not-allowed"
+            type="button"
+          >
+            Find Food
+          </button>
+        </div>
+        <div
+          className="mt-6 text-sm font-medium leading-4"
+        >
+          <a
+            className="cursor-pointer underline"
+            data-testid="component-link"
+            href="https://www.ubereats.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Sign in
+          </a>
+           
+          for your recent addresses
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="m-0 flex-shrink-0 h-20"
+    data-testid="ui-spacer"
+  />
+  <div
+    className="m-[0_auto] box-border max-w-[1920px] md:min-w-[1024px] p-[0_16px] md:p-[0_40px]"
+    data-testid="ui-container"
+  >
+    <div
+      className="mx-[-12px] mb-[-24px] box-border flex flex-wrap md:flex-nowrap"
+      data-testid="ui-employment-list"
+      id="cards"
+    >
+      <div
+        className="mb-6 ml-0 box-border block w-full flex-none px-3 md:w-1/3 "
+      >
+        <a
+          aria-label="employment-link"
+          className="mb-4"
+          data-testid="component-link"
+          href="/temp/employmentLink1"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="relative mb-2 h-0 w-full bg-[#e2e2e2] pt-[55.970149253731336%]"
+          >
+            <span
+              style={
+                Object {
+                  "background": "none",
+                  "border": 0,
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "left": 0,
+                  "margin": 0,
+                  "opacity": 1,
+                  "overflow": "hidden",
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt="Feed your employees"
+                className="absolute left-0 top-0 w-full animate-pulse"
+                data-nimg="fill"
+                decoding="async"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style={
+                  Object {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+              <noscript>
+                <img
+                  alt="Feed your employees"
+                  className="absolute left-0 top-0 w-full animate-pulse"
+                  data-nimg="fill"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=3840&q=75"
+                  srcSet="/_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fhome%2Femployment-1.png&w=3840&q=75 3840w"
+                  style={
+                    Object {
+                      "border": "none",
+                      "bottom": 0,
+                      "boxSizing": "border-box",
+                      "display": "block",
+                      "height": 0,
+                      "left": 0,
+                      "margin": "auto",
+                      "maxHeight": "100%",
+                      "maxWidth": "100%",
+                      "minHeight": "100%",
+                      "minWidth": "100%",
+                      "objectFit": undefined,
+                      "objectPosition": undefined,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": 0,
+                    }
+                  }
+                />
+              </noscript>
+            </span>
+          </div>
+          <h3
+            className="font-uberMove text-2xl font-bold md:text-[28px] md:leading-9"
+            data-testid="component-typography"
+          >
+            Feed your employees
+          </h3>
+          <p
+            className="font-medium mt-2 text-base leading-5 underline"
+            data-testid="component-typography"
+          >
+            Create a business account
+          </p>
+        </a>
+      </div>
+      <div
+        className="mb-6 ml-0 box-border block w-full flex-none px-3 md:w-1/3 "
+      >
+        <a
+          aria-label="employment-link"
+          className="mb-4"
+          data-testid="component-link"
+          href="/temp/employmentLink2"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="relative mb-2 h-0 w-full bg-[#e2e2e2] pt-[55.970149253731336%]"
+          >
+            <span
+              style={
+                Object {
+                  "background": "none",
+                  "border": 0,
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "left": 0,
+                  "margin": 0,
+                  "opacity": 1,
+                  "overflow": "hidden",
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt="Your restaurant, delivered"
+                className="absolute left-0 top-0 w-full animate-pulse"
+                data-nimg="fill"
+                decoding="async"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style={
+                  Object {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+              <noscript>
+                <img
+                  alt="Your restaurant, delivered"
+                  className="absolute left-0 top-0 w-full animate-pulse"
+                  data-nimg="fill"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=3840&q=75"
+                  srcSet="/_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fhome%2Femployment-2.png&w=3840&q=75 3840w"
+                  style={
+                    Object {
+                      "border": "none",
+                      "bottom": 0,
+                      "boxSizing": "border-box",
+                      "display": "block",
+                      "height": 0,
+                      "left": 0,
+                      "margin": "auto",
+                      "maxHeight": "100%",
+                      "maxWidth": "100%",
+                      "minHeight": "100%",
+                      "minWidth": "100%",
+                      "objectFit": undefined,
+                      "objectPosition": undefined,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": 0,
+                    }
+                  }
+                />
+              </noscript>
+            </span>
+          </div>
+          <h3
+            className="font-uberMove text-2xl font-bold md:text-[28px] md:leading-9"
+            data-testid="component-typography"
+          >
+            Your restaurant, delivered
+          </h3>
+          <p
+            className="font-medium mt-2 text-base leading-5 underline"
+            data-testid="component-typography"
+          >
+            Add your restaurant
+          </p>
+        </a>
+      </div>
+      <div
+        className="mb-6 ml-0 box-border block w-full flex-none px-3 md:w-1/3 "
+      >
+        <a
+          aria-label="employment-link"
+          className="mb-4"
+          data-testid="component-link"
+          href="/temp/employmentLink3"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div
+            className="relative mb-2 h-0 w-full bg-[#e2e2e2] pt-[55.970149253731336%]"
+          >
+            <span
+              style={
+                Object {
+                  "background": "none",
+                  "border": 0,
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "left": 0,
+                  "margin": 0,
+                  "opacity": 1,
+                  "overflow": "hidden",
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt="Deliver with Uber Eats"
+                className="absolute left-0 top-0 w-full animate-pulse"
+                data-nimg="fill"
+                decoding="async"
+                onError={[Function]}
+                onLoad={[Function]}
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style={
+                  Object {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+              <noscript>
+                <img
+                  alt="Deliver with Uber Eats"
+                  className="absolute left-0 top-0 w-full animate-pulse"
+                  data-nimg="fill"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=3840&q=75"
+                  srcSet="/_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=750&q=75 750w, /_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=1920&q=75 1920w, /_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=2048&q=75 2048w, /_next/image?url=%2Fimages%2Fhome%2Femployment-3.png&w=3840&q=75 3840w"
+                  style={
+                    Object {
+                      "border": "none",
+                      "bottom": 0,
+                      "boxSizing": "border-box",
+                      "display": "block",
+                      "height": 0,
+                      "left": 0,
+                      "margin": "auto",
+                      "maxHeight": "100%",
+                      "maxWidth": "100%",
+                      "minHeight": "100%",
+                      "minWidth": "100%",
+                      "objectFit": undefined,
+                      "objectPosition": undefined,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": 0,
+                    }
+                  }
+                />
+              </noscript>
+            </span>
+          </div>
+          <h3
+            className="font-uberMove text-2xl font-bold md:text-[28px] md:leading-9"
+            data-testid="component-typography"
+          >
+            Deliver with Uber Eats
+          </h3>
+          <p
+            className="font-medium mt-2 text-base leading-5 underline"
+            data-testid="component-typography"
+          >
+            Sign up to deliver
+          </p>
+        </a>
+      </div>
+    </div>
+    <div
+      className="m-0 flex-shrink-0 h-10 md:h-20"
+      data-testid="ui-spacer"
+    />
+    <div
+      data-testid="ui-country-with-map"
+    >
+      <div
+        className="flex items-end justify-between"
+      >
+        <h2
+          className="font-uberMove text-2xl md:text-4xl md:leading-[44px] font-bold"
+          data-testid="ui-country-with-map-typography"
+        >
+          Cities near me
+        </h2>
+        <a
+          className="text-base leading-5 font-medium invisible underline md:visible"
+          data-testid="ui-country-with-map-link"
+          href="/se/location"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          View all +500 cities
+        </a>
+      </div>
+      <div
+        className="pt-6"
+      >
+        <div
+          className="h-[360px] w-full"
+          data-testid="ui-map-home"
+          id="homeMap"
+        >
+          <div
+            onClick={[Function]}
+            onMouseDownCapture={[Function]}
+            onMouseMove={[Function]}
+            style={
+              Object {
+                "height": "100%",
+                "margin": 0,
+                "padding": 0,
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "height": "100%",
+                  "left": 0,
+                  "margin": 0,
+                  "padding": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
+            />
+            <div
+              style={
+                Object {
+                  "height": "50%",
+                  "left": "50%",
+                  "margin": 0,
+                  "padding": 0,
+                  "position": "absolute",
+                  "top": "50%",
+                  "width": "50%",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "height": "100%",
+                    "left": 0,
+                    "margin": 0,
+                    "padding": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": "100%",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "transparent",
+                      "height": 0,
+                      "left": -151.6129848888886,
+                      "position": "absolute",
+                      "top": -32.54057380991617,
+                      "width": 0,
+                    }
+                  }
+                >
+                  <a
+                    className="box-border block h-[30px] w-[30px] rounded-[50%]
+       transition-all-300 transform-3d box-shadow-map-12 hover:transform-hover-map-home css-9dbljh"
+                    href="/client/city/g%C3%B6teborg-v%C3%A4stra-g%C3%B6taland"
+                  >
+                    <div
+                      className="flex h-full w-full items-center justify-center rounded-[50%] bg-white"
+                    >
+                      <div
+                        className="h-4 w-4 leading-[1]"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="none"
+                          focusable="false"
+                          height="16px"
+                          viewBox="0 0 24 24"
+                          width="16px"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M17.5834 5.16602C14.5001 2.08268 9.50008 2.08268 6.41675 5.16602C3.33341 8.24935 3.33341 13.3327 6.41675 16.416L12.0001 21.9993L17.5834 16.3327C20.6667 13.3327 20.6667 8.24935 17.5834 5.16602ZM12.0001 12.416C11.0834 12.416 10.3334 11.666 10.3334 10.7493C10.3334 9.83268 11.0834 9.08268 12.0001 9.08268C12.9167 9.08268 13.6667 9.83268 13.6667 10.7493C13.6667 11.666 12.9167 12.416 12.0001 12.416Z"
+                            fill="#000000"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "transparent",
+                      "height": 0,
+                      "left": -112.01831822222084,
+                      "position": "absolute",
+                      "top": 141.52276928542688,
+                      "width": 0,
+                    }
+                  }
+                >
+                  <a
+                    className="box-border block h-[30px] w-[30px] rounded-[50%]
+       transition-all-300 transform-3d box-shadow-map-12 hover:transform-hover-map-home css-4403v7"
+                    href="/client/city/malmö-skåne"
+                  >
+                    <div
+                      className="flex h-full w-full items-center justify-center rounded-[50%] bg-white"
+                    >
+                      <div
+                        className="h-4 w-4 leading-[1]"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="none"
+                          focusable="false"
+                          height="16px"
+                          viewBox="0 0 24 24"
+                          width="16px"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M17.5834 5.16602C14.5001 2.08268 9.50008 2.08268 6.41675 5.16602C3.33341 8.24935 3.33341 13.3327 6.41675 16.416L12.0001 21.9993L17.5834 16.3327C20.6667 13.3327 20.6667 8.24935 17.5834 5.16602ZM12.0001 12.416C11.0834 12.416 10.3334 11.666 10.3334 10.7493C10.3334 9.83268 11.0834 9.08268 12.0001 9.08268C12.9167 9.08268 13.6667 9.83268 13.6667 10.7493C13.6667 11.666 12.9167 12.416 12.0001 12.416Z"
+                            fill="#000000"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "backgroundColor": "transparent",
+                      "height": 0,
+                      "left": 124.63945955555755,
+                      "position": "absolute",
+                      "top": -173.66638353387134,
+                      "width": 0,
+                    }
+                  }
+                >
+                  <a
+                    className="box-border block h-[30px] w-[30px] rounded-[50%]
+       transition-all-300 transform-3d box-shadow-map-12 hover:transform-hover-map-home css-1f0hkc0"
+                    href="/client/city/stockholm-stockholm"
+                  >
+                    <div
+                      className="flex h-full w-full items-center justify-center rounded-[50%] bg-white"
+                    >
+                      <div
+                        className="h-4 w-4 leading-[1]"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="none"
+                          focusable="false"
+                          height="16px"
+                          viewBox="0 0 24 24"
+                          width="16px"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M17.5834 5.16602C14.5001 2.08268 9.50008 2.08268 6.41675 5.16602C3.33341 8.24935 3.33341 13.3327 6.41675 16.416L12.0001 21.9993L17.5834 16.3327C20.6667 13.3327 20.6667 8.24935 17.5834 5.16602ZM12.0001 12.416C11.0834 12.416 10.3334 11.666 10.3334 10.7493C10.3334 9.83268 11.0834 9.08268 12.0001 9.08268C12.9167 9.08268 13.6667 9.83268 13.6667 10.7493C13.6667 11.666 12.9167 12.416 12.0001 12.416Z"
+                            fill="#000000"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4"
+        data-testid="ui-country-with-map-list"
+      >
+        <a
+          className=""
+          data-testid="component-link"
+          href="/client/city/g%C3%B6teborg-v%C3%A4stra-g%C3%B6taland"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          Gothenburg
+        </a>
+        <a
+          className=""
+          data-testid="component-link"
+          href="/client/city/malm%C3%B6-sk%C3%A5ne"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          Malmö
+        </a>
+        <a
+          className=""
+          data-testid="component-link"
+          href="/client/city/stockholm-stockholm"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+        >
+          Stockholm
+        </a>
+      </div>
+    </div>
+    <div
+      className="m-0 flex-shrink-0 h-20"
+      data-testid="ui-spacer"
+    />
+    <div
+      data-testid="ui-country-list"
+    >
+      <h2
+        className="font-uberMove text-2xl md:text-4xl md:leading-[44px] font-bold"
+        data-testid="component-typography"
+      >
+        Countries with Uber Eats
+      </h2>
+      <div
+        className="mt-6 mb-4 grid grid-cols-2 gap-6 md:mb-0 md:grid-cols-4"
+      >
+        <a>
+          United States
+        </a>
+        <a>
+          Canada
+        </a>
+        <a>
+          Switzerland
+        </a>
+        <a>
+          Ecuador
+        </a>
+        <a>
+          Spain
+        </a>
+        <a>
+          Australia
+        </a>
+        <a>
+          Chile
+        </a>
+        <a>
+          Ireland
+        </a>
+        <a>
+          Brazil
+        </a>
+        <a>
+          Poland
+        </a>
+        <a>
+          New Zeeland
+        </a>
+        <a>
+          Sri Lanka
+        </a>
+        <a>
+          Mexico
+        </a>
+        <a>
+          United Kingdom
+        </a>
+        <a>
+          Taiwan (ROC)
+        </a>
+        <a>
+          Sweden
+        </a>
+        <a>
+          France
+        </a>
+        <a>
+          Italy
+        </a>
+        <a>
+          South Africa
+        </a>
+        <a>
+          Guatemala
+        </a>
+        <a>
+          Japan
+        </a>
+        <a>
+          Portugal
+        </a>
+        <a>
+          Belgium
+        </a>
+        <a>
+          Costa Rica
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+`;

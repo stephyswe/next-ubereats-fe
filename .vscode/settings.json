@@ -22,7 +22,7 @@
     ".prettierignore": false,
     "next.config.js": false,
     "postcss.config.js": true,
-    "tsconfig.json": true,
+    "tsconfig.json": false,
     "next-env.d.ts": true,
     "graphql.schema.json": true,
     ".husky": true,

@@ -3,13 +3,19 @@ import { Button, ButtonInput } from '@/components';
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
 import { cityData } from '@/constant/pages/client/city.data';
 import { categoriesData } from '@/constant/ui/category';
-import { BreadCrumb, Container, DynamicHero, Separator, Spacer } from '@/ui';
+import { BreadCrumb, Container, HeroDynamic, Separator, Spacer } from '@/ui';
 import { CategoryList } from '@/ui/category';
 import { Headline, HeadlineCity, HeadlineFood } from '@/ui/headline';
 import { SvgMap } from '@/ui/icons';
 import { StoresClosed, StoresOpen } from '@/ui/store/list';
 
 export { getServerSideProps } from '@/constant/server/city.server';
+
+export type CityPageProps = {
+  breadcrumb: any;
+  cityInfo: any;
+  title: any;
+};
 
 export default function CityPage({ cityInfo, title, breadcrumb }: any) {
   const {
@@ -45,7 +51,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
 
   return (
     <main className='block'>
-      <DynamicHero background={background} title={title}>
+      <HeroDynamic background={background} title={title}>
         <div className='relative flex flex-1 flex-col md:w-[540px]'>
           <ButtonInput svg={<SvgMap />} placeholder={inputPlaceholder} />
         </div>
@@ -53,7 +59,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
         <Button className='md:max-w-[300px]' variant='btnLg3' size='lg'>
           {buttonText}
         </Button>
-      </DynamicHero>
+      </HeroDynamic>
 
       <Spacer className='h-6' />
       <Container flex>
@@ -61,7 +67,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
       </Container>
       <Container>
         <HeadlineFood title={title} subtitle={foodSubtitle} />
-        <Separator mobileHidden />
+        <Separator mobile />
       </Container>
       <Container>
         <Spacer className='h-6' />
@@ -72,7 +78,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
             <CategoryList data={categoriesData} />
           </div>
         </div>
-        <Separator mobileHidden />
+        <Separator mobile />
       </Container>
       <Container>{checkTime() ? <StoresClosed /> : <StoresOpen />}</Container>
       <Container>

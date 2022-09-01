@@ -6,7 +6,7 @@ import { useDelivery } from '@/contexts';
 import { Footer, Nav } from '@/ui/layout';
 
 // - Applies to all routes
-export const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export const RootLayout = ({ children }: { children: any }) => {
   const { setComplete } = useDelivery();
   const { pathname } = useRouter();
   function checkRoute() {

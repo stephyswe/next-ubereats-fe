@@ -6,8 +6,8 @@ import { tempCatDataForCatPage } from '@/constant/ui/category';
 import {
   BreadCrumb,
   Container,
-  DynamicHero,
   Headline,
+  HeroDynamic,
   Separator,
   Spacer,
 } from '@/ui';
@@ -32,7 +32,7 @@ export default function CategoryPage({ title, breadcrumb }: any) {
 
   return (
     <main className='block'>
-      <DynamicHero background={background} title={title}>
+      <HeroDynamic background={background} title={title}>
         <div className='relative flex flex-1 flex-col md:w-[540px]'>
           <ButtonInput svg={<SvgMap />} placeholder={inputPlaceholder} />
         </div>
@@ -40,7 +40,7 @@ export default function CategoryPage({ title, breadcrumb }: any) {
         <Button className='md:max-w-[300px]' variant='btnLg3' size='lg'>
           {buttonText}
         </Button>
-      </DynamicHero>
+      </HeroDynamic>
 
       <Spacer className='h-6' />
       <Container flex>
@@ -48,7 +48,7 @@ export default function CategoryPage({ title, breadcrumb }: any) {
       </Container>
       <Container>
         <HeadlineFood title={title} subtitle={foodSubtitle} noClamp />
-        <Separator mobileHidden />
+        <Separator mobile />
       </Container>
       <Container>
         <Spacer className='h-6' />

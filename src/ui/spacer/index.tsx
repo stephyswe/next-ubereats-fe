@@ -44,10 +44,10 @@ export const Separator = ({ top, mobile, mobileSpace }: SeparatorProps) => {
     <hr
       data-testid='ui-separator'
       className={clsx(
-        'h-[1px] bg-[#e2e2e2]',
+        'h-[1px] border-none bg-[#e2e2e2]',
         mobile ? 'hidden md:block' : '',
         mobileSpace ? 'sm:my-4 sm:bg-[transparent]' : '',
-        top ? 'm-[32px_0_0]' : 'my-8'
+        top ? 'm-[32px_0_0]' : 'm-[32px_0]'
       )}
     />
   );

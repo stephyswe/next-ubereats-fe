@@ -90,6 +90,7 @@ export const HeroDynamic = ({ background, title, children }: HeroProps) => {
         )}
       >
         <Typography
+          data-testid='hero-dynamic-title'
           as='h2'
           variant='5xl'
           className='font-medium sm:mb-[24px] md:mb-[44px] md:text-center'

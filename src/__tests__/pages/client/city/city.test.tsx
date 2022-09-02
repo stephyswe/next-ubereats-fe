@@ -1,4 +1,4 @@
-import { render, screen, takeSnapshot } from 'test-utils';
+import { render, screen } from 'test-utils';
 
 import CityPage from '@/pages/client/city/[label]';
 
@@ -14,9 +14,14 @@ const City = () => <CityPage {...mockDataCity} />;
 
 // ** Snapshot ** //
 
-takeSnapshot(<City />);
+/* takeSnapshot(<City />); */
 
 // ** Available elements ** //
+
+test('loading initial', async () => {
+  render(<City />);
+  expect(screen.getByText('Loading...')).toBeInTheDocument();
+});
 
 describe('has elements', () => {
   test('dynamic hero', async () => {
@@ -27,44 +32,29 @@ describe('has elements', () => {
     render(<City />);
     expect(await screen.findByTestId('ui-breadcrumb')).toBeInTheDocument();
   });
-  test('headline-food', async () => {
+  test('headline - 5 items', async () => {
     render(<City />);
-    expect(await screen.findByTestId('ui-headline-food')).toBeInTheDocument();
+    expect(await screen.findAllByTestId('ui-headline')).toHaveLength(5);
   });
-  test('ui-category-list - length 2', async () => {
+  test('ui-category-list - 2 items', async () => {
     render(<City />);
-    const catList = await screen.findAllByTestId('ui-category-list');
-    expect(catList).toHaveLength(2);
+    expect(await screen.findAllByTestId('ui-category-list')).toHaveLength(2);
   });
-  test('separator', async () => {
+  test('separator - 6 items', async () => {
     render(<City />);
-    const separatorList = await screen.findAllByTestId('ui-separator');
-    expect(separatorList).toHaveLength(6);
+    expect(await screen.findAllByTestId('ui-separator')).toHaveLength(6);
+  });
+  test('headline-list', async () => {
+    render(<City />);
+    expect(await screen.findByTestId('ui-headline-list')).toBeInTheDocument();
   });
 });
-
+/* 
 // ** Hero component ** //
 
-test('page has correct heading', async () => {
+test('hero title - h2', async () => {
   render(<City />);
-  expect(
-    await screen.findByRole('heading', {
-      level: 1,
-      name: 'Food Delivery in Göteborg',
-    })
-  ).toBeInTheDocument();
-});
-
-// ** Hero component ** //
-
-test('page has correct title', async () => {
-  render(<City />);
-  expect(
-    await screen.findByRole('heading', {
-      level: 2,
-      name: 'Food Delivery in Göteborg',
-    })
-  ).toBeInTheDocument();
+  expect(await screen.findByTestId('hero-dynamic-title')).toBeInTheDocument();
 });
 
 // ** Breadcrumb component ** //
@@ -95,4 +85,16 @@ test('page has correct breadcrumb link', async () => {
   expect(bcEle[2].getAttribute('href')).toBe(
     '/client/city/g%C3%B6teborg-v%C3%A4stra-g%C3%B6taland'
   );
-});
+}); */
+
+// ** Headline component ** //
+
+/* test('page has correct title', async () => {
+  render(<City />);
+  expect(
+    await screen.findByRole('heading', {
+      level: 2,
+      name: 'Food Delivery in Göteborg',
+    })
+  ).toBeInTheDocument();
+}); */

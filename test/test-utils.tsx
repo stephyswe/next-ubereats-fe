@@ -7,13 +7,11 @@ import client from '@/lib/apollo';
 import { DeliveryProvider } from '@/contexts/delivery';
 import { OrderProvider } from '@/contexts/order';
 
-export * from './utils';
-
 function render(ui: any, options?: any) {
-  return rtlRender(ui, { wrapper: Wrapper, ...options });
+  return rtlRender(ui, { wrapper: AppWrapper, ...options });
 }
 
-function Wrapper({ children }: any) {
+export function AppWrapper({ children }: any) {
   return (
     <ApolloProvider client={client}>
       <DeliveryProvider>
@@ -25,10 +23,11 @@ function Wrapper({ children }: any) {
 
 export const takeSnapshot = (Component: any) => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Wrapper>{Component}</Wrapper>).toJSON();
+    const tree = renderer.create(<AppWrapper>{Component}</AppWrapper>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 };
 
+export * from './utils';
 export * from '@testing-library/react';
 export { render };

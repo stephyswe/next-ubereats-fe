@@ -33,11 +33,12 @@ expect(logo).toBeInTheDocument();
 const spacer = screen.getAllByTestId('ui-spacer');
 expect(spacer).toHaveLength(2);
 
-# item 
+# item
+
 describe('props', () => {
-  test('data', () => {
-    const dataItem = HomeData.employmentData[0];
-    render(<EmploymentList data={[HomeData.employmentData[0]]} />);
+test('data', () => {
+const dataItem = HomeData.employmentData[0];
+render(<EmploymentList data={[HomeData.employmentData[0]]} />);
 
     expect(screen.getByText(dataItem.title)).toBeInTheDocument();
     expect(screen.getByText(dataItem.desc)).toBeInTheDocument();
@@ -47,5 +48,6 @@ describe('props', () => {
 
     const image = screen.getByRole('img', { name: dataItem.title });
     expect(image).toHaveAttribute('alt', dataItem.title);
-  });
+
+});
 });

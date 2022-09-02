@@ -22,7 +22,7 @@ export const StickyList = ({ menu }: { menu: string[] }) => (
 const StickyItem = ({ title }: StickyItemProps) => (
   <div className='flex items-center justify-between'>
     <Link href={`#${title}`}>
-      <Button variant='btnBase2' size='base'>
+      <Button className='mb-6'>
         <div className='text-base font-medium leading-5'>{title}</div>
       </Button>
     </Link>

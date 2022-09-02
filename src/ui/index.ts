@@ -1,10 +1,10 @@
 export { Accordion } from './accordion';
-export type { BreadCrumbItemProps } from './breadcrumb';
-export { BreadCrumb } from './breadcrumb';
+export type { BreadcrumbItemProps } from './breadcrumb';
+export { Breadcrumb } from './breadcrumb';
 export { Cart } from './cart';
 export { CategoryList, CategorySquareItem } from './category';
 export { Container } from './container';
-export { Headline, HeadlineNavigate } from './headline';
+export { Headline, HeadlineArrows, HeadlineList } from './headline';
 export { Hero, HeroDynamic } from './hero';
 export * from './loading';
 export { Logo } from './logo';

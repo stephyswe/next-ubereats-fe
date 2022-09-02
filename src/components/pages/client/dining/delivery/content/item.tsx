@@ -11,7 +11,7 @@ import {
 } from '@/components/pages/client/dining/delivery/content/types';
 
 import { restaurantData } from '@/constant/ui/restaurant';
-import { Headline, HeadlineNavigate, Spacer } from '@/ui';
+import { Headline, HeadlineArrows, Spacer } from '@/ui';
 import { CategoryRestaurantItem } from '@/ui/store/item';
 
 /**
@@ -116,7 +116,7 @@ export const DeliveryContentSection = ({
           <section>
             <div className='relative mb-6 flex items-center justify-between'>
               <div></div>
-              <HeadlineNavigate />
+              <HeadlineArrows />
             </div>
             <div className='scrollbar-none flex cursor-pointer overflow-x-scroll scroll-snap-x'>
               {restaurantData

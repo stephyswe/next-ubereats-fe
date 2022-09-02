@@ -60,18 +60,7 @@ export const Cart = ({ size }: { size?: ButtonSizeProps }) => {
       <div className='flex flex-grow-0 items-center justify-end'>
         <div className='relative flex max-w-[300px] opacity-100 transition-width-opacity-400'>
           <div className='flex cursor-auto flex-row items-stretch overflow-hidden whitespace-nowrap rounded-[500px] bg-black text-base font-medium leading-5'>
-            <Button onClick={onClick} variant='btnCart' size={size}>
-              <SvgCart size={size} />
-              <Spacer className='w-2' />
-              <div
-                className={clsx(
-                  'hidden md:block',
-                  size === 'small' ? 'text-sm' : 'text-base'
-                )}
-              >
-                Cart • {orderItems.length}
-              </div>
-            </Button>
+            <ButtonCart onClick={onClick} size={size} orderItems={orderItems} />
           </div>
         </div>
       </div>
@@ -84,3 +73,37 @@ export const Cart = ({ size }: { size?: ButtonSizeProps }) => {
     </>
   );
 };
+
+function ButtonCart({
+  onClick,
+  size,
+  orderItems,
+}: {
+  onClick: () => void;
+  size?: ButtonSizeProps;
+  orderItems: any[];
+}) {
+  return (
+    <Button
+      onClick={onClick}
+      variant='btnCart'
+      size={size}
+      className={clsx(
+        size === 'small' ? 'm-0 p-[8px_12px] md:h-[36px]' : '',
+        size === 'md' ? 'px-4 py-2' : '',
+        size === 'lg' ? 'px-6 py-3 text-lg font-medium leading-8' : ''
+      )}
+    >
+      <SvgCart size={size} />
+      <Spacer className='w-2' />
+      <div
+        className={clsx(
+          'hidden md:block',
+          size === 'small' ? 'text-sm' : 'text-base'
+        )}
+      >
+        Cart • {orderItems.length}
+      </div>
+    </Button>
+  );
+}

@@ -3,9 +3,16 @@ import { Button, ButtonInput } from '@/components';
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
 import { cityData } from '@/constant/pages/client/city.data';
 import { categoriesData } from '@/constant/ui/category';
-import { BreadCrumb, Container, HeroDynamic, Separator, Spacer } from '@/ui';
-import { CategoryList } from '@/ui/category';
-import { Headline, HeadlineCity, HeadlineFood } from '@/ui/headline';
+import {
+  Breadcrumb,
+  CategoryList,
+  Container,
+  Headline,
+  HeadlineList,
+  HeroDynamic,
+  Separator,
+  Spacer,
+} from '@/ui';
 import { SvgMap } from '@/ui/icons';
 import { StoresClosed, StoresOpen } from '@/ui/store/list';
 
@@ -63,16 +70,19 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
 
       <Spacer className='h-6' />
       <Container flex>
-        <BreadCrumb data={breadcrumb} />
+        <Breadcrumb data={breadcrumb} />
       </Container>
       <Container>
-        <HeadlineFood title={title} subtitle={foodSubtitle} />
+        <Headline title={title} subtitle={foodSubtitle} noArrow />
         <Separator mobile />
       </Container>
       <Container>
         <Spacer className='h-6' />
         <div className='col-[1/-1] min-w-0'>
-          <Headline title={categoryTitle} link />
+          <Headline
+            title={categoryTitle}
+            link={{ title: 'See all', href: '/' }}
+          />
           <div className='scrollbar-none flex overflow-y-hidden overflow-x-scroll scroll-snap-x'>
             <CategoryList data={categoriesData} />
             <CategoryList data={categoriesData} />
@@ -82,7 +92,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
       </Container>
       <Container>{checkTime() ? <StoresClosed /> : <StoresOpen />}</Container>
       <Container>
-        <HeadlineCity data={cityInfo} />
+        <HeadlineList data={cityInfo} />
       </Container>
     </main>
   );

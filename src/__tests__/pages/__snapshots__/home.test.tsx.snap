@@ -476,27 +476,34 @@ exports[`renders correctly 1`] = `
       data-testid="ui-country-with-map"
     >
       <div
-        className="flex items-end justify-between"
+        className="flex w-full justify-between items-end"
+        data-testid="ui-headline"
       >
-        <h2
-          className="font-uberMove text-2xl md:text-4xl md:leading-[44px] font-bold"
-          data-testid="ui-country-with-map-typography"
+        <div>
+          <h2
+            className="font-uberMove text-2xl md:text-4xl md:leading-[44px] font-bold"
+            data-testid="component-typography"
+          >
+            Cities near me
+          </h2>
+        </div>
+        <div
+          className="flex items-center"
         >
-          Cities near me
-        </h2>
-        <a
-          className="text-base leading-5 font-medium invisible underline md:visible"
-          data-testid="ui-country-with-map-link"
-          href="/se/location"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onTouchStart={[Function]}
-        >
-          View all +500 cities
-        </a>
+          <a
+            className="cursor-pointer text-base font-medium leading-5 text-black underline"
+            data-testid="component-link"
+            href="/se/location"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            View all +500 cities
+          </a>
+        </div>
       </div>
       <div
-        className="pt-6"
+        className="m-[24px_0]"
       >
         <div
           className="h-[360px] w-full"

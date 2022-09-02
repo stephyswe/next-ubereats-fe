@@ -1,27 +1,25 @@
 import * as React from 'react';
-import { ImSpinner2 } from 'react-icons/im';
 
 import clsxm from '@/lib/clsxm';
 
-export enum ButtonVariant {
-  'btnCart',
-  'btnDish',
-  'btnLg1',
-  'btnLg2',
-  'btnLg3',
-  'btnBase1',
-  'btnBase2',
-  'btnSmall1',
-  'btnSmall2',
-  'btnNav',
-}
+export type ButtonVariantProps =
+  | 'btnBase'
+  | 'btnCart'
+  | 'btnDish'
+  | 'btnLg1'
+  | 'btnLg2'
+  | 'btnLg3'
+  | 'btnNav'
+  | 'btnSmall1'
+  | 'btnSmall2';
 
 export type ButtonSizeProps = 'small' | 'md' | 'lg' | 'base';
 
 type ButtonProps = {
+  label?: any;
   isLoading?: boolean;
   isDarkBg?: boolean;
-  variant?: keyof typeof ButtonVariant;
+  variant?: ButtonVariantProps;
   size?: ButtonSizeProps;
   round?: boolean;
 } & React.ComponentPropsWithRef<'button'>;
@@ -29,6 +27,7 @@ type ButtonProps = {
 export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
+      label,
       round,
       children,
       className,
@@ -52,23 +51,10 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
           [round ? 'rounded-500' : ''],
           //#endregion  //*=========== Round ===========
           //#region  //*=========== Sizes ===========
-          // navCart -- TODO FIX THIS
           [
-            variant === 'btnCart' &&
-              size === 'small' && ['m-0 p-[8px_12px] md:h-[36px]'],
-            variant === 'btnCart' && size === 'md' && ['px-4 py-2'],
-            variant === 'btnCart' &&
-              size === 'lg' && [
-                'px-6 py-3',
-                'text-lg',
-                'font-medium',
-                'leading-8',
-              ],
-            variant !== 'btnCart' &&
-              size === 'lg' && ['text-lg font-medium leading-6'],
+            size === 'lg' && ['text-lg font-medium leading-6'],
             size === 'base' && ['text-base leading-5'],
-            variant !== 'btnCart' &&
-              size === 'small' && ['text-sm font-medium leading-4'],
+            size === 'small' && ['text-sm font-medium leading-4'],
           ],
           //#endregion  //*======== Sizes ===========
           //#region  //*=========== Variants ===========
@@ -89,14 +75,10 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'box-border flex h-14 min-h-[56px] cursor-pointer items-center justify-center rounded-[8px] px-4 py-3 md:w-max',
             ],
             // ** Base - 16 px **
-            variant === 'btnBase1' && [
+            variant === 'btnBase' && [
               'text-white',
               'bg-black hover:bg-gray-100 disabled:bg-gray-300',
               'm-0 flex items-center rounded-[38px] border-none px-4 py-[14px] outline-none transition-btn-200',
-            ],
-            variant === 'btnBase2' && [
-              'font-medium',
-              'whitespace-no-wrap mb-6 overflow-hidden text-ellipsis text-center',
             ],
             // ** Small - 14 px **
             variant === 'btnSmall1' && [
@@ -117,7 +99,7 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ],
             variant === 'btnCart' && [
               'text-white',
-              'bg-black hover:bg-gray-100 active:bg-gray-400',
+              'hover:bg-gray-100 active:bg-gray-400',
               'flex flex-row items-center',
             ],
           ],
@@ -129,21 +111,7 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...rest}
       >
-        {isLoading && (
-          <div
-            className={clsxm(
-              'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-              {
-                'text-white': ['primary', 'dark'].includes(variant),
-                'text-black': ['light'].includes(variant),
-                'text-primary-500': ['outline', 'ghost'].includes(variant),
-              }
-            )}
-          >
-            <ImSpinner2 className='animate-spin' />
-          </div>
-        )}
-        {children}
+        {label ? label : children}
       </button>
     );
   }

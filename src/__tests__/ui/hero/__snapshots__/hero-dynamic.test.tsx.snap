@@ -27,7 +27,7 @@ exports[`renders correctly 1`] = `
   >
     <h2
       className="font-uberMove text-4xl md:text-[52px] md:leading-[64px] mb-10 font-medium sm:mb-[24px] md:mb-[44px] md:text-center"
-      data-testid="component-typography"
+      data-testid="hero-dynamic-title"
     >
       testTitle
     </h2>

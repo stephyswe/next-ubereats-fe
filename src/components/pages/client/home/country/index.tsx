@@ -2,13 +2,14 @@ import { Link, Typography } from '@/components';
 
 import { isTest } from '@/constant/env';
 import { useDelivery } from '@/contexts';
-import { LoadingHome } from '@/ui';
+import { Headline, LoadingHome } from '@/ui';
+import { HeadlineProps } from '@/ui/headline';
 import { HomeMap } from '@/ui/maps/home';
 
-type CountryWithMapProps = {
+export type CountryWithMapProps = {
   data: {
     title: string;
-    link: { href: string; title: string };
+    link: HeadlineProps['link'];
     mapCenter: { lat: number; lng: number };
     cities: CountryProps[];
   };
@@ -19,36 +20,20 @@ type CountryProps = {
   link: string;
 };
 
-export function CountryWithMap({ data }: CountryWithMapProps) {
+export const CountryWithMap = ({ data }: CountryWithMapProps) => {
   const { isComplete } = useDelivery();
   if (!isComplete && !isTest) return <LoadingHome h='180' num={3} />;
   const { title, link, mapCenter, cities } = data;
   return (
     <div data-testid='ui-country-with-map'>
-      <div className='flex items-end justify-between'>
-        <Typography
-          data-testid='ui-country-with-map-typography'
-          as='h2'
-          variant='4xl'
-        >
-          {title}
-        </Typography>
-        <Link
-          data-testid='ui-country-with-map-link'
-          variant='linkBase2'
-          href={link.href}
-        >
-          {link.title}
-        </Link>
-      </div>
-
-      <div className='pt-6'>
+      <Headline noArrow title={title} link={link} />
+      <div className='m-[24px_0]'>
         <HomeMap data={cities} mapCenter={mapCenter} />
       </div>
       <CountryWithMapList data={cities} />
     </div>
   );
-}
+};
 
 export const CountryWithMapList = ({
   data,

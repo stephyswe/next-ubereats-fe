@@ -6,20 +6,20 @@ import { SpacerItem } from '@/ui/spacer';
 
 import { SvgBreadCrumb } from '../icons';
 
-export type BreadCrumbItemProps = {
+export type BreadcrumbItemProps = {
   title: string;
   link: string;
 };
 
-export const BreadCrumb = ({ data }: { data: BreadCrumbItemProps[] }) => (
+export const Breadcrumb = ({ data }: { data: BreadcrumbItemProps[] }) => (
   <ol
     data-testid='ui-breadcrumb'
     aria-label='ui-bc-list'
     className='m-[0px_0px_16px] flex items-center overflow-auto whitespace-nowrap p-0 text-[#afafaf]'
   >
-    {data.map((item: BreadCrumbItemProps, index: number) => (
+    {data.map(({ title, link }: BreadcrumbItemProps, index: number) => (
       <Fragment key={index}>
-        <BreadCrumbItem key={item.title} title={item.title} link={item.link} />
+        <BreadcrumbItem key={title} title={title} link={link} />
         <SpacerItem length={data.length} index={index}>
           <div className='w-2' />
           <SvgBreadCrumb />
@@ -30,7 +30,7 @@ export const BreadCrumb = ({ data }: { data: BreadCrumbItemProps[] }) => (
   </ol>
 );
 
-const BreadCrumbItem = ({ title, link }: BreadCrumbItemProps) => (
+export const BreadcrumbItem = ({ title, link }: BreadcrumbItemProps) => (
   <li className='inline text-sm font-medium leading-4 last-of-type:text-[#000]'>
     <Link aria-label='ui-bc-link' href={link}>
       {title}

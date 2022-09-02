@@ -2,30 +2,28 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-enum TypographyAs {
-  'h1',
-  'h2',
-  'h3',
-  'h4',
-  'span',
-  'p',
-  'div',
-}
+export type TypographyAsProps =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'span'
+  | 'p'
+  | 'div';
 
-enum TypographyVariant {
-  '4xl',
-  '3xl',
-  '5xl',
-  'xl',
-  'large',
-  'base',
-  'small',
-  'xs',
-}
+export type TypographyVariantProps =
+  | '5xl'
+  | '4xl'
+  | '3xl'
+  | 'xl'
+  | 'large'
+  | 'base'
+  | 'small'
+  | 'xs';
 
 type TypographyProps<C extends React.ElementType> = {
-  as?: keyof typeof TypographyAs;
-  variant?: keyof typeof TypographyVariant;
+  as?: TypographyAsProps;
+  variant?: TypographyVariantProps;
   weight?: 'bold' | 'medium';
   font?: 'secondary';
   leading?: '4' | '5' | '6';
@@ -34,6 +32,7 @@ type TypographyProps<C extends React.ElementType> = {
 export default function Typography<C extends React.ElementType>({
   as = 'h1',
   children,
+  label,
   className,
   variant = '',
   weight,
@@ -107,7 +106,7 @@ export default function Typography<C extends React.ElementType>({
       )}
       {...rest}
     >
-      {children}
+      {children ? children : label}
     </Component>
   );
 }

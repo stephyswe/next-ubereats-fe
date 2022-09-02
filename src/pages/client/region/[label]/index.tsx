@@ -2,7 +2,7 @@ import { Button, ButtonInput, Typography } from '@/components';
 import { CountryListNew } from '@/components/pages/client/home/country';
 
 import { regionData } from '@/constant/pages/client/region.data';
-import { BreadCrumb, Container, HeroDynamic, Separator, Spacer } from '@/ui';
+import { Breadcrumb, Container, HeroDynamic, Separator, Spacer } from '@/ui';
 import { SvgMap } from '@/ui/icons';
 
 export { getServerSideProps } from '@/constant/server/region.server';
@@ -39,7 +39,7 @@ export default function RegionPage({
 
       <Spacer className='h-6' />
       <Container>
-        <BreadCrumb data={breadcrumb} />
+        <Breadcrumb data={breadcrumb} />
       </Container>
       <Container>
         <Typography as='h2' variant='4xl'>

@@ -4,14 +4,13 @@ import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
 import { categoryData } from '@/constant/pages/client/category.data';
 import { tempCatDataForCatPage } from '@/constant/ui/category';
 import {
-  BreadCrumb,
+  Breadcrumb,
   Container,
   Headline,
   HeroDynamic,
   Separator,
   Spacer,
 } from '@/ui';
-import { HeadlineFood } from '@/ui/headline';
 import { SvgMap } from '@/ui/icons';
 import { CategoryRestaurantList } from '@/ui/store/list';
 
@@ -44,10 +43,10 @@ export default function CategoryPage({ title, breadcrumb }: any) {
 
       <Spacer className='h-6' />
       <Container flex>
-        <BreadCrumb data={breadcrumb} />
+        <Breadcrumb data={breadcrumb} />
       </Container>
       <Container>
-        <HeadlineFood title={title} subtitle={foodSubtitle} noClamp />
+        <Headline title={title} subtitle={foodSubtitle} />
         <Separator mobile />
       </Container>
       <Container>
@@ -56,7 +55,11 @@ export default function CategoryPage({ title, breadcrumb }: any) {
         <Separator />
       </Container>
       <Container>
-        <Headline title={categoryTitle} link noArrow />
+        <Headline
+          title={categoryTitle}
+          link={{ title: '/', href: '/' }}
+          noArrow
+        />
         <div className='mt-8 grid gap-[32px_24px]  md:grid-flow-col md:grid-rows-6'>
           {tempCatDataForCatPage.map((item: any, index: number) => (
             <CategoryPopularItem key={index} {...item} />

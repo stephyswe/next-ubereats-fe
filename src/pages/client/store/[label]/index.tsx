@@ -10,7 +10,7 @@ import {
 } from '@/__generated__/graphql';
 import { storeData } from '@/constant/pages/client/store.data';
 import { useDelivery, useOrders } from '@/contexts/';
-import { BreadCrumb, BreadCrumbItemProps, Container } from '@/ui';
+import { Breadcrumb, BreadcrumbItemProps, Container } from '@/ui';
 import { BackgroundCover } from '@/ui/container/cover';
 import { DishList } from '@/ui/dish/list';
 import { StoreDetail } from '@/ui/store/detail';
@@ -18,7 +18,7 @@ import { StoreDetail } from '@/ui/store/detail';
 export { getServerSideProps } from '@/constant/server/store.server';
 
 type StorePageProps = {
-  breadcrumb: BreadCrumbItemProps[];
+  breadcrumb: BreadcrumbItemProps[];
 };
 
 export default function StorePage({ breadcrumb }: StorePageProps) {
@@ -74,7 +74,7 @@ export default function StorePage({ breadcrumb }: StorePageProps) {
       <main className='block'>
         <div>
           <Container>
-            <BreadCrumb data={breadcrumb} />
+            <Breadcrumb data={breadcrumb} />
           </Container>
           <BackgroundCover image={coverImage} />
           <Container>

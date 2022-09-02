@@ -3,21 +3,21 @@ import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-export enum LinkVariant {
-  'linkLarge',
-  'linkBase1',
-  'linkBase2',
-  'linkSmall1',
-  'linkSmall2',
-  'linkSmall3',
-}
+export type LinkVariant =
+  | 'linkLarge'
+  | 'linkBase1'
+  | 'linkBase2'
+  | 'linkSmall1'
+  | 'linkSmall2'
+  | 'linkSmall3';
 
 export type LinkPropSize = 'small' | 'normal' | 'lg';
 
 export type UnstyledLinkProps = {
-  variant?: keyof typeof LinkVariant;
+  variant?: LinkVariant;
+  label?: any;
   href: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   openNewTab?: boolean;
   className?: string;
   size?: LinkPropSize;
@@ -31,6 +31,7 @@ export const UnstyledLink = React.forwardRef<
 >(
   (
     {
+      label,
       size = 'normal',
       weight,
       children,
@@ -115,7 +116,7 @@ export const UnstyledLink = React.forwardRef<
             {...rest}
             className={customClassName}
           >
-            {children}
+            {children ? children : label}
           </a>
         </Link>
       );
@@ -131,7 +132,7 @@ export const UnstyledLink = React.forwardRef<
         {...rest}
         className={customClassName}
       >
-        {children}
+        {children ? children : label}
       </a>
     );
   }

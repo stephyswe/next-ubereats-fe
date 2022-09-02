@@ -1,7 +1,10 @@
-import { LinkVariant, UnstyledLink } from '@/components/links/UnstyledLink';
+import {
+  LinkPropsVariant,
+  UnstyledLink,
+} from '@/components/links/UnstyledLink';
 
 type LinkProps<C extends React.ElementType> = {
-  variant?: keyof typeof LinkVariant;
+  variant?: LinkPropsVariant;
   svg: JSX.Element;
 } & React.ComponentProps<C>;
 

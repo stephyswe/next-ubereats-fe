@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-export type ButtonVariantProps =
+export type ButtonPropsVariant =
   | 'btnBase'
   | 'btnCart'
   | 'btnDish'
@@ -19,7 +19,7 @@ type ButtonProps = {
   label?: any;
   isLoading?: boolean;
   isDarkBg?: boolean;
-  variant?: ButtonVariantProps;
+  variant?: ButtonPropsVariant;
   size?: ButtonSizeProps;
   round?: boolean;
 } & React.ComponentPropsWithRef<'button'>;

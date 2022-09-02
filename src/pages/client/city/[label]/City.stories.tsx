@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { breadCrumbGenerateCity, titleCaseFull } from '@/lib/helper';
 
-import CityPage from '@/pages/client/city/[label]';
+import CityPage from '@/pages/client/city/[label]/index.page';
 
 export default {
   title: 'Route/Client/City',

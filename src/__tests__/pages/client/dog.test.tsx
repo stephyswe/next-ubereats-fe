@@ -1,6 +1,6 @@
 import { render, screen } from 'test-utils';
 
-import DogPage from '@/pages/client/dog';
+import DogPage from '@/pages/client/dog.page';
 
 it('should render dog', async () => {
   render(<DogPage name='Buck' />);

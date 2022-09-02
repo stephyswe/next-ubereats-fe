@@ -11,6 +11,7 @@ module.exports = {
   eslint: {
     dirs: ['src'],
   },
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 
   reactStrictMode: false,
   env,

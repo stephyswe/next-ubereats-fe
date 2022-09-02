@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-export type LinkVariant =
+export type LinkPropsVariant =
   | 'linkLarge'
   | 'linkBase1'
   | 'linkBase2'
@@ -14,7 +14,7 @@ export type LinkVariant =
 export type LinkPropSize = 'small' | 'normal' | 'lg';
 
 export type UnstyledLinkProps = {
-  variant?: LinkVariant;
+  variant?: LinkPropsVariant;
   label?: any;
   href: string;
   children?: React.ReactNode;

@@ -1,7 +1,7 @@
-import { ButtonVariant, UnStyledButton } from './UnStyledButton';
+import { ButtonPropsVariant, UnStyledButton } from './UnStyledButton';
 
 type ButtonProps<C extends React.ElementType> = {
-  variant?: keyof typeof ButtonVariant;
+  variant?: ButtonPropsVariant;
   svg: JSX.Element;
 } & React.ComponentProps<C>;
 

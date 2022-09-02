@@ -1,6 +1,6 @@
 import { render, screen } from 'test-utils';
 
-import CityPage from '@/pages/client/city/[label]';
+import CityPage from '@/pages/client/city/[label]/index.page';
 
 import { mockDataCity } from './data';
 

@@ -1,6 +1,6 @@
 import { render, screen, takeSnapshot } from 'test-utils';
 
-import Home from '@/pages/index';
+import Home from '@/pages/index.page';
 
 // ** Snapshot ** //
 

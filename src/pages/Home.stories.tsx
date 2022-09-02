@@ -2,7 +2,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { useDelivery } from '@/contexts';
-import HomePage from '@/pages';
+import HomePage from '@/pages/index.page';
 
 export default {
   title: 'Route/Home',

@@ -1,7 +1,7 @@
 // src/mocks/handlers.js
 import { graphql } from 'msw';
 
-import { findManyCategoriesMockData } from '@/__tests__/mocks/gql/queries/findmany-restaurants';
+import { findManyCategoriesMockData } from '@/gql/queries/mocks/findmany-restaurants.mock';
 
 const dogData = { dog: { id: 1, name: 'Buck', breed: 'poodle' } };
 

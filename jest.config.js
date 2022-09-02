@@ -15,8 +15,7 @@ const customJestConfig = {
   moduleDirectories: ['node_modules', '<rootDir>/', 'test'],
 
   testEnvironment: 'jest-environment-jsdom',
-  testPathIgnorePatterns: ['src/__tests__/mocks/', 'src/__tests__/*/*.data.ts'],
-  testMatch: ['**/__tests__/**/!(data.)*.[jt]s?(x)'],
+  testPathIgnorePatterns: ['src/__tests__/mocks/'],
   coveragePathIgnorePatterns: ['src/__tests__/mocks/'],
 
   /**

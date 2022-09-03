@@ -5,6 +5,8 @@
 codegen.yml
 graphql.schema.json
 .vscode/
+public/mockServiceWorker.js
+
 
 # dependencies
 /node_modules

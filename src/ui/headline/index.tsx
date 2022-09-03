@@ -71,7 +71,7 @@ export const Headline = ({
         ) : null}
         {noArrow ? null : (
           <>
-            <Spacer className='w-10' />
+            <Spacer className='mb:block hidden w-10' />
             <div className='hidden md:block'>
               <HeadlineArrows />
             </div>

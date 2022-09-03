@@ -5,6 +5,7 @@ import { cityData } from '@/constant/pages/client/city.data';
 import { categoriesData } from '@/constant/ui/category';
 import {
   Breadcrumb,
+  BreadcrumbItemProps,
   CategoryList,
   Container,
   Headline,
@@ -19,9 +20,9 @@ import { StoresClosed, StoresOpen } from '@/ui/store/list';
 export { getServerSideProps } from '@/constant/server/city.server';
 
 export type CityPageProps = {
-  breadcrumb: any;
-  cityInfo: any;
-  title: any;
+  breadcrumb: BreadcrumbItemProps[];
+  cityInfo: { title: string; subtitle: string }[];
+  title: string;
 };
 
 export default function CityPage({ cityInfo, title, breadcrumb }: any) {
@@ -88,7 +89,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
             <CategoryList data={categoriesData} />
           </div>
         </div>
-        <Separator mobile />
+        <Separator />
       </Container>
       <Container>{checkTime() ? <StoresClosed /> : <StoresOpen />}</Container>
       <Container>

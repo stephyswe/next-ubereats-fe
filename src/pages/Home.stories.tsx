@@ -29,8 +29,6 @@ const Template: ComponentStory<typeof HomePage> = () => {
   return <HomePage />;
 };
 
-export const Default = Template.bind({});
-
 const Template2: ComponentStory<typeof HomePage> = () => {
   const { setComplete } = useDelivery();
   setTimeout(() => {
@@ -40,6 +38,7 @@ const Template2: ComponentStory<typeof HomePage> = () => {
   return <HomePage />;
 };
 
+export const Default = Template.bind({});
 export const Mobile = Template2.bind({});
 
 Mobile.parameters = {

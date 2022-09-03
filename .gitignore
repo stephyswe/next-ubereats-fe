@@ -2,6 +2,9 @@
 
 #app
 /public/mockServiceWorker.js
+build-storybook.log
+doc/mobile
+.vscode/settings.json
 
 # dependencies
 /node_modules

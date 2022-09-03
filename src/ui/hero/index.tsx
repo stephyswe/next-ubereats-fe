@@ -85,7 +85,7 @@ export const HeroDynamic = ({ background, title, children }: HeroProps) => {
       </div>
       <div
         className={clsx(
-          'absolute z-20 p-4 sm:top-0 sm:left-0 sm:right-0 sm:bottom-0 sm:m-auto sm:mt-72',
+          'absolute z-20 p-4 sm:top-0 sm:left-0 sm:right-0 sm:bottom-0 sm:m-auto sm:mt-[50%]',
           'md:top-1/2 md:left-1/2 md:translate-y-[-50%] md:translate-x-[-50%]'
         )}
       >

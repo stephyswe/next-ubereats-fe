@@ -39,14 +39,14 @@ export const StoresOpen = () => (
     <Spacer className='h-6' />
     <div
       data-test='feed-desktop'
-      className='grid grid-cols-1 gap-[40px_24px] md:grid-cols-2'
+      className='grid grid-cols-1 gap-[30px_24px] md:grid-cols-2 md:gap-[40px_24px]'
     >
       {restaurantTitleData.map((item: any, index: any) => (
         <div key={index} className='col-span-full min-w-0'>
           <section>
             <StoreScroll data={item} />
           </section>
-          <Separator top mobileSpace />
+          <Separator top mobile />
         </div>
       ))}
       {restaurantData.map((item: any, index: any) => (

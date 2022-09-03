@@ -44,6 +44,8 @@ export const Default = Template.bind({});
 export const Mobile = Template2.bind({});
 
 Mobile.parameters = {
+  // Set the viewports in Chromatic at a story level.
+  chromatic: { viewports: [375, 812] },
   viewport: {
     defaultViewport: 'iphonex',
   },

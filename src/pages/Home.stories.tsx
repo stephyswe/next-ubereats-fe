@@ -43,6 +43,7 @@ export const Mobile = Template2.bind({});
 
 Mobile.parameters = {
   viewport: {
+    chromatic: { viewports: [375, 812] },
     defaultViewport: 'iphonex',
   },
 };

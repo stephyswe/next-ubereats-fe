@@ -1,58 +1,75 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { Headline, HeadlineArrows, HeadlineList } from '.';
+import {
+  mobileParameter,
+  Story,
+  StoryContainer,
+  StoryList,
+} from '@/constant/storybook';
+
+import { Headline, HeadlineArrows } from '.';
 
 export default {
   title: 'UI/Headline',
   component: Headline,
+  parameters: {
+    layout: 'padded',
+  },
 } as ComponentMeta<typeof Headline>;
 
-const Template: ComponentStory<typeof Headline> = () => {
-  return <Headline title='Headline' subtitle='Subtitle' />;
-};
+const TemplateAll: ComponentStory<typeof Headline> = () => (
+  <StoryContainer>
+    <StoryList>
+      <Story title='with title'>
+        <Headline title='Headline' />
+      </Story>
 
-const Template2: ComponentStory<typeof HeadlineList> = () => {
-  const city = 'Göteborg';
-  return (
-    <HeadlineList
-      data={[
-        {
-          title: `${city} food delivery and takeout`,
-          subtitle: `With 80 restaurants in ${city} on Uber Eats, including 12Till12Gott, Stigbergs Pizzeria, and DINÉ Burgers - Femman , you’ll have your pick of places from which to order food online. Get food, from Fast Food to Breakfast And Brunch, from some of the best restaurants in ${city} delivered to your door. If you’d prefer to get your takeout yourself, simply browse ${city} restaurants offering pickup.`,
-        },
-        {
-          title: `${city} restaurants that deliver`,
-          subtitle: `Uber Eats helps you find food delivery and pickup options from a wide selection of places to eat in ${city}. Enter an address to browse ${city} restaurants and cafes offering food delivery. See ${city} restaurants on Uber Eats that you’ve never tried? View their menus and star ratings to help decide if you’d like to try their food.`,
-        },
-        {
-          title: `Best food in ${city}`,
-          subtitle: `On a quest to taste the best food in ${city}? Search for famous restaurants in ${city} or for your personal favorite places to eat in ${city} to see if they offer food delivery with Uber Eats. Sometimes the best food is just what you’re craving so if you know what you’d like to eat, browse ${city} restaurants that deliver by cuisine or dish.`,
-        },
-      ]}
-    />
-  );
-};
+      <Story title='with title & subtitle'>
+        <Headline title='Headline' subtitle='Subtitle' />
+      </Story>
 
-const Template3: ComponentStory<typeof HeadlineArrows> = () => (
+      <Story title='with title, subtitle & link'>
+        <Headline
+          title='Headline'
+          subtitle='Subtitle'
+          link={{ href: '/', title: 'title' }}
+        />
+      </Story>
+
+      <Story title='with title, subtitle, link & noArrow'>
+        <Headline
+          title='Headline'
+          link={{ href: '/', title: 'title' }}
+          noArrow
+        />
+      </Story>
+
+      <h2>unusual variants</h2>
+      <Story title='with title and noArrow'>
+        <Headline title='Headline' noArrow />
+      </Story>
+    </StoryList>
+  </StoryContainer>
+);
+
+const TemplateDefault: ComponentStory<typeof Headline> = (args) => (
+  <Headline {...args} />
+);
+
+const TemplateArrows: ComponentStory<typeof HeadlineArrows> = () => (
   <HeadlineArrows />
 );
 
-export const Default = Template.bind({});
-export const List = Template2.bind({});
-export const Arrows = Template3.bind({});
-
+export const All = TemplateAll.bind({});
+All.parameters = {
+  layout: 'fullscreen',
+};
+export const Mobile = TemplateAll.bind({});
+Mobile.parameters = mobileParameter();
+export const Default = TemplateDefault.bind({});
 Default.args = {
-  title: '',
+  title: 'Headline',
+  subtitle: 'Subtitle',
 };
-
-List.args = {
-  data: [
-    {
-      title: '',
-      subtitle: '',
-    },
-  ],
-};
-
-Arrows.args = {};
+export const Arrows = TemplateArrows.bind({});

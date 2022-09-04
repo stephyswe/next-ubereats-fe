@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 
 import { Link, NextImage, Typography } from '@/components';
 
-import { SpacerItem } from '@/ui';
+import { Spacer, SpacerItem } from '@/ui';
 
 const ClosedFigCaption = ({ closed }: { closed: boolean }) => (
   <figcaption className='absolute right-0 left-0 top-0 bottom-0'>
@@ -68,14 +68,15 @@ export const CityRestaurantItem = ({
       <div className='flex flex-col items-start sm:pt-2 md:ml-4 md:w-[calc(100%-216px)]'>
         <ItemTitle name={name} ranking={ranking} closed={closed} />
         <ItemTags data={category} />
-        <div className='h-2'></div>
-        <span className='text-ellipsis text-sm text-[#6b6b6b] md:overflow-hidden'>
+        <Spacer className='h-2' />
+        <span className='w-full overflow-hidden text-ellipsis text-sm text-[#6b6b6b] sm:whitespace-nowrap'>
           {address}
         </span>
       </div>
     </div>
   </Link>
 );
+// overflow-hidden text-ellipsis whitespace-nowrap
 
 export const ItemImage = ({ image }: { image: string }) => (
   <picture>
@@ -127,7 +128,7 @@ const ItemPromote = ({ banner }: Pick<CityRestaurantItemProps, 'banner'>) => (
 
 // eslint-disable-next-line unused-imports/no-unused-vars
 const ItemTags = ({ data }: { data: string[] }) => (
-  <div className='flex w-full flex-nowrap items-center justify-start'>
+  <div className='flex w-full flex-nowrap items-center justify-start overflow-hidden whitespace-nowrap'>
     {data.map((tag: string, index: number) => (
       <Fragment key={index}>
         <ItemTagText title={tag} />

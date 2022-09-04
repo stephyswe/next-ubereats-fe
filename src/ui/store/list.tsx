@@ -82,7 +82,7 @@ export const StoreScroll = ({ data }: { data?: any }) => (
   </>
 );
 
-const CityRestaurantOne = ({ data }: { data?: any }) => (
+export const CityRestaurantOne = ({ data }: { data?: any }) => (
   <div className='flex w-full flex-shrink-0 flex-grow-0 gap-[32px_0] md:basis-[100%] md:flex-wrap md:scroll-align-start'>
     {data.map((item: any, index: number) => (
       <li

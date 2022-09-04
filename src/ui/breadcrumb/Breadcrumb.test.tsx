@@ -1,17 +1,19 @@
 import { render, screen, takeSnapshot } from 'test-utils';
 
 import { Breadcrumb } from '@/ui';
+import { defaultData } from '@/ui/breadcrumb/data';
 
 // ** Snapshot ** //
 
 takeSnapshot(<Breadcrumb data={[]} />);
+takeSnapshot(<Breadcrumb data={defaultData} />);
 
 // ** Default ** //
 
 test('container has html elements', () => {
   render(<Breadcrumb data={[]} />);
   const list = screen.getByRole('list', {
-    name: 'ui-bc-list',
+    name: 'ui-label-breadcrumb',
   });
   expect(list).toBeInTheDocument();
 });

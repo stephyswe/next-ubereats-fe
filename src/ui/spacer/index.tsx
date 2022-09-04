@@ -16,7 +16,7 @@ export const Spacer = ({ length, index, className, ...rest }: SpacerProps) => {
 };
 
 export const SpacerItem = ({ length, index, children }: SpacerItemProps) => {
-  if (length && index) if (length === index + 1) return null;
+  if ((length && index) || length === 1) if (length === index + 1) return null;
   return <>{children}</>;
 };
 

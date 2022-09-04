@@ -100,6 +100,7 @@ export function ModalBuy({ closeModal }: any) {
       <Spacer className='w-6' />
       <Button
         variant='btnLg2'
+        flex
         size='lg'
         onClick={onClickBuy}
         className={`${buyLoading ? styles.modal_buy_btn__loading : null}`}

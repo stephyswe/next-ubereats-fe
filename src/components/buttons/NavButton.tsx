@@ -1,4 +1,6 @@
-import { SvgSidebar } from '@/ui/icons/icons';
+import { ButtonIcon } from '@/components/buttons/ButtonIcon';
+
+import { SvgModalClose, SvgSidebar } from '@/ui/icons/icons';
 
 type NavButtonProps = {
   onClick: () => void;
@@ -12,4 +14,16 @@ export const NavButton = ({ onClick }: NavButtonProps) => (
   >
     <SvgSidebar />
   </button>
+);
+
+export const CloseButton = ({ onClick }: any) => (
+  <ButtonIcon
+    variant='btnDish'
+    onClick={() => onClick(false)}
+    svg={
+      <div className=' h-[24px] w-[24px]'>
+        <SvgModalClose />
+      </div>
+    }
+  />
 );

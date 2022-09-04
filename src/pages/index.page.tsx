@@ -37,7 +37,7 @@ export default function HomePage() {
             </Button>
           </div>
           <div className='mt-6 text-sm font-medium leading-4'>
-            <Link href={href} className='cursor-pointer underline'>
+            <Link href={href} className='underline'>
               {linkTitle}
             </Link>{' '}
             {linkSubtitle}

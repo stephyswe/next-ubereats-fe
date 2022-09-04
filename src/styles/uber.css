@@ -121,3 +121,10 @@ td {
     background-position: 100vw 0px;
   }
 }
+
+/* Storybook */
+@media screen and (min-width: 768px) {
+  .sb-show-main {
+    background: #f4f5f5;
+  }
+}

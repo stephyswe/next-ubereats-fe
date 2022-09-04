@@ -17,13 +17,6 @@ const Template: ComponentStory<typeof Button> = (args) => (
   <UnStyledButton {...args} />
 );
 
-export const BtnBase = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-BtnBase.args = {
-  label: 'Button',
-  variant: 'btnBase',
-};
-
 export const BtnCart = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 BtnCart.args = {

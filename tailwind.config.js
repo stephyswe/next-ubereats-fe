@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { fontFamily } = require('tailwindcss/defaultTheme');
 const forms = require('@tailwindcss/forms');
 const plugin = require('tailwindcss/plugin');
 const clamp = require('@tailwindcss/line-clamp');
@@ -13,7 +12,6 @@ module.exports = {
         sm: { max: '767px' },
       },
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
         uberMove: ['UberMove', 'sans-serif'],
         uberMoveText: ['UberMoveText', 'sans-serif'],
       },

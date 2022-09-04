@@ -39,7 +39,7 @@ export const CartWindowsItems = ({
     <Spacer className='h-4' />
     <Spacer className='h-[104px]' />
     <div className='absolute bottom-0 right-0 left-0 p-6 bg-gradient-rgba-cart'>
-      <Button variant='btnLg2' size='lg' onClick={onBuy}>
+      <Button variant='btnLg2' flex size='lg' onClick={onBuy}>
         <span>Gå till kassan</span>
         <span>&nbsp;•&nbsp;</span>
         <span aria-label='Delsumma'>62,00&nbsp;kr</span>

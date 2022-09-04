@@ -6,27 +6,8 @@ import clsxm from '@/lib/clsxm';
 import { Link, Typography } from '@/components';
 import { ButtonIcon } from '@/components/buttons/ButtonIcon';
 
-import { Spacer, SpacerItem } from '@/ui';
+import { Spacer } from '@/ui';
 import { SvgHorizontalArrow } from '@/ui/icons';
-
-export const HeadlineList = ({ data }: { data: HeadlineCityProps[] }) => (
-  <div data-testid='ui-headline-list'>
-    {data.map(({ title, subtitle }: HeadlineCityProps, index: number) => (
-      <Fragment key={title}>
-        <Typography as='h2' variant='4xl'>
-          {title}
-        </Typography>
-        {subtitle ? <Spacer className='h-2' /> : null}
-        <Typography as='div' variant='base' className='text-[#545454]'>
-          {subtitle}
-        </Typography>
-        <SpacerItem index={index} length={data.length}>
-          <Spacer className='h-4' />
-        </SpacerItem>
-      </Fragment>
-    ))}
-  </div>
-);
 
 export const Headline = ({
   inputRef,
@@ -43,17 +24,14 @@ export const Headline = ({
         noArrow ? 'items-end' : 'mb-6 items-center'
       )}
     >
-      <div>
+      <div className='space-y-1'>
         <Typography as='h2' variant='4xl'>
           {title}
         </Typography>
         {subtitle ? (
-          <>
-            <Spacer className='h-2' />
-            <Typography as='div' variant='base' className='text-[#545454]'>
-              {subtitle}
-            </Typography>
-          </>
+          <Typography as='div' variant='base' className='text-[#545454]'>
+            {subtitle}
+          </Typography>
         ) : null}
       </div>
 
@@ -62,7 +40,7 @@ export const Headline = ({
           <Link
             ref={inputRef}
             className={clsxm(
-              'cursor-pointer text-base font-medium leading-5 text-black underline'
+              'text-base font-medium leading-5 text-black underline'
             )}
             href={link.href}
           >
@@ -71,7 +49,7 @@ export const Headline = ({
         ) : null}
         {noArrow ? null : (
           <>
-            <Spacer className='mb:block hidden w-10' />
+            <Spacer className='hidden w-10 md:block' />
             <div className='hidden md:block'>
               <HeadlineArrows />
             </div>
@@ -90,7 +68,7 @@ export const HeadlineArrows = ({ onClick }: any) => (
       disabled={true}
       svg={<SvgHorizontalArrow rotate />}
     />
-    <div className='w-1'></div>
+    <Spacer className='w-1' />
     <ButtonIcon
       variant='btnNav'
       onClick={onClick}
@@ -108,5 +86,3 @@ export type HeadlineProps = {
   link?: { href: string; title: string };
   noArrow?: boolean;
 };
-
-type HeadlineCityProps = { title: string; subtitle: string };

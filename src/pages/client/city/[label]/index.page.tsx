@@ -9,7 +9,6 @@ import {
   CategoryList,
   Container,
   Headline,
-  HeadlineList,
   HeroDynamic,
   Separator,
   Spacer,
@@ -93,7 +92,11 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
       </Container>
       <Container>{checkTime() ? <StoresClosed /> : <StoresOpen />}</Container>
       <Container>
-        <HeadlineList data={cityInfo} />
+        <div data-testid='ui-headline-list' className='space-y-2'>
+          {cityInfo.map(({ title, subtitle }: any) => (
+            <Headline key={title} title={title} subtitle={subtitle} noArrow />
+          ))}
+        </div>
       </Container>
     </main>
   );

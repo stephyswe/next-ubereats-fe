@@ -88,7 +88,8 @@ export default function Login() {
               <div className='flex flex-row justify-between pb-12 pt-[50px]'>
                 <div />
                 <Button
-                  variant='btnBase'
+                  variant='btnLg2'
+                  roundType='round1'
                   size='base'
                   type='submit'
                   disabled={!formState.isValid}

@@ -41,12 +41,9 @@ export const DeliveryContent = () => (
           </div>
         ))}
       </div>
-      <Button
-        variant='btnCart'
-        className='m-[40px_auto] min-h-[56px] rounded-[8px] p-[12px_16px] text-lg font-medium leading-6'
-      >
-        Show more
-      </Button>
+      <div className='item-center m-4 flex justify-center'>
+        <Button variant='btnLg3'>Show more</Button>
+      </div>
     </div>
   </div>
 );

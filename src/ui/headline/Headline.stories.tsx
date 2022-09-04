@@ -45,31 +45,15 @@ const TemplateAll: ComponentStory<typeof Headline> = () => (
         />
       </Story>
 
-      <h2>unusual variants</h2>
-      <Story title='with title and noArrow'>
-        <Headline title='Headline' noArrow />
+      <h2>Partial</h2>
+      <Story title='arrow'>
+        <HeadlineArrows />
       </Story>
     </StoryList>
   </StoryContainer>
 );
 
-const TemplateDefault: ComponentStory<typeof Headline> = (args) => (
-  <Headline {...args} />
-);
-
-const TemplateArrows: ComponentStory<typeof HeadlineArrows> = () => (
-  <HeadlineArrows />
-);
-
-export const All = TemplateAll.bind({});
-All.parameters = {
-  layout: 'fullscreen',
-};
+export const Desktop = TemplateAll.bind({});
+Desktop.parameters = { layout: 'fullscreen' };
 export const Mobile = TemplateAll.bind({});
 Mobile.parameters = mobileParameter();
-export const Default = TemplateDefault.bind({});
-Default.args = {
-  title: 'Headline',
-  subtitle: 'Subtitle',
-};
-export const Arrows = TemplateArrows.bind({});

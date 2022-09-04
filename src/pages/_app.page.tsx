@@ -14,7 +14,7 @@ import client from '@/lib/apollo';
 import { isTest } from '@/constant/env';
 import { DeliveryProvider } from '@/contexts/delivery';
 import { OrderProvider } from '@/contexts/order';
-import { RootLayout } from '@/ui/layout';
+import { RootLayout } from '@/layout';
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;

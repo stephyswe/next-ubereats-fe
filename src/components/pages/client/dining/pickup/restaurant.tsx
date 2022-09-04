@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 import { Link, Typography } from '@/components';
 
 import { isTest } from '@/constant/env';
@@ -31,12 +33,12 @@ export const PickupRestaurantList = ({ restaurants, resItems }: any) => {
     return (
       <>
         {Array.from({ length: 3 }, (item, index) => (
-          <>
+          <Fragment key={index}>
             <LoadingHome h='128' num={2} />
             <SpacerItem length={3} index={index}>
               <LoadingItemSquare h='80' />
             </SpacerItem>
-          </>
+          </Fragment>
         ))}
       </>
     );

@@ -10,12 +10,16 @@ import {
 } from './types';
 
 export const Toggler = ({ data }: TogglerProps) => {
+  const router = useRouter();
   const [toggle, setToggle] = useState(false);
   return (
     <div className='relative flex w-auto pb-6'>
       <div className='box-border flex h-12 w-full whitespace-nowrap rounded-[500px] bg-black08 p-1'>
         <ToggleItem onClick={() => setToggle(false)} title={data[0]} />
-        <ToggleItem onClick={() => setToggle(true)} title={data[1]} />
+        <ToggleItem
+          onClick={() => router.push('./client/dining/pickup')}
+          title={data[1]}
+        />
         <div
           className={clsx(
             `absolute z-0 h-[calc(100%-32px)] w-[107.0156px] rounded-[500px] bg-white transition-all-ease-400`,
@@ -44,7 +48,7 @@ const ToggleItem = ({ title, onClick }: ToggleItemProps) => (
   </div>
 );
 
-export function DiningToggler({ size }: DiningTogglerProps) {
+export const DiningToggler = ({ size }: DiningTogglerProps) => {
   const { pathname, push, reload } = useRouter();
   const routeName = pathname.split('/').pop();
 
@@ -56,10 +60,10 @@ export function DiningToggler({ size }: DiningTogglerProps) {
     }
   }, [pathname]);
 
-  function onClick() {
-    if (pathname === '/client/dining/pickup') push('/client/dining/delivery');
-    else if (pathname === '/client/dining/delivery')
-      push('/client/dining/pickup');
+  function onClick(route: string) {
+    if (pathname === '/client/dining/delivery' && route === 'delivery') return;
+    else if (pathname === '/client/dining/pickup' && route === 'pickup') return;
+    else push(`/client/dining/${route}`);
   }
 
   useEffect(() => {
@@ -75,8 +79,16 @@ export function DiningToggler({ size }: DiningTogglerProps) {
           size === 'small' ? 'h-10' : 'h-12'
         )}
       >
-        <DiningToggleItem onClick={onClick} title='Delivery' path={routeName} />
-        <DiningToggleItem onClick={onClick} title='Pickup' path={routeName} />
+        <DiningToggleItem
+          onClick={() => onClick('delivery')}
+          title='Delivery'
+          path={routeName}
+        />
+        <DiningToggleItem
+          onClick={() => onClick('pickup')}
+          title='Pickup'
+          path={routeName}
+        />
         <div
           className={clsx(
             `h-[calc(100% - 8px)] absolute z-0 w-[81.0156px] bg-white transition-ease-400 rounded-500 h-calc-2`,
@@ -86,7 +98,7 @@ export function DiningToggler({ size }: DiningTogglerProps) {
       </div>
     </div>
   );
-}
+};
 
 const DiningToggleItem = ({ title, onClick, path }: DiningToggleItemProps) => (
   <div

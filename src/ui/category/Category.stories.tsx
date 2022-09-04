@@ -11,8 +11,6 @@ import { categoriesData } from '@/constant/ui/category';
 
 import { CategoryList, CategorySquareItem } from '.';
 
-const defaultArgs = { data: categoriesData };
-
 const defaultItemArgs = {
   id: 1,
   name: 'Fast Food',
@@ -37,25 +35,23 @@ export default {
   parameters: componentParameter(),
 } as ComponentMeta<typeof CategoryList>;
 
-const Template: ComponentStory<typeof CategoryList> = (args) => (
+const Template: ComponentStory<typeof CategoryList> = () => (
   <StoryContainer>
     <StoryList>
-      <Story title='default'>
-        <CategoryList {...args} />
+      <Story title='default' bgColor='bg-white'>
+        <CategoryList data={categoriesData} />
       </Story>
     </StoryList>
     <StoryList>
-      <Story title='square item'>
+      <Story title='square item' bgColor='bg-white'>
         <CategorySquareItem {...defaultItemArgs} />
       </Story>
-      <Story title='custom item'>
+      <Story title='custom item' bgColor='bg-white'>
         <CategorySquareItem {...customItemArgs} />
       </Story>
     </StoryList>
   </StoryContainer>
 );
-export const Default = Template.bind({});
+export const Desktop = Template.bind({});
 export const Mobile = Template.bind({});
 Mobile.parameters = mobileParameter();
-Default.args = defaultArgs;
-Mobile.args = defaultArgs;

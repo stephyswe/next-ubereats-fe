@@ -45,13 +45,13 @@ export const Story = ({
   title,
   children,
   bold,
-  backgroundColor,
+  bgColor,
   className,
 }: {
   title: string;
   children: React.ReactNode;
   bold?: boolean;
-  backgroundColor?: string;
+  bgColor?: string;
   className?: string;
 }) => (
   <div className='min-h-[20px]'>
@@ -59,7 +59,7 @@ export const Story = ({
     <div
       className={clsxm(
         'border-[1px] border-solid border-[rgba(36,41,46,0.12)]',
-        backgroundColor ? backgroundColor : 'bg-[rgb(244,245,245)]',
+        bgColor ? bgColor : 'bg-[rgb(244,245,245)]',
         className
       )}
     >

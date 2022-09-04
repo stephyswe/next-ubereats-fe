@@ -6,6 +6,7 @@ import { Spacer } from '@/ui';
 import { SvgLogin } from '@/ui/icons';
 
 export const LinkLogin = ({
+  href,
   className,
   title,
   plain,
@@ -15,7 +16,7 @@ export const LinkLogin = ({
   <Link
     size={size}
     variant='linkBase1'
-    href='placeholder'
+    href={href}
     className={
       className ? className : 'bg-[#eee] hover:bg-[#ccc] active:bg-[#ddd]'
     }
@@ -51,10 +52,15 @@ export const LinkLogin = ({
   size?: LinkPropSize;
 };
  */
-export const LinkSignup = ({ title, className, size = 'normal' }: any) => (
+export const LinkSignup = ({
+  href,
+  title,
+  className,
+  size = 'normal',
+}: any) => (
   <Link
     size={size}
-    href='placeholder'
+    href={href}
     variant='linkBase1'
     className={
       className ? className : 'bg-[#eee] hover:bg-[#e2e2e2] active:bg-[#ddd]'

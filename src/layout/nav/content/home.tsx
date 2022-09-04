@@ -87,6 +87,7 @@ const AuthContent = ({
     <LinkLogin
       textHidden
       title={login.title}
+      href='/auth/login'
       size={small ? 'small' : 'normal'}
       className={clsx(
         'bg-white text-black hover:bg-[#ccc]',
@@ -95,6 +96,7 @@ const AuthContent = ({
     />
     <Spacer className='w-4' />
     <LinkSignup
+      href='/auth/login'
       title={register.title}
       size={small ? 'small' : 'normal'}
       className={clsx(

@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 
-import { NavCategoryContent } from '@/ui/layout/nav/content/client/category';
-import { NavCityContent } from '@/ui/layout/nav/content/client/city';
-import { NavbarDiningContent } from '@/ui/layout/nav/content/client/dining';
-import { NavbarStoreContent } from '@/ui/layout/nav/content/client/store';
-import { NavHomeContent } from '@/ui/layout/nav/content/home';
+import { NavCategoryContent } from '@/layout/nav/content/client/category';
+import { NavCityContent } from '@/layout/nav/content/client/city';
+import { NavbarDiningContent } from '@/layout/nav/content/client/dining';
+import { NavbarStoreContent } from '@/layout/nav/content/client/store';
+import { NavHomeContent } from '@/layout/nav/content/home';
 
 type NavPerPageProps = {
   change: boolean;

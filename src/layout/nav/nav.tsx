@@ -5,8 +5,8 @@ import { useWindowScrollPosition } from 'rooks';
 import { useOutsideAlerter } from '@/hooks/useOutside';
 import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
-import { Sidebar } from '@/ui/layout';
-import { homePosition, NavHeader, NavPerPage } from '@/ui/layout/nav';
+import { Sidebar } from '@/layout';
+import { homePosition, NavHeader, NavPerPage } from '@/layout/nav';
 
 export type NavProps = {
   noBorder?: boolean;

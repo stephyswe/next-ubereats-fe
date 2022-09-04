@@ -9,7 +9,7 @@ export const HomeData = {
     title: 'Order food to your door',
     buttonText: 'Find Food',
     link: {
-      href: 'https://www.ubereats.com/',
+      href: '/auth/login',
       linkTitle: 'Sign in',
       linkSubtitle: 'for your recent addresses',
     },

@@ -1,9 +1,10 @@
+import clsx from 'clsx';
 import { FieldValues, useForm, UseFormRegister } from 'react-hook-form';
 
 import { Input, Link } from '@/components';
 
 import { Spacer } from '@/ui';
-import { SvgCartSearch, SvgPosition } from '@/ui/icons';
+import { SvgMap, SvgPosition } from '@/ui/icons';
 
 export const NavItemDelivery = () => (
   <span>
@@ -26,7 +27,7 @@ export const NavItemDelivery = () => (
   </span>
 );
 
-export function NavItemSearch() {
+export function NavItemSearch({ className, placeholder }: any) {
   const { register } = useForm({
     mode: 'onChange',
   });
@@ -35,17 +36,14 @@ export function NavItemSearch() {
     <div
       role='search'
       aria-label='Sök efter restaurang eller typ av kök'
-      className='flex-grow'
+      className={clsx('flex-grow', className)}
     >
       <div className='relative flex flex-col'>
         <form>
           <label className='absolute m-[-1px] h-[1px] w-[1px] overflow-hidden whitespace-normal clip-rect-1'>
-            Vad är du sugen på?
+            {placeholder}
           </label>
-          <NavItemSearchInput
-            register={register}
-            placeholder='Vad är du sugen på?'
-          />
+          <NavItemSearchInput register={register} placeholder={placeholder} />
           <ul className='absolute left-0 right-0 top-full z-10 hidden border-[0_1px_1px_1px] border-solid border-[#e2e2e2] bg-white box-shadow-rgb-10'></ul>
         </form>
       </div>
@@ -63,7 +61,7 @@ const NavItemSearchInput = ({
   <div className='relative box-border flex min-w-full border-none bg-[#eeeeee] px-4 py-2 text-base font-normal leading-6 text-black transition-bs-ease-300 box-shadow-inset-eee focus-within:box-shadow-rgb-0'>
     <div className='flex flex-shrink-0 items-center py-2'>
       <div className='h-6 w-6 leading-[1]'>
-        <SvgCartSearch />
+        <SvgMap />
       </div>
     </div>
     <Spacer className='w-4' />

@@ -1,9 +1,7 @@
-// Root layout (app/layout.js)
 import { useRouter } from 'next/router';
-import React from 'react';
 
 import { useDelivery } from '@/contexts';
-import { Footer, Nav } from '@/ui/layout';
+import { Footer, Nav } from '@/layout';
 
 // - Applies to all routes
 export const RootLayout = ({ children }: { children: any }) => {
@@ -20,6 +18,7 @@ export const RootLayout = ({ children }: { children: any }) => {
   }, 1000);
 
   if (pathname === '/auth/login') return children;
+  if (pathname === '/details/delivery') return children;
 
   return (
     <div className='h-full'>

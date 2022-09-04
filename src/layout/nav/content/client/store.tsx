@@ -1,13 +1,11 @@
-import { LinkLogin, LinkSignup } from '@/components/links/NavLink';
+import { LinkLogin } from '@/components/links/NavLink';
 
 import { isBrowser, LOCALSTORAGE_TOKEN } from '@/constant/env';
 import { useDelivery } from '@/contexts';
-import { Spacer } from '@/ui';
-import { Cart } from '@/ui/cart';
-import { NavItemDelivery, NavItemSearch } from '@/ui/layout/nav/items';
-import { DiningToggler } from '@/ui/toggler';
+import { NavItemDelivery, NavItemSearch } from '@/layout/nav/items';
+import { Cart, DiningToggler, Spacer } from '@/ui';
 
-export const NavbarDiningContent = () => {
+export function NavbarStoreContent() {
   let auth;
   if (isBrowser) {
     auth = localStorage.getItem(LOCALSTORAGE_TOKEN ? LOCALSTORAGE_TOKEN : '');
@@ -31,20 +29,14 @@ export const NavbarDiningContent = () => {
   return (
     <>
       <Spacer className='w-10' />
-      <DiningToggler />
-      <Spacer className='w-4' />
-      <NavItemDelivery />
       <Spacer className='w-16' />
       <NavItemSearch />
-      <Spacer className='w-4' />
+      <Spacer className='flex-1' />
       <div className='flex flex-grow-0 items-center justify-end'>
-        <Spacer className='w-4' />
         <Cart size='small' />
         <Spacer className='w-4' />
-        <LinkLogin title='Log in' size='small' />
-        <Spacer className='w-4' />
-        <LinkSignup size='small' />
+        <LinkLogin size='small' />
       </div>
     </>
   );
-};
+}

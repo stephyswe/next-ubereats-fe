@@ -37,15 +37,6 @@ const TemplateAll: ComponentStory<typeof Breadcrumb> = () => (
   </StoryContainer>
 );
 
-const TemplateDefault: ComponentStory<typeof Breadcrumb> = (args) => (
-  <Breadcrumb {...args} />
-);
-
-export const All = TemplateAll.bind({});
+export const Desktop = TemplateAll.bind({});
 export const Mobile = TemplateAll.bind({});
 Mobile.parameters = mobileParameter();
-
-export const Default = TemplateDefault.bind({});
-Default.args = {
-  data: defaultData,
-};

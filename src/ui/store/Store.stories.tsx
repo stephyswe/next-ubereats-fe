@@ -12,10 +12,6 @@ import { CityRestaurantItem } from '@/ui/store/item';
 
 import { CityRestaurantOne, StoreScroll } from '.';
 
-const defaultArgs = {
-  data: restaurantTitleData[0],
-};
-
 const customDataItem = {
   slug: 'burger-king-jarntorget',
   name: 'Burger King Järntorget',
@@ -43,15 +39,6 @@ export default {
   component: StoreScroll,
   parameters: componentParameter(),
 } as ComponentMeta<typeof StoreScroll>;
-
-const Template: ComponentStory<typeof StoreScroll> = (args) => (
-  <StoreScroll {...args} />
-);
-export const Default = Template.bind({});
-Default.args = defaultArgs;
-export const Mobile = Template.bind({});
-Mobile.args = defaultArgs;
-Mobile.parameters = mobileParameter();
 
 const TemplateAll: ComponentStory<typeof StoreScroll> = () => (
   <StoryContainer>
@@ -89,9 +76,7 @@ const TemplateAll: ComponentStory<typeof StoreScroll> = () => (
     </StoryList>
   </StoryContainer>
 );
-export const All = TemplateAll.bind({});
-All.parameters = {
-  layout: 'fullscreen',
-};
-export const AllMobile = TemplateAll.bind({});
-AllMobile.parameters = mobileParameter();
+export const Desktop = TemplateAll.bind({});
+Desktop.parameters = { layout: 'fullscreen' };
+export const Mobile = TemplateAll.bind({});
+Mobile.parameters = mobileParameter();

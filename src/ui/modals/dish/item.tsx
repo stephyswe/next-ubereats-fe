@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import clsx from 'clsx';
 import { useState } from 'react';
 
 import styles from './styles.module.css';
@@ -30,15 +31,16 @@ export const ModalImage = ({ photo, name }: any) => (
 
 export const ModalAllergy = () => (
   <div className='flex flex-col'>
-    <hr className='m-0 h-[2px] border-none bg-[#eee]' />
+    <hr className='m-0 h-[2px] border-none bg-[#eee] sm:pb-2' />
     <div className='mx-4 mt-6 mb-0 flex flex-col'>
       <Typography as='span' variant='xs' className='text-gray-400'>
         För matallergier eller speciella kostbehov, vänligen kontakta
         restaurangen innan du beställer.
       </Typography>
 
-      <Spacer className='h-[24px]' />
+      <Spacer className='md:h-[24px]' />
     </div>
+    <hr className='m-0 h-[2px] border-none bg-[#eee] sm:mt-1 sm:mb-6 ' />
   </div>
 );
 
@@ -49,7 +51,7 @@ export const ModalDetail = ({
   price: number;
   name: string;
 }) => (
-  <div className='pt-4 pb-6 pl-4 pr-4'>
+  <div className='px-4 pt-4 pb-6'>
     <Typography variant='4xl' className='leading-10'>
       {name}
     </Typography>
@@ -82,11 +84,31 @@ export function ModalBuy({ closeModal }: any) {
     });
   };
   return (
-    <div className='sticky bottom-0 flex flex-row items-center justify-between bg-white p-6'>
-      <ModalBuyQuantity />
-      <Spacer className='w-6' />
-      <ModalBuyButton onClick={onClick} isLoading={isLoading} />
-    </div>
+    <>
+      <div className='w-full md:hidden'>
+        <div className='flex flex-col justify-between sm:mb-4'>
+          <div className='flex items-center justify-center'>
+            <ButtonIcon svg={<SvgBuyMinus />} variant='btnCircle1' />
+            <Typography
+              as='div'
+              variant='base'
+              leading='6'
+              className='whitespace-no-wrap px-6 text-center  md:px-2'
+            >
+              1
+            </Typography>
+            <ButtonIcon svg={<SvgBuyPlus />} variant='btnCircle1' />
+          </div>
+        </div>
+        <ModalAllergy />
+      </div>
+
+      <div className='sticky bottom-0 flex flex-row items-center justify-between sm:mx-[16px] sm:pb-4 md:bg-white md:p-6'>
+        <ModalBuyQuantity />
+        <Spacer className='w-6' />
+        <ModalBuyButton onClick={onClick} isLoading={isLoading} />
+      </div>
+    </>
   );
 }
 
@@ -95,7 +117,10 @@ export const ModalBuyButton = ({ onClick, isLoading }: any) => (
     variant='btnLg2'
     size='lg'
     onClick={onClick}
-    className={`${isLoading ? styles.modal_buy_btn__loading : null}`}
+    className={clsx(
+      isLoading ? styles.modal_buy_btn__loading : null,
+      'sm:absolute sm:w-full sm:rounded-[8px]'
+    )}
   >
     <span className={`${isLoading ? 'invisible opacity-0' : null}`}>
       Lägg till 1 i beställningen * 115,00 kr

@@ -21,6 +21,6 @@ export {
 } from './modals';
 export { Separator, Spacer, SpacerItem } from './spacer';
 export { StoreDetail } from './store';
-export { DiningToggler, Toggler } from './toggler';
+export { DiningToggler, StoreToggler, Toggler } from './toggler';
 
 /* icons has separate export */

@@ -7,7 +7,7 @@ import { Spacer } from '@/ui';
 type StickyItemProps = { title: string };
 
 export const AsideList = ({ data }: { data: any }) => (
-  <div className='sticky top-20 flex h-[300px] max-w-full flex-shrink-0 overflow-y-auto'>
+  <div className='sticky top-20 hidden h-[300px] max-w-full flex-shrink-0 overflow-y-auto md:flex'>
     <div className='w-[306px] flex-1'>
       <Spacer className='h-[24px]' />
       <nav className='flex flex-1 flex-col'>

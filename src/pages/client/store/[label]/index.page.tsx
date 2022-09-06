@@ -14,6 +14,7 @@ import {
   Container,
   HeroSmall,
   StoreDetail,
+  StoreToggler,
 } from '@/ui';
 import { DishList } from '@/ui/dish';
 
@@ -69,40 +70,40 @@ export default function StorePage({ breadcrumb }: StorePageProps) {
 
   return (
     <main className='block'>
-      <div>
-        <Container>
-          <Breadcrumb data={breadcrumb} />
-        </Container>
-        <Container>
-          <HeroSmall image={image} overlay={false} />
-        </Container>
-        <Container>
+      <Container>
+        <Breadcrumb data={breadcrumb} />
+      </Container>
+      <Container wide>
+        <HeroSmall image={image} overlay={false} />
+      </Container>
+      <Container>
+        <div className='pt-6'>
           <StoreDetail data={detail} />
-        </Container>
-        <Container>
-          <div className='flex'>
-            <AsideList data={dishData} />
-            <div className='w-full'>
-              <Orders
-                confirm={triggerConfirmOrder}
-                cancel={triggerCancelOrder}
-              />
-              <ul className='m-0 mt-[24px] block p-0'>
-                {Object.entries(dishData).map(([key, value]) => (
-                  <DishList key={key} groupKey={key} data={value} />
-                ))}
-              </ul>
-            </div>
+          <div className='relative ml-auto hidden h-[48px] w-[438px] md:block'>
+            <StoreToggler />
           </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
+      <Container>
+        <div className='flex'>
+          <AsideList data={dishData} />
+          <div className='w-full'>
+            <Orders confirm={triggerConfirmOrder} cancel={triggerCancelOrder} />
+            <ul className='m-0 mt-[24px] block p-0'>
+              {Object.entries(dishData).map(([key, value]) => (
+                <DishList key={key} groupKey={key} data={value} />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Container>
     </main>
   );
 }
 
 function Orders({ confirm, cancel }: { confirm: any; cancel: any }) {
   return (
-    <div className='flex items-center'>
+    <div className='hidden items-center md:flex'>
       <button onClick={confirm} className='mr-3 border bg-green-500'>
         Confirm Order
       </button>

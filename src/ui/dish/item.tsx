@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import Modal from 'react-modal';
 
 import { useOnClickOutside } from '@/hooks/useOutsideDiv';
+import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 import { Typography } from '@/components';
 import { ButtonIcon } from '@/components/buttons/ButtonIcon';
@@ -53,16 +54,18 @@ export const DishItem = ({ data }: any) => {
   const { photo, name, price, id } = data;
   const { setOrderItem } = useOrders();
   const [modalIsOpen, setIsOpen] = useState(false);
+  const { isMobile } = useWindowSizeJs();
   function openModal() {
     setIsOpen(true);
     setOrderItem({ dishId: id, price, name, options: [] });
   }
 
-  function closeModal() {
+  function closeModal(type: string) {
+    if (isMobile && type === 'hook') return;
     setIsOpen(false);
   }
   const ref = useRef(null);
-  useOnClickOutside(ref, closeModal);
+  useOnClickOutside(ref, () => closeModal('hook'));
 
   return (
     <>
@@ -90,14 +93,18 @@ export const DishItem = ({ data }: any) => {
         contentLabel='Example Modal'
         shouldCloseOnOverlayClick={true}
       >
-        <Spacer className='pt-20' />
-        <div ref={ref} role='dialog' className='relative m-auto bg-white'>
+        <Spacer className='md:pt-20' />
+        <div
+          ref={ref}
+          role='dialog'
+          className='relative m-auto bg-white sm:h-full sm:w-full '
+        >
           <div className='relative top-0 z-40'></div>
           <div></div>
           <ModalHeader closeModal={closeModal} checkPhoto={data.photo} />
           <DishModal {...data} closeModal={closeModal} />
         </div>
-        <Spacer className='pb-20' />
+        <Spacer className='md:pb-20' />
       </Modal>
     </>
   );

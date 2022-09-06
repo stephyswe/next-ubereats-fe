@@ -121,3 +121,61 @@ const DiningToggleItem = ({ title, onClick, path }: DiningToggleItemProps) => (
     </div>
   </div>
 );
+
+export const StoreToggler = () => {
+  const [toggle, setToggle] = useState(false);
+
+  const onClick = (type: string) => {
+    if (type === 'Delivery') {
+      setToggle(false);
+    } else {
+      setToggle(true);
+    }
+  };
+  return (
+    <div
+      data-test='modality-pill'
+      className='box-border flex h-full flex-row items-center whitespace-nowrap bg-[#eee] p-[0_4px] rounded-500'
+    >
+      <div
+        className={clsx(
+          'absolute h-[calc(100%-8px)] w-[calc(50%-4px)] bg-white transition-all-ease-400 rounded-500',
+          toggle ? 'translate-x-full' : ''
+        )}
+      ></div>
+
+      <StoreToggleItem
+        onClick={onClick}
+        mode='Delivery'
+        title='15–30 min • 39.00SEK'
+      />
+      <StoreToggleItem
+        onClick={onClick}
+        mode='Pickup'
+        title='5–15 min • 0.1 KM'
+      />
+    </div>
+  );
+};
+
+const StoreToggleItem = ({ onClick, mode, title }: any) => (
+  <div
+    onClick={() => onClick(mode)}
+    className='relative box-border w-full grow'
+  >
+    <div className='flex grow flex-col items-center p-1'>
+      <div
+        role='radio'
+        aria-checked='false'
+        className='bg-initial box-border w-full cursor-pointer select-none p-0 text-center text-sm font-medium leading-4 text-white rounded-500'
+      >
+        <div className='cursor-pointer select-none text-center text-sm font-medium leading-4 text-black'>
+          <div className='text-sm font-medium leading-4 text-black'>{mode}</div>
+          <div className='text-xs font-medium leading-4 text-[#6b6b6b]'>
+            {title}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);

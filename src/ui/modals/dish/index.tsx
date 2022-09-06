@@ -7,7 +7,7 @@ export * from './item';
 export const DishModal = (props: any) => {
   const { photo, name, price, id, closeModal, options } = props;
   return (
-    <div className='relative w-[676px]'>
+    <div className='relative bg-white md:w-[676px]'>
       {photo && <ModalImage photo={photo} name={name} />}
       <ModalDetail price={price} name={name} />
       <ul>

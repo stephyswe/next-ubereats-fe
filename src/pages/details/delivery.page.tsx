@@ -13,7 +13,7 @@ export default function DetailsDelivery() {
     router.back();
   };
   return (
-    <div className='mt-[70px] px-5'>
+    <div className='px-5 pt-[70px]'>
       <CloseButton onClick={onClick} />
       <Typography className='mb-8 text-[25px] font-semibold leading-3'>
         Deliver to

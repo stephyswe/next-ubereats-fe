@@ -39,7 +39,7 @@ export const Accordion = ({ data, dishId }: AccordionProps) => {
       <div
         ref={contentRef}
         style={{ height: height }}
-        className={clsx(isOpened ? 'p-[24px_16px]' : 'opacity-0', '')}
+        className={clsx(isOpened ? 'p-[24px_16px]' : 'opacity-0', 'bg-white')}
       >
         <form>{checkRender(choices, dishId, handleClick, isActive, name)}</form>
       </div>

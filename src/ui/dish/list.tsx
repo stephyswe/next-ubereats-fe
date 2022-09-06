@@ -30,7 +30,7 @@ export const DishList = ({ groupKey, data }: StoreListProps) => (
     </Typography>
     <Spacer className='h-[16px]' />
     <Spacer className='h-[24px]' />
-    <ul className='grid grid-cols-2 gap-y-[40px] gap-x-[24px] xl:grid-cols-4'>
+    <ul className='grid grid-cols-4 gap-y-[40px] gap-x-[24px] md:grid-cols-2 xl:grid-cols-4'>
       {data.map((item: any) => (
         <DishItem key={item.id} data={item} />
       ))}

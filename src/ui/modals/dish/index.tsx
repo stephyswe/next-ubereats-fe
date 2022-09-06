@@ -4,7 +4,7 @@ import { ModalBuy, ModalDetail, ModalImage } from './item';
 
 export * from './item';
 
-export function DishModal(props: any) {
+export const DishModal = (props: any) => {
   const { photo, name, price, id, closeModal, options } = props;
   return (
     <div className='relative w-[676px]'>
@@ -13,7 +13,6 @@ export function DishModal(props: any) {
       <ul>
         {options.map((item: any, index: any) => (
           <li key={index}>
-            {/*   {console.log('ac-data', item)} */}
             <Accordion data={item} dishId={id} />
           </li>
         ))}
@@ -21,4 +20,4 @@ export function DishModal(props: any) {
       <ModalBuy closeModal={closeModal} id={id} />
     </div>
   );
-}
+};

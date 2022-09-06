@@ -1,9 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx';
+import React from 'react';
 
 import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
-import { Typography } from '@/components';
+import { NextImage, Typography } from '@/components';
+import { ButtonIcon } from '@/components/buttons/ButtonIcon';
+import { ImageText } from '@/components/image/ImageText';
+
+import { SvgDots, SvgHeart } from '@/ui/icons';
 
 type HeroProps = {
   title: string;
@@ -11,8 +16,61 @@ type HeroProps = {
     color: string;
     desktop: string | string[];
     mobile: string;
+    alt?: string;
   };
   children: React.ReactNode;
+};
+
+export const HeroSmall = ({
+  image,
+  overlay,
+}: {
+  overlay: boolean;
+  image: string;
+}) => (
+  <div className='relative m-0 flex h-40 w-full items-center justify-center bg-gray-600'>
+    <figure className='absolute left-0 bottom-0 right-0 top-0 m-0 bg-gray-100 transition-[left_0.3]'>
+      <NextImage
+        alt=''
+        role='presentation'
+        src={image}
+        layout='fill'
+        variant='imageFill'
+      />
+
+      <HeroOverlay overlay={overlay}>
+        <ImageText
+          size={15}
+          image='/images/store/restaurant_not_accepting.png'
+          className='mt-1 text-white'
+          title='Currently unavailable'
+          titleProps={{ as: 'div', variant: 'small', weight: 'medium' }}
+          variant='iconHero'
+        />
+      </HeroOverlay>
+    </figure>
+    <div className='absolute right-0 m-[24px_40px] flex gap-2 self-baseline'>
+      <ButtonIcon iconVariant='iconHero' svg={<SvgHeart />} />
+      <div className='relative'>
+        <ButtonIcon iconVariant='iconHero' svg={<SvgDots />} />
+      </div>
+    </div>
+  </div>
+);
+
+export const HeroOverlay = ({
+  overlay,
+  children,
+}: {
+  overlay: boolean;
+  children: React.ReactNode;
+}) => {
+  if (!overlay) return <div></div>;
+  return (
+    <div className='absolute bottom-0 right-0 left-0 top-0 flex items-center justify-center bg-gray08'>
+      {children}
+    </div>
+  );
 };
 
 export const Hero = ({ title, background, children }: HeroProps) => {
@@ -49,7 +107,7 @@ export const Hero = ({ title, background, children }: HeroProps) => {
 };
 
 export const HeroDynamic = ({ background, title, children }: HeroProps) => {
-  const { color, desktop, mobile } = background;
+  const { color, desktop, mobile, alt } = background;
   const { isMobile } = useWindowSizeJs();
   return (
     <div
@@ -62,21 +120,13 @@ export const HeroDynamic = ({ background, title, children }: HeroProps) => {
       >
         {isMobile ? (
           <>
-            <img
-              alt="Hungry? You're in the right place"
-              src={mobile}
-              className='absolute bottom-0'
-            />
+            <img alt={alt} src={mobile} className='absolute bottom-0' />
           </>
         ) : (
           <>
+            <img alt={alt} src={desktop[0]} className='absolute h-full' />
             <img
-              alt="Hungry? You're in the right place"
-              src={desktop[0]}
-              className='absolute h-full'
-            />
-            <img
-              alt="Hungry? You're in the right place"
+              alt={alt}
               src={desktop[1]}
               className='absolute right-0 h-full'
             />

@@ -15,6 +15,7 @@ export type TypographyVariantProps =
   | '5xl'
   | '4xl'
   | '3xl'
+  | '2xl'
   | 'xl'
   | 'large'
   | 'base'
@@ -85,6 +86,9 @@ export default function Typography<C extends React.ElementType>({
             'font-uberMove text-2xl font-bold md:text-[28px] md:leading-9',
           ],
           // ** 2XL - 24 px **
+          variant === '2xl' && [
+            'text-[24px] font-bold leading-[32px] text-black',
+          ],
           // ** XL - 20 px **
           variant === 'xl' && [
             'font-uberMove text-xl leading-7',

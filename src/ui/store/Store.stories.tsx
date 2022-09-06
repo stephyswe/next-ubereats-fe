@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { storeData } from '@/constant/pages/client/store.data';
 import {
   componentParameter,
   mobileParameter,
@@ -10,7 +11,7 @@ import {
 import { restaurantTitleData } from '@/constant/ui/restaurant';
 import { CityRestaurantItem } from '@/ui/store/item';
 
-import { CityRestaurantOne, StoreScroll } from '.';
+import { CityRestaurantOne, StoreDetail, StoreScroll } from '.';
 
 const customDataItem = {
   slug: 'burger-king-jarntorget',
@@ -72,6 +73,14 @@ const TemplateAll: ComponentStory<typeof StoreScroll> = () => (
       </Story>
       <Story title='Long text'>
         <CityRestaurantItem {...customDataAllItem} />
+      </Story>
+    </StoryList>
+    <StoryList className='md:grid-cols-2'>
+      <Story title='detail'>
+        <StoreDetail data={storeData.detail} />
+      </Story>
+      <Story title='detail'>
+        <StoreDetail data={storeData.detail} />
       </Story>
     </StoryList>
   </StoryContainer>

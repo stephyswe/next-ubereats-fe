@@ -5,7 +5,7 @@ import clsxm from '@/lib/clsxm';
 export const buttonPropsVariant = [
   'btnCart', // 3
   'btnDish',
-  'btnLg1',
+  'btnCircle1',
   'btnLg2', // 2
   'btnLg3',
   'btnNav',
@@ -65,42 +65,61 @@ export const UnStyledButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
           //#endregion  //*======== Sizes ===========
           //#region  //*=========== Variants ===========
           [
-            // ** Large - 18 px **
-            variant === 'btnLg1' && [
-              'bg-gray-50 hover:bg-[#e2e2e2]',
-              'box-border flex h-12 min-h-fit w-12 items-center justify-center rounded-[50%] p-0',
+            variant === 'btnCircle1' && [
+              'bg-gray-50',
+              'hover:bg-[#e2e2e2]',
+              'active:bg-[#e2e2e2]',
+              'h-12 w-12',
+              'flex items-center justify-center rounded-[50%]',
             ],
             variant === 'btnLg2' && [
-              'text-white',
-              'bg-black  hover:bg-[#333] disabled:bg-gray-300',
+              'bg-black text-white ',
+              'hover:bg-[#333] disabled:bg-gray-300',
               'px-4 py-[14px]',
               'transition-colors duration-200',
             ],
             variant === 'btnLg3' && [
-              'text-white',
-              'bg-black hover:bg-gray-100 active:bg-gray-200',
-              'box-border flex h-14 min-h-[56px] cursor-pointer items-center justify-center rounded-[8px] px-4 py-3 md:w-max',
+              'bg-black text-white',
+              'hover:bg-gray-100',
+              'active:bg-gray-200',
+              'px-4 py-3',
+              'rounded-[8px]',
+              'h-14 min-h-[56px]  md:w-max',
+              'box-border',
+              'flex items-center justify-center',
             ],
-            // ** Small - 14 px **
             variant === 'btnSmall1' && [
               'bg-[#eee]',
-              'relative flex  items-center whitespace-nowrap rounded-[500px] py-2 px-3 transition-width-easeInout-150',
+              'py-2 px-3',
+              'rounded-[500px]',
+              'transition-width-easeInout-150',
+              'relative whitespace-nowrap',
+              'flex items-center',
             ],
             variant === 'btnSmall2' && [
-              'box-shadow-rgb-button flex h-10 items-center justify-center',
-              'whitespace-nowrap rounded-[500px] bg-white px-3 transition-all-300',
+              'bg-white',
+              'box-shadow-rgb-button h-10',
+              'whitespace-nowrap px-3 transition-all-300',
+              'rounded-[500px]',
+              'flex items-center justify-center',
             ],
-            // ** No Size **
             variant === 'btnNav' && [
-              'box-border flex h-9 min-h-[auto] w-9 items-center justify-center rounded-[50%]',
+              'h-9 min-h-[auto] w-9',
+              'rounded-[50%]',
+              'box-border flex items-center justify-center',
             ],
             variant === 'btnDish' && [
-              'bg-white hover:bg-gray-50',
-              'absolute left-2 top-2 z-10 box-border flex h-12 w-12 items-center justify-center rounded-[50%]',
+              'bg-white',
+              'hover:bg-gray-50',
+              'h-12 w-12',
+              'rounded-[50%]',
+              'absolute left-2 top-2 z-10 box-border',
+              'flex items-center justify-center',
             ],
             variant === 'btnCart' && [
               'text-white',
-              'hover:bg-gray-100 active:bg-gray-400',
+              'hover:bg-gray-100',
+              'active:bg-gray-400',
               'flex flex-row items-center',
             ],
           ],

@@ -12,7 +12,6 @@ export const AccordionItem = ({
     <input
       type={type}
       className='pointer-events-none absolute opacity-0 outline-none'
-      value='0'
     />
     <label
       onClick={() => onClick(title)}

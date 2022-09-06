@@ -64,10 +64,10 @@ export const ModalDetail = ({
 
 export function ModalBuy({ closeModal }: any) {
   const { orderItem, setOrderItem, setOrderItems } = useOrders();
-  const [buyLoading, setBuyLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
-  const onClickBuy = () => {
-    setBuyLoading(true);
+  const onClick = () => {
+    setLoading(true);
     // activate spinner.
     setTimeout(() => {
       closeModal();
@@ -83,32 +83,41 @@ export function ModalBuy({ closeModal }: any) {
   };
   return (
     <div className='sticky bottom-0 flex flex-row items-center justify-between bg-white p-6'>
-      <div className='flex flex-col justify-between'>
-        <div className='flex items-center justify-center'>
-          <ButtonIcon svg={<SvgBuyMinus />} variant='btnLg1' size='lg' />
-          <Typography
-            as='div'
-            variant='base'
-            leading='6'
-            className='whitespace-no-wrap pl-2 pr-2 text-center'
-          >
-            1
-          </Typography>
-          <ButtonIcon svg={<SvgBuyPlus />} variant='btnLg1' size='lg' />
-        </div>
-      </div>
+      <ModalBuyQuantity />
       <Spacer className='w-6' />
-      <Button
-        variant='btnLg2'
-        flex
-        size='lg'
-        onClick={onClickBuy}
-        className={`${buyLoading ? styles.modal_buy_btn__loading : null}`}
-      >
-        <span className={`${buyLoading ? 'invisible opacity-0' : null}`}>
-          Lägg till 1 i beställningen * 115,00 kr
-        </span>
-      </Button>
+      <ModalBuyButton onClick={onClick} isLoading={isLoading} />
     </div>
   );
 }
+
+export const ModalBuyButton = ({ onClick, isLoading }: any) => (
+  <Button
+    variant='btnLg2'
+    size='lg'
+    onClick={onClick}
+    className={`${isLoading ? styles.modal_buy_btn__loading : null}`}
+  >
+    <span className={`${isLoading ? 'invisible opacity-0' : null}`}>
+      Lägg till 1 i beställningen * 115,00 kr
+    </span>
+  </Button>
+);
+
+export const ModalBuyQuantity = () => {
+  return (
+    <div className='flex flex-col justify-between'>
+      <div className='flex items-center justify-center'>
+        <ButtonIcon svg={<SvgBuyMinus />} variant='btnCircle1' />
+        <Typography
+          as='div'
+          variant='base'
+          leading='6'
+          className='whitespace-no-wrap pl-2 pr-2 text-center'
+        >
+          1
+        </Typography>
+        <ButtonIcon svg={<SvgBuyPlus />} variant='btnCircle1' />
+      </div>
+    </div>
+  );
+};

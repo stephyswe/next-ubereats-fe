@@ -19,6 +19,7 @@ module.exports = {
         black: 'var(--tw-color-black)',
         black08: 'var(--tw-color-black-08)',
         black02: 'var(--tw-color-black-02)',
+        gray08: 'var(--tw-color-gray-08)',
         gray: {
           50: 'var(--tw-color-gray-50)',
           100: 'var(--tw-color-gray-100)',

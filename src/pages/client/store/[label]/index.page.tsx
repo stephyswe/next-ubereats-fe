@@ -1,19 +1,21 @@
 import { useRouter } from 'next/router';
 
-import { groupBy } from '@/lib/helper';
-
-import { StickyList } from '@/components/pages/';
-
 import {
   useCreateOrderMutation,
   useFindRestaurantQuery,
 } from '@/__generated__/graphql';
 import { storeData } from '@/constant/pages/client/store.data';
-import { useDelivery, useOrders } from '@/contexts/';
-import { Breadcrumb, BreadcrumbItemProps, Container } from '@/ui';
-import { BackgroundCover } from '@/ui/container/cover';
-import { DishList } from '@/ui/dish/list';
-import { StoreDetail } from '@/ui/store/detail';
+import { useDelivery, useOrders } from '@/contexts';
+import { dishData } from '@/pages/client/store/[label]/data';
+import {
+  AsideList,
+  Breadcrumb,
+  BreadcrumbItemProps,
+  Container,
+  HeroSmall,
+  StoreDetail,
+} from '@/ui';
+import { DishList } from '@/ui/dish';
 
 export { getServerSideProps } from '@/constant/server/store.server';
 
@@ -22,11 +24,11 @@ type StorePageProps = {
 };
 
 export default function StorePage({ breadcrumb }: StorePageProps) {
-  const { coverImage } = storeData;
+  const { image, detail } = storeData;
   const { setComplete } = useDelivery();
   const { orderItems, setOrderItems } = useOrders();
   const router = useRouter();
-  const { data, loading } = useFindRestaurantQuery({
+  const { loading } = useFindRestaurantQuery({
     variables: { input: { restaurantId: 1 } },
     onCompleted: () => {
       setComplete(true);
@@ -63,45 +65,39 @@ export default function StorePage({ breadcrumb }: StorePageProps) {
 
   if (loading) return <div>Loading</div>;
 
-  const newData = data?.findRestaurant.results;
+  //const newData = groupBy(data?.findRestaurant.results?.menu, 'type');
 
-  if (newData) {
-    const groupMenu = groupBy(newData.menu, 'type');
-    const uniqueMenu = [
-      ...new Set(newData?.menu.map((menuItem: any) => menuItem.type)),
-    ];
-    return (
-      <main className='block'>
-        <div>
-          <Container>
-            <Breadcrumb data={breadcrumb} />
-          </Container>
-          <BackgroundCover image={coverImage} />
-          <Container>
-            <StoreDetail />
-          </Container>
-          <Container>
-            <div className='flex'>
-              <StickyList menu={uniqueMenu} />
-              <div className='w-full'>
-                <Orders
-                  confirm={triggerConfirmOrder}
-                  cancel={triggerCancelOrder}
-                />
-                <ul className='m-0 mt-[24px] block p-0'>
-                  {Object.keys(groupMenu).map((key: string) => (
-                    <DishList key={key} groupMenu={groupMenu} groupKey={key} />
-                  ))}
-                </ul>
-              </div>
+  return (
+    <main className='block'>
+      <div>
+        <Container>
+          <Breadcrumb data={breadcrumb} />
+        </Container>
+        <Container>
+          <HeroSmall image={image} overlay={false} />
+        </Container>
+        <Container>
+          <StoreDetail data={detail} />
+        </Container>
+        <Container>
+          <div className='flex'>
+            <AsideList data={dishData} />
+            <div className='w-full'>
+              <Orders
+                confirm={triggerConfirmOrder}
+                cancel={triggerCancelOrder}
+              />
+              <ul className='m-0 mt-[24px] block p-0'>
+                {Object.entries(dishData).map(([key, value]) => (
+                  <DishList key={key} groupKey={key} data={value} />
+                ))}
+              </ul>
             </div>
-          </Container>
-        </div>
-      </main>
-    );
-  } else {
-    return <div>no data found</div>;
-  }
+          </div>
+        </Container>
+      </div>
+    </main>
+  );
 }
 
 function Orders({ confirm, cancel }: { confirm: any; cancel: any }) {

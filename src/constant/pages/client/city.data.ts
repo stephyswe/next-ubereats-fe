@@ -4,6 +4,7 @@ export const cityData = {
       color: '#FFF2D9',
       desktop: ['/images/city/hero-alt.svg', '/images/city/hero2-alt.svg'],
       mobile: '/images/city/hero-mobile.svg',
+      alt: "Hungry? You're in the right place",
     },
     buttonText: 'Find Food',
     inputPlaceholder: 'Enter delivery address',

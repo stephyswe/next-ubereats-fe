@@ -6,20 +6,20 @@ import { Spacer } from '@/ui';
 
 type StickyItemProps = { title: string };
 
-export const StickyList = ({ menu }: { menu: string[] }) => (
+export const AsideList = ({ data }: { data: any }) => (
   <div className='sticky top-20 flex h-[300px] max-w-full flex-shrink-0 overflow-y-auto'>
     <div className='w-[306px] flex-1'>
       <Spacer className='h-[24px]' />
       <nav className='flex flex-1 flex-col'>
-        {menu.map((item: string) => (
-          <StickyItem key={item} title={item} />
+        {Object.keys(data).map((key: string) => (
+          <AsideItem key={key} title={key} />
         ))}
       </nav>
     </div>
   </div>
 );
 
-const StickyItem = ({ title }: StickyItemProps) => (
+const AsideItem = ({ title }: StickyItemProps) => (
   <div className='flex items-center justify-between'>
     <Link href={`#${title}`}>
       <Button className='mb-6'>

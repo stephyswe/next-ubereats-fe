@@ -84,7 +84,11 @@ function checkRender(
   }
 }
 
-const AccordionTop = ({ name, onToggle, isOpened }: AccordionTopProps) => (
+export const AccordionTop = ({
+  name,
+  onToggle,
+  isOpened,
+}: AccordionTopProps) => (
   <div className='flex flex-row items-center justify-between bg-[#f6f6f6] p-4'>
     <div className='flex flex-col'>
       <div className='text-lg font-medium leading-6'>Choose {name}</div>

@@ -11,7 +11,7 @@ const defaultArgs = {
 };
 
 export default {
-  title: 'UI/Hero',
+  title: 'UI/Hero/Default',
   component: Hero,
   parameters: componentParameter('fullscreen'),
 } as ComponentMeta<typeof Hero>;

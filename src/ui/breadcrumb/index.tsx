@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import { Link } from '@/components';
 
-import { SpacerItem } from '@/ui/spacer';
+import { Spacer, SpacerItem } from '@/ui/spacer';
 
 import { SvgBreadCrumb } from '../icons';
 
@@ -21,9 +21,9 @@ export const Breadcrumb = ({ data }: { data: BreadcrumbItemProps[] }) => (
       <Fragment key={index}>
         <BreadcrumbItem key={title} title={title} link={link} />
         <SpacerItem length={data.length} index={index}>
-          <div className='w-1 md:w-2' />
+          <Spacer className='w-1 md:w-2' />
           <SvgBreadCrumb />
-          <div className='w-1 md:w-2' />
+          <Spacer className='w-1 md:w-2' />
         </SpacerItem>
       </Fragment>
     ))}

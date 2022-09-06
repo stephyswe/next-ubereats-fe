@@ -9,7 +9,7 @@ export const componentParameter = (layout?: string) => {
 
 export const mobileParameter = (layout?: string) => {
   return {
-    layout: layout ?? null,
+    layout: layout ?? 'none',
     viewport: {
       chromatic: { viewports: [414] },
       defaultViewport: 'mobile2',

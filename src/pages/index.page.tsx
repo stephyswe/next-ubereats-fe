@@ -40,7 +40,7 @@ export default function HomePage() {
     <main>
       <Hero title={title} background={background}>
         <>
-          <div className='flex flex-col gap-1 md:flex-row md:items-start'>
+          <div className='flex flex-col sm:gap-1 md:flex-row md:items-start'>
             <div className='relative flex-1 flex-col md:max-w-[540px]'>
               <ButtonInput
                 svg={<SvgMap />}
@@ -49,7 +49,7 @@ export default function HomePage() {
               />
             </div>
             <Spacer className='w-2' />
-            <ButtonDeliver svg={<SvgMap />} />
+            <ButtonDeliver />
             <Spacer className='w-2' />
             <Button variant='btnLg3' size='lg'>
               {buttonText}

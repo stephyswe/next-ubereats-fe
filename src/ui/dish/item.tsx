@@ -4,6 +4,9 @@ import Modal from 'react-modal';
 
 import { useOnClickOutside } from '@/hooks/useOutsideDiv';
 
+import { Typography } from '@/components';
+import { ButtonIcon } from '@/components/buttons/ButtonIcon';
+
 import { useOrders } from '@/contexts';
 import { Spacer } from '@/ui';
 import { SvgFoodPlus } from '@/ui/icons';
@@ -27,8 +30,27 @@ export const storeModalStyles = {
   },
 };
 
-export const DishItem = ({ item }: any) => {
-  const { photo, name, price, id } = item;
+export const homeModalStyles = {
+  content: {
+    Position: 'inherit',
+    inset: 'inherit',
+    overflow: 'inherit',
+    border: 'inherit',
+    outline: 'inherit',
+    borderRadius: 'inherit',
+    background: 'unset',
+    minHeight: '100vh',
+    justifyContent: 'flex-start',
+    margin: '0 auto',
+    alignItems: 'center',
+    display: 'flex',
+    FlexDirection: 'column',
+    padding: 'inherit',
+  },
+};
+
+export const DishItem = ({ data }: any) => {
+  const { photo, name, price, id } = data;
   const { setOrderItem } = useOrders();
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
@@ -57,7 +79,7 @@ export const DishItem = ({ item }: any) => {
               <DishItemImage photo={photo} name={name} onClick={openModal} />
             </div>
 
-            <DishItemPlusQuick {...item} />
+            <DishItemPlusQuick id={id} price={price} name={name} />
           </div>
         </div>
       </li>
@@ -72,8 +94,8 @@ export const DishItem = ({ item }: any) => {
         <div ref={ref} role='dialog' className='relative m-auto bg-white'>
           <div className='relative top-0 z-40'></div>
           <div></div>
-          <ModalHeader closeModal={closeModal} checkPhoto={item.photo} />
-          <DishModal {...item} closeModal={closeModal} />
+          <ModalHeader closeModal={closeModal} checkPhoto={data.photo} />
+          <DishModal {...data} closeModal={closeModal} />
         </div>
         <Spacer className='pb-20' />
       </Modal>
@@ -81,15 +103,15 @@ export const DishItem = ({ item }: any) => {
   );
 };
 
-function DishItemPlusQuick({
+export const DishItemPlusQuick = ({
   id,
   price,
   name,
 }: {
-  id: string;
+  id: number;
   price: number;
   name: string;
-}) {
+}) => {
   const { setOrderItems } = useOrders();
 
   function onClickBuy() {
@@ -101,32 +123,27 @@ function DishItemPlusQuick({
 
   return (
     <div className='absolute top-2 right-2'>
-      <button
+      <ButtonIcon
+        iconVariant='iconPlus'
         onClick={onClickBuy}
-        className={clsx(
-          'box-border flex h-9 min-h-0 w-full min-w-[36px] cursor-pointer items-center justify-center rounded-[500px] border-[1px] border-solid',
-          'border-[#fff] bg-black p-[2px_4px] text-lg font-medium leading-6 text-white box-shadow-rgb-btn',
-          'hover:bg-gray-100'
-        )}
-      >
-        <SvgFoodPlus />
-      </button>
+        svg={<SvgFoodPlus />}
+      />
     </div>
   );
-}
+};
 
-const DishItemDetail = ({ name, price, onClick }: any) => (
+export const DishItemDetail = ({ name, price, onClick }: any) => (
   <div onClick={onClick} className='flex flex-1 flex-col pb-2'>
-    <div className='text-base font-medium leading-5'>
-      <span>{name}</span>
-    </div>
-    <div className='text-sm font-normal leading-5'>
-      <span>{price}&nbsp;kr</span>
-    </div>
+    <Typography as='span' weight='medium' variant='base' leading='5'>
+      {name}
+    </Typography>
+    <Typography as='span' variant='small' leading='5'>
+      {price}&nbsp;kr
+    </Typography>
   </div>
 );
 
-const DishItemImage = ({ photo, name, onClick }: any) => (
+export const DishItemImage = ({ photo, name, onClick }: any) => (
   <div
     onClick={onClick}
     className='relative h-[158px] w-full flex-[0_1_47%] overflow-hidden'

@@ -11,7 +11,7 @@ const defaultArgs = {
 };
 
 export default {
-  title: 'UI/HeroDynamic',
+  title: 'UI/Hero/Dynamic',
   component: HeroDynamic,
   parameters: componentParameter('fullscreen'),
 } as ComponentMeta<typeof HeroDynamic>;

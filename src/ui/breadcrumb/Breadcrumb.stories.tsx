@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import {
+  componentParameter,
   mobileParameter,
   Story,
   StoryContainer,
@@ -13,9 +14,7 @@ import { Breadcrumb } from '.';
 export default {
   title: 'UI/Breadcrumb',
   component: Breadcrumb,
-  parameters: {
-    layout: 'padded',
-  },
+  parameters: componentParameter(),
 } as ComponentMeta<typeof Breadcrumb>;
 
 const TemplateAll: ComponentStory<typeof Breadcrumb> = () => (

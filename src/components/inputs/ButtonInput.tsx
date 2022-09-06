@@ -4,10 +4,12 @@ import Modal from 'react-modal';
 
 import { useOnClickOutside } from '@/hooks/useOutsideDiv';
 
+import { Button } from '@/components';
 import { Link } from '@/components/links';
 
 import { ModalHeader, Spacer } from '@/ui';
-import { storeModalStyles } from '@/ui/dish/item';
+import { homeModalStyles } from '@/ui/dish/item';
+import { SvgDropdown } from '@/ui/icons';
 
 import { UnstyledInput } from './UnstyledInput';
 
@@ -147,12 +149,12 @@ export const ButtonDeliver = () => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={storeModalStyles}
+        style={homeModalStyles}
         contentLabel='Example Modal'
         shouldCloseOnOverlayClick={true}
       >
         <Spacer className='pt-20' />
-        <div ref={ref} role='dialog' className='relative m-auto bg-white'>
+        <div ref={ref} role='dialog' className='relative bg-white'>
           <div className='relative top-0 z-40'></div>
           <div></div>
           <ModalHeader closeModal={closeModal} />
@@ -160,10 +162,47 @@ export const ButtonDeliver = () => {
             <div className='mb-6 font-uberMove text-[32px] font-bold leading-[40px]'>
               Pick a time
             </div>
+            <SelectElement />
+            <Spacer className='h-3' />
+            <SelectElement />
+            <Button variant='btnLg3' size='lg' className='mt-6 w-full'>
+              Schedule
+            </Button>
+            <Button variant='btnLg3' size='lg' className='mt-3 w-full'>
+              Deliver now
+            </Button>
           </div>
         </div>
         <Spacer className='pb-20' />
       </Modal>
+    </div>
+  );
+};
+
+export const SelectElement = () => {
+  return (
+    <div className='text-base'>
+      <div className='relative w-full'>
+        <select
+          className={clsx(
+            'appearance-none bg-[#eee] p-[12px_32px_12px_16px] shadow-[inset_0px_-1px_0px_#eee] outline-none transition-[box-shadow_0.3s_ease-in-out]',
+            'box-border min-w-full cursor-pointer rounded-none border-none'
+          )}
+        >
+          <option value='2022-09-05' className='bg-[#eee]'>
+            Today, Mon, 5 Sept
+          </option>
+          <option value='2022-09-06' className='bg-[#eee]'>
+            Tomorrow, Tue, 6 Sept
+          </option>
+        </select>
+
+        <div className='pointer-events-none absolute right-[8px] top-[calc(50%-12px)]'>
+          <div className='h-6 w-6 leading-[1]'>
+            <SvgDropdown rotate />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

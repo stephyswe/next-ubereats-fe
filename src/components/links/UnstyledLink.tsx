@@ -44,6 +44,7 @@ export const UnstyledLink = React.forwardRef<
     },
     ref
   ) => {
+    href = href || 'placeholder';
     const isNewTab =
       openNewTab !== undefined
         ? openNewTab

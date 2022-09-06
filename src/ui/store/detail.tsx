@@ -4,63 +4,56 @@ import { LinkIcon } from '@/components/links/LinkIcon';
 import { Spacer } from '@/ui';
 import { SvgPersonAdd, SvgSchedule } from '@/ui/icons';
 
-const storeDetailData = {
-  store: 'McDonalds Avenyn',
-  address: 'Kungsportsavenyen 32, Gothenburg, Västra Götalands län 411 36',
-  timeCost: '10–20 min • 59.00SEK i avgift',
-  moreInfo: 'Tryck för att se öppettider, adress med mera',
-  rating: '4.3 (100+ omdömen) • Hamburgare • $',
+type StoreDetailProps = {
+  title: string;
+  address: string;
+  timeCost: string;
+  info: string;
+  rating: string;
 };
 
-export const StoreDetail = () => {
-  const { store, address, timeCost, moreInfo, rating } = storeDetailData;
-  return (
-    <div className='pt-6'>
-      <div>
-        <Typography as='h2' variant='4xl' className='leading-[36px]'>
-          {store}
-        </Typography>
-        <div className='h-2'></div>
-        <div className='flex'>
-          <div>
-            <StoreDetailRating rating={rating} />
-            <Spacer className='h-[2px]' />
+export const StoreDetail = ({
+  data: { title, address, timeCost, info, rating },
+}: {
+  data: StoreDetailProps;
+}) => (
+  <div className='pt-6'>
+    <div>
+      <Typography as='h2' variant='4xl' className='leading-[36px]'>
+        {title}
+      </Typography>
+      <div className='h-2'></div>
+      <div className='flex'>
+        <div>
+          <StoreDetailRating rating={rating} />
+          <Spacer className='h-[2px]' />
+          <Typography as='p' variant='small' className='text-gray-400'>
+            {address}
+          </Typography>
+          <Spacer className='h-[2px]' />
+          <Typography as='p' variant='small' className='text-gray-400'>
+            {timeCost}
+          </Typography>
+          <Spacer className='h-[2px]' />
+          <Link href='placeholder'>
             <Typography as='p' variant='small' className='text-gray-400'>
-              {address}
+              {info}
             </Typography>
-            <Spacer className='h-[2px]' />
-            <Typography as='p' variant='small' className='text-gray-400'>
-              {timeCost}
-            </Typography>
-            <Spacer className='h-[2px]' />
-            <Link href='placeholder'>
-              <Typography as='p' variant='small' className='text-gray-400'>
-                {moreInfo}
-              </Typography>
-            </Link>
-          </div>
-        </div>
-        <div className='flex min-h-[56px] items-end'>
-          <div className='relative inline-block'>
-            <div className='relative z-0'>
-              <LinkIcon
-                href='placeholder'
-                svg={<SvgPersonAdd />}
-                title='Gruppbeställning'
-              />
-            </div>
-          </div>
-          <div className='w-2'></div>
-          <LinkIcon
-            href='placeholder'
-            svg={<SvgSchedule />}
-            title='Schemalägg'
-          />
+          </Link>
         </div>
       </div>
+      <div className='flex min-h-[56px] items-end'>
+        <LinkIcon
+          href='placeholder'
+          svg={<SvgPersonAdd />}
+          title='Gruppbeställning'
+        />
+        <div className='w-2'></div>
+        <LinkIcon href='placeholder' svg={<SvgSchedule />} title='Schemalägg' />
+      </div>
     </div>
-  );
-};
+  </div>
+);
 
 const StoreDetailRating = ({ rating }: any) => (
   <div className='flex'>

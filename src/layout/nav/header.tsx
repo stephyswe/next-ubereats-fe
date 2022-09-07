@@ -4,8 +4,8 @@ import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 import { NavButton } from '@/components/buttons/NavButton';
 
+import { NavProps } from '@/layout/nav/nav';
 import { Logo, Spacer } from '@/ui';
-import { NavProps } from '@/ui/layout/nav/nav';
 
 type NavHeaderProps = {
   children: JSX.Element;

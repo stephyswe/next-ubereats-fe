@@ -8,8 +8,8 @@ import { Button } from '@/components';
 import { Link } from '@/components/links';
 
 import { ModalHeader, Spacer } from '@/ui';
-import { homeModalStyles } from '@/ui/dish/item';
 import { SvgDropdown } from '@/ui/icons';
+import { homeModalStyles } from '@/ui/modals/data';
 
 import { UnstyledInput } from './UnstyledInput';
 

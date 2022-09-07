@@ -59,7 +59,11 @@ const DeliveryContentSectionStarter = ({
       <>
         <Headline title={title} subtitle={subtitle} noArrow />
         {btnText && (
-          <Button variant='btnCart' size='small' round>
+          <Button
+            variant='btnCart'
+            size='small'
+            className='h-[36px] bg-black p-[8px_12px] text-white rounded-500'
+          >
             {btnText}
           </Button>
         )}

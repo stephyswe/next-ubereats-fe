@@ -21,10 +21,10 @@ const TemplateAll: ComponentStory<typeof HeroSmall> = () => (
   <StoryContainer>
     <StoryList>
       <Story title='default'>
-        <HeroSmall image={storeData.image} />
+        <HeroSmall image={storeData.image} overlay={false} />
       </Story>
       <Story title='no data'>
-        <HeroSmall image='' />
+        <HeroSmall image='' overlay={false} />
       </Story>
     </StoryList>
   </StoryContainer>

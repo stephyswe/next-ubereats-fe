@@ -21,7 +21,7 @@ export const ModalList = () => {
 
   const { isMobile } = useWindowSizeJs();
 
-  function closeModal(type: string) {
+  function closeModal(type: any) {
     if (isMobile && type === 'hook') return;
     setIsOpen(false);
   }

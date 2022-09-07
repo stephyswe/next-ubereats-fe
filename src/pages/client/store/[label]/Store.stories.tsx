@@ -1,7 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { breadCrumbGenerateCity } from '@/lib/helper';
-
 import { componentParameter, mobileParameter } from '@/constant/storybook';
 import StorePage from '@/pages/client/store/[label]/index.page';
 
@@ -11,9 +9,7 @@ export default {
   parameters: componentParameter('fullscreen'),
 } as ComponentMeta<typeof StorePage>;
 
-const Template: ComponentStory<typeof StorePage> = () => (
-  <StorePage breadcrumb={breadCrumbGenerateCity('västra-götaland-göteborg')} />
-);
+const Template: ComponentStory<typeof StorePage> = () => <StorePage />;
 
 export const Default = Template.bind({});
 export const Mobile = Template.bind({});

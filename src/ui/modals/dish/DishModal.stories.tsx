@@ -14,7 +14,7 @@ import {
 } from '@/constant/storybook';
 import { dishData } from '@/pages/client/store/[label]/data';
 import { ModalHeader, Spacer } from '@/ui';
-import { storeModalStyles } from '@/ui/dish';
+import { storeModalStyles } from '@/ui/modals/data';
 
 import {
   DishModal,

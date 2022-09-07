@@ -30,12 +30,6 @@ BtnDish.args = {
   variant: 'btnDish',
 };
 
-export const BtnLg1 = Template.bind({});
-BtnLg1.args = {
-  label: 'Button',
-  variant: 'btnLg1',
-};
-
 export const BtnLg2 = Template.bind({});
 BtnLg2.args = {
   label: 'Button',

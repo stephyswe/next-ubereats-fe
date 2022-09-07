@@ -14,11 +14,9 @@ exports[`renders correctly 1`] = `
     }
   >
     <img
-      alt="Hungry? You're in the right place"
       className="absolute h-full"
     />
     <img
-      alt="Hungry? You're in the right place"
       className="absolute right-0 h-full"
     />
   </div>

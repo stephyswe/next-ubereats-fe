@@ -1,47 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-Array [
-  <button
-    aria-label="nav-btn"
-    className="flex h-6 w-6 cursor-pointer items-center"
-    onClick={[MockFunction]}
-  >
-    <svg
-      aria-hidden="true"
-      className="icon_20"
-      focusable="false"
-      viewBox="0 0 20 20"
-    >
-      <path
-        d="M19.167 3.333H.833v2.5h18.334v-2.5zm0 5.834H.833v2.5h18.334v-2.5zM.833 15h18.334v2.5H.833V15z"
-      />
-    </svg>
-  </button>,
-  <div
-    className="m-0 flex-shrink-0 h-[1px] pr-8 sm:pr-6"
-    data-testid="ui-spacer"
-  />,
-  <a
-    aria-label="uber-home-link"
-    className=""
-    data-testid="component-link"
-    href="/"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-    onTouchStart={[Function]}
-  >
-    <img
-      alt="uber-logo"
-      className="block h-6 max-h-[18px] w-auto max-w-[136px] md:max-h-[inherit] md:max-w-[inherit] "
-      height="24"
-      src="/images/logo.svg"
-      width="146"
-    />
-  </a>,
-  <div
-    className="m-0 flex-shrink-0 h-[1px] p-5 md:hidden"
-    data-testid="ui-spacer"
-  />,
-]
+<header>
+  <div>
+    <div>
+      <div
+        className="relative"
+      >
+        <div
+          className="right-0 left-0 top-0 m-auto box-border flex h-[96px] items-center justify-between px-4 text-black transition-bg-ease-200 md:min-w-[1024px] md:px-10 bg-white"
+        >
+          <button
+            aria-label="nav-btn"
+            className="flex h-6 w-6 cursor-pointer items-center"
+            onClick={[MockFunction]}
+          >
+            <svg
+              aria-hidden="true"
+              className="icon_20"
+              focusable="false"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M19.167 3.333H.833v2.5h18.334v-2.5zm0 5.834H.833v2.5h18.334v-2.5zM.833 15h18.334v2.5H.833V15z"
+              />
+            </svg>
+          </button>
+          <div
+            className="m-0 flex-shrink-0 h-[1px] pr-8 sm:pr-6"
+            data-testid="ui-spacer"
+          />
+          <a
+            aria-label="uber-home-link"
+            className=""
+            data-testid="component-link"
+            href="/"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            <img
+              alt="uber-logo"
+              className="block h-6 max-h-[18px] w-auto max-w-[136px] md:max-h-[inherit] md:max-w-[inherit] "
+              height="24"
+              src="/images/logo.svg"
+              width="146"
+            />
+          </a>
+          <div
+            className="m-0 flex-shrink-0 h-[1px] p-5 md:hidden"
+            data-testid="ui-spacer"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 `;

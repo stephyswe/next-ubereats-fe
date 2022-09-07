@@ -1,27 +1,32 @@
 import { render, renderMobile, screen, takeSnapshot } from 'test-utils';
 
-import { Navigation } from '@/ui/layout/nav/header';
+import { NavHeader } from '@/layout/nav/header';
+
+function RenderHeader(props: any) {
+  return (
+    <NavHeader onSidebar={jest.fn()} change={false} home={false} {...props} />
+  );
+}
 
 // ** Snapshot ** //
-
-takeSnapshot(<Navigation onSidebar={jest.fn()} change={false} />);
+takeSnapshot(<RenderHeader />);
 
 // ** Desktop Size ** //
 
 test('has nav button component', () => {
-  render(<Navigation onSidebar={jest.fn()} change={false} />);
+  render(<RenderHeader />);
   const navBtn = screen.getByRole('button', { name: 'nav-btn' });
   expect(navBtn).toBeInTheDocument();
 });
 
 test('has link component', () => {
-  render(<Navigation onSidebar={jest.fn()} change={false} />);
+  render(<RenderHeader />);
   const link = screen.getByRole('link', { name: 'uber-home-link' });
   expect(link).toBeInTheDocument();
 });
 
 test('has logo component', () => {
-  render(<Navigation onSidebar={jest.fn()} change={false} />);
+  render(<RenderHeader />);
   const logo = screen.getByRole('img', { name: 'uber-logo' });
   expect(logo).toBeInTheDocument();
 });
@@ -31,21 +36,23 @@ test('has logo component', () => {
 // ** Mobile Size ** - Change True //
 
 test('on mobile - has no logo component', () => {
-  renderMobile(<Navigation onSidebar={jest.fn()} change={true} />);
+  renderMobile(<RenderHeader change={true} />);
   expect(screen.queryByTestId('ui-logo')).not.toBeInTheDocument();
 });
 
-test('on mobile - has no content', () => {
+test('on mobile - has content', () => {
   const { container } = renderMobile(
-    <Navigation onSidebar={jest.fn()} change={true} />
+    <RenderHeader home={true} change={true} />
   );
-  expect(container).toContainHTML('<div />');
+  expect(container).toContainHTML(
+    '<div><header><div class="h-0"><div class="fixed top-0 left-0 z-30 w-full "><div class="relative"><div class="right-0 left-0 top-0 m-auto box-border flex h-[96px] items-center justify-between px-4 text-black transition-bg-ease-200 md:min-w-[1024px] md:px-10 absolute z-10 bg-white box-shadow-rgb-gray" /></div></div></div></header></div>'
+  );
 });
 
 // ** Desktop Size - Spacer conditional ** //
 
 test('on desktop - has two spacer item', () => {
-  render(<Navigation onSidebar={jest.fn()} change={false} />);
+  render(<RenderHeader />);
   const spacer = screen.getAllByTestId('ui-spacer');
   expect(spacer).toHaveLength(2);
 });

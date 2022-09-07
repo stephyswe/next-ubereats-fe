@@ -15,7 +15,7 @@ describe('has elements', () => {
   });
   test('spacer', async () => {
     render(<Home />);
-    expect(screen.getAllByTestId('ui-spacer')).toHaveLength(4);
+    expect(screen.getAllByTestId('ui-spacer')).toHaveLength(7);
   });
   test('employment-list', async () => {
     render(<Home />);

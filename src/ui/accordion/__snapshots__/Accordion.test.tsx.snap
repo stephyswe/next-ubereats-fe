@@ -57,7 +57,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="opacity-0"
+    className="opacity-0 bg-white"
     style={
       Object {
         "height": "0px",
@@ -68,7 +68,6 @@ exports[`renders correctly 1`] = `
       <input
         className="pointer-events-none absolute opacity-0 outline-none"
         type="checkbox"
-        value="0"
       />
       <label
         className="box-border flex w-full cursor-pointer flex-row justify-between overflow-hidden text-base font-medium leading-5 transition-bg-ease-100 before:box-border before:flex before:h-[22px] before:w-[22px] before:cursor-pointer before:content-[''] before:border-[0px] before:bg-[url('/images/store/checkbox-active.svg')] before:content-[''] before:bg-center"
@@ -161,7 +160,7 @@ exports[`renders correctly 2`] = `
     </div>
   </div>
   <div
-    className="p-[24px_16px]"
+    className="p-[24px_16px] bg-white"
     style={
       Object {
         "height": "undefinedpx",
@@ -172,7 +171,6 @@ exports[`renders correctly 2`] = `
       <input
         className="pointer-events-none absolute opacity-0 outline-none"
         type="radio"
-        value="0"
       />
       <label
         className="box-border flex w-full cursor-pointer flex-row justify-between overflow-hidden text-base font-medium leading-5 transition-bg-ease-100 before:box-border before:flex before:h-[22px] before:w-[22px] before:cursor-pointer before:rounded-[50%] before:content-[''] before:border-[3px] before:border-solid before:border-[#6b6b6b]"
@@ -211,7 +209,6 @@ exports[`renders correctly 2`] = `
       <input
         className="pointer-events-none absolute opacity-0 outline-none"
         type="radio"
-        value="0"
       />
       <label
         className="box-border flex w-full cursor-pointer flex-row justify-between overflow-hidden text-base font-medium leading-5 transition-bg-ease-100 before:box-border before:flex before:h-[22px] before:w-[22px] before:cursor-pointer before:rounded-[50%] before:content-[''] before:border-[3px] before:border-solid before:border-[#6b6b6b]"

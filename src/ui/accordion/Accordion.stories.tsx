@@ -38,10 +38,10 @@ const TemplateAll: ComponentStory<typeof Accordion> = () => {
     <StoryContainer>
       <StoryList className='md:grid-cols-2'>
         <Story title='3 level'>
-          <Accordion data={dishData.Sallader[1].options[0]} dishId={1} />
+          <Accordion data={dishData.Sallader[2].options[0]} dishId={1} />
         </Story>
         <Story title='3 level'>
-          <Accordion data={dishData.Sallader[1].options[1]} dishId={3} />
+          <Accordion data={dishData.Sallader[2].options[1]} dishId={3} />
         </Story>
       </StoryList>
       <StoryList title='Partials' className='md:grid-cols-2'>

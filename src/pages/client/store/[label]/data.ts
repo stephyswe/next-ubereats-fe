@@ -76,30 +76,6 @@ export const dishNewData = [
 ];
 
 export const dishData = {
-  Pizza: [
-    {
-      __typename: 'Dish',
-      id: 4,
-      name: 'New KycklingSallad',
-      price: 115,
-      photo:
-        'https://tb-static.uber.com/prod/image-proc/processed_images/fbf500543dbcc1a91bcb8de08a66396f/ffd640b0f9bc72838f2ebbee501a5d4b.jpeg',
-      description:
-        'Kyckling, vitost, färsk paprika, ananas. Isbergssallad, färska tomater, gurka, lök, vitost och bröd ingår.',
-      type: 'Sallader',
-      options: [],
-    },
-    {
-      __typename: 'Dish',
-      id: 1,
-      name: 'Pizza Speciale',
-      price: 115,
-      photo: '',
-      description: 'Juicy!',
-      type: 'Pizza',
-      options: [],
-    },
-  ],
   Sallader: [
     {
       __typename: 'Dish',
@@ -176,6 +152,30 @@ export const dishData = {
           ],
         },
       ],
+    },
+  ],
+  Pizza: [
+    {
+      __typename: 'Dish',
+      id: 4,
+      name: 'New KycklingSallad',
+      price: 115,
+      photo:
+        'https://tb-static.uber.com/prod/image-proc/processed_images/fbf500543dbcc1a91bcb8de08a66396f/ffd640b0f9bc72838f2ebbee501a5d4b.jpeg',
+      description:
+        'Kyckling, vitost, färsk paprika, ananas. Isbergssallad, färska tomater, gurka, lök, vitost och bröd ingår.',
+      type: 'Sallader',
+      options: [],
+    },
+    {
+      __typename: 'Dish',
+      id: 1,
+      name: 'Pizza Speciale',
+      price: 115,
+      photo: '',
+      description: 'Juicy!',
+      type: 'Pizza',
+      options: [],
     },
   ],
 };

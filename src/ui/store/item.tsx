@@ -49,14 +49,13 @@ export type CityRestaurantItemProps = {
 export const CityRestaurantItem = ({
   coverImg,
   name,
-  slug,
   category,
   address,
   ranking,
   banner,
   closed,
 }: CityRestaurantItemProps) => (
-  <Link href={`/store/${slug}`} className='w-full'>
+  <Link href='/client/store/1' className='w-full'>
     <div className='relative flex w-full sm:flex-col'>
       <div className='relative h-[128px] overflow-hidden bg-[#f6f6f6] sm:w-full md:w-[200px]'>
         <div className='h-full'>

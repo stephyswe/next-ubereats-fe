@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 
 import { useDelivery } from '@/contexts';
 import { Footer, Nav } from '@/layout';
+import { ModalList } from '@/ui/modals';
 
 // - Applies to all routes
 export const RootLayout = ({ children }: { children: any }) => {
@@ -27,6 +28,7 @@ export const RootLayout = ({ children }: { children: any }) => {
         {children}
         <Footer />
         {/*<Cookies /> */}
+        <ModalList />
       </div>
     </div>
   );

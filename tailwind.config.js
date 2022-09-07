@@ -324,6 +324,9 @@ module.exports = {
         '.scroll-align-start': {
           scrollSnapAlign: 'start',
         },
+        '.flex-flow-col-nowrap': {
+          flexFlow: 'column nowrap',
+        },
       });
     }),
   ],

@@ -1,114 +1,76 @@
 import clsx from 'clsx';
-import { useRef, useState } from 'react';
-import Modal from 'react-modal';
-
-import { useOnClickOutside } from '@/hooks/useOutsideDiv';
-import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
 import { Typography } from '@/components';
 import { ButtonIcon } from '@/components/buttons/ButtonIcon';
 
-import { useOrders } from '@/contexts';
-import { Spacer } from '@/ui';
+import { useModal, useOrders } from '@/contexts';
 import { SvgFoodPlus } from '@/ui/icons';
-import { ModalHeader } from '@/ui/modals';
-import { DishModal } from '@/ui/modals/dish';
 
-export const storeModalStyles = {
-  content: {
-    minHeight: '100vh',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    margin: '0 auto',
-    display: 'flex',
-    inset: 'inherit',
-    overflow: 'inherit',
-    border: 'inherit',
-    outline: 'inherit',
-    borderRadius: 'inherit',
-    background: 'unset',
-    padding: 'inherit',
-  },
-};
-
-export const homeModalStyles = {
-  content: {
-    Position: 'inherit',
-    inset: 'inherit',
-    overflow: 'inherit',
-    border: 'inherit',
-    outline: 'inherit',
-    borderRadius: 'inherit',
-    background: 'unset',
-    minHeight: '100vh',
-    justifyContent: 'flex-start',
-    margin: '0 auto',
-    alignItems: 'center',
-    display: 'flex',
-    FlexDirection: 'column',
-    padding: 'inherit',
-  },
-};
-
-export const DishItem = ({ data }: any) => {
+export const DishItem = ({ itemType, data }: any) => {
   const { photo, name, price, id } = data;
   const { setOrderItem } = useOrders();
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const { isMobile } = useWindowSizeJs();
+  const { setIsOpen, setModalBody } = useModal();
+
   function openModal() {
     setIsOpen(true);
+    setModalBody(data);
     setOrderItem({ dishId: id, price, name, options: [] });
   }
 
-  function closeModal(type: string) {
-    if (isMobile && type === 'hook') return;
-    setIsOpen(false);
-  }
-  const ref = useRef(null);
-  useOnClickOutside(ref, () => closeModal('hook'));
-
-  return (
-    <>
-      <li
-        className={clsx(
-          'col-span-2 min-w-0',
-          'hover:-m-2 hover:p-2 hover:transition-bs-ease-300 hover:box-shadow-rgb-store-item'
-        )}
-      >
-        <div className='flex flex-1 cursor-pointer no-underline '>
-          <div className='relative flex w-full flex-col flex-nowrap overflow-hidden'>
-            <div className='flex flex-1 flex-row'>
-              <DishItemDetail name={name} price={price} onClick={openModal} />
-              <DishItemImage photo={photo} name={name} onClick={openModal} />
+  function checkType(type: string) {
+    switch (type) {
+      case 'horz':
+        return (
+          <DishItemContent {...data} className='col-span-2'>
+            <div onClick={openModal} className='flex flex-1 flex-row'>
+              <DishItemDetail
+                name={name}
+                price={price}
+                className='h-full pt-1'
+              />
+              <DishItemImage
+                name={name}
+                photo={photo}
+                className='relative h-[158px] flex-[0_47%] flex-shrink-0'
+              />
             </div>
+          </DishItemContent>
+        );
 
-            <DishItemPlusQuick id={id} price={price} name={name} />
-          </div>
-        </div>
-      </li>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={storeModalStyles}
-        contentLabel='Example Modal'
-        shouldCloseOnOverlayClick={true}
-      >
-        <Spacer className='md:pt-20' />
-        <div
-          ref={ref}
-          role='dialog'
-          className='relative m-auto bg-white sm:h-full sm:w-full '
-        >
-          <div className='relative top-0 z-40'></div>
-          <div></div>
-          <ModalHeader closeModal={closeModal} checkPhoto={data.photo} />
-          <DishModal {...data} closeModal={closeModal} />
-        </div>
-        <Spacer className='md:pb-20' />
-      </Modal>
-    </>
-  );
+      case 'default':
+        return (
+          <DishItemContent {...data} className='col-span-1'>
+            <div onClick={openModal}>
+              <DishItemImage name={name} photo={photo} className='h-[188px]' />
+              <DishItemDetail name={name} price={price} className='pb-2' />
+            </div>
+          </DishItemContent>
+        );
+
+      default:
+        return <div>no item type</div>;
+    }
+  }
+
+  return checkType(itemType);
 };
+
+const DishItemContent = ({ className, children, name, price, id }: any) => (
+  <li
+    className={clsx(
+      'min-w-0',
+      'hover:-m-2 hover:p-2 hover:transition-bs-ease-300 hover:box-shadow-rgb-store-item',
+      className
+    )}
+  >
+    <div className='flex flex-1 cursor-pointer no-underline'>
+      <div className='relative flex w-full flex-col overflow-hidden'>
+        {children}
+        <DishItemPlusQuick id={id} price={price} name={name} />
+      </div>
+    </div>
+  </li>
+);
 
 export const DishItemPlusQuick = ({
   id,
@@ -139,8 +101,8 @@ export const DishItemPlusQuick = ({
   );
 };
 
-export const DishItemDetail = ({ name, price, onClick }: any) => (
-  <div onClick={onClick} className='flex flex-1 flex-col pb-2'>
+export const DishItemDetail = ({ className, name, price }: any) => (
+  <div className={clsx('flex flex-1 flex-col', className)}>
     <Typography as='span' weight='medium' variant='base' leading='5'>
       {name}
     </Typography>
@@ -150,11 +112,8 @@ export const DishItemDetail = ({ name, price, onClick }: any) => (
   </div>
 );
 
-export const DishItemImage = ({ photo, name, onClick }: any) => (
-  <div
-    onClick={onClick}
-    className='relative h-[158px] w-full flex-[0_1_47%] overflow-hidden'
-  >
+export const DishItemImage = ({ className, photo, name }: any) => (
+  <div className={clsx('w-full overflow-hidden', className)}>
     <div className='relative'>
       {photo ? (
         <picture>

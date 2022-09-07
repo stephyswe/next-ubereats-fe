@@ -1,4 +1,4 @@
-import { Accordion } from '@/ui/accordion';
+import { Accordion, AccordionTopSec } from '@/ui/accordion';
 
 import { ModalBuy, ModalDetail, ModalImage } from './item';
 
@@ -17,6 +17,16 @@ export const DishModal = (props: any) => {
           </li>
         ))}
       </ul>
+      <div className='block sm:mb-8 md:hidden'>
+        <AccordionTopSec />
+        <div className='bg-white p-[24px_16px]'>
+          <input
+            placeholder='Add a note'
+            type='input'
+            className=' absolute outline-none'
+          />
+        </div>
+      </div>
       <ModalBuy closeModal={closeModal} id={id} />
     </div>
   );

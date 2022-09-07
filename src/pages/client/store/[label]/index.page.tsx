@@ -9,22 +9,17 @@ import { useDelivery, useOrders } from '@/contexts';
 import { dishData } from '@/pages/client/store/[label]/data';
 import {
   AsideList,
-  Breadcrumb,
-  BreadcrumbItemProps,
   Container,
+  DishList,
   HeroSmall,
+  Spacer,
   StoreDetail,
   StoreToggler,
 } from '@/ui';
-import { DishList } from '@/ui/dish';
 
 export { getServerSideProps } from '@/constant/server/store.server';
 
-type StorePageProps = {
-  breadcrumb: BreadcrumbItemProps[];
-};
-
-export default function StorePage({ breadcrumb }: StorePageProps) {
+export default function StorePage() {
   const { image, detail } = storeData;
   const { setComplete } = useDelivery();
   const { orderItems, setOrderItems } = useOrders();
@@ -70,14 +65,11 @@ export default function StorePage({ breadcrumb }: StorePageProps) {
 
   return (
     <main className='block'>
-      <Container>
-        <Breadcrumb data={breadcrumb} />
-      </Container>
       <Container wide>
         <HeroSmall image={image} overlay={false} />
       </Container>
       <Container>
-        <div className='pt-6'>
+        <div className='pt-3 md:pt-6'>
           <StoreDetail data={detail} />
           <div className='relative ml-auto hidden h-[48px] w-[438px] md:block'>
             <StoreToggler />
@@ -87,6 +79,7 @@ export default function StorePage({ breadcrumb }: StorePageProps) {
       <Container>
         <div className='flex'>
           <AsideList data={dishData} />
+          <Spacer className='md:w-10' />
           <div className='w-full'>
             <Orders confirm={triggerConfirmOrder} cancel={triggerCancelOrder} />
             <ul className='m-0 mt-[24px] block p-0'>

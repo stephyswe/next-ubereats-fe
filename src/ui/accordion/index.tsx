@@ -110,3 +110,11 @@ export const AccordionTop = ({
     </div>
   </div>
 );
+
+export const AccordionTopSec = () => (
+  <div className='flex flex-row items-center justify-between bg-[#f6f6f6] p-4'>
+    <div className='flex flex-col'>
+      <div className='text-lg font-medium leading-6'>Special instructions</div>
+    </div>
+  </div>
+);

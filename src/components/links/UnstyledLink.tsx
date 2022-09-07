@@ -98,7 +98,9 @@ export const UnstyledLink = React.forwardRef<
           'text-sm leading-4',
           'font-medium',
           'bg-gray-50 hover:bg-gray-500',
-          'min-h-[24px] p-[8px_16px] rounded-[500px]',
+          'rounded-[500px]',
+          'min-h-[24px] p-[8px_12px]',
+          'md:min-h-[24px] md:p-[8px_16px]',
           'z-[inherit] items-center whitespace-nowrap flex-row flex relative',
         ],
         variant === 'linkSmall3' &&

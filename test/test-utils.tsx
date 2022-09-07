@@ -4,8 +4,7 @@ import renderer from 'react-test-renderer';
 
 import client from '@/lib/apollo';
 
-import { DeliveryProvider } from '@/contexts/delivery';
-import { OrderProvider } from '@/contexts/order';
+import { DeliveryProvider, ModalProvider, OrderProvider } from '@/contexts';
 
 function render(ui: any, options?: any) {
   return rtlRender(ui, { wrapper: AppWrapper, ...options });
@@ -15,7 +14,9 @@ export function AppWrapper({ children }: any) {
   return (
     <ApolloProvider client={client}>
       <DeliveryProvider>
-        <OrderProvider>{children}</OrderProvider>
+        <ModalProvider>
+          <OrderProvider>{children}</OrderProvider>
+        </ModalProvider>
       </DeliveryProvider>
     </ApolloProvider>
   );

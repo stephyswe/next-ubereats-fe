@@ -1,7 +1,7 @@
-import { ApolloProvider } from '@apollo/client';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
+import { AppWrapper } from 'test-utils';
 
 import '@/styles/globals.scss';
 import '@/styles/uber.css';
@@ -9,11 +9,7 @@ import '@/styles/uber-fonts.css';
 import '@/ui/maps/pickup/map-pickup-elements.css';
 import '@/ui/maps/pickup/map-pickup-styles.css';
 
-import client from '@/lib/apollo';
-
 import { isTest } from '@/constant/env';
-import { DeliveryProvider } from '@/contexts/delivery';
-import { OrderProvider } from '@/contexts/order';
 import { RootLayout } from '@/layout';
 
 export type NextPageWithLayout = NextPage & {
@@ -34,15 +30,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return getLayout(
-    <ApolloProvider client={client}>
-      <DeliveryProvider>
-        <OrderProvider>
-          <RootLayout>
-            <Component {...pageProps} />
-          </RootLayout>
-        </OrderProvider>
-      </DeliveryProvider>
-    </ApolloProvider>
+    <AppWrapper>
+      <RootLayout>
+        <Component {...pageProps} />
+      </RootLayout>
+    </AppWrapper>
   );
 }
 

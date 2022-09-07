@@ -7,13 +7,12 @@ import { SvgPersonAdd, SvgSchedule } from '@/ui/icons';
 type StoreDetailProps = {
   title: string;
   address: string;
-  timeCost: string;
   info: string;
   rating: string;
 };
 
 export const StoreDetail = ({
-  data: { title, address, timeCost, info, rating },
+  data: { title, address, info, rating },
 }: {
   data: StoreDetailProps;
 }) => (
@@ -21,18 +20,22 @@ export const StoreDetail = ({
     <Typography as='h2' variant='4xl' className='leading-[36px]'>
       {title}
     </Typography>
-    <div className='h-2'></div>
+    <div className='h-1 md:h-2'></div>
     <div className='flex'>
       <div>
         <StoreDetailRating rating={rating} />
         <Spacer className='h-[2px]' />
-        <Typography as='p' variant='small' className='text-gray-400'>
+        <Typography
+          as='p'
+          variant='small'
+          className='hidden text-gray-400 md:block'
+        >
           {address}
         </Typography>
         <Spacer className='h-[2px]' />
-        <Typography as='p' variant='small' className='text-gray-400'>
+        {/* <Typography as='p' variant='small' className='text-gray-400'>
           {timeCost}
-        </Typography>
+        </Typography> */}
         <Spacer className='h-[2px]' />
         <Link href='placeholder'>
           <Typography as='p' variant='small' className='text-gray-400'>
@@ -47,13 +50,9 @@ export const StoreDetail = ({
     </div>
 
     <div className='flex min-h-[56px] items-end'>
-      <LinkIcon
-        href='placeholder'
-        svg={<SvgPersonAdd />}
-        title='Gruppbeställning'
-      />
+      <LinkIcon href='placeholder' svg={<SvgPersonAdd />} title='Group Order' />
       <div className='w-2'></div>
-      <LinkIcon href='placeholder' svg={<SvgSchedule />} title='Schemalägg' />
+      <LinkIcon href='placeholder' svg={<SvgSchedule />} title='Schedule' />
     </div>
   </div>
 );
@@ -72,14 +71,14 @@ const StoreDetailRating = ({ rating }: any) => (
       </div>
     </Link>
     <span className='inline-flex items-center text-sm font-medium leading-4 text-black'>
-      &nbsp;&nbsp;•&nbsp;&nbsp;
+      &nbsp;•&nbsp;
     </span>
     <Link
       rel='nofollow'
       className='cursor-pointer text-sm font-medium leading-4 text-black underline'
       href='placeholder'
     >
-      Mer information
+      More Info
     </Link>
   </div>
 );

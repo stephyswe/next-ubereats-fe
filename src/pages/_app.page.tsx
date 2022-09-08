@@ -5,11 +5,12 @@ import { AppWrapper } from 'test-utils';
 
 import '@/styles/globals.scss';
 import '@/styles/uber.css';
-import '@/styles/uber-fonts.css';
-import '@/ui/maps/pickup/map-pickup-elements.css';
-import '@/ui/maps/pickup/map-pickup-styles.css';
+import '@/styles/fonts.css';
+import '@/styles/map-pickup-elements.css';
+import '@/styles/map-pickup-styles.css';
 
-import { isTest } from '@/constant/env';
+import { isTest } from '@/lib/env';
+
 import { RootLayout } from '@/layout';
 
 export type NextPageWithLayout = NextPage & {

@@ -8,9 +8,10 @@ import {
   Story,
   StoryContainer,
   StoryList,
-} from '@/constant/storybook';
+} from '@/lib/storybook';
+
 import { useOrders } from '@/contexts';
-import { dishData } from '@/pages/client/store/[label]/data';
+import { dishGroupData } from '@/pages/_app/items/dish';
 import { AccordionItem } from '@/ui/accordion/item';
 
 import { Accordion, AccordionTop } from '.';
@@ -38,10 +39,10 @@ const TemplateAll: ComponentStory<typeof Accordion> = () => {
     <StoryContainer>
       <StoryList className='md:grid-cols-2'>
         <Story title='3 level'>
-          <Accordion data={dishData.Sallader[2].options[0]} dishId={1} />
+          <Accordion data={dishGroupData.Sallader[2].options[0]} dishId={1} />
         </Story>
         <Story title='3 level'>
-          <Accordion data={dishData.Sallader[2].options[1]} dishId={3} />
+          <Accordion data={dishGroupData.Sallader[2].options[1]} dishId={3} />
         </Story>
       </StoryList>
       <StoryList title='Partials' className='md:grid-cols-2'>

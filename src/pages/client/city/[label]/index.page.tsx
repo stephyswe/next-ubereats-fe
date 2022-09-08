@@ -1,8 +1,8 @@
 import { Button, ButtonInput } from '@/components';
 
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
-import { cityData } from '@/constant/pages/client/city.data';
-import { categoriesData } from '@/constant/ui/category';
+import { cityData } from '@/pages/client/city/[label]/city.data';
+import { categoriesData } from '@/pages/_app/items/category';
 import {
   Breadcrumb,
   BreadcrumbItemProps,
@@ -16,7 +16,7 @@ import {
 import { SvgMap } from '@/ui/icons';
 import { StoresClosed, StoresOpen } from '@/ui/store/list';
 
-export { getServerSideProps } from '@/constant/server/city.server';
+export { getServerSideProps } from '@/pages/client/city/[label]/city.server';
 
 export type CityPageProps = {
   breadcrumb: BreadcrumbItemProps[];

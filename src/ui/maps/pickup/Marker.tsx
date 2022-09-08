@@ -1,10 +1,7 @@
-import {
-  RestaurantDetails,
-  RestaurantImage,
-} from '@/components/pages/client/dining/pickup/restaurant';
-
-import { pickupData } from '@/constant/pages/client/pickup.data';
+import { pickupItemData } from '@/pages/_app/items/store';
 import { useDelivery } from '@/contexts/delivery';
+import { pickupData } from '@/pages/client/dining/pickup/pickup.data';
+import { StoreItemDefault } from '@/ui/store/item';
 const { restaurants } = pickupData;
 
 /**
@@ -67,26 +64,19 @@ export const RestaurantMarker = ({ zoomLevel, tooltip, rating, item }: any) => {
  * @param props 1. onHoverTooltip 2. onHover 3. isActive 4. tooltip 5. rating 6. onClick
  * @returns
  */
-export function MarkerRestaurantItem(props: any) {
-  const { name, photos, rating } = props;
-  return (
-    <div className='markerResItem'>
-      <div className='markerPicture'>
-        <RestaurantImage
-          srcSet={photos ? photos[0].getUrl() : restaurants[0].srcSet}
-          src={restaurants[0].src}
-        />
-      </div>
-      <RestaurantDetails
-        title={name}
-        review={rating}
-        time={restaurants[0].detail.time}
-        distance={restaurants[0].detail.distance}
-        mapMarker
-      />
-    </div>
-  );
-}
+export const MarkerRestaurantItem = ({ name, photos, rating }: any) => (
+  <div className='markerResItem'>
+    <StoreItemDefault
+      time={pickupItemData.time}
+      distance={pickupItemData.time}
+      ranking={rating}
+      title={name}
+      srcSet={photos ? photos[0].getUrl() : pickupItemData.srcSet}
+      imageClassName='h-[180px] overflow-hidden'
+      detailClassName='px-3'
+    />
+  </div>
+);
 
 /**
  * @description Marker component

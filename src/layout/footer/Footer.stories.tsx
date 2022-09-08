@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { mobileParameter } from '@/constant/storybook';
+import { mobileParameter } from '@/lib/storybook';
 
 import { Footer } from '.';
 

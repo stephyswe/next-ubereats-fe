@@ -6,8 +6,8 @@ import {
   Story,
   StoryContainer,
   StoryList,
-} from '@/constant/storybook';
-import { categoriesData } from '@/constant/ui/category';
+} from '@/lib/storybook';
+import { categoriesData } from '@/pages/_app/items/category';
 
 import { CategoryList, CategorySquareItem } from '.';
 

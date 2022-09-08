@@ -7,7 +7,7 @@ import { useModal, useOrders } from '@/contexts';
 import { SvgFoodPlus } from '@/ui/icons';
 
 export const DishItem = ({ itemType, data }: any) => {
-  const { photo, name, price, id } = data;
+  const { name, price, id } = data;
   const { setOrderItem } = useOrders();
   const { setIsOpen, setModalBody } = useModal();
 
@@ -21,34 +21,24 @@ export const DishItem = ({ itemType, data }: any) => {
     switch (type) {
       case 'horz':
         return (
-          <DishItemContent {...data} className='col-span-2'>
-            <div onClick={openModal} className='flex flex-1 flex-row'>
-              <DishItemDetail
-                name={name}
-                price={price}
-                className='h-full pt-1'
-              />
-              <DishItemImage
-                name={name}
-                photo={photo}
-                className='relative flex-[0_37%] flex-shrink-0 md:h-[158px] md:flex-[0_47%]'
-              />
-            </div>
-          </DishItemContent>
+          <DishItemWrapper
+            data={data}
+            openModal={openModal}
+            className='col-span-2'
+            imageClassName='relative flex-[0_37%] flex-shrink-0 md:h-[158px] md:flex-[0_47%]'
+          />
         );
 
       case 'default':
         return (
-          <DishItemContent {...data} className='col-span-1'>
-            <div onClick={openModal}>
-              <DishItemImage
-                name={name}
-                photo={photo}
-                className='md:h-[188px]'
-              />
-              <DishItemDetail name={name} price={price} className='md:pb-2' />
-            </div>
-          </DishItemContent>
+          <DishItemWrapper
+            data={data}
+            openModal={openModal}
+            className='col-span-1'
+            innerClassName='flex-col-reverse'
+            detailClassName='order-1'
+            imageClassName='md:h-[188px] order-2'
+          />
         );
 
       default:
@@ -57,6 +47,37 @@ export const DishItem = ({ itemType, data }: any) => {
   }
 
   return checkType(itemType);
+};
+
+export const DishItemWrapper = ({
+  className,
+  detailClassName,
+  imageClassName,
+  innerClassName,
+  data: { photo, price, name, id },
+  openModal,
+}: any) => {
+  return (
+    <DishItemContent
+      name={name}
+      price={price}
+      id={id}
+      className={clsx('', className)}
+    >
+      <div onClick={openModal} className={clsx('flex', innerClassName)}>
+        <DishItemDetail
+          name={name}
+          price={price}
+          className={clsx('h-full pt-1 md:pb-2', detailClassName)}
+        />
+        <DishItemImage
+          name={name}
+          photo={photo}
+          className={clsx('', imageClassName)}
+        />
+      </div>
+    </DishItemContent>
+  );
 };
 
 const DishItemContent = ({ className, children, name, price, id }: any) => (

@@ -11,9 +11,10 @@ import { homePosition, NavHeader, NavPerPage } from '@/layout/nav';
 export type NavProps = {
   noBorder?: boolean;
   fixed?: boolean;
+  heroInput?: boolean;
 };
 
-export const Nav = ({ noBorder, fixed }: NavProps) => {
+export const Nav = ({ noBorder, fixed, heroInput }: NavProps) => {
   const { isMobile } = useWindowSizeJs();
 
   const router = useRouter();
@@ -27,7 +28,7 @@ export const Nav = ({ noBorder, fixed }: NavProps) => {
 
   const position: any = useWindowScrollPosition();
   useOutsideAlerter(sidebarRef, setActive);
-  if (!fixed) {
+  if (heroInput) {
     homePosition(position, setChange, change, 1, 200, isMobile);
   }
 

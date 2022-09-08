@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
-import { NavButton } from '@/components/buttons/NavButton';
+import { NavButton } from '@/components/buttons/Buttons';
 
 import { NavProps } from '@/layout/nav/nav';
 import { Logo, Spacer } from '@/ui';

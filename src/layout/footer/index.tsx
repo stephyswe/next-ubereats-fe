@@ -1,4 +1,4 @@
-import { footerData } from '@/constant/pages/layout/footer.data';
+import { footerData } from '@/pages/_app/footer.data';
 import { Container } from '@/ui/container';
 
 import {

@@ -1,30 +1,19 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { storeData } from '@/constant/pages/client/store.data';
 import {
   componentParameter,
   mobileParameter,
   Story,
   StoryContainer,
   StoryList,
-} from '@/constant/storybook';
-import { restaurantTitleData } from '@/constant/ui/restaurant';
-import { CityRestaurantItem } from '@/ui/store/item';
+} from '@/lib/storybook';
+import { storeTitleData } from '@/pages/_app/items/store';
+import { pickupData } from '@/pages/client/dining/pickup/pickup.data';
+import { StoreItemDefault, StoreItemWide } from '@/ui/store/item';
 
-import { CityRestaurantOne, StoreDetail, StoreScroll } from '.';
+import { StoreDetail, StoresClosed, StoreScroll, StoresOpen } from '.';
 
-const customDataItem = {
-  slug: 'burger-king-jarntorget',
-  name: 'Burger King Järntorget',
-  coverImg:
-    'https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly9kMXJhbHNvZ25qbmczNy5jbG91ZGZyb250Lm5ldC9lMTIxZDlhMS01YzRiLTQ5OGEtYWM0MC1lMjZhMTlhZThhYjUuanBlZw==',
-  category: ['Burgers', 'Fast Food'],
-  address: 'Järntorget 6, Västra Götalands län 413 04',
-  ranking: null,
-  banner: null,
-};
-
-const customDataAllItem = {
+const customData = {
   slug: 'custom-slug',
   name: 'customstorecustomstorecustomstore',
   coverImg:
@@ -44,35 +33,35 @@ export default {
 const TemplateAll: ComponentStory<typeof StoreScroll> = () => (
   <StoryContainer>
     <StoryList>
-      <Story title='With headline & data'>
-        <StoreScroll data={restaurantTitleData[0]} />
-      </Story>
       <Story title='With data'>
-        <CityRestaurantOne data={restaurantTitleData[0].items} />
+        <StoresClosed />
       </Story>
       <Story title='With no data'>
-        <CityRestaurantOne data={[]} />
+        <StoresOpen />
+      </Story>
+      <Story title='With headline & data'>
+        <StoreScroll data={storeTitleData[0]} />
       </Story>
     </StoryList>
 
     <StoryList className='md:grid-cols-3'>
       <Story title='default'>
-        <CityRestaurantItem {...customDataItem} />
+        <StoreItemDefault {...pickupData} />
       </Story>
-      <Story title='banner'>
-        <CityRestaurantItem
-          {...customDataItem}
+      <Story title='wide'>
+        <StoreItemWide
+          {...storeData}
           banner='SEK 0 Delivery Fee (Spend SEK 250)'
         />
       </Story>
       <Story title='ranking'>
-        <CityRestaurantItem {...customDataItem} ranking='4.0' />
+        <StoreItemDefault {...storeData} ranking='4.0' />
       </Story>
       <Story title='Closed'>
-        <CityRestaurantItem {...customDataItem} closed />
+        <StoreItemDefault {...storeData} closed />
       </Story>
       <Story title='Long text'>
-        <CityRestaurantItem {...customDataAllItem} />
+        <StoreItemDefault {...customData} />
       </Story>
     </StoryList>
     <StoryList className='md:grid-cols-2'>

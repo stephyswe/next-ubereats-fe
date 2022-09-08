@@ -8,7 +8,7 @@ import { authTokenVar, isLoggedInVar } from '@/lib/apollo';
 import { Button, Input, Link, Typography } from '@/components';
 
 import { LoginInput, useLoginMutation } from '@/__generated__/graphql';
-import { LOCALSTORAGE_TOKEN } from '@/constant/env';
+import { LOCALSTORAGE_TOKEN } from '@/lib/env';
 import { SvgAuthLoginArrow } from '@/ui/icons/icons';
 
 export default function Login() {

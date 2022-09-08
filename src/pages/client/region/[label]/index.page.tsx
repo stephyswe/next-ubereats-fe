@@ -1,11 +1,11 @@
 import { Button, ButtonInput, Typography } from '@/components';
-import { CountryListNew } from '@/components/pages/client/home/country';
+import { CountryListNew } from '@/pages/_app/country';
 
-import { regionData } from '@/constant/pages/client/region.data';
+import { regionData } from '@/pages/client/region/[label]/region.data';
 import { Breadcrumb, Container, HeroDynamic, Separator, Spacer } from '@/ui';
 import { SvgMap } from '@/ui/icons';
 
-export { getServerSideProps } from '@/constant/server/region.server';
+export { getServerSideProps } from '@/pages/client/region/[label]/region.server';
 
 type DeliveryInformationItemProps = { title: string; subtitle: string };
 

@@ -1,6 +1,10 @@
+import clsx from 'clsx';
+
+import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
+
 import { LinkLogin } from '@/components/links/NavLink';
 
-import { isBrowser, LOCALSTORAGE_TOKEN } from '@/constant/env';
+import { isBrowser, LOCALSTORAGE_TOKEN } from '@/lib/env';
 import { useDelivery } from '@/contexts';
 import { NavItemDelivery, NavItemSearch } from '@/layout/nav/items';
 import { Spacer } from '@/ui';
@@ -8,12 +12,23 @@ import { Cart } from '@/ui/cart';
 import { DiningToggler } from '@/ui/toggler';
 
 export const NavbarDiningContent = () => {
+  const { isMobile } = useWindowSizeJs();
   let auth;
   if (isBrowser) {
     auth = localStorage.getItem(LOCALSTORAGE_TOKEN ? LOCALSTORAGE_TOKEN : '');
   }
 
   const { isComplete } = useDelivery();
+
+  if (isMobile) {
+    return (
+      <>
+        <div className={clsx('relative w-full max-w-[722px]')}></div>
+        <div className='flex-1'></div>
+      </>
+    );
+  }
+
   if (auth)
     return (
       <>

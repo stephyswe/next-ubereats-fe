@@ -4,19 +4,19 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import { Button, Typography } from '@/components';
+
+import {
+  useCookedOrdersSubscription,
+  useUpdateOrderDriverMutation,
+} from '@/__generated__/graphql';
+import { GOOGLE_API } from '@/lib/env';
 import {
   defaultCenter,
   Driver,
   ICoords,
   makeRoute,
   onLoad,
-} from '@/components/pages/driver/utils';
-
-import {
-  useCookedOrdersSubscription,
-  useUpdateOrderDriverMutation,
-} from '@/__generated__/graphql';
-import { GOOGLE_API } from '@/constant/env';
+} from '@/pages/driver/utils';
 
 export default function DriverDashboardPage() {
   const router = useRouter();

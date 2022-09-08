@@ -6,7 +6,7 @@ import {
   Story,
   StoryContainer,
   StoryList,
-} from '@/constant/storybook';
+} from '@/lib/storybook';
 
 import { Headline, HeadlineArrows } from '.';
 

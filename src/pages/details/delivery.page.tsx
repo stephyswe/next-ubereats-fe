@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import { Typography } from '@/components';
-import { CloseButton } from '@/components/buttons/NavButton';
+import { CloseButton } from '@/components/buttons/Buttons';
 import { ButtonInputDeliver } from '@/components/inputs/ButtonInput';
 
 export default function DetailsDelivery() {

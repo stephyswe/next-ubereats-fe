@@ -5,7 +5,7 @@ import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 import { ButtonInput } from '@/components';
 import { LinkLogin, LinkSignup } from '@/components/links/NavLink';
 
-import { navHomeData } from '@/constant/pages/layout/nav-home.data';
+import { navHomeData } from '@/pages/_app/nav-home.data';
 import { Spacer } from '@/ui';
 import { SvgMap } from '@/ui/icons';
 

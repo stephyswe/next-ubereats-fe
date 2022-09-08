@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { sidebarData } from '@/constant/pages/layout/sidebar.data';
+import { sidebarData } from '@/pages/_app/sidebar.data';
 
 import {
   SidebarAuthentication,

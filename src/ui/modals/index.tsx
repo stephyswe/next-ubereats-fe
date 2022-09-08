@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { CloseButton } from '@/components/buttons/NavButton';
+import { CloseButton } from '@/components/buttons/Buttons';
 
 export * from './dish';
 

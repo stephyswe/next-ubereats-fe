@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { componentParameter, mobileParameter } from '@/constant/storybook';
+import { componentParameter, mobileParameter } from '@/lib/storybook';
 
 import PickUpModePage from './index.page';
 

@@ -1,14 +1,9 @@
 import clsx from 'clsx';
 
-import { categoryData } from '@/constant/ui/category';
-import { restaurantData, restaurantTitleData } from '@/constant/ui/restaurant';
+import { storeData, storeTitleData } from '@/pages/_app/items/store';
 import { Separator, Spacer } from '@/ui';
 import { Headline } from '@/ui/headline';
-import {
-  CategoryRestaurantItem,
-  CityRestaurantItem,
-  CityRestaurantItemProps,
-} from '@/ui/store/item';
+import { CityRestaurantItemProps, StoreItemWide } from '@/ui/store/item';
 
 // Closed or Open Store
 
@@ -20,11 +15,11 @@ export const StoresClosed = ({
 }) => (
   <>
     <div className='grid grid-cols-1 gap-[40px_24px] md:grid-cols-2'>
-      {restaurantData.map((item: CityRestaurantItemProps) => (
+      {storeData.map((item: CityRestaurantItemProps) => (
         <div className='min-w-0' key={item.slug}>
           <div className='relative overflow-hidden'>
             <div className='relative flex overflow-hidden'>
-              <CityRestaurantItem {...item} closed={closed} />
+              <StoreItemWide {...item} closed={closed} />
             </div>
           </div>
         </div>
@@ -41,17 +36,21 @@ export const StoresOpen = () => (
       data-test='feed-desktop'
       className='grid grid-cols-1 gap-[30px_24px] md:grid-cols-2 md:gap-[40px_24px]'
     >
-      {restaurantTitleData.map((item: any, index: any) => (
+      {storeTitleData.map(({ title, items }: any, index: any) => (
         <div key={index} className='col-span-full min-w-0'>
           <section>
-            <StoreScroll data={item} />
+            <Headline title={title} info />
+            <div className='scrollbar-none flex overflow-y-hidden overflow-x-scroll scroll-snap-x'>
+              <StoreScroll data={items} />
+              <StoreScroll data={items} />
+            </div>
           </section>
           <Separator top mobile />
         </div>
       ))}
-      {restaurantData.map((item: any, index: any) => (
+      {storeData.map((item: any, index: any) => (
         <li key={index}>
-          <CityRestaurantItem {...item} />
+          <StoreItemWide {...item} closed={closed} />
         </li>
       ))}
     </div>
@@ -59,30 +58,7 @@ export const StoresOpen = () => (
   </>
 );
 
-// Category Restaurant List
-// eslint-disable-next-line unused-imports/no-unused-vars
-export const CategoryRestaurantList = ({ data }: any) => (
-  <div className='grid gap-[40px_24px] md:grid-cols-3'>
-    {categoryData.map(({ coverImg, category }: any, index: number) => (
-      <div key={index} className='min-w-0'>
-        <CategoryRestaurantItem coverImg={coverImg} category={category} />
-      </div>
-    ))}
-  </div>
-);
-
-// City Restaurant List - Scrollable Content
 export const StoreScroll = ({ data }: { data?: any }) => (
-  <>
-    <Headline title={data.title} info />
-    <div className='scrollbar-none flex overflow-y-hidden overflow-x-scroll scroll-snap-x'>
-      <CityRestaurantOne data={data.items} />
-      <CityRestaurantOne data={data.items} />
-    </div>
-  </>
-);
-
-export const CityRestaurantOne = ({ data }: { data?: any }) => (
   <div className='flex w-full flex-shrink-0 flex-grow-0 gap-[32px_0] md:basis-[100%] md:flex-wrap md:scroll-align-start'>
     {data.map((item: any, index: number) => (
       <li
@@ -92,7 +68,7 @@ export const CityRestaurantOne = ({ data }: { data?: any }) => (
           index % 2 === 0 ? 'mr-6' : ''
         )}
       >
-        <CityRestaurantItem {...item} />
+        <StoreItemWide {...item} closed={closed} />
       </li>
     ))}
   </div>

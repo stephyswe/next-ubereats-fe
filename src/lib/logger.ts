@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { isBrowser, showLogger } from '@/constant/env';
+import { isBrowser, showLogger } from '@/lib/env';
 
 /**
  * A logger function that will only logs on development

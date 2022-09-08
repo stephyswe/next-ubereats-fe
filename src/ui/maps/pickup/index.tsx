@@ -6,7 +6,7 @@ import { useOnClickOutside } from '@/hooks/useOutsideDiv';
 
 import { Link } from '@/components';
 
-import { GOOGLE_API } from '@/constant/env';
+import { GOOGLE_API } from '@/lib/env';
 import { useDelivery } from '@/contexts/delivery';
 
 import { MarkerRestaurantItem, RestaurantMarker } from './Marker';

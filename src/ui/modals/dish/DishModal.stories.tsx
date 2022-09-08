@@ -3,16 +3,16 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useRef, useState } from 'react';
 import Modal from 'react-modal';
 
-import { useOnClickOutside } from '@/hooks/useOutsideDiv';
-
 import {
   componentParameter,
   mobileParameter,
   Story,
   StoryContainer,
   StoryList,
-} from '@/constant/storybook';
-import { dishData } from '@/pages/client/store/[label]/data';
+} from '@/lib/storybook';
+import { useOnClickOutside } from '@/hooks/useOutsideDiv';
+
+import { dishGroupData } from '@/pages/_app/items/dish';
 import { ModalHeader, Spacer } from '@/ui';
 import { storeModalStyles } from '@/ui/modals/data';
 
@@ -57,9 +57,12 @@ const TemplateAll: ComponentStory<typeof DishModal> = () => {
               <div></div>
               <ModalHeader
                 closeModal={closeModal}
-                checkPhoto={dishData.Sallader[0].photo}
+                checkPhoto={dishGroupData.Sallader[0].photo}
               />
-              <DishModal {...dishData.Sallader[0]} closeModal={closeModal} />
+              <DishModal
+                {...dishGroupData.Sallader[0]}
+                closeModal={closeModal}
+              />
             </div>
             <Spacer className='pb-20' />
           </Modal>
@@ -67,10 +70,10 @@ const TemplateAll: ComponentStory<typeof DishModal> = () => {
       </StoryList>
       <StoryList title='Partials' className='md:grid-cols-2'>
         <Story title='item - dishModal' bgColor='white'>
-          <DishModal {...dishData.Sallader[0]} closeModal={closeModal} />
+          <DishModal {...dishGroupData.Sallader[0]} closeModal={closeModal} />
         </Story>
         <Story title='image' bgColor='white'>
-          <ModalImage photo={dishData.Sallader[1].photo} name='name' />
+          <ModalImage photo={dishGroupData.Sallader[1].photo} name='name' />
         </Story>
         <Story title='detail' bgColor='white'>
           <ModalDetail price={1} name='two' />
@@ -88,7 +91,7 @@ const TemplateAll: ComponentStory<typeof DishModal> = () => {
         </Story>
       </StoryList>
       <StoryList>
-        <DishModal {...dishData.Sallader[1]} closeModal={closeModal} />
+        <DishModal {...dishGroupData.Sallader[1]} closeModal={closeModal} />
       </StoryList>
     </StoryContainer>
   );

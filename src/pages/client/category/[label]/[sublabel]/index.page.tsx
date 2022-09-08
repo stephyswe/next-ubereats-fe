@@ -1,8 +1,9 @@
 import { Button, ButtonInput, Link, NextImage, Typography } from '@/components';
 
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
-import { categoryData } from '@/constant/pages/client/category.data';
-import { tempCatDataForCatPage } from '@/constant/ui/category';
+import { categoryData } from '@/pages/client/category/[label]/[sublabel]/category.data';
+import { tempCatDataForCatPage } from '@/pages/_app/items/category';
+import { storeCategoryPageData } from '@/pages/_app/items/store';
 import {
   Breadcrumb,
   Container,
@@ -12,9 +13,9 @@ import {
   Spacer,
 } from '@/ui';
 import { SvgMap } from '@/ui/icons';
-import { CategoryRestaurantList } from '@/ui/store/list';
+import { StoreItemDefault } from '@/ui/store/item';
 
-export { getServerSideProps } from '@/constant/server/category.server';
+export { getServerSideProps } from '@/pages/client/category/[label]/[sublabel]/category.server';
 
 export default function CategoryPage({ title, breadcrumb }: any) {
   const {
@@ -51,7 +52,14 @@ export default function CategoryPage({ title, breadcrumb }: any) {
       </Container>
       <Container>
         <Spacer className='h-6' />
-        <CategoryRestaurantList data={data?.findManyRestaurants.results} />
+        <div className='grid gap-[40px_24px] md:grid-cols-3'>
+          {storeCategoryPageData.map((item: any, index: number) => (
+            <div key={index} className='min-w-0'>
+              <StoreItemDefault {...item} />
+            </div>
+          ))}
+        </div>
+
         <Separator />
       </Container>
       <Container>

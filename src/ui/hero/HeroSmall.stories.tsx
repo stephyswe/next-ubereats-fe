@@ -1,13 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { storeData } from '@/constant/pages/client/store.data';
+import { storePageData } from '@/pages/client/store/[label]/store.data';
 import {
   componentParameter,
   mobileParameter,
   Story,
   StoryContainer,
   StoryList,
-} from '@/constant/storybook';
+} from '@/lib/storybook';
 
 import { HeroSmall } from '.';
 
@@ -21,7 +21,7 @@ const TemplateAll: ComponentStory<typeof HeroSmall> = () => (
   <StoryContainer>
     <StoryList>
       <Story title='default'>
-        <HeroSmall image={storeData.image} overlay={false} />
+        <HeroSmall image={storePageData.image} overlay={false} />
       </Story>
       <Story title='no data'>
         <HeroSmall image='' overlay={false} />

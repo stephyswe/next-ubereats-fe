@@ -15,7 +15,7 @@ type ButtonProps<C extends React.ElementType> = {
 export const ButtonIcon = <C extends React.ElementType>({
   variant,
   svg,
-  iconVariant,
+  iconVariant = null,
   ...rest
 }: ButtonProps<C>) => {
   return (
@@ -41,7 +41,7 @@ export const ButtonIcon = <C extends React.ElementType>({
             ],
           ],
           //#endregion  //*======== Variants ===========
-          'contents'
+          iconVariant === null && ['contents']
         )}
       >
         {svg}

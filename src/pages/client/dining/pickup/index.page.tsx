@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
-import { PickupFilter } from '@/components/pages/';
-import { PickupCategoryList } from '@/components/pages/client/dining/pickup/category';
-import { PickupRestaurantList } from '@/components/pages/client/dining/pickup/restaurant';
+import { useWindowSizeJs } from '@/hooks/useWindowSizeJs';
 
-import { pickupData } from '@/constant/pages/client/pickup.data';
+import { pickupData } from '@/pages/client/dining/pickup/pickup.data';
 import { PickupMap } from '@/ui/maps/pickup';
+
+import {
+  PickupCategoryList,
+  PickupFilter,
+  PickupRestaurantList,
+} from './components';
 
 /**
  * @description Delivery page component
@@ -13,7 +17,27 @@ import { PickupMap } from '@/ui/maps/pickup';
  */
 export default function PickUpModePage(): JSX.Element {
   const [resItems, setResItems] = useState<any>([]);
-  const { restaurants, categories, filters } = pickupData;
+  const { categories, filters } = pickupData;
+
+  const { isMobile } = useWindowSizeJs();
+
+  if (isMobile) {
+    return (
+      <main className='flex w-full flex-col'>
+        <div className='flex h-full min-h-[300px] w-full'>
+          <PickupMap setResItems={setResItems} resItems={resItems} />
+        </div>
+
+        <div className='relative mb-3 flex'>
+          <PickupCategoryList data={categories} />
+        </div>
+        <div className='h-4'></div>
+
+        <PickupRestaurantList data={resItems} />
+      </main>
+    );
+  }
+
   return (
     <main className='flex h-[calc(100%-96px)] min-h-[calc(100%-96px)] w-full flex-col'>
       <div className='flex h-full w-full flex-row'>
@@ -26,10 +50,7 @@ export default function PickUpModePage(): JSX.Element {
               </div>
               <div className='h-4'></div>
 
-              <PickupRestaurantList
-                restaurants={restaurants}
-                resItems={resItems}
-              />
+              <PickupRestaurantList data={resItems} />
             </div>
           </div>
         </div>

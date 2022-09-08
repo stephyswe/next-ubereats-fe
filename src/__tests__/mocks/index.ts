@@ -1,4 +1,4 @@
-import { isTest } from '@/constant/env';
+import { isTest } from '@/lib/env';
 
 async function initMocks() {
   if (typeof window === 'undefined' || isTest) {

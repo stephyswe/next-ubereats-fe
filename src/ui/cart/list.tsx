@@ -3,7 +3,7 @@ import { useRef } from 'react';
 
 import { useOnClickOutside } from '@/hooks/useOutsideDiv';
 
-import { CloseButton } from '@/components/buttons/NavButton';
+import { CloseButton } from '@/components/buttons/Buttons';
 
 import { CartWindowEmpty, CartWindowsItems } from '@/ui/cart/item';
 

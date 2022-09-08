@@ -17,7 +17,7 @@ import {
   isTest,
   LOCAL_GRAPHQL,
   LOCALSTORAGE_TOKEN,
-} from '@/constant/env';
+} from '@/lib/env';
 
 export let token: any, isLoggedInVar: any, authTokenVar: any;
 

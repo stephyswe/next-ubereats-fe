@@ -53,12 +53,18 @@ const SvgDownArrow = () => (
   </svg>
 );
 
+const InputIcon = ({ svg, ...props }: InputProps<'div'>) => (
+  <div className='flex h-12 w-12 items-center justify-center'>
+    <div className='h-6 w-6 leading-[1]'>{svg}</div>
+  </div>
+);
+
 export const ButtonDeliver = () => {
   const [isActive, setActive] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
-    setActive(!isActive);
+    setActive(false);
     setIsOpen(true);
   }
 
@@ -75,17 +81,6 @@ export const ButtonDeliver = () => {
   useOnClickOutside(ref, closeModal);
   useOnClickOutside(timeRef, onClick);
 
-  function Clock() {
-    return (
-      <div className='flex flex-shrink-0'>
-        <div className='flex h-12 w-12 items-center justify-center'>
-          <div className='h-6 w-6 leading-[1]'>
-            <SvgClock />
-          </div>
-        </div>
-      </div>
-    );
-  }
   return (
     <div>
       <div className='relative'>
@@ -101,17 +96,15 @@ export const ButtonDeliver = () => {
         >
           <div className='flex h-[56px] w-full items-center bg-white text-black'>
             <Spacer className='w-1' />
-            <Clock />
+
+            <InputIcon svg={<SvgClock />} />
+
             <div className='flex h-full grow items-center justify-start overflow-hidden'>
               <div className='flex flex-col text-[16px] font-medium'>
                 Deliver now
               </div>
               <Spacer className='w-1' />
-              <div className='flex h-12 w-12 items-center justify-center'>
-                <div className='h-6 w-6 leading-[1]'>
-                  <SvgDownArrow />
-                </div>
-              </div>
+              <InputIcon svg={<SvgDownArrow />} />
             </div>
           </div>
         </div>
@@ -121,7 +114,7 @@ export const ButtonDeliver = () => {
             ref={timeRef}
             className='absolute top-full left-[0] z-20 flex min-w-full flex-col bg-white p-[8px_0px_16px] box-shadow-rgb-10'
           >
-            <button
+            <Button
               onClick={onClick}
               className='flex cursor-pointer items-center p-[8px_16px] text-black transition-bg-ease-100 outline-none-1 hover:bg-[#f6f6f6]'
             >
@@ -134,7 +127,7 @@ export const ButtonDeliver = () => {
               <div className='whitespace-nowrap text-[16px] font-medium leading-5'>
                 Deliver now
               </div>
-            </button>
+            </Button>
             <Link
               onClick={openModal}
               href='/'

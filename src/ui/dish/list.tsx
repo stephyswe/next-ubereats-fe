@@ -1,8 +1,9 @@
 import Modal from 'react-modal';
 
+import { isBrowser, isTest } from '@/lib/env';
+
 import { Typography } from '@/components';
 
-import { isBrowser, isTest } from '@/constant/env';
 import { Spacer } from '@/ui';
 
 import { DishItem } from './item';

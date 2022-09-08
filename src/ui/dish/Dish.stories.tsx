@@ -7,8 +7,9 @@ import {
   Story,
   StoryContainer,
   StoryList,
-} from '@/constant/storybook';
-import { dishData } from '@/pages/client/store/[label]/data';
+} from '@/lib/storybook';
+
+import { dishGroupData } from '@/pages/_app/items/dish';
 
 import {
   DishItem,
@@ -28,32 +29,32 @@ const TemplateAll: ComponentStory<typeof DishList> = () => (
   <StoryContainer>
     <StoryList>
       <Story title='default'>
-        <DishList groupKey='Pizza' data={dishData.Sallader} />
+        <DishList groupKey='Pizza' data={dishGroupData.Sallader} />
       </Story>
     </StoryList>
     <StoryList className='md:grid-cols-3'>
       <Story title='default'>
-        <DishItem groupKey='Pizza' data={dishData.Sallader[0]} />
+        <DishItem groupKey='Pizza' data={dishGroupData.Sallader[0]} />
       </Story>
       <Story title='default'>
-        <DishItem groupKey='Pizza' data={dishData.Sallader[1]} />
+        <DishItem groupKey='Pizza' data={dishGroupData.Sallader[1]} />
       </Story>
       <Story title='default'>
-        <DishItem groupKey='Pizza' data={dishData.Sallader[0]} />
+        <DishItem groupKey='Pizza' data={dishGroupData.Sallader[0]} />
       </Story>
     </StoryList>
     <StoryList title='Partials' className='md:grid-cols-3'>
       <Story title='detail'>
-        <DishItemDetail {...dishData.Sallader[0]} onClick={() => {}} />
+        <DishItemDetail {...dishGroupData.Sallader[0]} onClick={() => {}} />
       </Story>
       <Story title='detail custom'>
         <DishItemDetail name='Custom Name' price={100} onClick={() => {}} />
       </Story>
       <Story title='detail'>
-        <DishItemImage {...dishData.Sallader[1]} onClick={() => {}} />
+        <DishItemImage {...dishGroupData.Sallader[1]} onClick={() => {}} />
       </Story>
       <Story title='detail'>
-        <DishItemPlusQuick {...dishData.Sallader[0]} />
+        <DishItemPlusQuick {...dishGroupData.Sallader[0]} />
       </Story>
     </StoryList>
   </StoryContainer>

@@ -9,8 +9,10 @@ export const RootLayout = ({ children }: { children: any }) => {
   const { setComplete } = useDelivery();
   const { pathname } = useRouter();
   function checkRoute() {
+    // handle home, city, region routes
+    if (pathname === '/') return <Nav heroInput />;
+    if (pathname === '/client/city/[label]') return <Nav heroInput />;
     if (pathname === '/client/store/[label]') return <Nav noBorder />;
-    else if (pathname === '/client/dining/delivery') return <Nav fixed />;
     else return <Nav />;
   }
 
@@ -18,6 +20,7 @@ export const RootLayout = ({ children }: { children: any }) => {
     setComplete(true);
   }, 1000);
 
+  // handle content
   if (pathname === '/auth/login') return children;
   if (pathname === '/details/delivery') return children;
 

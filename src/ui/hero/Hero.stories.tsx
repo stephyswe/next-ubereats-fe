@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { HomeData } from '@/constant/pages/home.data';
-import { componentParameter, mobileParameter } from '@/constant/storybook';
+import { HomeData } from '@/pages/_app/home.data';
+import { componentParameter, mobileParameter } from '@/lib/storybook';
 
 import { Hero } from './index';
 

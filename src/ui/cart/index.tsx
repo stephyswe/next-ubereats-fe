@@ -6,7 +6,7 @@ import { Button } from '@/components';
 import { ButtonSizeProps } from '@/components/buttons/UnStyledButton';
 
 import { useCreateOrderMutation } from '@/__generated__/graphql';
-import { isTest } from '@/constant/env';
+import { isTest } from '@/lib/env';
 import { useDelivery, useOrders } from '@/contexts';
 import { Spacer } from '@/ui';
 import { CartWindow } from '@/ui/cart/list';

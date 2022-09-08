@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import GoogleMapReact from 'google-map-react';
 
-import { GOOGLE_API } from '@/constant/env';
+import { GOOGLE_API } from '@/lib/env';
 import { SvgHomeMarker } from '@/ui/icons';
 
 const HomeMarker = ({ city, link }: any) => {

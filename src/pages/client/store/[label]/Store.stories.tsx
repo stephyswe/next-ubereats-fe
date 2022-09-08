@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { componentParameter, mobileParameter } from '@/lib/storybook';
+
 import StorePage from '@/pages/client/store/[label]/index.page';
 
 export default {

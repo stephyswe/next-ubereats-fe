@@ -1,8 +1,8 @@
 import { Button, ButtonInput } from '@/components';
 
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
-import { cityData } from '@/pages/client/city/[label]/city.data';
 import { categoriesData } from '@/pages/_app/items/category';
+import { cityData } from '@/pages/client/city/[label]/city.data';
 import {
   Breadcrumb,
   BreadcrumbItemProps,

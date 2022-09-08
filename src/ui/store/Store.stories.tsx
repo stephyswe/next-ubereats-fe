@@ -7,8 +7,10 @@ import {
   StoryContainer,
   StoryList,
 } from '@/lib/storybook';
-import { storeTitleData } from '@/pages/_app/items/store';
+
+import { storeData, storeTitleData } from '@/pages/_app/items/store';
 import { pickupData } from '@/pages/client/dining/pickup/pickup.data';
+import { storePageData } from '@/pages/client/store/[label]/store.data';
 import { StoreItemDefault, StoreItemWide } from '@/ui/store/item';
 
 import { StoreDetail, StoresClosed, StoreScroll, StoresOpen } from '.';
@@ -66,10 +68,10 @@ const TemplateAll: ComponentStory<typeof StoreScroll> = () => (
     </StoryList>
     <StoryList className='md:grid-cols-2'>
       <Story title='detail'>
-        <StoreDetail data={storeData.detail} />
+        <StoreDetail data={storePageData.detail} />
       </Story>
       <Story title='detail'>
-        <StoreDetail data={storeData.detail} />
+        <StoreDetail data={storePageData.detail} />
       </Story>
     </StoryList>
   </StoryContainer>

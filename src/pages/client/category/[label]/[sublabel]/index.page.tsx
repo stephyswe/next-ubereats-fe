@@ -1,9 +1,9 @@
 import { Button, ButtonInput, Link, NextImage, Typography } from '@/components';
 
 import { useFindManyRestaurantsQuery } from '@/__generated__/graphql';
-import { categoryData } from '@/pages/client/category/[label]/[sublabel]/category.data';
 import { tempCatDataForCatPage } from '@/pages/_app/items/category';
 import { storeCategoryPageData } from '@/pages/_app/items/store';
+import { categoryData } from '@/pages/client/category/[label]/[sublabel]/category.data';
 import {
   Breadcrumb,
   Container,
@@ -24,7 +24,7 @@ export default function CategoryPage({ title, breadcrumb }: any) {
     hero: { buttonText, background, inputPlaceholder },
   } = categoryData;
 
-  const { data, loading } = useFindManyRestaurantsQuery({
+  const { loading } = useFindManyRestaurantsQuery({
     variables: { input: { page: 1 } },
   });
 

@@ -1,7 +1,6 @@
 import { render, screen, takeSnapshot } from 'test-utils';
 
 import { CountryWithMapList } from '@/pages/_app/country';
-
 import { HomeData } from '@/pages/_app/home.data';
 
 const defaultData: any[] = [];

@@ -2,8 +2,9 @@
 import { Fragment, SetStateAction } from 'react';
 
 import { isTest } from '@/lib/env';
-import { pickupItemData } from '@/pages/_app/items/store';
+
 import { useDelivery } from '@/contexts';
+import { pickupItemData } from '@/pages/_app/items/store';
 import { LoadingHome, SpacerItem } from '@/ui';
 import { LoadingItemSquare } from '@/ui/loading/item';
 import { StoreItemDefault } from '@/ui/store/item';
@@ -46,7 +47,7 @@ export const PickupRestaurantList = ({ data }: any) => {
     <div className='box-border grid grid-cols-1 flex-wrap md:mx-[-12px] md:mb-[-24px] md:flex'>
       {data.map(
         (
-          { name, src, rating, photos, place_id }: RestaurantItemProps,
+          { name, rating, photos, place_id }: RestaurantItemProps,
           index: number
         ) => {
           return (

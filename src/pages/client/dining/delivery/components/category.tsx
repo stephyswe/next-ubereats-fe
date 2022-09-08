@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 
 import { DiningCategoryItem } from '@/pages/client/dining/item';
-
 import { Spacer } from '@/ui';
 
 export const DeliveryBottomText = () => (

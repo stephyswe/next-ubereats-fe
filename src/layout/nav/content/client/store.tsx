@@ -1,6 +1,7 @@
+import { isBrowser, LOCALSTORAGE_TOKEN } from '@/lib/env';
+
 import { LinkLogin } from '@/components/links/NavLink';
 
-import { isBrowser, LOCALSTORAGE_TOKEN } from '@/lib/env';
 import { useDelivery } from '@/contexts';
 import { NavItemDelivery, NavItemSearch } from '@/layout/nav/items';
 import { Cart, DiningToggler, Spacer } from '@/ui';

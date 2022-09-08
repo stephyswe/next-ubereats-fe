@@ -1,8 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { DiningCategoryItem } from '@/pages/client/dining/item';
-
-import { pickupData } from '@/pages/client/dining/pickup/pickup.data';
 import {
   componentParameter,
   mobileParameter,
@@ -10,7 +7,10 @@ import {
   StoryContainer,
   StoryList,
 } from '@/lib/storybook';
+
 import { useDelivery } from '@/contexts';
+import { DiningCategoryItem } from '@/pages/client/dining/item';
+import { pickupData } from '@/pages/client/dining/pickup/pickup.data';
 
 import { CategoryContentSkeleton, PickupArrow, PickupCategoryList } from '.';
 

@@ -4,12 +4,12 @@ import { Fragment, useState } from 'react';
 import clsxm from '@/lib/clsxm';
 
 import { Button } from '@/components';
+
 import {
   SvgDynamic,
   SvgMedal,
   SvgTag,
 } from '@/pages/client/dining/delivery/components/icon';
-
 import { Spacer } from '@/ui';
 import { SvgDownArrow } from '@/ui/icons';
 

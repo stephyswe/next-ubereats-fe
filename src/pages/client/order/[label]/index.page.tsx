@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 import { Typography } from '@/components';
-import { OwnerDeliveryView } from '@/pages/client/order/[label]/components/view';
 
 import {
   OrderStatus,
@@ -10,6 +9,7 @@ import {
   useUpdateOrderMutation,
 } from '@/__generated__/graphql';
 import { ORDER_SUBSCRIPTION } from '@/gql/subscription/update-order';
+import { OwnerDeliveryView } from '@/pages/client/order/[label]/components/view';
 
 export async function getServerSideProps(context: any) {
   return { props: { id: parseInt(context.query.label) } };

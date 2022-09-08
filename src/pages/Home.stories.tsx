@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { mobileParameter } from '@/lib/storybook';
+
 import { useDelivery } from '@/contexts';
 import HomePage from '@/pages/index.page';
 

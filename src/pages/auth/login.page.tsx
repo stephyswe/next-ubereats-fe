@@ -4,11 +4,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { authTokenVar, isLoggedInVar } from '@/lib/apollo';
+import { LOCALSTORAGE_TOKEN } from '@/lib/env';
 
 import { Button, Input, Link, Typography } from '@/components';
 
 import { LoginInput, useLoginMutation } from '@/__generated__/graphql';
-import { LOCALSTORAGE_TOKEN } from '@/lib/env';
 import { SvgAuthLoginArrow } from '@/ui/icons/icons';
 
 export default function Login() {

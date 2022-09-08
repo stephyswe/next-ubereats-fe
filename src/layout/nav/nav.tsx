@@ -14,7 +14,7 @@ export type NavProps = {
   heroInput?: boolean;
 };
 
-export const Nav = ({ noBorder, fixed, heroInput }: NavProps) => {
+export const Nav = ({ noBorder, heroInput }: NavProps) => {
   const { isMobile } = useWindowSizeJs();
 
   const router = useRouter();

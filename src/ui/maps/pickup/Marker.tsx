@@ -1,8 +1,6 @@
-import { pickupItemData } from '@/pages/_app/items/store';
 import { useDelivery } from '@/contexts/delivery';
-import { pickupData } from '@/pages/client/dining/pickup/pickup.data';
+import { pickupItemData } from '@/pages/_app/items/store';
 import { StoreItemDefault } from '@/ui/store/item';
-const { restaurants } = pickupData;
 
 /**
  * @description Restaurant marker component

@@ -1,6 +1,6 @@
 import { Button, ButtonInput, Typography } from '@/components';
-import { CountryListNew } from '@/pages/_app/country';
 
+import { CountryListNew } from '@/pages/_app/country';
 import { regionData } from '@/pages/client/region/[label]/region.data';
 import { Breadcrumb, Container, HeroDynamic, Separator, Spacer } from '@/ui';
 import { SvgMap } from '@/ui/icons';

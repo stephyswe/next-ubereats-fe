@@ -1,6 +1,7 @@
+import { isTest } from '@/lib/env';
+
 import { Link, Typography } from '@/components';
 
-import { isTest } from '@/lib/env';
 import { useDelivery } from '@/contexts';
 import { Headline, LoadingHome } from '@/ui';
 import { HeadlineProps } from '@/ui/headline';

@@ -53,7 +53,7 @@ const SvgDownArrow = () => (
   </svg>
 );
 
-const InputIcon = ({ svg, ...props }: InputProps<'div'>) => (
+const InputIcon = ({ svg }: InputProps<'div'>) => (
   <div className='flex h-12 w-12 items-center justify-center'>
     <div className='h-6 w-6 leading-[1]'>{svg}</div>
   </div>

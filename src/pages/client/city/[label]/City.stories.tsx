@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { breadCrumbGenerateCity, titleCaseFull } from '@/lib/helper';
-
 import { componentParameter, mobileParameter } from '@/lib/storybook';
+
 import CityPage from '@/pages/client/city/[label]/index.page';
 
 export default {

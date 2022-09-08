@@ -1,10 +1,11 @@
 import { Fragment } from 'react';
 
-import { Button } from '@/components';
-import { DiningCategoryItem } from '@/pages/client/dining/item';
-
 import { isTest } from '@/lib/env';
+
+import { Button } from '@/components';
+
 import { useDelivery } from '@/contexts';
+import { DiningCategoryItem } from '@/pages/client/dining/item';
 import { LoadingWithSpace } from '@/ui';
 import { SvgCategoryArrow } from '@/ui/icons';
 import { LoadingHiddenSpace, LoadingRoundSmall } from '@/ui/loading/item';
@@ -37,7 +38,7 @@ export const PickupCategoryList = ({
   return (
     <>
       <PickupArrow />
-      <div className='scroll-smooth sm:overflow-hidden px-3 md:p-0'>
+      <div className='scroll-smooth px-3 sm:overflow-hidden md:p-0'>
         <div className='flex'>
           {data.map(({ title, img }: PickupCategoryListProps) => (
             <Fragment key={title}>

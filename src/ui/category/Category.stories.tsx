@@ -7,6 +7,7 @@ import {
   StoryContainer,
   StoryList,
 } from '@/lib/storybook';
+
 import { categoriesData } from '@/pages/_app/items/category';
 
 import { CategoryList, CategorySquareItem } from '.';

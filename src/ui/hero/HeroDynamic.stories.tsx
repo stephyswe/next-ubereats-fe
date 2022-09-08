@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { cityData } from '@/pages/client/city/[label]/city.data';
 import { componentParameter, mobileParameter } from '@/lib/storybook';
+
+import { cityData } from '@/pages/client/city/[label]/city.data';
 
 import { HeroDynamic } from './index';
 

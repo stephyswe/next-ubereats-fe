@@ -1,4 +1,3 @@
-import { deliveryData } from '@/pages/client/dining/delivery/delivery.data';
 import { DeliveryAdsList } from '@/pages/client/dining/delivery/components/ads';
 import {
   DeliveryBottomText,
@@ -7,6 +6,7 @@ import {
 import { DeliveryContent } from '@/pages/client/dining/delivery/components/content/item';
 import { DeliveryCoupon } from '@/pages/client/dining/delivery/components/coupon';
 import { DeliveryFilter } from '@/pages/client/dining/delivery/components/filter';
+import { deliveryData } from '@/pages/client/dining/delivery/delivery.data';
 import { Container, Separator, Spacer } from '@/ui';
 
 export default function DeliveryModePage({ coupon }: any): JSX.Element {

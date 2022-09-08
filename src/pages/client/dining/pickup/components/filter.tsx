@@ -1,8 +1,9 @@
 import { Fragment } from 'react';
 
+import { isTest } from '@/lib/env';
+
 import { Button, Typography } from '@/components';
 
-import { isTest } from '@/lib/env';
 import { useDelivery } from '@/contexts';
 import { Spacer } from '@/ui';
 import { SvgFilterDropdown } from '@/ui/icons';

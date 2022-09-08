@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { storePageData } from '@/pages/client/store/[label]/store.data';
 import {
   componentParameter,
   mobileParameter,
@@ -8,6 +7,8 @@ import {
   StoryContainer,
   StoryList,
 } from '@/lib/storybook';
+
+import { storePageData } from '@/pages/client/store/[label]/store.data';
 
 import { HeroSmall } from '.';
 

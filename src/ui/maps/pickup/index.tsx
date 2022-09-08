@@ -2,11 +2,11 @@
 import GoogleMapReact from 'google-map-react';
 import { useRef, useState } from 'react';
 
+import { GOOGLE_API } from '@/lib/env';
 import { useOnClickOutside } from '@/hooks/useOutsideDiv';
 
 import { Link } from '@/components';
 
-import { GOOGLE_API } from '@/lib/env';
 import { useDelivery } from '@/contexts/delivery';
 
 import { MarkerRestaurantItem, RestaurantMarker } from './Marker';

@@ -135,15 +135,15 @@ export const HeroDynamic = ({ background, title, children }: HeroProps) => {
       </div>
       <div
         className={clsx(
-          'absolute z-20 p-4 sm:top-0 sm:left-0 sm:right-0 sm:bottom-0 sm:m-auto sm:mt-[50%]',
+          'absolute z-20 p-4 sm:top-0 sm:left-0 sm:right-0 sm:bottom-0 sm:m-auto sm:mt-[180px]',
           'md:top-1/2 md:left-1/2 md:translate-y-[-50%] md:translate-x-[-50%]'
         )}
       >
         <Typography
           data-testid='hero-dynamic-title'
           as='h2'
-          variant='5xl'
-          className='font-medium sm:mb-[24px] md:mb-[44px] md:text-center'
+          variant='4xl'
+          className='sm:mb-[24px] md:mb-[44px] md:text-center'
         >
           {title}
         </Typography>

@@ -74,7 +74,7 @@ export const CategoryRestaurantList = ({ data }: any) => (
 // City Restaurant List - Scrollable Content
 export const StoreScroll = ({ data }: { data?: any }) => (
   <>
-    <Headline title={data.title} />
+    <Headline title={data.title} info />
     <div className='scrollbar-none flex overflow-y-hidden overflow-x-scroll scroll-snap-x'>
       <CityRestaurantOne data={data.items} />
       <CityRestaurantOne data={data.items} />

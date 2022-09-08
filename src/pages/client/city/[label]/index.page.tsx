@@ -81,7 +81,7 @@ export default function CityPage({ cityInfo, title, breadcrumb }: any) {
         <div className='col-[1/-1] min-w-0'>
           <Headline
             title={categoryTitle}
-            link={{ title: 'See all', href: '/' }}
+            link={{ title: 'View all', href: '/' }}
           />
           <div className='scrollbar-none flex overflow-y-hidden overflow-x-scroll scroll-snap-x'>
             <CategoryList data={categoriesData} />

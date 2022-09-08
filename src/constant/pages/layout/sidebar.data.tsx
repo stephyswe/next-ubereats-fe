@@ -3,24 +3,24 @@ import { SvgAndroid, SvgIphone } from '@/ui/icons';
 export const sidebarData = {
   auth: [
     {
-      title: 'Registera dig',
-      link: '/register',
+      title: 'Sign up',
+      link: '/auth/login',
     },
     {
-      title: 'Login',
-      link: '/login',
+      title: 'Log in',
+      link: '/auth/login',
     },
   ],
   link: [
-    { title: 'Skapa ett företagskonto', link: 'placeholder' },
-    { title: 'Lägg till din restaurang', link: 'placeholder' },
+    { title: 'Create a business account', link: 'placeholder' },
+    { title: 'Add your restaurant', link: 'placeholder' },
     {
-      title: 'Registrera dig för att leverera',
+      title: 'Sign up to deliver',
       link: 'placeholder',
     },
   ],
   social: {
-    title: 'Det finns mer att älska i appen.',
+    title: `There's more to love in the app.`,
     icon: '/images/logo-sidebar.svg',
     devices: [
       {

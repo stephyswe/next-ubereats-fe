@@ -39,8 +39,9 @@ export const ButtonIcon = <C extends React.ElementType>({
               'border-[1px] border-solid border-[#fff]',
               'hover:bg-gray-100',
             ],
-          ]
+          ],
           //#endregion  //*======== Variants ===========
+          'contents'
         )}
       >
         {svg}

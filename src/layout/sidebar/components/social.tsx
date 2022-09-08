@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 import { Fragment } from 'react';
 
 import { Link } from '@/components';
@@ -18,12 +18,12 @@ type SidebarSocialItemProps = { svg: JSX.Element; title: string };
 export const SidebarSocialList = ({ data }: SidebarSocialListProps) => (
   <div>
     <div className='flex items-center justify-center'>
-      <Image
+      <img
         alt='Uber&nbsp;Eats'
         src={data.icon}
-        className='h-12 w-12 flex-none rounded-[15%]'
-        height='56'
-        width='56'
+        className='flex-none rounded-[15%]'
+        height={56}
+        width={56}
       />
       <Spacer className='w-4' />
       <p className='text-base font-medium leading-5'>{data.title}</p>

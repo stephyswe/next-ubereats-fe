@@ -31,9 +31,7 @@ export default function HomePage() {
   } = HomeData;
 
   const onClick = () => {
-    if (isMobile) {
-      router.push('details/delivery');
-    }
+    if (isMobile) router.push('/details/delivery');
   };
 
   return (

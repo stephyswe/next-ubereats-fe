@@ -33,7 +33,7 @@ export const CategorySquareItem = ({
 }: CategoryItemSquareProps) => {
   const router = useRouter();
   return (
-    <div className='ml-0 mb-6 box-border block w-[50%] p-[0px_6px] md:w-[16.6667%] md:flex-none md:px-3'>
+    <div className='ml-0 mb-6 box-border block w-[50%] p-[0px_6px] md:relative md:w-[16.666666666666668%] md:flex-none md:px-3'>
       <a
         className='relative block h-[65px] bg-[#f6f0ea] md:h-20 md:overflow-hidden '
         href={`/client/category/${router.query.label}/${slug}`}
@@ -46,7 +46,7 @@ export const CategorySquareItem = ({
         />
         <div
           className={clsx(
-            'relative box-border min-w-[120px] p-4 text-base font-medium leading-6 text-black md:w-[60%] md:text-lg'
+            'relative box-border min-w-[120px] p-4 text-base font-medium leading-6 text-black md:w-[60%] md:text-lg md:leading-6'
           )}
         >
           <div className='overflow-hidden webkit-line-clamp-2 webkit-orient-vertical webkit'>

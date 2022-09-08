@@ -102,7 +102,9 @@ module.exports = {
         '.transition-width-easeInout-150': {
           transition: 'width 150ms ease-in-out 0s',
         },
-
+        '.transition-all-50-150': {
+          transition: 'all 150ms 50ms',
+        },
         /** 200 */
         '.transition-bg-ease-200': {
           transition: 'background 200ms ease',
@@ -169,7 +171,9 @@ module.exports = {
         '.clip-rect-1': {
           clip: 'rect(1px, 1px, 1px, 1px)',
         },
-
+        '.clip-auto': {
+          clip: 'auto',
+        },
         /** Transforms */
         '.transform-3d': {
           transform: 'translate3d(0px, 0px, 0px)',
@@ -326,6 +330,9 @@ module.exports = {
         },
         '.flex-flow-col-nowrap': {
           flexFlow: 'column nowrap',
+        },
+        '.outline-none-1': {
+          outline: 'none',
         },
       });
     }),

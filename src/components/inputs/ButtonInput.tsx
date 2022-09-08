@@ -8,7 +8,7 @@ import { Button } from '@/components';
 import { Link } from '@/components/links';
 
 import { ModalHeader, Spacer } from '@/ui';
-import { SvgDropdown } from '@/ui/icons';
+import { SvgDropdown, SvgSchedule } from '@/ui/icons';
 import { homeModalStyles } from '@/ui/modals/data';
 
 import { UnstyledInput } from './UnstyledInput';
@@ -58,6 +58,7 @@ export const ButtonDeliver = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
+    setActive(!isActive);
     setIsOpen(true);
   }
 
@@ -65,11 +66,14 @@ export const ButtonDeliver = () => {
     setIsOpen(false);
   }
   const ref = useRef(null);
-  useOnClickOutside(ref, closeModal);
+  const timeRef = useRef(null);
 
   function onClick() {
     setActive(!isActive);
   }
+
+  useOnClickOutside(ref, closeModal);
+  useOnClickOutside(timeRef, onClick);
 
   function Clock() {
     return (
@@ -113,10 +117,13 @@ export const ButtonDeliver = () => {
         </div>
         {/* new  ; */}
         {isActive ? (
-          <div className='absolute top-full left-[0] z-20 flex min-w-full flex-col bg-white p-[8px_0px_16px] shadow-[0px_0px_10px_rgb(000/10%)]'>
+          <div
+            ref={timeRef}
+            className='absolute top-full left-[0] z-20 flex min-w-full flex-col bg-white p-[8px_0px_16px] box-shadow-rgb-10'
+          >
             <button
               onClick={onClick}
-              className='flex cursor-pointer items-center p-[8px_16px] text-black outline-none transition-[background_100ms_ease_0s] hover:bg-[#f6f6f6]'
+              className='flex cursor-pointer items-center p-[8px_16px] text-black transition-bg-ease-100 outline-none-1 hover:bg-[#f6f6f6]'
             >
               <div className='flex h-8 w-8 flex-none items-center justify-center rounded-[50%]'>
                 <div className='h-5 w-5 leading-[1]'>
@@ -131,11 +138,11 @@ export const ButtonDeliver = () => {
             <Link
               onClick={openModal}
               href='/'
-              className='flex cursor-pointer items-center p-[8px_16px] text-black outline-none transition-[background_100ms_ease_0s] hover:bg-[#f6f6f6]'
+              className='flex cursor-pointer items-center p-[8px_16px] text-black transition-bg-ease-100 outline-none-1 hover:bg-[#f6f6f6]'
             >
               <div className='flex h-8 w-8 flex-none items-center justify-center rounded-[50%]'>
                 <div className='h-5 w-5 leading-[1]'>
-                  <SvgClock width='20px' />
+                  <SvgSchedule width='16px' />
                 </div>
               </div>
               <Spacer className='w-2' />

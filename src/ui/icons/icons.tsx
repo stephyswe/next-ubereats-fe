@@ -341,13 +341,14 @@ export function SvgFoodPlus() {
   );
 }
 
-export function SvgSchedule() {
+export function SvgSchedule({ width }: any) {
   return (
     <svg
+      width={width ?? '16px'}
+      height={width ?? '16px'}
       aria-hidden='true'
       focusable='false'
       viewBox='0 0 16 16'
-      className={styles.icon_16}
     >
       <path
         fillRule='evenodd'

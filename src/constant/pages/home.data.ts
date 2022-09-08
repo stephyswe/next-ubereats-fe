@@ -37,7 +37,7 @@ export const HomeData = {
   ],
   countryData: {
     title: 'Cities near me',
-    link: { title: 'View all +500 cities', href: '/se/location' },
+    link: { title: 'View all 500+ cities', href: '/se/location' },
     mapCenter: { lat: 57.527, lng: 15.03 },
     cities: [
       {

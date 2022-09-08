@@ -31,7 +31,7 @@ export const DishItem = ({ itemType, data }: any) => {
               <DishItemImage
                 name={name}
                 photo={photo}
-                className='relative h-[158px] flex-[0_47%] flex-shrink-0'
+                className='relative flex-[0_37%] flex-shrink-0 md:h-[158px] md:flex-[0_47%]'
               />
             </div>
           </DishItemContent>
@@ -41,8 +41,12 @@ export const DishItem = ({ itemType, data }: any) => {
         return (
           <DishItemContent {...data} className='col-span-1'>
             <div onClick={openModal}>
-              <DishItemImage name={name} photo={photo} className='h-[188px]' />
-              <DishItemDetail name={name} price={price} className='pb-2' />
+              <DishItemImage
+                name={name}
+                photo={photo}
+                className='md:h-[188px]'
+              />
+              <DishItemDetail name={name} price={price} className='md:pb-2' />
             </div>
           </DishItemContent>
         );
@@ -122,7 +126,7 @@ export const DishItemImage = ({ className, photo, name }: any) => (
             src={photo}
             aria-hidden='true'
             className={clsx(
-              'h-[188px] w-full flex-shrink-0 scale-100 object-cover opacity-100 transition-transform-easeInout-500',
+              'w-full flex-shrink-0 scale-100 object-cover opacity-100 transition-transform-easeInout-500 md:h-[188px]',
               'hover:scale-110 hover:transition-transform-easeInout-500'
             )}
           />

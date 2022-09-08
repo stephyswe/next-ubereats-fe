@@ -70,12 +70,12 @@ const StoreDetailRating = ({ rating }: any) => (
         <span className='text-sm font-medium leading-4'>{rating}</span>
       </div>
     </Link>
-    <span className='inline-flex items-center text-sm font-medium leading-4 text-black'>
+    <span className='hidden items-center text-sm font-medium leading-4 text-black md:inline-flex'>
       &nbsp;•&nbsp;
     </span>
     <Link
       rel='nofollow'
-      className='cursor-pointer text-sm font-medium leading-4 text-black underline'
+      className='hidden cursor-pointer text-sm font-medium leading-4 text-black underline md:block'
       href='placeholder'
     >
       More Info

@@ -1,7 +1,7 @@
 import { Link } from '@/components';
 
 export const SidebarLinkList = ({ data }: { data: SideBarLinkItemProps[] }) => (
-  <div className='mb-6 mt-6 flex flex-col'>
+  <div className='mb-6 mt-4 flex flex-col'>
     <ul>
       {data.map((link: SideBarLinkItemProps) => (
         <SidebarLinkItem key={link.title} {...link} />

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx';
 import { Fragment } from 'react';
 
@@ -10,6 +11,7 @@ import { Spacer } from '@/ui';
 import { SvgHorizontalArrow } from '@/ui/icons';
 
 export const Headline = ({
+  info,
   inputRef,
   title,
   subtitle,
@@ -24,12 +26,26 @@ export const Headline = ({
         noArrow ? 'items-end' : 'mb-6 items-center'
       )}
     >
-      <div className='space-y-1'>
-        <Typography as='h2' variant='4xl'>
-          {title}
-        </Typography>
+      <div className='space-y-2'>
+        <div role='tooltip' className='group relative flex'>
+          <Typography as='span' variant='4xl'>
+            {title}
+            {info ? (
+              <img
+                alt=''
+                role='presentation'
+                src='https://d4p17acsd5wyj.cloudfront.net/eatsfeed/other_icons/Vector.png'
+                width='14'
+                height='14'
+                className='ml-2'
+              />
+            ) : null}
+          </Typography>
+          {info ? <HeadlineInfoBox /> : null}
+        </div>
+
         {subtitle ? (
-          <Typography as='div' variant='base' className='text-[#545454]'>
+          <Typography as='p' variant='base'>
             {subtitle}
           </Typography>
         ) : null}
@@ -60,6 +76,33 @@ export const Headline = ({
   );
 };
 
+export const HeadlineInfoBox = () => (
+  <div
+    className={clsx(
+      'opacity-0 clip-rect',
+      'group-hover:opacity-100 group-hover:clip-auto',
+      '-right-[165px] left-auto mt-0 w-[300px] border-[1px] border-solid border-[#f6f6f6] p-4 transition-all-50-150 ',
+      'absolute top-full z-20 overflow-hidden bg-white box-shadow-sidebar-25-10'
+    )}
+  >
+    <div className='font-uberMove text-xl font-bold text-black'>
+      Information on how Uber Eats ranks offers
+    </div>
+    <div className='text-sm'>
+      <div className='h-4 flex-shrink-0'></div>
+      <div className='text-base'>
+        <span>
+          Click to find out how restaurants and other merchants are ranked in
+          the Uber Eats app and website,{' '}
+          <span className='underline'>
+            <Link href='/'>Click here</Link>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+);
+
 export const HeadlineArrows = ({ onClick }: any) => (
   <div className='flex'>
     <ButtonIcon
@@ -85,4 +128,5 @@ export type HeadlineProps = {
   subtitle?: string;
   link?: { href: string; title: string };
   noArrow?: boolean;
+  info?: boolean;
 };

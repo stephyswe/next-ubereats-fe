@@ -75,7 +75,6 @@ export const CityRestaurantItem = ({
     </div>
   </Link>
 );
-// overflow-hidden text-ellipsis whitespace-nowrap
 
 export const ItemImage = ({ image }: { image: string }) => (
   <picture>

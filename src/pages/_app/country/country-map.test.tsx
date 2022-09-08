@@ -1,7 +1,6 @@
 import { render, screen } from 'test-utils';
 
-import { CountryWithMap } from '@/components/pages';
-
+import { CountryWithMap } from '@/pages/_app/country';
 import { HomeData } from '@/pages/_app/home.data';
 
 const defaultData = {

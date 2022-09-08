@@ -96,30 +96,26 @@ exports[`renders correctly 1`] = `
                     data-testid="ui-spacer"
                   />
                   <div
-                    className="flex flex-shrink-0"
+                    className="flex h-12 w-12 items-center justify-center"
                   >
                     <div
-                      className="flex h-12 w-12 items-center justify-center"
+                      className="h-6 w-6 leading-[1]"
                     >
-                      <div
-                        className="h-6 w-6 leading-[1]"
+                      <svg
+                        aria-label="När"
+                        fill="none"
+                        focusable="false"
+                        height="24px"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="24px"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <svg
-                          aria-label="När"
-                          fill="none"
-                          focusable="false"
-                          height="24px"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="24px"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12 2.83398C6.91671 2.83398 2.83337 6.91732 2.83337 12.0007C2.83337 17.084 6.91671 21.1673 12 21.1673C17.0834 21.1673 21.1667 17.084 21.1667 12.0007C21.1667 6.91732 17.0834 2.83398 12 2.83398ZM17 13.6673H10.3334V5.33398H12.8334V11.1673H17V13.6673Z"
-                            fill="#000000"
-                          />
-                        </svg>
-                      </div>
+                        <path
+                          d="M12 2.83398C6.91671 2.83398 2.83337 6.91732 2.83337 12.0007C2.83337 17.084 6.91671 21.1673 12 21.1673C17.0834 21.1673 21.1667 17.084 21.1667 12.0007C21.1667 6.91732 17.0834 2.83398 12 2.83398ZM17 13.6673H10.3334V5.33398H12.8334V11.1673H17V13.6673Z"
+                          fill="#000000"
+                        />
+                      </svg>
                     </div>
                   </div>
                   <div
@@ -569,14 +565,19 @@ exports[`renders correctly 1`] = `
         data-testid="ui-headline"
       >
         <div
-          className="space-y-1"
+          className="space-y-2"
         >
-          <h2
-            className="font-uberMove text-2xl md:text-4xl md:leading-[44px] font-bold"
-            data-testid="component-typography"
+          <div
+            className="group relative flex"
+            role="tooltip"
           >
-            Cities near me
-          </h2>
+            <span
+              className="font-uberMove text-2xl md:text-4xl md:leading-[44px] font-bold"
+              data-testid="component-typography"
+            >
+              Cities near me
+            </span>
+          </div>
         </div>
         <div
           className="flex items-center"
@@ -589,7 +590,7 @@ exports[`renders correctly 1`] = `
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            View all +500 cities
+            View all 500+ cities
           </a>
         </div>
       </div>

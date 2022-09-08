@@ -1,11 +1,9 @@
 import { render, screen, takeSnapshot } from 'test-utils';
 
-import { EmploymentList } from '@/components/pages';
-
+import { EmploymentList } from '@/pages/_app/employment';
 import { HomeData } from '@/pages/_app/home.data';
 
 // ** Snapshot ** //
-
 takeSnapshot(<EmploymentList data={[]} />);
 takeSnapshot(<EmploymentList data={[HomeData.employmentData[0]]} />);
 

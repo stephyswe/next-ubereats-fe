@@ -11,6 +11,7 @@ module.exports = {
   eslint: {
     dirs: ['src'],
   },
+  // https://nextjs.org/docs/api-reference/next.config.js/custom-page-extensions#including-non-page-files-in-the-pages-directory
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 
   reactStrictMode: false,
@@ -19,7 +20,7 @@ module.exports = {
     domains: ['tb-static.uber.com', 'cn-geo1.uber.com'],
   },
 
-  // Uncoment to add domain whitelist
+  // Uncomment to add domain whitelist
   // images: {
   //   domains: [
   //     'res.cloudinary.com',

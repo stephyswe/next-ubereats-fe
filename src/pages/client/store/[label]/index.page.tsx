@@ -55,7 +55,15 @@ export default function StorePage() {
     }
 
     createOrderMutation({
-      variables: { input: { restaurantId: 1, items: orderItems } },
+      variables: {
+        input: {
+          restaurantId: 1,
+          items: orderItems.map(({ dishId, options }: any) => ({
+            dishId,
+            options,
+          })),
+        },
+      },
     });
   };
 

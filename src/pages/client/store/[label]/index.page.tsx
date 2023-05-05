@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
 
+import { groupBy } from '@/lib/helper';
+
 import {
   useCreateOrderMutation,
   useFindRestaurantQuery,
 } from '@/__generated__/graphql';
 import { useDelivery, useOrders } from '@/contexts';
-import { dishGroupData } from '@/pages/_app/items/dish';
 import { storePageData } from '@/pages/client/store/[label]/store.data';
 import {
   AsideList,
@@ -24,7 +25,7 @@ export default function StorePage() {
   const { setComplete } = useDelivery();
   const { orderItems, setOrderItems } = useOrders();
   const { image, detail } = storePageData;
-  const { loading } = useFindRestaurantQuery({
+  const { loading, data } = useFindRestaurantQuery({
     variables: { input: { restaurantId: 1 } },
     onCompleted: () => {
       setComplete(true);
@@ -68,6 +69,8 @@ export default function StorePage() {
   };
 
   if (loading) return <div>Loading</div>;
+  const newData = data?.findRestaurant.results;
+  const dishGroupNewData = groupBy(newData?.menu, 'type');
 
   return (
     <main className='block'>
@@ -84,12 +87,12 @@ export default function StorePage() {
       </Container>
       <Container>
         <div className='flex'>
-          <AsideList data={dishGroupData} />
+          <AsideList data={dishGroupNewData} />
           <Spacer className='md:w-10' />
           <div className='w-full'>
             <Orders confirm={triggerConfirmOrder} cancel={triggerCancelOrder} />
             <ul className='m-0 mt-[24px] block p-0'>
-              {Object.entries(dishGroupData).map(([key, value]) => (
+              {Object.entries(dishGroupNewData).map(([key, value]) => (
                 <DishList key={key} groupKey={key} data={value} />
               ))}
             </ul>

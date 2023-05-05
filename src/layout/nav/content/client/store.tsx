@@ -13,6 +13,9 @@ export function NavbarStoreContent() {
   }
 
   const { isComplete } = useDelivery();
+
+  if (!isComplete) return <div>loading</div>;
+
   if (auth)
     return (
       <>
@@ -23,7 +26,7 @@ export function NavbarStoreContent() {
         <Spacer className='w-16' />
         <NavItemSearch />
         <Spacer className='w-6' />
-        <Cart />
+        <Cart size='small' />
       </>
     );
 
